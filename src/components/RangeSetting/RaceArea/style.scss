@@ -83,6 +83,22 @@
           color: #90A3BF;
         }
       }
+
+      .react-datepicker-popper {
+        z-index: 5;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    & {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    & {
+      flex-direction: row;
     }
   }
 }
