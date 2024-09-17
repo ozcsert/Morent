@@ -201,7 +201,7 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
               }
               className="rs-option-select-date"
               placeholderText="Select your date"
-              dateFormat="dd/MM/yyyy"
+              dateFormat="dd.MM.yyyy"
             />
             <Image src={DropdownArrow} alt="" width={14} height={14} />
           </div>

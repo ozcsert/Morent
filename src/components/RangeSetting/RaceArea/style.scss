@@ -59,9 +59,10 @@
         appearance: none;
         border: none;
         outline: none;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         color: #000;
+        cursor: pointer;
 
         &>option:disabled {
           color: #90A3BF;
@@ -93,12 +94,13 @@
   @media screen and (max-width: 1280px) {
     & {
       flex-direction: column;
+      gap: 10px;
     }
   }
 
   @media screen and (max-width: 680px) {
     & {
-      flex-direction: row;
+      flex-direction: column;
     }
   }
 }
