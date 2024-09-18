@@ -1,0 +1,15 @@
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    width: 292px;
+    height: 108px;
+    color: #3563E9;
+    gap: 10px;
+    p{
+        color: #13131399;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+}
