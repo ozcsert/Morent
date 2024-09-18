@@ -5,7 +5,8 @@ type Props = {
   inputType: string;
   options: Option[];
   selectedOptions: string[] | number;
-  handleOptionChange: (label: string | number) => void;
+  handleCheckboxChange?: (label: string) => void;
+  handleRangeChange?: (label: number) => void;
 };
 
 type Option = {
@@ -18,7 +19,8 @@ const FilterInput: React.FC<Props> = ({
   options,
   selectedOptions,
   inputType,
-  handleOptionChange,
+  handleRangeChange,
+  handleCheckboxChange,
 }) => {
   return (
     <div className="fltr-sctn-container">
@@ -29,9 +31,9 @@ const FilterInput: React.FC<Props> = ({
             type="range"
             id={title}
             min="0"
-            max="200"
+            max="150"
             value={typeof selectedOptions === "number" ? selectedOptions : 0}
-            onChange={(e) => handleOptionChange(Number(e.target.value))}
+            onChange={(e) => handleRangeChange?.(Number(e.target.value))}
           />
           <label htmlFor={title}>Max. ${selectedOptions}</label>
         </div>
@@ -45,7 +47,7 @@ const FilterInput: React.FC<Props> = ({
                 Array.isArray(selectedOptions) &&
                 selectedOptions.includes(label)
               }
-              onChange={() => handleOptionChange(label)}
+              onChange={() => handleCheckboxChange?.(label)}
             />
             <label htmlFor={label}>{`${label} (${count ?? "N/A"})`}</label>
           </div>

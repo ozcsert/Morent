@@ -1,11 +1,20 @@
 "use client";
 import "./styles.scss";
-
 import React from "react";
 import FilterInput from "../FilterInput";
 import { useState } from "react";
 
-const FilterSidebar: React.FC = () => {
+type Props = {
+  onFilterChange: (filters: Filters) => void;
+};
+
+type Filters = {
+  type: string[];
+  capacity: string[];
+  maxPrice: number;
+};
+//
+const FilterSidebar: React.FC<Props> = ({ onFilterChange }) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedCapacity, setSelectedCapacity] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<number>(100);
@@ -31,47 +40,69 @@ const FilterSidebar: React.FC = () => {
   ];
 
   const handleTypeChange = (type: string) => {
-    setSelectedTypes((prevTypes) =>
-      prevTypes.includes(type)
+    setSelectedTypes((prevTypes) => {
+      const updatedTypes = prevTypes.includes(type)
         ? prevTypes.filter((t) => t !== type)
-        : [...prevTypes, type]
-    );
+        : [...prevTypes, type];
+
+      onFilterChange({
+        type: updatedTypes,
+        capacity: selectedCapacity,
+        maxPrice: priceRange,
+      });
+
+      return updatedTypes;
+    });
   };
 
   const handleCapacityChange = (capacity: string) => {
-    setSelectedCapacity((prevCapacities) =>
-      prevCapacities.includes(capacity)
+    setSelectedCapacity((prevCapacities) => {
+      const updatedCapacities = prevCapacities.includes(capacity)
         ? prevCapacities.filter((c) => c !== capacity)
-        : [...prevCapacities, capacity]
-    );
+        : [...prevCapacities, capacity];
+
+      onFilterChange({
+        type: selectedTypes,
+        capacity: updatedCapacities,
+        maxPrice: priceRange,
+      });
+
+      return updatedCapacities;
+    });
   };
 
-  const handlePriceChange = (price: string) => {
-    setPriceRange(parseFloat(price));
+  const handlePriceChange = (price: number) => {
+    setPriceRange(price);
+
+    onFilterChange({
+      type: selectedTypes,
+      capacity: selectedCapacity,
+      maxPrice: price,
+    });
   };
 
   return (
     <aside className="fltr-sdbr">
       <FilterInput
-        title="Type"
+        title="TYPE"
         inputType="checkbox"
         options={carTypes}
         selectedOptions={selectedTypes}
-        handleOptionChange={handleTypeChange}
+        handleCheckboxChange={handleTypeChange}
       />
       <FilterInput
-        title="Capacity"
+        title="CAPACITY"
         inputType="checkbox"
         options={capacities}
         selectedOptions={selectedCapacity}
-        handleOptionChange={handleCapacityChange}
+        handleCheckboxChange={handleCapacityChange}
       />
       <FilterInput
-        title="Price"
+        title="PRICE"
         inputType="range"
         options={ranges}
         selectedOptions={priceRange}
-        handleOptionChange={handlePriceChange}
+        handleRangeChange={handlePriceChange}
       />
     </aside>
   );

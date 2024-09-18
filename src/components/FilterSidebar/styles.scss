@@ -1,4 +1,4 @@
-@import "../../app/styles/_variables.scss";
+@import "../../app/styles/variables";
 
 .fltr-sdbr {
   font-family: $fnt-jakarta;
@@ -19,7 +19,6 @@
       align-content: center;
       input {
         margin-right: 8px;
-
         &[type="range"] {
           display: block;
           width: 296px;
