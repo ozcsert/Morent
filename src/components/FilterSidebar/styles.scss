@@ -1,0 +1,30 @@
+@import "../../app/styles/_variables.scss";
+
+.fltr-sdbr {
+  font-family: $fnt-jakarta;
+  color: $text-tertiary;
+  font-size: $fnt-size-m;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .fltr-sctn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h4 {
+      font-size: $fnt-size-xxs;
+    }
+    div {
+      display: inline-block;
+      align-content: center;
+      input {
+        margin-right: 8px;
+
+        &[type="range"] {
+          display: block;
+          width: 296px;
+        }
+      }
+    }
+  }
+}
