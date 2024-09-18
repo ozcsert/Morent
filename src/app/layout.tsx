@@ -12,6 +12,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const plusJakartaSans = localFont({
+  src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",
+  variable: "--font-plus-jakarta-sans",
+  weight: "500 600 700",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable}`}
+      >
         {children}
       </body>
     </html>
