@@ -2,11 +2,14 @@
 
 .fltr-sdbr {
   font-family: $fnt-jakarta;
-  color: $text-tertiary;
+  color: $text-secondary;
+  width: 360px;
   font-size: $fnt-size-m;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-top: 40px;
+  font-weight: 600;
   .fltr-sctn-container {
     display: flex;
     flex-direction: column;
@@ -17,13 +20,6 @@
     div {
       display: inline-block;
       align-content: center;
-      input {
-        margin-right: 8px;
-        &[type="range"] {
-          display: block;
-          width: 296px;
-        }
-      }
     }
   }
 }
