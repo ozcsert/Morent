@@ -1,5 +1,4 @@
 import "./style.scss";
-import "react-datepicker/dist/react-datepicker.css";
 import RaceArea from "./RaceArea";
 import SwapButton from "../../app/images/swap-button.svg";
 import Image from "next/image";
