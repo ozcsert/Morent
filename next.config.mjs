@@ -6,10 +6,15 @@ const nextConfig = {
       use: [
         {
           loader: "@svgr/webpack",
-          options: {},
+          options: {
+            icon: true,
+          },
         },
       ],
     });
+    config.stats = {
+      warnings: false,
+    };
 
     return config;
   },
