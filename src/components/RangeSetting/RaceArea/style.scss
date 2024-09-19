@@ -53,10 +53,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 5px;
 
       .rs-option-select {
-        appearance: none;
+        width: 100%;
+        // appearance: none;
         border: none;
         outline: none;
         font-size: 13px;
@@ -75,10 +75,12 @@
       }
 
       .rs-option-select-date {
+        width: 100%;
         outline: none;
         border: none;
         font-size: 12px;
         font-weight: 500;
+        display: flex;
 
         &::placeholder {
           color: #90A3BF;
@@ -103,4 +105,12 @@
       flex-direction: column;
     }
   }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.rs-option-select-date {
+  cursor: pointer;
 }

@@ -1,10 +1,9 @@
 "use client";
 import { FC, useRef, useState } from "react";
-import Image from "next/image";
-import DropdownArrow from "@/app/images/bottom-arrow.svg";
 import DatePicker from "react-datepicker";
 import "./style.scss";
 import "react-datepicker/dist/react-datepicker.css";
+import CustomDateArea from "../CustomDateArea";
 
 type RaceAreaProps = {
   title: string;
@@ -182,7 +181,6 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
                 </>
               ))}
             </select>
-            <Image src={DropdownArrow} alt="" width={14} height={14} />
           </div>
         </div>
         <div className="rs-option-line"></div>
@@ -199,11 +197,9 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
                   ? setSelectedStartDate(date)
                   : setSelectedFinishDate(date)
               }
-              className="rs-option-select-date"
-              placeholderText="Select your date"
+              customInput={<CustomDateArea className="rs-option-select-date" />}
               dateFormat="dd.MM.yyyy"
             />
-            <Image src={DropdownArrow} alt="" width={14} height={14} />
           </div>
         </div>
         <div className="rs-option-line"></div>
@@ -226,7 +222,6 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
                 </>
               ))}
             </select>
-            <Image src={DropdownArrow} alt="" width={14} height={14} />
           </div>
         </div>
       </div>
