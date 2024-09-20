@@ -10,7 +10,7 @@ import AdminSettings from "@/app/images/admin-settings.svg";
 import AdminHelp from "@/app/images/admin-help.svg";
 import AdminDarkMode from "@/app/images/admin-dark-mode.svg";
 import AdminLogOut from "@/app/images/admin-logout.svg";
-import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import AdminDoubleArrow from "@/app/images/admin-double-arrow.svg";
 import "./styles.scss";
 import { useState } from "react";
 
@@ -39,10 +39,15 @@ const SideBar = () => {
           isOpen ? "ad-sidebar-tiny-container" : ""
         }`}
       >
-        <div className="switchBtn" onClick={handleSwitchSidebar}>
-          <MdKeyboardDoubleArrowLeft
-            size={35}
-            style={isRotated ? { transform: "rotate(180deg)" } : {}}
+        <div
+          className="switchBtn"
+          onClick={handleSwitchSidebar}
+          style={isRotated ? { transform: "rotate(180deg)" } : {}}
+        >
+          <AdminDoubleArrow
+            width={20}
+            height={20}
+            style={{ transform: "translateX(1px)" }}
           />
         </div>
         <div className="ad-sidebar-list-wrapper">
