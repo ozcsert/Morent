@@ -1,22 +1,11 @@
 "use client";
 import "./styles.scss";
 import React from "react";
-import FilterInput from "../FilterInput";
+import { FilterSideBarProps } from "@/types/typeList";
+import { FilterInput } from "@/components/componentList";
 import { useState } from "react";
 
-type Props = {
-  onFilterChange: (filters: Filters) => void;
-  carInputs: { label: string; count: number }[];
-  capacityInputs: { label: string; count: number }[];
-};
-
-type Filters = {
-  type: string[];
-  capacity: string[];
-  maxPrice: number;
-};
-
-const FilterSidebar: React.FC<Props> = ({
+const FilterSidebar: React.FC<FilterSideBarProps> = ({
   onFilterChange,
   carInputs,
   capacityInputs,

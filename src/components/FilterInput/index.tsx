@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
+import { FilterInputProps } from "@/types/typeList";
 
-type Props = {
-  title: string;
-  inputType: string;
-  options?: Option[];
-  selectedOptions: string[] | number;
-  handleCheckboxChange?: (label: string) => void;
-  handleRangeChange?: (label: number) => void;
-};
-
-type Option = {
-  label: string;
-  count: number | null;
-};
-
-const FilterInput: React.FC<Props> = ({
+const FilterInput: React.FC<FilterInputProps> = ({
   title,
   options,
   selectedOptions,
@@ -27,7 +14,10 @@ const FilterInput: React.FC<Props> = ({
     typeof selectedOptions === "number" ? selectedOptions : 0
   );
   const [isRTL, setIsRTL] = useState<boolean>(false);
-  const [backgroundSize, setBackgroundSize] = useState<string>("0% 100%");
+
+  useEffect(() => {
+    setIsRTL(document.documentElement.dir === "rtl");
+  }, []);
 
   const handleRangeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
@@ -35,46 +25,9 @@ const FilterInput: React.FC<Props> = ({
     handleRangeChange?.(value);
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsRTL(document.documentElement.dir === "rtl");
-    }
-  }, []);
-
-  useEffect(() => {
-    const min = 0;
-    const max = 150;
-    const val = rangeValue;
-    let percentage = ((val - min) * 100) / (max - min);
-
-    if (isRTL) {
-      percentage = 100 - percentage;
-    }
-
-    setBackgroundSize(`${percentage}% 100%`);
-  }, [rangeValue, isRTL]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const observerCallback: MutationCallback = (mutationList) => {
-        mutationList.forEach((mutation) => {
-          if (
-            mutation.type === "attributes" &&
-            mutation.attributeName === "dir"
-          ) {
-            setIsRTL(document.documentElement.dir === "rtl");
-          }
-        });
-      };
-
-      const observer = new MutationObserver(observerCallback);
-      observer.observe(document.documentElement, { attributes: true });
-
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, []);
+  const backgroundSize = `${
+    isRTL ? 100 - rangeValue / 1.5 : rangeValue / 1.5
+  }% 100%`;
 
   return (
     <div className="fltr-sctn-container">
