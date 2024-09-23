@@ -13,18 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div className="ad-container">
-          <nav className="ad-navbar">NAVBAR</nav>
-          <main className="ad-main">
-            <div className="ad-sidebar-menu">
-              <SideBar />
-            </div>
-            <section className="ad-content">{children}</section>
-          </main>
+    <div className="ad-container">
+      <nav className="ad-navbar">NAVBAR</nav>
+      <main className="ad-main">
+        <div className="ad-sidebar-menu">
+          <SideBar />
         </div>
-      </body>
-    </html>
+        <section className="ad-content">{children}</section>
+      </main>
+    </div>
   );
 }
