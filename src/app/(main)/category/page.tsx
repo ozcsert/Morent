@@ -24,7 +24,7 @@ const CategoryPage = () => {
 
     setCarInputs(newCarInputs);
     setCapacityInputs(newCapacityInputs);
-  }, [dummyCars]);
+  }, []);
 
   const handleFilterChange = (filters: {
     type: string[];
@@ -42,7 +42,7 @@ const CategoryPage = () => {
         capacityInputs={capacityInputs}
         onFilterChange={handleFilterChange}
       />
-      <section>
+      {/* <section>
         <h2>Available Cars</h2>
         <ul>
           {filteredCars.map((car) => (
@@ -51,7 +51,7 @@ const CategoryPage = () => {
             </li>
           ))}
         </ul>
-      </section>
+      </section> */}
     </main>
   );
 };
