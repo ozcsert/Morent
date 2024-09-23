@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import "./styles.scss";
 import Link from "next/link";
@@ -12,6 +13,7 @@ const Dashboard = () => {
       }}
     >
       <Example title="This is the dashboard" />
+
       <Link
         style={{
           color: "red",
