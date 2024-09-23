@@ -10,9 +10,6 @@ export default function Home() {
         <Link href="/dashboard">Go to dashboard</Link>
         <Link href="/category">Go to category</Link>
       </div>
-      <p style={{ width: "100vh", background: "#596790" }}>
-        Import Footer Here
-      </p>
     </>
   );
 }
