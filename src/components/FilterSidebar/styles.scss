@@ -4,11 +4,12 @@
   font-family: $fnt-jakarta;
   color: $text-secondary;
   width: 360px;
+  height: 100vh;
   font-size: $fnt-size-m;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-top: 40px;
+  padding: 40px;
   font-weight: 600;
   .fltr-sctn-container {
     display: flex;
