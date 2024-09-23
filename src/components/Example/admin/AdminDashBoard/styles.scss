@@ -1,0 +1,290 @@
+.dv-container {
+  max-width: 1140px;
+  height: calc(100vh - 60px);
+  border: 1px solid #000;
+  margin: 30px auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6F7F9;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+
+  .dv-left {
+    max-width: 534px;
+    width: 100%;
+    flex: 1;
+
+    .dv-detail {
+      padding: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .dv-detail-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .dv-detail-img {
+        position: relative;
+        max-width: 486px;
+        height: 272px;
+        border-radius: 10px;
+      }
+
+      .dv-detail-car {
+        display: flex;
+        gap: 10px;
+
+        .dv-detail-car-img {
+          flex: 1;
+          width: 132px;
+          height: 72px;
+          border-radius: 8px;
+          position: relative;
+        }
+
+        .dv-detail-car-title {
+          display: flex;
+          padding: 3px;
+          flex-direction: column;
+          gap: 5px;
+          flex: 2;
+          font-size: 24px;
+          font-weight: 600;
+
+          .dv-detail-car-type {
+            font-size: 14px;
+            font-weight: 500;
+            color: #90A3BF;
+          }
+        }
+
+        .dv-detail-car-barcode {
+          flex: 0.5;
+          font-style: 14px;
+          color: #90A3BF;
+          text-align: end;
+          padding: 3px 5px 0 0;
+        }
+      }
+
+      .dv-detail-range {
+        height: 168px;
+      }
+
+      .dv-detail-total {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .dv-detail-total-title {
+          display: flex;
+          align-items: start;
+          justify-content: center;
+          gap: 3px;
+          flex-direction: column;
+          flex: 3;
+
+          .dv-detail-total-desc {
+            font-size: 14px;
+            font-weight: normal;
+            color: #90A3BF;
+          }
+        }
+
+        .dv-detail-total-price {
+          flex: 1;
+          font-size: 32px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .dv-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 524px;
+    width: 100%;
+    gap: 20px;
+    flex: 1;
+
+    .dv-top-car {
+      flex: 1;
+      width: 100%;
+      max-height: 260px;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+
+      .dv-top-car-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .dv-top-car-graphic-group {
+        display: flex;
+
+        .dv-top-car-chart {
+          flex: 1;
+          position: relative;
+
+          .dv-top-car-chart-total {
+            position: absolute;
+            top: 75px;
+            left: 66px;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 3px;
+
+            .dv-top-car-chart-total-title {
+              color: #90A3BF;
+              font-size: 14px;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .dv-top-car-count {
+          height: 100%;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .dv-top-car-count-list {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .dv-top-car-count-item {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+
+              .dv-top-car-count-item-bullet-point {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+              }
+
+              .dv-top-car-count-item-content {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .dv-top-car-count-item-title {
+                  text-align: start;
+                }
+
+                .dv-top-car-count-item-value {
+                  text-align: end;
+                }
+              }
+            }
+          }
+        }
+      }
+
+
+    }
+
+    .dv-recent-car {
+      flex: 1;
+      width: 100%;
+      max-height: 480px;
+      background-color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .dv-recent-car-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .dv-recent-car-list {
+        list-style: none;
+
+        .dv-recent-car-item {
+          display: flex;
+          padding-bottom: 15px;
+          border-bottom: 1px solid #C3D4E9;
+
+          &:last-child {
+            border: none;
+          }
+
+          .dv-recent-car-item-img {
+            position: relative;
+            flex: 1.5;
+            width: 132px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .dv-recent-car-item-title {
+            flex: 2.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+
+            .item-title-main {
+              font-size: 16px;
+              font-weight: 700;
+            }
+
+            .item-title-sub {
+              font-size: 12px;
+              font-weight: 500;
+              color: #90A3BF;
+            }
+          }
+
+          .dv-recent-car-item-text {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+            gap: 8px;
+
+            .item-text-date {
+              font-size: 12px;
+              font-weight: 500;
+              color: #90A3BF;
+            }
+
+            .item-text-price {
+              font-size: 16px;
+              font-weight: 700;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
