@@ -77,3 +77,26 @@ a {
   line-height: 24px;
   font-weight: 500;
 }
+@media screen and (max-width: 803px) {
+  .footer {
+    flex-direction: column;
+    gap: 50px;
+  }
+  a,
+  .logo p {
+    color: #90a3bf;
+  }
+  .footer-menu {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap-reverse;
+  }
+  a {
+    font-size: 12px;
+  }
+}
