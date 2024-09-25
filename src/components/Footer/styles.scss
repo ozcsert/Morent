@@ -95,8 +95,12 @@ a {
     flex-direction: column;
     gap: 30px;
     flex-wrap: wrap-reverse;
+    a {
+      font-size: 12px;
+    }
   }
+
   a {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
