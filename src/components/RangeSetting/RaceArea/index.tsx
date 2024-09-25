@@ -15,6 +15,7 @@ type RaceAreaProps = {
   };
   setData: React.Dispatch<
     React.SetStateAction<{
+      title: string;
       locationValue: string;
       selectedStartDate: Date | null;
       selectedFinishDate: Date | null;
