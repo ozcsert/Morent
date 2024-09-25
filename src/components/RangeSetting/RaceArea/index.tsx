@@ -6,8 +6,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import CustomDateArea from "../CustomDateArea";
 
 type RaceAreaProps = {
-  title: string;
-  dateType?: string;
+  data: {
+    title: string;
+    locationValue: string;
+    selectedStartDate: Date | null;
+    selectedFinishDate: Date | null;
+    timeValue: string;
+  };
+  setData: React.Dispatch<
+    React.SetStateAction<{
+      locationValue: string;
+      selectedStartDate: Date | null;
+      selectedFinishDate: Date | null;
+      timeValue: string;
+    }>
+  >;
 };
 
 const turkishCities: string[] = [
@@ -125,21 +138,13 @@ const timeSlots: string[] = [
   "23:30",
 ];
 
-const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
-  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
-  const [selectedFinishDate, setSelectedFinishDate] = useState<Date | null>(
-    null
-  );
-
+const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
   const radioRef = useRef<HTMLInputElement>(null);
   const [radioValue, setRadioValue] = useState<boolean>(false);
 
   const radioToggleBtn = () => {
     radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false);
   };
-
-  const [locationValue, setLocationValue] = useState<string>("");
-  const [timeValue, setTimeValue] = useState<string>("");
 
   return (
     <>
@@ -158,7 +163,7 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
           />
         </div>
         <label htmlFor="radioBtn" className="rs-head-text">
-          {title}
+          {data.title}
         </label>
       </div>
       <div className="rs-options">
@@ -168,9 +173,15 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
           <div className="rs-option-select-group">
             <select
               className={`rs-option-select ${
-                locationValue === "" ? "rs-option-select-default" : ""
+                data.locationValue === "" ? "rs-option-select-default" : ""
               }`}
-              onChange={(e) => setLocationValue(e.target.value)}
+              value={data.locationValue}
+              onChange={(e) =>
+                setData((prevData) => ({
+                  ...prevData,
+                  locationValue: e.target.value,
+                }))
+              }
             >
               <option value="">Select your city</option>
               {turkishCities.map((city, index) => (
@@ -190,13 +201,23 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
           <div className="rs-option-select-group">
             <DatePicker
               selected={
-                dateType === "start" ? selectedStartDate : selectedFinishDate
+                data.title === "Pick - Up"
+                  ? data.selectedStartDate
+                  : data.selectedFinishDate
               }
-              onChange={(date: Date | null) =>
-                dateType === "start"
-                  ? setSelectedStartDate(date)
-                  : setSelectedFinishDate(date)
-              }
+              onChange={(date: Date | null) => {
+                if (data.title === "Pick - Up") {
+                  setData((prevData) => ({
+                    ...prevData,
+                    selectedStartDate: date,
+                  }));
+                } else {
+                  setData((prevData) => ({
+                    ...prevData,
+                    selectedFinishDate: date,
+                  }));
+                }
+              }}
               customInput={<CustomDateArea className="rs-option-select-date" />}
               dateFormat="dd.MM.yyyy"
             />
@@ -209,9 +230,15 @@ const RaceArea: FC<RaceAreaProps> = ({ title, dateType }) => {
           <div className="rs-option-select-group">
             <select
               className={`rs-option-select ${
-                timeValue === "" ? "rs-option-select-default" : ""
+                data.timeValue === "" ? "rs-option-select-default" : ""
               }`}
-              onChange={(e) => setTimeValue(e.target.value)}
+              value={data.timeValue}
+              onChange={(e) =>
+                setData((prevData) => ({
+                  ...prevData,
+                  timeValue: e.target.value,
+                }))
+              }
             >
               <option value="">Select your time</option>
               {timeSlots.map((time, index) => (

@@ -6,20 +6,32 @@ import Image from "next/image";
 import { useState } from "react";
 
 const RangeSettings = () => {
-  const [isSwitched, setIsSwitched] = useState<boolean>(false);
+  const [leftRaceArea, setLeftRaceArea] = useState({
+    title: "Pick - Up",
+    locationValue: "",
+    selectedStartDate: null,
+    selectedFinishDate: null,
+    timeValue: "",
+  });
+
+  const [rightRaceArea, setRightRaceArea] = useState({
+    title: "Drop - Off",
+    locationValue: "",
+    selectedStartDate: null,
+    selectedFinishDate: null,
+    timeValue: "",
+  });
 
   const handleSwitchRangeArea = () => {
-    setIsSwitched((prev) => !prev);
+    setLeftRaceArea(rightRaceArea);
+    setRightRaceArea(leftRaceArea);
   };
 
   return (
     <>
       <div className="rs-container">
         <div className="rs-pick-up">
-          <RaceArea
-            title={`${!isSwitched ? "Pick - Up" : "Drop - Off"}`}
-            dateType={`${!isSwitched ? "start" : "finish"}`}
-          />
+          <RaceArea data={leftRaceArea} setData={setLeftRaceArea} />
         </div>
         <div className="rs-switch-btn">
           <Image
@@ -31,10 +43,7 @@ const RangeSettings = () => {
           />
         </div>
         <div className="rs-drop-off">
-          <RaceArea
-            title={`${!isSwitched ? "Drop - Off" : "Pick - Up"}`}
-            dateType={`${!isSwitched ? "finish" : "start"}`}
-          />
+          <RaceArea data={rightRaceArea} setData={setRightRaceArea} />
         </div>
       </div>
     </>
