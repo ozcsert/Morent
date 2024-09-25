@@ -1,14 +1,15 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
-import AdminMap from "@/app/images/admin-map.png";
+import { PieChart, Pie, Cell } from "recharts";
+// import AdminMap from "@/app/images/admin-map.png";
 import AdminDetailCar from "@/app/images/admin-car.png";
 import "./styles.scss";
 import AdminNissanGTR from "@/app/images/admin-car-nissan.png";
 import AdminKoegnigsegg from "@/app/images/admin-car-koegnigsegg.png";
 import AdminRollsRoyce from "@/app/images/admin-car-rolls-royce.png";
 import AdminCrV from "@/app/images/admin-car-cr-v.png";
+import dynamic from "next/dynamic";
+import AdminDashboardMap from "../AdminDashboardMap";
 
 type carsType = {
   title: string;
@@ -76,7 +77,6 @@ const handleCarTotal = (carData: ChartData[]) => {
 const carTotalCount = new Intl.NumberFormat("tr-TR").format(
   handleCarTotal(data)
 );
-console.log(carTotalCount);
 
 const AdminDashboard = () => {
   return (
@@ -86,7 +86,11 @@ const AdminDashboard = () => {
           <div className="dv-detail">
             <h2 className="dv-detail-title">Details Rental</h2>
             <div className="dv-detail-img">
-              <Image src={AdminMap} alt="Admin Map" fill />
+              {/* <Image src={AdminMap} alt="Admin Map" fill /> */}
+              <AdminDashboardMap
+                pickUpLocation="Diyarbakır"
+                dropOffLocation="İzmir"
+              />
             </div>
             <div className="dv-detail-car">
               <div className="dv-detail-car-img">
@@ -199,4 +203,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default dynamic(() => Promise.resolve(AdminDashboard), { ssr: false });
