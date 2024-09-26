@@ -1,0 +1,40 @@
+@import "../../app/styles/variables";
+body {
+  font-family: $fnt-jakarta;
+}
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.review-cards {
+  display: block;
+}
+.reviews-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.total-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $clr-primary;
+  width: 44px;
+  height: 28px;
+  border-radius: 4px;
+  padding: 0 20px 0 20px;
+  color: $clr-secondary;
+}
+
+.review-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 540px;
+}
+.review-card-img-container {
+  display: flex;
+}

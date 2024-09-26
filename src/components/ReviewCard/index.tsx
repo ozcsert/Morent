@@ -6,11 +6,11 @@ import { reviews } from "@/constants";
 import React from "react";
 import { ReviewProps } from "@/types/typeList";
 
-const ReviewCard: React.FC<ReviewProps> = () =>
-  reviews.map((review, id) => {
+const ReviewCard: React.FC<ReviewProps> = () => {
+  const reviewCards = reviews.map((review, id) => {
     return (
-      <>
-        <div className="review-card" key={id}>
+      <div className="review-card" key={id}>
+        <div className="review-card-img-container">
           <div className="review-card-img">
             <Image src={review.img} alt="Profile" width={30} height={30} />
           </div>
@@ -23,11 +23,24 @@ const ReviewCard: React.FC<ReviewProps> = () =>
               <p>{review.date}</p>
               <p>{review.rating}</p>
             </div>
-            <p>{review.review}</p>
           </div>
         </div>
-      </>
+        <p>{review.review}</p>
+      </div>
     );
   });
 
+  return (
+    <>
+      <div className="review-cards">
+        <div className="reviews-input">
+          <h3>Reviews</h3>
+          <div className="total-reviews">13</div>
+        </div>
+        {reviewCards}
+        <div className="show-all">Show all </div>
+      </div>
+    </>
+  );
+};
 export default ReviewCard;
