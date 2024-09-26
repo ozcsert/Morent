@@ -3,6 +3,7 @@ body {
   font-family: $fnt-jakarta;
 }
 .review-card {
+  max-width: 1016px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +11,9 @@ body {
   gap: 1rem;
 }
 .review-cards {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .reviews-input {
   display: flex;
@@ -33,8 +36,45 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 540px;
+  gap: 550px;
 }
-.review-card-img-container {
+.review-card-container {
+  max-width: 968px;
   display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.review-card-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 60px;
+}
+.review-card-img-title {
+  display: flex;
+  gap: 5px;
+}
+.show-all {
+  color: $text-tertiary;
+}
+.review-card-name-title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  p {
+    color: $text-tertiary;
+  }
+}
+.review-card-review {
+  font-size: $fnt-size-xs;
+  color: $text-secondary;
+}
+.review-card-info-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.review-card-date {
+  font-size: $fnt-size-xs;
+  color: $text-tertiary;
 }
