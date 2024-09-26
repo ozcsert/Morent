@@ -1,6 +1,6 @@
-import Example from "@/components/Example";
-import "./page.scss";
-import Link from "next/link";
+import Example from "@/components/Example"
+import "./page.scss"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -9,7 +9,8 @@ export default function Home() {
         <Example title="Example" />
         <Link href="/dashboard">Go to dashboard</Link>
         <Link href="/category">Go to category</Link>
+        <Link href="/payment">Go to payment</Link>
       </div>
     </>
-  );
+  )
 }
