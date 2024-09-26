@@ -26,7 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <div>
+          <p style={{ width: "100vh", background: "#596790" }}>
+            Import Navbar Here
+          </p>
+          <div>{children}</div>
+        </div>
       </body>
     </html>
   );
