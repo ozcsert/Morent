@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.cardetailTextBox{
+    font-family: "Plus Jakarta Sans", sans-serif;;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    border-radius: 10px;
+
+    .cardetailTextTop{
+        display: flex;
+        justify-content: space-between;
+        .cardetailIcon{
+            cursor: pointer;
+        }
+
+        .cardetailTextTopHeading{
+            display: flex;
+            flex-direction: column;
+            .cardetailTextTitle{
+                font-size: 32px;
+                color: #1A202C;
+                font-weight: 700;
+            }
+            .cardetailReviews{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .cardetailComments{
+                    color: #596780;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .cardetailTextDescription{
+        color: #596780;
+        font-size: 20px;
+    }
+
+    .cardetailTextDetail{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2, 1fr);    
+        gap: 25px;
+        .cardetailDetails{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20;
+            .cardetailDetailHeading{
+                color: #90A3BF;
+                font-weight: 400;
+            }
+            .cardetailDetailDescription{
+                color: #596780;
+                font-weight: 600;
+            }
+            
+
+
+        }
+
+        
+    }
+
+    .cardetailTextBottom{
+        display: flex;
+        justify-content: space-between;
+
+        .cardetailTextBottomPrices{
+            display: flex;
+            flex-direction: column;
+            .cardetailTextBottomReal{
+                font-size: 32px;
+                color: #1A202C;
+                font-weight: 700;
+            }
+            .cardetailTextBottomDays{
+                font-size: 16px;
+                color: #90A3BF;
+            }
+            .cardetailTextBottomDiscount{
+                font-size: 16px;
+                color: #90A3BF;
+                text-decoration: line-through;
+            }
+
+            
+        }
+        .cardetailTextBottomButton{
+            width: 140px;
+            height: 56px;
+            color: white;
+            background-color: #3563E9;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.5s;
+        }
+        .cardetailTextBottomButton:hover{
+            cursor: pointer;
+            box-shadow: 2px 2px 8px #3563E9 , -2px -2px 8px #3563E9;
+        }
+    }
+
+    
+}

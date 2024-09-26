@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+.cardetailImageBox{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    
+
+    .cardetailBig{
+        width: 492px;
+        height: 360px;
+        .cardetailImageTexts{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            color: white;
+            .cardetailImageHeading{
+                font-size: 32px;
+            }
+            .cardetailImageText{
+                font-size: 16px;
+            }
+        }
+        
+
+    }
+
+    
+    .cardetailSmallContainer{
+        display: flex;
+        gap: 25px;
+        .cardetailSmall{
+            width: 148px;
+            height: 132px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #3563E9;
+            border-radius: 10px;
+        }
+    }
+}
+
