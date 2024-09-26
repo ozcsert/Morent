@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -8,6 +9,7 @@
   }
   
   .navbar-left .logo {
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 24px;
     color: #2563eb; /* Logo rengi */
     font-weight: bold;
