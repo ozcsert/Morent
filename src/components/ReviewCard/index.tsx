@@ -2,11 +2,9 @@
 import Image from "next/image";
 import "./styles.scss";
 import { reviews } from "@/constants";
-import Box from "@mui/material/Box";
-import Rating from "@mui/material/Rating";
-
 import React from "react";
 import { ReviewProps } from "@/types/typeList";
+import ReactStars from "react-rating-stars-component";
 
 const ReviewCard: React.FC<ReviewProps> = () => {
   const reviewCards = reviews.map((review, id) => {
@@ -16,7 +14,7 @@ const ReviewCard: React.FC<ReviewProps> = () => {
           <div className="review-card-info">
             <div className="review-card-img-title">
               <div className="review-card-img">
-                <Image src={review.img} alt="Profile" width={30} height={30} />
+                <Image src={review.img} alt="Profile" width={56} height={56} />
               </div>
               <div className="review-card-name-title">
                 <h4>{review.name}</h4>
@@ -25,11 +23,15 @@ const ReviewCard: React.FC<ReviewProps> = () => {
             </div>
             <div className="review-card-info-date">
               <p className="review-card-date">{review.date}</p>
-              <p className="review-card-rating">
-                <Box sx={{ "& > legend": { mt: 2 } }}>
-                  <Rating name="read-only" value={review.rating} readOnly />
-                </Box>
-              </p>
+              <ReactStars
+                className="review-card-rating"
+                count={5}
+                size={24}
+                value={review.rating}
+                isHalf={true}
+                emptyIcon={<i className="far fa-star"></i>}
+                activeColor="#ffd700"
+              />
             </div>
           </div>
         </div>

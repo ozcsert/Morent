@@ -1,6 +1,8 @@
+import { StaticImageData } from "next/image";
+
 export type ReviewProps = {
   id: number;
-  img: string;
+  img: StaticImageData;
   name: string;
   title: string;
   review: string;
