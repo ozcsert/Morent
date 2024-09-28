@@ -33,14 +33,8 @@ const RangeSettings = () => {
         <div className="rs-pick-up">
           <RaceArea data={leftRaceArea} setData={setLeftRaceArea} />
         </div>
-        <div className="rs-switch-btn">
-          <Image
-            src={SwapButton}
-            alt=""
-            width={24}
-            height={24}
-            onClick={handleSwitchRangeArea}
-          />
+        <div className="rs-switch-btn" onClick={handleSwitchRangeArea}>
+          <Image src={SwapButton} alt="" width={24} height={24} />
         </div>
         <div className="rs-drop-off">
           <RaceArea data={rightRaceArea} setData={setRightRaceArea} />
