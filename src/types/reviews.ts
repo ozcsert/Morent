@@ -7,5 +7,5 @@ export type ReviewProps = {
   title: string;
   review: string;
   rating: number;
-  date: string;
+  date: Date;
 };
