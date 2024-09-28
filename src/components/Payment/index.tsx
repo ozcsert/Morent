@@ -1,14 +1,17 @@
 "use client"
 import "./styles.scss"
+import React, { useState, ChangeEvent } from "react"
+import Image from "next/image"
+import Form from "next/form"
 import visaIcon from "@/public/payment/Visa.svg"
 import paypalIcon from "@/public/payment/PayPal.svg"
 import bitcoinIcon from "@/public/payment/Bitcoin.svg"
-import React, { useState, ChangeEvent } from "react"
-import Image from "next/image"
 
 type FormValues = {
   cardNumber: string
   expirationDate: string
+  cardHolder: string
+  cvc: string
 }
 
 const PaymentMethod = () => {
@@ -17,6 +20,8 @@ const PaymentMethod = () => {
   const [formValues, setFormValues] = useState<FormValues>({
     cardNumber: "",
     expirationDate: "",
+    cardHolder: "",
+    cvc: "",
   })
 
   const handleInputValue = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -25,25 +30,43 @@ const PaymentMethod = () => {
     const formatValue = (
       val: string,
       pattern: RegExp,
-      limit?: number
+      limit?: number,
+      lettersOnly: boolean = false
     ): string => {
-      const digits = val.replace(/\D/g, "").slice(0, limit)
-      return digits.match(pattern)?.join(" / ") || digits
+      const cleanedVal = lettersOnly
+        ? val.replace(/[^a-zA-Z\s]/g, "")
+        : val.replace(/\D/g, "")
+
+      const limitedVal = cleanedVal.slice(0, limit)
+
+      if (lettersOnly) {
+        return limitedVal
+      }
+
+      return limitedVal.match(pattern)?.join(" / ") || limitedVal
     }
 
-    const formattedValue =
-      id === "cardNumber"
-        ? formatValue(value, /.{1,4}/g)
-        : id === "expirationDate"
-        ? formatValue(value, /.{1,2}/g, 4)
-        : value
+    let formattedValue: string
+
+    switch (id) {
+      case "cardNumber":
+        formattedValue = formatValue(value, /.{1,4}/g, 16)
+        break
+      case "expirationDate":
+        formattedValue = formatValue(value, /.{1,2}/g, 4)
+        break
+      case "cardHolder":
+        formattedValue = formatValue(value, /.{1,2}/g, undefined, true) // Set lettersOnly to true
+        break
+      case "cvc":
+        formattedValue = formatValue(value, /.{1,3}/g, 3)
+        break
+    }
 
     setFormValues((prevValues) => ({
       ...prevValues,
       [id]: formattedValue,
     }))
-
-    console.log("Updated form values:", formattedValue)
   }
 
   return (
@@ -82,7 +105,6 @@ const PaymentMethod = () => {
                   placeholder="Card Number"
                   value={formValues.cardNumber}
                   onChange={handleInputValue}
-                  maxLength={25}
                 />
               </div>
               <div className="pymtn__option__field">
@@ -98,11 +120,24 @@ const PaymentMethod = () => {
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="card-holder">Card Holder</label>
-                <input type="text" id="card-holder" placeholder="Card holder" />
+                <input
+                  value={formValues.cardHolder}
+                  type="text"
+                  id="cardHolder"
+                  placeholder="Card holder"
+                  onChange={handleInputValue}
+                />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="cvc">CVC</label>
-                <input type="text" id="cvc" placeholder="CVC" maxLength={3} />
+                <input
+                  value={formValues.cvc}
+                  type="text"
+                  id="cvc"
+                  placeholder="CVC"
+                  maxLength={3}
+                  onChange={handleInputValue}
+                />
               </div>
             </div>
           )}
