@@ -42,7 +42,7 @@ export const reviews: ReviewProps[] = [
     review:
       "We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
     rating: 4,
-    date: "2022-01-21",
+    date: "2022-07-21",
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ export const reviews: ReviewProps[] = [
     review:
       "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
     rating: 4,
-    date: "2022-01-20",
+    date: "2022-07-20",
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ export const reviews: ReviewProps[] = [
     review:
       "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
     rating: 5,
-    date: "2022-01-19",
+    date: "2022-07-19",
   },
   {
     id: 4,
@@ -72,7 +72,7 @@ export const reviews: ReviewProps[] = [
     review:
       "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
     rating: 3,
-    date: "2022-01-22",
+    date: "2022-07-22",
   },
   {
     id: 5,
@@ -82,6 +82,6 @@ export const reviews: ReviewProps[] = [
     review:
       "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
     rating: 5,
-    date: "2022-01-22",
+    date: "2022-07-22",
   },
 ];

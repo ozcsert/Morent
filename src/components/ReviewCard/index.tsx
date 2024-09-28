@@ -2,12 +2,21 @@
 import Image from "next/image";
 import "./styles.scss";
 import { reviews } from "@/constants";
-import React from "react";
+import React, { useState } from "react";
 import { ReviewProps } from "@/types/typeList";
 import ReactStars from "react-rating-stars-component";
+import AngleDown from "@/public/images/icons/AngleDown";
+import AngleUp from "@/public/images/icons/AngleUp";
 
 const ReviewCard: React.FC<ReviewProps> = () => {
+  const [showMore, setShowMore] = useState(false);
+
   const reviewCards = reviews.map((review, id) => {
+    const revDate = new Date(review.date)
+      .toUTCString()
+      .split(" ")
+      .slice(1, 4)
+      .join(" ");
     return (
       <div className="review-card" key={id}>
         <div className="review-card-img">
@@ -18,11 +27,11 @@ const ReviewCard: React.FC<ReviewProps> = () => {
             <div className="review-card-img-title">
               <div className="review-card-name-title">
                 <h4>{review.name}</h4>
-                <p>{review.title}</p>
+                <p className="review-card-title">{review.title}</p>
               </div>
             </div>
             <div className="review-card-info-date">
-              <p className="review-card-date">{review.date}</p>
+              <p className="review-card-date">{revDate}</p>
               <ReactStars
                 className="review-card-rating"
                 count={5}
@@ -49,9 +58,10 @@ const ReviewCard: React.FC<ReviewProps> = () => {
           <div className="total-reviews">13</div>
         </div>
         <div className="review-list-show">
-          {reviewCards}
-          <div className="show-all">Show all </div>
-          <div className="show-less">Show less </div>
+          {showMore ? reviewCards : reviewCards.slice(0, 2)}
+          <button className="btn-text" onClick={() => setShowMore(!showMore)}>
+            {showMore ? <AngleUp /> : <AngleDown />}
+          </button>
         </div>
       </div>
     </>
