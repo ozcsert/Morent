@@ -6,6 +6,7 @@ body {
   max-width: 1016px;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
   gap: 1rem;
 }
 .review-cards {
@@ -99,4 +100,37 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  .review-card-review {
+    display: block;
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $text-tertiary;
+    font-size: $fnt-size-xxs;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .review-card-title {
+    font-weight: 500;
+    font-size: $fnt-size-xxs;
+    line-height: 15px;
+  }
+  .review-card-name {
+    font-size: $fnt-size-s;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .review-card-date {
+    font-size: $fnt-size-xxs;
+    line-height: 15px;
+    font-weight: 500;
+  }
+}
+@media screen and (max-width: 400px) {
+  .review-card {
+  }
 }
