@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -44,6 +44,7 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
     if (pickUpCityCoord && dropOffCityCoord) {
       calculateRoute();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pickUpCityCoord, dropOffCityCoord]);
 
   const calculateRoute = (): void => {

@@ -1,19 +1,16 @@
 .dv-container {
-  max-width: 1140px;
-  height: calc(100vh - 60px);
-  margin: 30px auto;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   gap: 20px;
-  align-items: center;
+  padding: 20px 20px;
   justify-content: center;
   background-color: #F6F7F9;
   font-family: var(--font-plus-jakarta-sans), sans-serif;
 
   @media screen and (max-width: 1140px) {
     margin: 0 15px;
-  }
-
-  @media screen and (max-width: 864px) {
     flex-direction: column;
     height: 100%;
     margin: 10px 15px;
@@ -23,6 +20,10 @@
     max-width: 534px;
     width: 100%;
     flex: 1;
+
+    @media screen and (max-width: 1140px) {
+      max-width: 100%;
+    }
 
     .dv-detail {
       padding: 20px;
@@ -43,6 +44,10 @@
         max-width: 486px;
         height: 272px;
         border-radius: 10px;
+
+        @media screen and (max-width: 1140px) {
+          max-width: 100%;
+        }
       }
 
       .dv-detail-car {
@@ -83,7 +88,11 @@
       }
 
       .dv-detail-range {
-        height: 168px;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 0;
+        gap: 30px;
+        border-bottom: 1px solid #bababa;
       }
 
       .dv-detail-total {
@@ -124,6 +133,10 @@
     width: 100%;
     gap: 20px;
     flex: 1;
+
+    @media screen and (max-width: 1140px) {
+      max-width: 100%;
+    }
 
     .dv-top-car {
       flex: 1;

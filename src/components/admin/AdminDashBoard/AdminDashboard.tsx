@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { PieChart, Pie, Cell } from "recharts";
 // import AdminMap from "@/app/images/admin-map.png";
@@ -10,6 +11,8 @@ import AdminRollsRoyce from "@/app/images/admin-car-rolls-royce.png";
 import AdminCrV from "@/app/images/admin-car-cr-v.png";
 import dynamic from "next/dynamic";
 import AdminDashboardMap from "../AdminDashboardMap";
+import RaceArea from "@/components/RangeSetting/RaceArea";
+import { RaceAreaProps } from "@/types/RaceArea";
 
 type carsType = {
   title: string;
@@ -79,6 +82,30 @@ const carTotalCount = new Intl.NumberFormat("tr-TR").format(
 );
 
 const AdminDashboard = () => {
+  const [currentLocation, setCurrentLocation] = useState("");
+  const [destinationLocation, setDestinationLocation] = useState("");
+
+  const [leftRaceArea, setLeftRaceArea] = useState({
+    title: "Pick - Up",
+    locationValue: "Diyarbakır",
+    selectedStartDate: new Date("2024-10-01"),
+    selectedFinishDate: null,
+    timeValue: "12:30",
+  });
+
+  const [rightRaceArea, setRightRaceArea] = useState({
+    title: "Drop - Off",
+    locationValue: "İzmir",
+    selectedStartDate: null,
+    selectedFinishDate: new Date("2024-10-05"),
+    timeValue: "14:30",
+  });
+
+  useEffect(() => {
+    setCurrentLocation(leftRaceArea.locationValue);
+    setDestinationLocation(rightRaceArea.locationValue);
+  }, [leftRaceArea, rightRaceArea]);
+
   return (
     <>
       <div className="dv-container">
@@ -86,10 +113,9 @@ const AdminDashboard = () => {
           <div className="dv-detail">
             <h2 className="dv-detail-title">Details Rental</h2>
             <div className="dv-detail-img">
-              {/* <Image src={AdminMap} alt="Admin Map" fill /> */}
               <AdminDashboardMap
-                pickUpLocation="Diyarbakır"
-                dropOffLocation="İzmir"
+                pickUpLocation={currentLocation}
+                dropOffLocation={destinationLocation}
               />
             </div>
             <div className="dv-detail-car">
@@ -108,7 +134,8 @@ const AdminDashboard = () => {
               <div className="dv-detail-car-barcode">#9761</div>
             </div>
             <div className="dv-detail-range">
-              <p>Range Component Gelecek</p>
+              <RaceArea data={leftRaceArea} setData={setLeftRaceArea} />
+              <RaceArea data={rightRaceArea} setData={setRightRaceArea} />
             </div>
             <div className="dv-detail-total">
               <h3 className="dv-detail-total-title">
