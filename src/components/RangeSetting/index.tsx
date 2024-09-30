@@ -1,8 +1,8 @@
 "use client";
+import React from "react";
 import "./style.scss";
 import RaceArea from "./RaceArea";
-import SwapButton from "../../app/images/swap-button.svg";
-import Image from "next/image";
+import SwapButton from "@/app/images/swap-button.svg";
 import { useState } from "react";
 
 const RangeSettings = () => {
@@ -34,7 +34,7 @@ const RangeSettings = () => {
           <RaceArea data={leftRaceArea} setData={setLeftRaceArea} />
         </div>
         <div className="rs-switch-btn" onClick={handleSwitchRangeArea}>
-          <Image src={SwapButton} alt="" width={24} height={24} />
+          <SwapButton width={24} height={24} />
         </div>
         <div className="rs-drop-off">
           <RaceArea data={rightRaceArea} setData={setRightRaceArea} />

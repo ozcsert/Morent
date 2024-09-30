@@ -23,13 +23,7 @@ const CustomDateArea: FC<CustomDateAreaProps> = ({
           placeholder="Select your date"
           className="rs-datepicker-custom-input"
         />
-        <Image
-          src={DropdownArrow}
-          alt=""
-          width={12}
-          height={12}
-          style={{ color: "#90A3BF" }}
-        />
+        <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
       </div>
     </>
   );

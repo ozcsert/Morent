@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import Example from "./(main)/example/page";
 import "./page.scss";
 import RangeSettings from "@/components/RangeSetting";
