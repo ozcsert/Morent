@@ -2,71 +2,33 @@
 import "./styles.scss"
 import React, { useState, ChangeEvent } from "react"
 import Image from "next/image"
-import Form from "next/form"
+import { useFormContext } from "react-hook-form"
 import visaIcon from "@/public/payment/Visa.svg"
 import paypalIcon from "@/public/payment/PayPal.svg"
 import bitcoinIcon from "@/public/payment/Bitcoin.svg"
+import { PaymentFormValues } from "@/types/typeList"
+import { handleInputValue } from "@/utils/payment"
+import PaymentError from "../PaymentError"
 
-type FormValues = {
-  cardNumber: string
-  expirationDate: string
-  cardHolder: string
-  cvc: string
-}
+const PaymentMethod: React.FC = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<PaymentFormValues>()
 
-const PaymentMethod = () => {
   const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
-  //   const [cardNumber, setCardNumber] = useState<string>("Card Number")
-  const [formValues, setFormValues] = useState<FormValues>({
+
+  const [formattedValues, setFormattedValues] = useState<PaymentFormValues>({
     cardNumber: "",
     expirationDate: "",
     cardHolder: "",
     cvc: "",
+    paypalEmail: "",
+    bitcoinEmail: "",
   })
 
-  const handleInputValue = (e: ChangeEvent<HTMLInputElement>): void => {
-    const { id, value } = e.target
-
-    const formatValue = (
-      val: string,
-      pattern: RegExp,
-      limit?: number,
-      lettersOnly: boolean = false
-    ): string => {
-      const cleanedVal = lettersOnly
-        ? val.replace(/[^a-zA-Z\s]/g, "")
-        : val.replace(/\D/g, "")
-
-      const limitedVal = cleanedVal.slice(0, limit)
-
-      if (lettersOnly) {
-        return limitedVal
-      }
-
-      return limitedVal.match(pattern)?.join(" / ") || limitedVal
-    }
-
-    let formattedValue: string
-
-    switch (id) {
-      case "cardNumber":
-        formattedValue = formatValue(value, /.{1,4}/g, 16)
-        break
-      case "expirationDate":
-        formattedValue = formatValue(value, /.{1,2}/g, 4)
-        break
-      case "cardHolder":
-        formattedValue = formatValue(value, /.{1,2}/g, undefined, true) // Set lettersOnly to true
-        break
-      case "cvc":
-        formattedValue = formatValue(value, /.{1,3}/g, 3)
-        break
-    }
-
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [id]: formattedValue,
-    }))
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleInputValue(e, setFormattedValues)
   }
 
   return (
@@ -103,9 +65,17 @@ const PaymentMethod = () => {
                   type="text"
                   id="cardNumber"
                   placeholder="Card Number"
-                  value={formValues.cardNumber}
-                  onChange={handleInputValue}
+                  {...register("cardNumber", {
+                    required: "Card number is required",
+                    pattern: {
+                      value: /^\d{4} \/ \d{4} \/ \d{4} \/ \d{4}$/,
+                      message: "Card number must be 16 digits",
+                    },
+                  })}
+                  value={formattedValues.cardNumber}
+                  onChange={handleChange}
                 />
+                <PaymentError error={errors.cardNumber} key={"1"} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="expiration-date">Expiration Date</label>
@@ -113,31 +83,56 @@ const PaymentMethod = () => {
                   type="text"
                   id="expirationDate"
                   placeholder="MM/YY"
-                  value={formValues.expirationDate}
-                  onChange={handleInputValue}
+                  value={formattedValues.expirationDate}
+                  {...register("expirationDate", {
+                    required: "Exp. date is required",
+                    pattern: {
+                      value: /^\d{2} \/ \d{2}$/,
+                      message: "Exp. date must be 4 digits",
+                    },
+                  })}
+                  onChange={handleChange}
                   maxLength={7}
                 />
+                <PaymentError error={errors.expirationDate} key={"2"} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="card-holder">Card Holder</label>
                 <input
-                  value={formValues.cardHolder}
+                  value={formattedValues.cardHolder}
                   type="text"
                   id="cardHolder"
                   placeholder="Card holder"
-                  onChange={handleInputValue}
+                  {...register("cardHolder", {
+                    required: "Card Holder is required",
+                    pattern: {
+                      value: /.{1,2}/,
+                      message: "Please Enter Card Holder",
+                    },
+                  })}
+                  onChange={handleChange}
                 />
+                <PaymentError error={errors.cardHolder} key={"3"} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="cvc">CVC</label>
                 <input
-                  value={formValues.cvc}
+                  value={formattedValues.cvc}
                   type="text"
                   id="cvc"
                   placeholder="CVC"
+                  {...register("cvc", {
+                    required: "cvc is required",
+                    pattern: {
+                      value: /^\d{3}$/,
+                      message: "3 numbers in the back of your card",
+                    },
+                  })}
                   maxLength={3}
-                  onChange={handleInputValue}
+                  onChange={handleChange}
                 />
+
+                <PaymentError error={errors.cvc} key={"4"} />
               </div>
             </div>
           )}
@@ -168,7 +163,15 @@ const PaymentMethod = () => {
                   type="email"
                   id="paypal-email"
                   placeholder="Enter your PayPal email"
+                  {...register("paypalEmail", {
+                    required: "PayPal Email date is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Incorrect format of email",
+                    },
+                  })}
                 />
+                <PaymentError error={errors.paypalEmail} key={"5"} />
               </div>
             </div>
           )}
@@ -199,7 +202,15 @@ const PaymentMethod = () => {
                   type="email"
                   id="bitcoin-email"
                   placeholder="Enter your Bitcoin email"
+                  {...register("bitcoinEmail", {
+                    required: "Bitcoin Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Incorrect format of email",
+                    },
+                  })}
                 />
+                <PaymentError error={errors.paypalEmail} key={"6"} />
               </div>
             </div>
           )}

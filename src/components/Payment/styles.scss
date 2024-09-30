@@ -47,11 +47,38 @@
         flex-wrap: wrap;
         gap: 20px;
         .pymtn__option__field {
+          position: relative;
           gap: 10px;
           display: flex;
           flex-direction: column;
           flex: 1 1 45%;
           margin: 5px;
+          z-index: 1;
+
+          .payment__error {
+            margin-top: -60px;
+            flex: 1 1 45%;
+            z-index: -1;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: green;
+            color: white;
+            transition: all 0.5s ease;
+            &.active {
+              z-index: 0;
+              margin-top: 0px;
+              background-color: #ee6b61;
+            }
+          }
+          // .payment__error:active {
+
+          //   z-index: 1;
+          //   flex: 1 1 45%;
+          //   padding: 10px;
+          //   border-radius: 10px;
+          //   background-color: #ee6b61;
+          //   color: white;
+          // }
           input {
             padding: 20px;
             border-radius: 10px;
