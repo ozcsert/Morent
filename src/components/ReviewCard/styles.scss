@@ -114,12 +114,12 @@ body {
     font-weight: 400;
     line-height: 24px;
   }
-  .review-card-title {
+  .review-card-name-title p {
     font-weight: 500;
     font-size: $fnt-size-xxs;
     line-height: 15px;
   }
-  .review-card-name {
+  .review-card-name-title h4 {
     font-size: $fnt-size-s;
     line-height: 24px;
     font-weight: 600;
@@ -131,6 +131,9 @@ body {
   }
 }
 @media screen and (max-width: 400px) {
-  .review-card {
+  .review-card-img img {
+    width: 44px;
+    height: 44px;
+    border-radius: 60px;
   }
 }
