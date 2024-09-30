@@ -1,13 +1,9 @@
-"use client";
 import React from "react";
 import "./styles.scss";
+import AdminDashboard from "@/components/admin/AdminDashBoard/AdminDashboard";
 
-const AdminDashBoardPage = () => {
-  return (
-    <>
-      <h1>Admin Dashboard</h1>
-    </>
-  );
+const Dashboard = () => {
+  return <AdminDashboard />;
 };
 
-export default AdminDashBoardPage;
+export default Dashboard;

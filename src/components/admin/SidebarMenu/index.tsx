@@ -12,7 +12,7 @@ import AdminDarkMode from "@/app/images/admin-dark-mode.svg";
 import AdminLogOut from "@/app/images/admin-logout.svg";
 import AdminDoubleArrow from "@/app/images/admin-double-arrow.svg";
 import "./styles.scss";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SideBar = () => {
   // Function to close sidebar for only icons look
@@ -42,7 +42,9 @@ const SideBar = () => {
         <div
           className="switchBtn"
           onClick={handleSwitchSidebar}
-          style={isRotated ? { transform: "rotate(180deg)" } : {}}
+          style={
+            isRotated ? { transform: "rotate(180deg) translateY(-30px)" } : {}
+          }
         >
           <AdminDoubleArrow
             width={20}
@@ -56,7 +58,7 @@ const SideBar = () => {
             <h3 className="ad-sidebar-title">{!isOpen && "MAIN MENU"}</h3>
             <ul className="ad-sidebar-items">
               <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+                <Link href="/dashboard" className="ad-sidebar-item-link">
                   <AdminHome width="24" height="24" />
                   <span
                     className={`ad-sidebar-item-text ${
