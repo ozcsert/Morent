@@ -1,12 +1,7 @@
 .home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 100px;
-  border: 0.5px solid black;
-  border-radius: 15px;
-  a {
-    color: red;
-  }
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f7f9;
+  padding-top: 50px;
+  font-family: var(--fon-plus-jakarta-plus), sans-serif;
 }
