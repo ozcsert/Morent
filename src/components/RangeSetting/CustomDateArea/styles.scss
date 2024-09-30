@@ -1,0 +1,10 @@
+.rs-datepicker-custom-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+
+  &::placeholder {
+    color: #90A3BF;
+  }
+}
