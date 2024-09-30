@@ -1,4 +1,5 @@
-import { Car, FilterSideBarProps } from "./FilterSidebar";
-import { FilterInputProps } from "./FilterInput";
+import { Car, FilterSideBarProps } from "./FilterSidebar"
+import { FilterInputProps } from "./FilterInput"
+import { PaymentFormValues } from "./Payment"
 
-export type { Car, FilterInputProps, FilterSideBarProps };
+export type { Car, FilterInputProps, FilterSideBarProps, PaymentFormValues }

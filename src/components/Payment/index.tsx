@@ -75,7 +75,7 @@ const PaymentMethod: React.FC = () => {
                   value={formattedValues.cardNumber}
                   onChange={handleChange}
                 />
-                <PaymentError error={errors.cardNumber} key={"1"} />
+                <PaymentError error={errors.cardNumber} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="expiration-date">Expiration Date</label>
@@ -94,7 +94,7 @@ const PaymentMethod: React.FC = () => {
                   onChange={handleChange}
                   maxLength={7}
                 />
-                <PaymentError error={errors.expirationDate} key={"2"} />
+                <PaymentError error={errors.expirationDate} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="card-holder">Card Holder</label>
@@ -112,7 +112,7 @@ const PaymentMethod: React.FC = () => {
                   })}
                   onChange={handleChange}
                 />
-                <PaymentError error={errors.cardHolder} key={"3"} />
+                <PaymentError error={errors.cardHolder} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="cvc">CVC</label>
@@ -132,7 +132,7 @@ const PaymentMethod: React.FC = () => {
                   onChange={handleChange}
                 />
 
-                <PaymentError error={errors.cvc} key={"4"} />
+                <PaymentError error={errors.cvc} />
               </div>
             </div>
           )}
@@ -171,7 +171,7 @@ const PaymentMethod: React.FC = () => {
                     },
                   })}
                 />
-                <PaymentError error={errors.paypalEmail} key={"5"} />
+                <PaymentError error={errors.paypalEmail} />
               </div>
             </div>
           )}
@@ -210,7 +210,7 @@ const PaymentMethod: React.FC = () => {
                     },
                   })}
                 />
-                <PaymentError error={errors.paypalEmail} key={"6"} />
+                <PaymentError error={errors.paypalEmail} />
               </div>
             </div>
           )}
