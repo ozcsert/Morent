@@ -11,7 +11,7 @@ export default function Home() {
       <div className="home">
         <RangeSettings />
         <br />
-        <Example title="Example" />
+        <Example  />
         <Link href="/dashboard">Go to dashboard</Link>
         <Link href="/category">Go to category</Link>
         <Footer />
