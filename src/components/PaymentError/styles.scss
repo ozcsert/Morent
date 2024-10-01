@@ -13,10 +13,19 @@
   left: 0;
   right: 0;
   text-align: center;
+
   &.active {
     z-index: 0;
-    margin-top: 0px;
     background-color: #ee6b61;
     margin-bottom: -30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .payment__error {
+    font-size: 10px;
+    &.active {
+      margin-bottom: -20px;
+    }
   }
 }
