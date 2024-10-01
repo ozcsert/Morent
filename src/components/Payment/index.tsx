@@ -1,10 +1,9 @@
 "use client"
 import "./styles.scss"
 import { useState } from "react"
-import Image from "next/image"
-import visaIcon from "@/public/payment/Visa.svg"
-import paypalIcon from "@/public/payment/PayPal.svg"
-import bitcoinIcon from "@/public/payment/Bitcoin.svg"
+import VisaIcon from "@/app/images/payment/Visa.svg"
+import PaypalIcon from "@/app/images/payment/PayPal.svg"
+import BitcoinIcon from "@/app/images/payment/Bitcoin.svg"
 import { PaymentMethodProps } from "@/types/typeList"
 import { validationRules } from "@/utils/payment"
 import PaymentError from "../PaymentError"
@@ -46,7 +45,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
               />
               <label htmlFor="credit-card">Credit Card</label>
             </div>
-            <Image priority src={visaIcon} alt="visa" />
+            <VisaIcon width={92} height={20} />
           </div>
           {selectedMethod === "Credit Card" && (
             <div className="pymnt__option__details">
@@ -116,7 +115,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
               />
               <label htmlFor="paypal">PayPal</label>
             </div>
-            <Image priority src={paypalIcon} alt="paypal" />
+            <PaypalIcon width={92} height={20} />
           </div>
           {selectedMethod === "PayPal" && (
             <div className="pymnt__option__details">
@@ -149,7 +148,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
               />
               <label htmlFor="bitcoin">BitCoin</label>
             </div>
-            <Image priority src={bitcoinIcon} alt="visa" />
+            <BitcoinIcon width={92} height={20} />
           </div>
           {selectedMethod === "Bitcoin" && (
             <div className="pymnt__option__details">
