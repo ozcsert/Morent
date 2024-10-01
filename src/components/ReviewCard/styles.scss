@@ -3,17 +3,17 @@ body {
   font-family: $fnt-jakarta;
 }
 .review-card {
-  max-width: 1016px;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
   gap: 1rem;
 }
 .review-cards {
+  max-width: 1016px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 34px;
+  padding: 10px;
 }
 .reviews-input {
   display: flex;
@@ -105,7 +105,7 @@ body {
 @media screen and (max-width: 550px) {
   .review-card-review {
     display: block;
-    max-width: 300px;
+    max-width: 244px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -129,11 +129,14 @@ body {
     line-height: 15px;
     font-weight: 500;
   }
-}
-@media screen and (max-width: 400px) {
   .review-card-img img {
     width: 44px;
     height: 44px;
     border-radius: 60px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .review-cards {
+    max-width: 330px;
   }
 }

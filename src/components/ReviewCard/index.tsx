@@ -2,11 +2,12 @@
 import Image from "next/image";
 import "./styles.scss";
 import { reviews } from "@/constants";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ReviewProps } from "@/types/typeList";
 import ReactStars from "react-rating-stars-component";
 import AngleDown from "@/public/images/icons/AngleDown";
 import AngleUp from "@/public/images/icons/AngleUp";
+import ClampLines from "react-clamp-lines";
 
 const ReviewCard: React.FC<ReviewProps> = () => {
   const [showMore, setShowMore] = useState(false);
@@ -33,6 +34,7 @@ const ReviewCard: React.FC<ReviewProps> = () => {
             </div>
             <div className="review-card-info-date">
               <p className="review-card-date">{revDate}</p>
+
               <ReactStars
                 className="review-card-rating"
                 count={5}
