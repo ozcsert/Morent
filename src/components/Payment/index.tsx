@@ -2,26 +2,26 @@
 import "./styles.scss"
 import { useState } from "react"
 import Image from "next/image"
-import { useForm } from "react-hook-form"
 import visaIcon from "@/public/payment/Visa.svg"
 import paypalIcon from "@/public/payment/PayPal.svg"
 import bitcoinIcon from "@/public/payment/Bitcoin.svg"
-import { PaymentFormValues } from "@/types/typeList"
+import { PaymentMethodProps } from "@/types/typeList"
 import { validationRules } from "@/utils/payment"
 import PaymentError from "../PaymentError"
 
 // mastercard example card number 5425233430109903
 
-const PaymentMethod: React.FC = () => {
-  const {
-    register,
-    // handleSubmit,
-    formState: { errors },
-  } = useForm<PaymentFormValues>({
-    mode: "onChange",
-  })
-
+const PaymentMethod: React.FC<PaymentMethodProps> = ({
+  register,
+  errors,
+  reset,
+}) => {
   const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
+
+  const changePayMethod = async (payMethod: string) => {
+    await setSelectedMethod(payMethod)
+    reset()
+  }
 
   return (
     <div className="payment-container">
@@ -32,7 +32,6 @@ const PaymentMethod: React.FC = () => {
           <p>Step 3 of 4</p>
         </div>
       </div>
-
       <form className="payment__form">
         <div className="payment__option">
           <div className="pymn__option__name">
@@ -43,7 +42,7 @@ const PaymentMethod: React.FC = () => {
                 name="payment-method"
                 value="Credit Card"
                 checked={selectedMethod === "Credit Card"}
-                onChange={() => setSelectedMethod("Credit Card")}
+                onChange={() => changePayMethod("Credit Card")}
               />
               <label htmlFor="credit-card">Credit Card</label>
             </div>
@@ -113,7 +112,7 @@ const PaymentMethod: React.FC = () => {
                 name="payment-method"
                 value="PayPal"
                 checked={selectedMethod === "PayPal"}
-                onChange={() => setSelectedMethod("PayPal")}
+                onChange={() => changePayMethod("PayPal")}
               />
               <label htmlFor="paypal">PayPal</label>
             </div>
@@ -146,7 +145,7 @@ const PaymentMethod: React.FC = () => {
                 name="payment-method"
                 value="bitcoin"
                 checked={selectedMethod === "Bitcoin"}
-                onChange={() => setSelectedMethod("Bitcoin")}
+                onChange={() => changePayMethod("Bitcoin")}
               />
               <label htmlFor="bitcoin">BitCoin</label>
             </div>

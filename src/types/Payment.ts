@@ -1,3 +1,5 @@
+import { UseFormRegister, FieldErrors, UseFormReset } from "react-hook-form"
+
 export type PaymentFormValues = {
   cardNumber: string
   expirationDate: string
@@ -23,4 +25,10 @@ export type ValidationRules = {
   cvc: ValidationRule
   paypalEmail: ValidationRule
   bitcoinEmail: ValidationRule
+}
+
+export type PaymentMethodProps = {
+  register: UseFormRegister<PaymentFormValues>
+  errors: FieldErrors<PaymentFormValues>
+  reset: UseFormReset<PaymentFormValues>
 }

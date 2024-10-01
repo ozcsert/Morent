@@ -1,22 +1,15 @@
-import { useFormContext } from "react-hook-form"
-import React from "react"
 import { PaymentFormValues } from "@/types/typeList"
+import { UseFormHandleSubmit } from "react-hook-form"
 
-const Confirmation = () => {
-  const { handleSubmit } = useFormContext<PaymentFormValues>()
+type ConfirmationProps = {
+  handleSubmit: UseFormHandleSubmit<PaymentFormValues>
+  onSubmit: (formValues: PaymentFormValues) => void
+}
 
-  const onSubmit = (formValues: PaymentFormValues) => {
-    const cleanFormattedPaymentFormValues: PaymentFormValues = {
-      ...formValues,
-      cardNumber: formValues.cardNumber.replace(/\s+/g, "").replace(/\//g, ""),
-      expirationDate: formValues.expirationDate
-        .replace(/\s+/g, "")
-        .replace(/\//g, ""),
-    }
-
-    console.log("Form Submitted: ", cleanFormattedPaymentFormValues)
-  }
-
+const Confirmation: React.FC<ConfirmationProps> = ({
+  handleSubmit,
+  onSubmit,
+}) => {
   return (
     <div>
       <button onClick={handleSubmit(onSubmit)}>Confirm Payment</button>
