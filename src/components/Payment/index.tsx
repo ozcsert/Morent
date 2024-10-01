@@ -1,35 +1,27 @@
 "use client"
 import "./styles.scss"
-import React, { useState, ChangeEvent } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import { useFormContext } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import visaIcon from "@/public/payment/Visa.svg"
 import paypalIcon from "@/public/payment/PayPal.svg"
 import bitcoinIcon from "@/public/payment/Bitcoin.svg"
 import { PaymentFormValues } from "@/types/typeList"
-import { handleInputValue } from "@/utils/payment"
+import { validationRules } from "@/utils/payment"
 import PaymentError from "../PaymentError"
+
+// mastercard example card number 5425233430109903
 
 const PaymentMethod: React.FC = () => {
   const {
     register,
+    // handleSubmit,
     formState: { errors },
-  } = useFormContext<PaymentFormValues>()
-
-  const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
-
-  const [formattedValues, setFormattedValues] = useState<PaymentFormValues>({
-    cardNumber: "",
-    expirationDate: "",
-    cardHolder: "",
-    cvc: "",
-    paypalEmail: "",
-    bitcoinEmail: "",
+  } = useForm<PaymentFormValues>({
+    mode: "onChange",
   })
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    handleInputValue(e, setFormattedValues)
-  }
+  const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
 
   return (
     <div className="payment-container">
@@ -65,15 +57,8 @@ const PaymentMethod: React.FC = () => {
                   type="text"
                   id="cardNumber"
                   placeholder="Card Number"
-                  {...register("cardNumber", {
-                    required: "Card number is required",
-                    pattern: {
-                      value: /^\d{4} \/ \d{4} \/ \d{4} \/ \d{4}$/,
-                      message: "Card number must be 16 digits",
-                    },
-                  })}
-                  value={formattedValues.cardNumber}
-                  onChange={handleChange}
+                  {...register("cardNumber", validationRules.cardNumber)}
+                  maxLength={16}
                 />
                 <PaymentError error={errors.cardNumber} />
               </div>
@@ -83,16 +68,11 @@ const PaymentMethod: React.FC = () => {
                   type="text"
                   id="expirationDate"
                   placeholder="MM/YY"
-                  value={formattedValues.expirationDate}
-                  {...register("expirationDate", {
-                    required: "Exp. date is required",
-                    pattern: {
-                      value: /^\d{2} \/ \d{2}$/,
-                      message: "Exp. date must be 4 digits",
-                    },
-                  })}
-                  onChange={handleChange}
-                  maxLength={7}
+                  {...register(
+                    "expirationDate",
+                    validationRules.expirationDate
+                  )}
+                  maxLength={4}
                 />
                 <PaymentError error={errors.expirationDate} />
               </div>
@@ -102,13 +82,7 @@ const PaymentMethod: React.FC = () => {
                   type="text"
                   id="cardHolder"
                   placeholder="Card holder"
-                  {...register("cardHolder", {
-                    required: "Card Holder is required",
-                    pattern: {
-                      value: /[a-zA-Z\s\-]{1,2}/,
-                      message: "Should only include letters",
-                    },
-                  })}
+                  {...register("cardHolder", validationRules.cardHolder)}
                 />
                 <PaymentError error={errors.cardHolder} />
               </div>
@@ -118,13 +92,7 @@ const PaymentMethod: React.FC = () => {
                   type="text"
                   id="cvc"
                   placeholder="CVC"
-                  {...register("cvc", {
-                    required: "cvc is required",
-                    pattern: {
-                      value: /^\d{3}$/,
-                      message: "3 numbers in the back of your card",
-                    },
-                  })}
+                  {...register("cvc", validationRules.cvc)}
                   maxLength={3}
                 />
 
@@ -159,13 +127,7 @@ const PaymentMethod: React.FC = () => {
                   type="email"
                   id="paypal-email"
                   placeholder="Enter your PayPal email"
-                  {...register("paypalEmail", {
-                    required: "PayPal Email date is required",
-                    pattern: {
-                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                      message: "Incorrect format of email",
-                    },
-                  })}
+                  {...register("paypalEmail", validationRules.paypalEmail)}
                 />
                 <PaymentError error={errors.paypalEmail} />
               </div>
@@ -198,13 +160,7 @@ const PaymentMethod: React.FC = () => {
                   type="email"
                   id="bitcoin-email"
                   placeholder="Enter your Bitcoin email"
-                  {...register("bitcoinEmail", {
-                    required: "Bitcoin Email is required",
-                    pattern: {
-                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                      message: "Incorrect format of email",
-                    },
-                  })}
+                  {...register("bitcoinEmail", validationRules.bitcoinEmail)}
                 />
                 <PaymentError error={errors.bitcoinEmail} />
               </div>
