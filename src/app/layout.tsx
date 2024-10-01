@@ -12,7 +12,6 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 })
-
 const plusJakartaSans = localFont({
   src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",
   variable: "--font-plus-jakarta-sans",
@@ -34,12 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable}`}
       >
-        <div>
-          <p style={{ width: "100vh", background: "#596790" }}>
-            Import Navbar Here
-          </p>
-          <div>{children}</div>
-        </div>
+        {children}
       </body>
     </html>
   )

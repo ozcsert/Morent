@@ -1,5 +1,7 @@
 import { Car, FilterSideBarProps } from "./FilterSidebar"
 import { FilterInputProps } from "./FilterInput"
+import { RaceAreaProps } from "./RaceArea"
+
 import {
   PaymentFormValues,
   ValidationRules,
@@ -13,4 +15,5 @@ export type {
   PaymentFormValues,
   ValidationRules,
   PaymentMethodProps,
+  RaceAreaProps,
 }
