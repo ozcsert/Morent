@@ -99,25 +99,22 @@ const PaymentMethod: React.FC = () => {
               <div className="pymtn__option__field">
                 <label htmlFor="card-holder">Card Holder</label>
                 <input
-                  value={formattedValues.cardHolder}
                   type="text"
                   id="cardHolder"
                   placeholder="Card holder"
                   {...register("cardHolder", {
                     required: "Card Holder is required",
                     pattern: {
-                      value: /.{1,2}/,
-                      message: "Please Enter Card Holder",
+                      value: /[a-zA-Z\s\-]{1,2}/,
+                      message: "Should only include letters",
                     },
                   })}
-                  onChange={handleChange}
                 />
                 <PaymentError error={errors.cardHolder} />
               </div>
               <div className="pymtn__option__field">
                 <label htmlFor="cvc">CVC</label>
                 <input
-                  value={formattedValues.cvc}
                   type="text"
                   id="cvc"
                   placeholder="CVC"
@@ -129,7 +126,6 @@ const PaymentMethod: React.FC = () => {
                     },
                   })}
                   maxLength={3}
-                  onChange={handleChange}
                 />
 
                 <PaymentError error={errors.cvc} />
@@ -210,7 +206,7 @@ const PaymentMethod: React.FC = () => {
                     },
                   })}
                 />
-                <PaymentError error={errors.paypalEmail} />
+                <PaymentError error={errors.bitcoinEmail} />
               </div>
             </div>
           )}

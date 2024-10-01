@@ -1,4 +1,4 @@
-import React from "react"
+import "./styles.scss"
 
 type PaymentErrorProps = {
   error?: { message?: string }
