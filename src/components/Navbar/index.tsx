@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
     {width>780 ? ( 
     <nav className="navbar">
       <div className="navbar-left">
-        <h1 className="logo">MORENT</h1>
+        <h1 className="logo-text">MORENT</h1>
       </div>
       <div className="navbar-center">
         <div className="search-bar">
@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
       </div>
       <div>
         <div className="logo-mini">
-          <h1 className="logo">MORENT</h1>
+          <h1 className="logo-text">MORENT</h1>
         </div>
       </div>
       <div className='last-row'>
