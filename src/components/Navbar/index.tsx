@@ -87,12 +87,12 @@ const Navbar: React.FC = () => {
 
       {/* Right: Profile Picture */}
       <div className="right-section">
-        <div className="profile-picture">
+        <div className="profile-picture-mini">
         <Image
             src="/images/Imageprofile.svg"
             alt=""
-            width={24}
-            height={24}
+            width={50}
+            height={50}
             //onClick={handleHeartButton}
           />
         </div>
