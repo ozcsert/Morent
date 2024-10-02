@@ -7,7 +7,6 @@ import { ReviewProps } from "@/types/typeList";
 import ReactStars from "react-rating-stars-component";
 import AngleDown from "@/public/images/icons/AngleDown";
 import AngleUp from "@/public/images/icons/AngleUp";
-import ClampLines from "react-clamp-lines";
 
 const ReviewCard: React.FC<ReviewProps> = () => {
   const [showMore, setShowMore] = useState(false);
