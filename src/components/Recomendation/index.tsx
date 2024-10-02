@@ -36,7 +36,9 @@ const Recomendation: React.FC<Cars> = () => {
           </p>
         </div>
         <div className="recomendation-box4">
-          <p className="recomendation-price">${car.price}/day</p>
+          <p className="recomendation-price">
+            ${car.price}.00/ <span>day</span>
+          </p>
           <button className="recomendation-rent-btn">Rent Now</button>
         </div>
       </div>
