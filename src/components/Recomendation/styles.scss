@@ -1,0 +1,79 @@
+@import "../../app/styles/variables.scss";
+.recomendation-cars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+}
+.recomendation-box1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 84px;
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+.recomendation-box3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+  }
+}
+.recomendation-box4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 82px;
+
+  button {
+    width: 146px;
+    height: 44px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3563e9;
+    color: #ffffff;
+    font-family: $fnt-jakarta;
+    font-size: $fnt-size-s;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+.recomendation-cars-container {
+  max-width: 1312px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.recomendation-container-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.recomendation-container-second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
