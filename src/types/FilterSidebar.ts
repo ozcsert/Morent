@@ -3,7 +3,9 @@ export type Car = {
   name: string;
   type: string;
   capacity: string;
-  price: number;
+  price: string;
+  users : string;
+  img: string;
 };
 
 type FilterSideBarFilters = {

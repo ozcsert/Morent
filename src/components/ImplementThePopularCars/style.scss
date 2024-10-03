@@ -1,0 +1,33 @@
+.popular-car-cart-header-main {
+    width: 100%;
+    max-width: 1312px;
+    margin: 20px auto;
+
+    .popular-car-cart-header {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Plus Jakarta Sans", sans-serif;
+
+        .popular-car-popular-car-text {
+            font-size: 16px;
+            font-weight: 600;
+            padding-left: 22px;
+            color: #90A3BF;
+            padding-top: 14px;
+        }
+
+        .popular-car-view-all {
+            font-size: 16px;
+            font-weight: 600;
+            padding-right: 22px;
+            padding-top: 14px;
+            color: #3563E9;
+        }
+    }
+
+    .popular-car-cart-all-car {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+}

@@ -2,6 +2,9 @@ import Example from "@/components/Example";
 import "./page.scss";
 import Link from "next/link";
 
+
+
+
 export default function Home() {
   return (
     <>
