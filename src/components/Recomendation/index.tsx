@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import "./styles.scss";
 import { Cars } from "@/types/typeList";
 import { dummyRecomendationCars } from "@/constants";
@@ -9,22 +10,34 @@ import Gear from "@/app/images/recomandation/icons/Gear";
 import Profile from "@/app/images/recomandation/icons/Profile";
 
 const Recomendation: React.FC<Cars> = () => {
+  const [isActive, setIsActive] = useState(false);
+
   const cars = dummyRecomendationCars.map((car, id) => {
     return (
-      <div className="recomendation-cars" key={id}>
-        <div className="recomendation-box1">
+      <ul className="recomendation-cars" key={id}>
+        <li className="recomendation-box1">
           <div className="recomendation-name-type">
             <h3 className="recomendation-name">{car.name}</h3>
             <p className="recomendation-type">{car.type}</p>
           </div>
-          <button className="recomendation-favorite-btn">
-            <Heart />
+          <button
+            onClick={() => setIsActive(!isActive)}
+            className="recomendation-favorite-btn"
+          >
+            <Heart
+              isActive={isActive}
+              onClick={() => setIsActive(!isActive)}
+              className={
+                isActive ? "recomendation-active" : "recomendation-inactive"
+              }
+            />
           </button>
-        </div>
-        <div className="recomendation-box2">
+        </li>
+        <li className="recomendation-box2">
           <Image src={car.img} alt="recomended car" width={224} height={100} />
-        </div>
-        <div className="recomendation-box3">
+          <div className="shadow-effect"></div>
+        </li>
+        <li className="recomendation-box3">
           <p className="recomendation-gasoline">
             <Gasoline /> {car.gasoline}
           </p>
@@ -34,14 +47,14 @@ const Recomendation: React.FC<Cars> = () => {
           <p className="recomendation-capacity">
             <Profile /> {car.capacity}
           </p>
-        </div>
-        <div className="recomendation-box4">
+        </li>
+        <li className="recomendation-box4">
           <p className="recomendation-price">
             ${car.price}.00/ <span>day</span>
           </p>
           <button className="recomendation-rent-btn">Rent Now</button>
-        </div>
-      </div>
+        </li>
+      </ul>
     );
   });
 
