@@ -12,15 +12,13 @@ import AdminDarkMode from "@/app/images/admin-dark-mode.svg";
 import AdminLogOut from "@/app/images/admin-logout.svg";
 import AdminDoubleArrow from "@/app/images/admin-double-arrow.svg";
 import "./styles.scss";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 
-const SideBar = () => {
+const MobilSideBar = () => {
   // Function to close sidebar for only icons look
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [textOpen, setTextOpen] = useState<boolean>(false);
+  const [textOpen, setTextOpen] = useState<boolean>(true);
   const [isRotated, setIsRotated] = useState<boolean>(false);
-  const [windowSize, setWindowSize] = useState<number>(0);
-  const prevWindowSize = useRef(windowSize);
 
   const handleSwitchSidebar = () => {
     setIsOpen((prev) => !prev);
@@ -34,45 +32,22 @@ const SideBar = () => {
     }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [windowSize]);
-
-  useEffect(() => {
-    if (prevWindowSize.current >= 1140 && windowSize < 1140) {
-      setIsOpen(true);
-      setTextOpen(true);
-      setIsRotated(true);
-    } else if (prevWindowSize.current < 1140 && windowSize >= 1140) {
-      setIsOpen(false);
-      setTextOpen(false);
-      setIsRotated(false);
-    }
-
-    prevWindowSize.current = windowSize;
-  }, [windowSize]);
-
   return (
     <>
       <div
-        className={`ad-sidebar-container ${
-          isOpen ? "ad-sidebar-tiny-container" : ""
+        className={`ad-mobil-sidebar-container ${
+          isOpen ? "ad-mobil-sidebar-tiny-container" : ""
         }`}
       >
         <div
           className="switchBtn"
           onClick={handleSwitchSidebar}
           style={
-            isRotated ? { transform: "rotate(180deg) translateY(-30px)" } : {}
+            isRotated
+              ? {
+                  transform: "rotate(0) translateY(30px) translateX(19px)",
+                }
+              : {}
           }
         >
           <AdminDoubleArrow
@@ -81,77 +56,79 @@ const SideBar = () => {
             style={{ transform: "translateX(1px)" }}
           />
         </div>
-        <div className="ad-sidebar-list-wrapper">
+        <div className="ad-mobil-sidebar-list-wrapper">
           {/* Main Menu */}
-          <div className="ad-sidebar-mainmenu">
-            <h3 className="ad-sidebar-title">{!isOpen && "MAIN MENU"}</h3>
-            <ul className="ad-sidebar-items">
-              <li className="ad-sidebar-item">
-                <Link href="/dashboard" className="ad-sidebar-item-link">
+          <div className="ad-mobil-sidebar-mainmenu">
+            <h3 className="ad-mobil-sidebar-title">
+              {!textOpen && "MAIN MENU"}
+            </h3>
+            <ul className="ad-mobil-sidebar-items">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="/dashboard" className="ad-mobil-sidebar-item-link">
                   <AdminHome width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Dashboard
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminCarRent width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Car Rent
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminInsight width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Insight
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminReimburse width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Reimburse
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminInbox width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Inbox
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminCalender width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Calender
@@ -161,39 +138,41 @@ const SideBar = () => {
             </ul>
           </div>
           {/* Preferences */}
-          <div className="ad-sidebar-preferences">
-            <h3 className="ad-sidebar-title">{!isOpen && "PREFERENCES"}</h3>
-            <ul className="ad-sidebar-items">
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+          <div className="ad-mobil-sidebar-preferences">
+            <h3 className="ad-mobil-sidebar-title">
+              {!textOpen && "PREFERENCES"}
+            </h3>
+            <ul className="ad-mobil-sidebar-items">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminSettings width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Settings
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminHelp width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Help & Center
                   </span>
                 </Link>
               </li>
-              <li className="ad-sidebar-item">
-                <Link href="#" className="ad-sidebar-item-link">
+              <li className="ad-mobil-sidebar-item">
+                <Link href="#" className="ad-mobil-sidebar-item-link">
                   <AdminDarkMode width="24" height="24" />
                   <span
-                    className={`ad-sidebar-item-text ${
-                      textOpen ? "ad-sidebar-item-text-none" : ""
+                    className={`ad-mobil-sidebar-item-text ${
+                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
                     }`}
                   >
                     Dark Mode
@@ -203,12 +182,12 @@ const SideBar = () => {
             </ul>
           </div>
         </div>
-        <div className="ad-sidebar-logout">
-          <Link href="#" className="ad-sidebar-logout-link">
+        <div className="ad-mobil-sidebar-logout">
+          <Link href="#" className="ad-mobil-sidebar-logout-link">
             <AdminLogOut width="24" height="24" />
             <span
-              className={`ad-sidebar-logout-text ${
-                textOpen ? "ad-sidebar-item-text-none" : ""
+              className={`ad-mobil-sidebar-logout-text ${
+                textOpen ? "ad-mobil-sidebar-item-text-none" : ""
               }`}
             >
               Log Out
@@ -220,4 +199,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default MobilSideBar;

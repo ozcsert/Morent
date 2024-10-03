@@ -1,0 +1,133 @@
+// Public css start
+li {
+  list-style: none;
+}
+
+// Public css end
+
+
+.ad-mobil-sidebar-container {
+  width: 0;
+  height: 100%;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  transition: width 0.32s ease;
+  background-color: #fff;
+  overflow: visible;
+
+  @media screen and (min-width: 834px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 834px) {
+    justify-content: flex-start;
+  }
+
+  &>.switchBtn {
+    position: sticky;
+    height: 50px;
+    width: 25px;
+    position: absolute;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    top: 50px;
+    transform: rotate(180deg) translateY(-30px) translateX(-25px);
+    right: 19px;
+    cursor: pointer;
+    background-color: #94a7cb96;
+    color: #fff;
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &>.ad-mobil-sidebar-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    &>.ad-mobil-sidebar-mainmenu,
+    .ad-mobil-sidebar-preferences {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}
+
+.ad-mobil-sidebar-title {
+  height: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a7cb96;
+  letter-spacing: 2px;
+  margin-left: 10px;
+}
+
+.ad-mobil-sidebar-item {
+  border: none;
+  border-radius: 10px;
+  color: #94a7cb96;
+
+
+  svg {
+    stroke: #90A3BF;
+    transition: stroke 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #3563E9;
+    color: #fff;
+
+    svg {
+      stroke: #fff;
+    }
+  }
+
+  &>.ad-mobil-sidebar-item-link {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+  }
+}
+
+.ad-mobil-sidebar-logout {
+  color: #90A3BF;
+
+  &>.ad-mobil-sidebar-logout-link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  svg {
+    stroke: #90A3BF;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #3563E9;
+    border-radius: 10px;
+
+    svg {
+      stroke: #fff;
+    }
+  }
+}
+
+.ad-mobil-sidebar-tiny-container {
+  width: 100%;
+}
+
+.ad-mobil-sidebar-item-text-none {
+  display: none;
+  color: #fff;
+}

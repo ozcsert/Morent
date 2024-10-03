@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { PieChart, Pie, Cell } from "recharts";
-// import AdminMap from "@/app/images/admin-map.png";
 import AdminDetailCar from "@/app/images/admin-car.png";
 import "./styles.scss";
 import AdminNissanGTR from "@/app/images/admin-car-nissan.png";
@@ -12,7 +11,6 @@ import AdminCrV from "@/app/images/admin-car-cr-v.png";
 import dynamic from "next/dynamic";
 import AdminDashboardMap from "../AdminDashboardMap";
 import RaceArea from "@/components/RangeSetting/RaceArea";
-import { RaceAreaProps } from "@/types/RaceArea";
 
 type carsType = {
   title: string;

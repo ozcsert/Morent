@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SideBar from "@/components/admin/SidebarMenu";
 import "./layout.scss";
+import MobilSideBar from "@/components/admin/SidebarMenu/SidebarMobilMenu";
 
 export const metadata: Metadata = {
   title: "Morent Admin Dashboard",
@@ -20,6 +21,7 @@ export default function RootLayout({
           <SideBar />
         </div>
         <section className="ad-content">{children}</section>
+        <MobilSideBar />
       </main>
     </div>
   );
