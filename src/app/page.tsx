@@ -4,7 +4,7 @@ import Example from "./(main)/example/page";
 import "./page.scss";
 import RangeSettings from "@/components/RangeSetting";
 import Footer from "@/components/Footer";
-import Recomendation from "@/components/Recomendation";
+import Recommendation from "@/components/Recommendation";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <Example title="Example" />
         <Link href="/dashboard">Go to dashboard</Link>
         <Link href="/category">Go to category</Link>
-        <Recomendation
+        <Recommendation
           id={0}
           name={""}
           img={""}

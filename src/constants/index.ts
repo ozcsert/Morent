@@ -1,13 +1,13 @@
 import { Car } from "@/types/FilterSidebar";
-import { Cars } from "@/types/Recomendation";
-import allNewRush from "../app/images/recomandation/All New Rush.png";
-import crv1 from "../app/images/recomandation/CR-V.png";
-import crv2 from "../app/images/recomandation/CR-V2.png";
-import allNewTerios from "../app/images/recomandation/All New Terios.png";
-import mgzxExcite from "../app/images/recomandation/MGZX Excite.png";
-import mgzxExclusive from "../app/images/recomandation/MGZX Exclusive.png";
-import newMgzs from "../app/images/recomandation/New MGZS.png";
-import newMgzs2 from "../app/images/recomandation/New MGZS2.png";
+import { Cars } from "@/types/Recommendation";
+import allNewRush from "../app/images/recommendation/All New Rush.png";
+import crv1 from "../app/images/recommendation/CR-V.png";
+import crv2 from "../app/images/recommendation/CR-V2.png";
+import allNewTerios from "../app/images/recommendation/All New Terios.png";
+import mgzxExcite from "../app/images/recommendation/MGZX Excite.png";
+import mgzxExclusive from "../app/images/recommendation/MGZX Exclusive.png";
+import newMgzs from "../app/images/recommendation/New MGZS.png";
+import newMgzs2 from "../app/images/recommendation/New MGZS2.png";
 
 export const dummyCars: Car[] = [
   { id: 1, name: "Dogan", type: "Sport", capacity: "10 people", price: 1 },
@@ -36,7 +36,7 @@ export const dummyCars: Car[] = [
   { id: 11, name: "Car 12", type: "Sport", capacity: "4 Person", price: 90 },
 ];
 
-export const dummyRecomendationCars: Cars[] = [
+export const dummyRecommendationCars: Cars[] = [
   {
     id: 1,
     name: "All New Rush",
