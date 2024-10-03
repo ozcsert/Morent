@@ -1,0 +1,23 @@
+@mixin fs($size) {
+  font-size: $size + px;
+}
+
+@mixin ln($size) {
+  line-height: $size + px;
+}
+
+.fs-8 {
+  @include fs(8);
+}
+.fs-16 {
+  @include fs(16);
+}
+.fs-24 {
+  @include fs(24);
+}
+.fs-32 {
+  @include fs(32);
+}
+.fs-40 {
+  @include fs(40);
+}

@@ -3,4 +3,19 @@ import { FilterInputProps } from "./FilterInput";
 import { RaceAreaProps } from "./RaceArea";
 import { Cars } from "./Recommendation";
 
-export type { Car, FilterInputProps, FilterSideBarProps, RaceAreaProps, Cars };
+import {
+  PaymentFormValues,
+  ValidationRules,
+  PaymentMethodProps,
+} from "./Payment";
+
+export type {
+  Car,
+  FilterInputProps,
+  FilterSideBarProps,
+  PaymentFormValues,
+  ValidationRules,
+  PaymentMethodProps,
+  RaceAreaProps,
+  Cars,
+};
