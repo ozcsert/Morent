@@ -9,8 +9,6 @@ import mgZX from "../assets/mgZxExclusice.png";
 import mgZs from "../assets/mgZxExcite.png";
 
 
- 
-
 
 export const dummyCars: Car[] = [
   {
