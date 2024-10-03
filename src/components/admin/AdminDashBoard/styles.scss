@@ -101,6 +101,10 @@
         justify-content: center;
         gap: 10px;
 
+        @media screen and (max-width: 648px) {
+          flex-direction: column;
+        }
+
         .dv-detail-total-title {
           display: flex;
           align-items: start;
@@ -108,6 +112,10 @@
           gap: 3px;
           flex-direction: column;
           flex: 3;
+
+          @media screen and (max-width: 648px) {
+            text-align: center;
+          }
 
           .dv-detail-total-desc {
             font-size: 14px;
@@ -150,6 +158,10 @@
       gap: 10px;
       padding: 20px;
 
+      @media screen and (max-width: 648px) {
+        max-height: 100%;
+      }
+
       .dv-top-car-title {
         font-size: 20px;
         font-weight: bold;
@@ -157,6 +169,12 @@
 
       .dv-top-car-graphic-group {
         display: flex;
+
+        @media screen and (max-width: 648px) {
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+        }
 
         .dv-top-car-chart {
           flex: 1;
@@ -187,6 +205,10 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+
+          @media screen and (max-width: 648px) {
+            width: 100%;
+          }
 
           .dv-top-car-count-list {
             list-style: none;
@@ -239,6 +261,10 @@
       flex-direction: column;
       gap: 10px;
 
+      @media screen and (max-width: 648px) {
+        max-height: 100%;
+      }
+
       .dv-recent-car-title {
         font-size: 20px;
         font-weight: 700;
@@ -251,6 +277,11 @@
           display: flex;
           padding-bottom: 15px;
           border-bottom: 1px solid #C3D4E9;
+
+          @media screen and (max-width: 648px) {
+            flex-direction: column;
+            align-items: center;
+          }
 
           &:last-child {
             border: none;
@@ -273,6 +304,10 @@
             justify-content: center;
             gap: 8px;
 
+            @media screen and (max-width: 648px) {
+              align-items: center;
+            }
+
             .item-title-main {
               font-size: 16px;
               font-weight: 700;
@@ -282,6 +317,8 @@
               font-size: 12px;
               font-weight: 500;
               color: #90A3BF;
+
+
             }
           }
 
