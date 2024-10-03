@@ -31,7 +31,9 @@ const RecommendationCard = ({ car }: cardProps) => {
         </button>
       </div>
       <div className="recommendation-box2">
-        <Image src={car.img} alt="recomended car" width={224} height={100} />
+        {car.img && (
+          <Image src={car.img} alt="recomended car" width={224} height={100} />
+        )}
         <div className="shadow-effect"></div>
       </div>
       <div className="recommendation-box3">

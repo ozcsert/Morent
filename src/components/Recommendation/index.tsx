@@ -1,21 +1,42 @@
-import React, { FC } from "react";
+"use client";
+import React, { FC, useState } from "react";
 import "./styles.scss";
 import { Cars } from "@/types/typeList";
 import { dummyRecommendationCars } from "@/constants";
 import RecommendationCard from "./RecommendationCard";
 
 const Recommendation: FC<Cars> = () => {
+  const [showMoreCars, setShowMoreCars] = useState(false);
   return (
     <div className="recommendation-cars-container">
       <h4>Recomendation Cars</h4>
       <div className="recommendation-wrapper">
         <ul className="recommendation-cars">
-          {dummyRecommendationCars.map((car) => (
-            <li className="recommendation-car" key={car.id}>
-              <RecommendationCard car={car} />
-            </li>
-          ))}
+          {showMoreCars
+            ? dummyRecommendationCars.map((car) => (
+                <li className="recommendation-car" key={car.id}>
+                  <RecommendationCard car={car} />
+                </li>
+              ))
+            : dummyRecommendationCars
+                .map((car) => (
+                  <li className="recommendation-car" key={car.id}>
+                    <RecommendationCard car={car} />
+                  </li>
+                ))
+                .slice(0, 8)}
         </ul>
+      </div>
+      <div className="recommendation-show-more">
+        <button
+          onClick={() => setShowMoreCars(!showMoreCars)}
+          className="recommendation-btn"
+        >
+          See More Cars
+        </button>
+        <p className="recommendation-total-cars">
+          {dummyRecommendationCars.length} cars
+        </p>
       </div>
     </div>
   );
