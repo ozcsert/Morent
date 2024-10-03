@@ -2,7 +2,7 @@
 import Image from "next/image";
 import "./styles.scss";
 import { reviews } from "@/constants";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReviewProps } from "@/types/typeList";
 import ReactStars from "react-rating-stars-component";
 import AngleDown from "@/public/images/icons/AngleDown";
@@ -10,7 +10,19 @@ import AngleUp from "@/public/images/icons/AngleUp";
 
 const ReviewCard: React.FC<ReviewProps> = () => {
   const [showMore, setShowMore] = useState(false);
-  const wSize = window.innerWidth;
+  const [windowSize, setWindowSize] = useState<number>(551);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowSize]);
 
   const reviewCards = reviews.map((review, id) => {
     const revDate = new Date(review.date)
@@ -37,7 +49,7 @@ const ReviewCard: React.FC<ReviewProps> = () => {
               <ReactStars
                 className="review-card-rating"
                 count={5}
-                size={wSize < 550 ? 14 : 24}
+                size={windowSize < 550 ? 14 : 24}
                 value={review.rating}
                 isHalf={true}
                 edit={false}
