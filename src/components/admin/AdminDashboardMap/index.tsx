@@ -61,10 +61,8 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
       (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK && result) {
           setDirectionsResponse(result);
-          console.log("Çalıştı", result);
         } else {
           console.error(`Error fetching directions ${result}`);
-          console.log("Çalışmadı", result);
         }
       }
     );
