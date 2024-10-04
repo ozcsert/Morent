@@ -1,7 +1,10 @@
-import "./page.scss"
-import Link from "next/link"
-import RangeSettings from "@/components/RangeSetting"
-import Footer from "@/components/Footer"
+import "./page.scss";
+import Link from "next/link";
+import RangeSettings from "@/components/RangeSetting";
+import Footer from "@/components/Footer";
+import Example from "@/components/Example";
+import "./page.scss";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,5 +19,5 @@ export default function Home() {
       </div>
       <div className="home"></div>
     </>
-  )
+  );
 }

@@ -1,12 +1,13 @@
-import { Car, FilterSideBarProps } from "./FilterSidebar"
-import { FilterInputProps } from "./FilterInput"
-import { RaceAreaProps } from "./RaceArea"
+import { Car, FilterSideBarProps } from "./FilterSidebar";
+import { FilterInputProps } from "./FilterInput";
+import { RaceAreaProps } from "./RaceArea";
+import { ReviewProps } from "./reviews";
 
 import {
   PaymentFormValues,
   ValidationRules,
   PaymentMethodProps,
-} from "./Payment"
+} from "./Payment";
 
 export type {
   Car,
@@ -16,4 +17,5 @@ export type {
   ValidationRules,
   PaymentMethodProps,
   RaceAreaProps,
-}
+  ReviewProps,
+};

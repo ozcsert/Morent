@@ -1,0 +1,142 @@
+@import "../../app/styles/variables";
+body {
+  font-family: $fnt-jakarta;
+}
+.review-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.review-cards {
+  max-width: 1016px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 34px;
+  padding: 10px;
+}
+.reviews-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.total-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $clr-primary;
+  width: 44px;
+  height: 28px;
+  border-radius: 4px;
+  padding: 0 20px 0 20px;
+  color: $clr-secondary;
+}
+
+.review-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-card-container {
+  max-width: 968px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  gap: 10px;
+}
+
+.review-card-img img {
+  width: 56px;
+  height: 56px;
+  border-radius: 60px;
+}
+.review-card-img-title {
+  display: flex;
+  gap: 5px;
+}
+.btn-text {
+  background-color: $text-fourth;
+  color: $text-tertiary;
+  border: none;
+  font-family: $fnt-jakarta;
+  cursor: pointer;
+}
+.review-card-name-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  p {
+    color: $text-tertiary;
+    font-size: $fnt-size-xs;
+    font-weight: 500;
+    line-height: 21px;
+  }
+  h4 {
+    color: $text-primary;
+    font-size: $fnt-size-m;
+    font-weight: 700;
+    line-height: 30px;
+  }
+}
+.review-card-review {
+  font-size: $fnt-size-xs;
+  color: $text-secondary;
+  font-weight: 400;
+  line-height: 28px;
+}
+.review-card-info-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.review-card-date {
+  font-size: $fnt-size-xs;
+  color: $text-tertiary;
+}
+.review-list-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 550px) {
+  .review-card-review {
+    display: block;
+    max-width: 244px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $text-tertiary;
+    font-size: $fnt-size-xxs;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .review-card-name-title p {
+    font-weight: 500;
+    font-size: $fnt-size-xxs;
+    line-height: 15px;
+  }
+  .review-card-name-title h4 {
+    font-size: $fnt-size-s;
+    line-height: 24px;
+    font-weight: 600;
+  }
+  .review-card-date {
+    font-size: $fnt-size-xxs;
+    line-height: 15px;
+    font-weight: 500;
+  }
+  .review-card-img img {
+    width: 44px;
+    height: 44px;
+    border-radius: 60px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .review-cards {
+    max-width: 330px;
+  }
+}
