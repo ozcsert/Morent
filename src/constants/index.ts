@@ -1,4 +1,10 @@
 import { Car } from "@/types/FilterSidebar";
+import { ReviewProps } from "@/types/reviews";
+import alexStan from "/src/public/images/alex_stan.png";
+import skylarDias from "/src/public/images/skylar_dias.png";
+import rFera from "/src/public/images/r_fera.png";
+import andrew from "/src/public/images/andrew.png";
+import pixabay from "/src/public/images/pixabay.png";
 import { Cars } from "@/types/Recommendation";
 import allNewRush from "../app/images/recommendation/All New Rush.png";
 import crv1 from "../app/images/recommendation/CR-V.png";
@@ -34,6 +40,59 @@ export const dummyCars: Car[] = [
     price: 60,
   },
   { id: 11, name: "Car 12", type: "Sport", capacity: "4 Person", price: 90 },
+];
+
+export const reviews: ReviewProps[] = [
+  {
+    id: 1,
+    img: alexStan,
+    name: "Alex Stanton",
+    title: "CEO at Bukalapak",
+    review:
+      "We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
+    rating: 4,
+    date: "2022-07-21",
+  },
+  {
+    id: 2,
+    img: skylarDias,
+    name: "Skylar Dias",
+    title: "CEO at Amazon",
+    review:
+      "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
+    rating: 4,
+    date: "2022-07-20",
+  },
+  {
+    id: 3,
+    img: rFera,
+    name: "Ray Fera",
+    title: "CEO at Somewhere",
+    review:
+      "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
+    rating: 5,
+    date: "2022-07-19",
+  },
+  {
+    id: 4,
+    img: andrew,
+    name: "Andrew Dias",
+    title: "CEO at Somewhere",
+    review:
+      "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
+    rating: 3,
+    date: "2022-07-22",
+  },
+  {
+    id: 5,
+    img: pixabay,
+    name: "Pixabay",
+    title: "CEO at pexels",
+    review:
+      "We are greatly helped by the services of the MORENT Application. Morent has low prices and also a wide variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.",
+    rating: 5,
+    date: "2022-07-22",
+  },
 ];
 
 export const dummyRecommendationCars: Cars[] = [

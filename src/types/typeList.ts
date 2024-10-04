@@ -1,6 +1,7 @@
 import { Car, FilterSideBarProps } from "./FilterSidebar";
 import { FilterInputProps } from "./FilterInput";
 import { RaceAreaProps } from "./RaceArea";
+import { ReviewProps } from "./reviews";
 import { Cars } from "./Recommendation";
 
 import {
@@ -17,5 +18,6 @@ export type {
   ValidationRules,
   PaymentMethodProps,
   RaceAreaProps,
+  ReviewProps,
   Cars,
 };

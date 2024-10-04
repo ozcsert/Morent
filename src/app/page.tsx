@@ -2,6 +2,9 @@ import "./page.scss";
 import Link from "next/link";
 import RangeSettings from "@/components/RangeSetting";
 import Footer from "@/components/Footer";
+import Example from "@/components/Example";
+import "./page.scss";
+import Link from "next/link";
 import Recommendation from "@/components/Recommendation";
 
 export default function Home() {
