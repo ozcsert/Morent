@@ -1,5 +1,4 @@
 import "./page.scss";
-import Link from "next/link";
 import RangeSettings from "@/components/RangeSetting";
 import Footer from "@/components/Footer";
 import "./page.scss";
@@ -11,9 +10,6 @@ export default function Home() {
       <div className="home">
         <RangeSettings />
         <br />
-        <Link href="/dashboard">Go to dashboard</Link>
-        <Link href="/category">Go to category</Link>
-        <Link href="/payment">Go to payment</Link>
         <Recommendation
           id={0}
           name={""}
