@@ -19,8 +19,7 @@
                 font-weight: 700;
             }
             .popular-car-cart-header-title-like{
-                border-color: transparent;
-                background-color: transparent;
+                cursor: pointer;
             }
         }
     }
@@ -86,6 +85,7 @@
             border-radius: 5px;
             padding: 15px 25px;
             border-color: transparent;
+            cursor: pointer;
         }
     }
 }
