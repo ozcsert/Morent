@@ -28,12 +28,22 @@ const Recommendation: FC<Cars> = () => {
         </ul>
       </div>
       <div className="recommendation-show-more">
-        <button
-          onClick={() => setShowMoreCars(!showMoreCars)}
-          className="recommendation-btn"
-        >
-          See More Cars
-        </button>
+        {showMoreCars ? (
+          <button
+            onClick={() => setShowMoreCars(!showMoreCars)}
+            className="recommendation-btn"
+          >
+            Show Less Cars
+          </button>
+        ) : (
+          <button
+            onClick={() => setShowMoreCars(!showMoreCars)}
+            className="recommendation-btn"
+          >
+            Show More Cars
+          </button>
+        )}
+
         <p className="recommendation-total-cars">
           {dummyRecommendationCars.length} cars
         </p>
