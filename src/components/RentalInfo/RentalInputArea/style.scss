@@ -1,0 +1,226 @@
+@import "../../../app/styles/styles";
+
+// // .rs-head-container {
+// //   .rs-options {
+// //     display: flex;
+// //     gap: 24px;
+
+// // .location,
+// // .time {
+// // }
+
+// // .date {
+// // }
+
+// // .rs-option-line {
+// //   border: 0.5px solid #c3d4e966;
+// // }
+
+// // .rntlInfo__option__field {
+// //   position: relative;
+// //   gap: 10px;
+// //   display: flex;
+// //   flex-direction: column;
+// //   flex: 1 1 45%;
+// //   margin: 5px;
+// //   z-index: 1;
+// // }
+
+// .rental__option-time {
+//   max-width: 45%;
+// }
+
+// .rental__option {
+//   position: relative;
+//   gap: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1 1 45%;
+//   margin: 5px;
+//   z-index: 1;
+
+//   .rental__option-head {
+//     font-size: $fnt-size-s;
+//     font-weight: 700;
+//   }
+
+//   .rental-option__select-group {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     .rental-option__select {
+//       width: 100%;
+//       // appearance: none;
+//       border: none;
+//       outline: none;
+//       font-size: 13px;
+//       font-weight: 500;
+//       color: #000;
+//       cursor: pointer;
+//       select {
+//         padding: 20px;
+//         border-radius: 10px;
+//         border: none;
+//       }
+//       & > option:disabled {
+//         color: #90a3bf;
+//       }
+//     }
+
+//     .rental-option__select-default {
+//       color: #90a3bf;
+//       padding: 20px;
+//       border-radius: 10px;
+//       border: none;
+//       background-color: $clr-background-light;
+//     }
+
+//     .rental-option__select-date {
+//       width: 100%;
+//       outline: none;
+//       border: none;
+//       font-size: 12px;
+//       font-weight: 500;
+//       display: flex;
+//       position: relative;
+//       svg {
+//         position: absolute;
+//         right: 0;
+//         transform: translate(-20px, 20px);
+//       }
+//       input {
+//         padding: 20px;
+//         border-radius: 10px;
+//         border: none;
+//         background-color: $clr-background-light;
+//       }
+//       &::placeholder {
+//         color: #90a3bf;
+//       }
+//     }
+
+//     .react-datepicker-popper {
+//       z-index: 5;
+//     }
+//   }
+
+//   .react-datepicker-wrapper {
+//     width: 100%;
+//   }
+
+//   .rental-option__select-date {
+//     cursor: pointer;
+//   }
+// }
+
+// @media (max-width: 450px) {
+//   .rental__option-time {
+//     max-width: 100%;
+//   }
+// }
+@import "../../../app/styles/styles";
+
+.rental__option-time {
+  max-width: 48%;
+}
+
+.rental__option {
+  position: relative;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%;
+  margin: 5px;
+  z-index: 1;
+
+  .rental__option-head {
+    font-size: $fnt-size-s;
+    font-weight: 700;
+  }
+
+  .rental-option__select-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    svg {
+      position: absolute;
+      right: 0;
+      transform: translate(-20px);
+    }
+    .rental-option__select {
+      color: #90a3bf;
+      padding: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: $clr-background-light;
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      & > option:disabled {
+        color: #90a3bf;
+      }
+    }
+
+    .rental-option__select-default {
+      color: #90a3bf;
+      padding: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: $clr-background-light;
+    }
+
+    .rental-option__select-date {
+      width: 100%;
+      outline: none;
+      border: none;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      position: relative;
+
+      svg {
+        position: absolute;
+        right: 0;
+        transform: translate(-20px, 20px);
+      }
+
+      input {
+        padding: 20px;
+        border-radius: 10px;
+        border: none;
+        background-color: $clr-background-light;
+      }
+
+      &::placeholder {
+        color: #90a3bf;
+      }
+    }
+
+    .react-datepicker-popper {
+      z-index: 5;
+    }
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+
+  .rental-option__select-date {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 450px) {
+  .rental__option-time {
+    max-width: 100%;
+  }
+}

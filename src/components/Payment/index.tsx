@@ -6,7 +6,7 @@ import PaypalIcon from "@/app/images/payment/PayPal.svg"
 import BitcoinIcon from "@/app/images/payment/Bitcoin.svg"
 import { PaymentMethodProps } from "@/types/typeList"
 import { validationRules } from "@/utils/payment"
-import PaymentError from "../PaymentError"
+import PaymentError from "./PaymentError"
 
 // mastercard example card number 5425233430109903
 
