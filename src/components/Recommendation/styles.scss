@@ -1,5 +1,11 @@
 @import "../../app/styles/variables.scss";
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .recommendation-cars-container {
   max-width: 1312px;
   width: 100%;
