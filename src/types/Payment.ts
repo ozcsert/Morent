@@ -1,8 +1,8 @@
 import {
   UseFormRegister,
   FieldErrors,
-  UseFormReset,
   Control,
+  UseFormSetValue,
 } from "react-hook-form"
 
 export type PaymentFormValues = {
@@ -68,13 +68,12 @@ export type ValidationRules = {
 export type PaymentMethodProps = {
   register: UseFormRegister<PaymentFormValues>
   errors: FieldErrors<PaymentFormValues>
-  reset: UseFormReset<PaymentFormValues>
+  setValue: UseFormSetValue<PaymentFormValues>
 }
 
 export type RentalInfoProps = {
   register: UseFormRegister<PaymentFormValues>
   errors: FieldErrors<PaymentFormValues>
-  reset: UseFormReset<PaymentFormValues>
   control: Control<PaymentFormValues>
 }
 

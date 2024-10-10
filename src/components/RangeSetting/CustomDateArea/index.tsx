@@ -1,6 +1,5 @@
 import { FC } from "react"
 import DropdownArrow from "@/app/images/bottom-arrow.svg"
-import Image from "next/image"
 import "./styles.scss"
 
 type CustomDateAreaProps = {

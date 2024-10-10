@@ -6,7 +6,6 @@ import { RentalInfoProps } from "@/types/typeList"
 const RentalInfo: React.FC<RentalInfoProps> = ({
   register,
   errors,
-  reset,
   control,
 }) => {
   return (

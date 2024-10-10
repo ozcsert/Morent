@@ -13,13 +13,32 @@ import PaymentError from "./PaymentError"
 const PaymentMethod: React.FC<PaymentMethodProps> = ({
   register,
   errors,
-  reset,
+  setValue,
 }) => {
   const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
 
   const changePayMethod = async (payMethod: string) => {
     await setSelectedMethod(payMethod)
-    reset()
+
+    switch (payMethod) {
+      case "Credit Card":
+        setValue("paypalEmail", "")
+        break
+      case "PayPal":
+        setValue("cardHolder", "")
+        setValue("cardNumber", "")
+        setValue("cvc", "")
+        setValue("bitcoinEmail", "")
+        setValue("expirationDate", "")
+      case "BitCoin":
+        setValue("cardHolder", "")
+        setValue("cardNumber", "")
+        setValue("cvc", "")
+        setValue("paypalEmail", "")
+        setValue("expirationDate", "")
+      default:
+        break
+    }
   }
 
   return (

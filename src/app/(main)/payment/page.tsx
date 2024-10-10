@@ -11,7 +11,7 @@ const Payment: React.FC = () => {
     register,
     handleSubmit,
     control,
-    reset,
+    setValue,
     formState: { errors },
   } = useForm<PaymentFormValues>({
     mode: "onChange",
@@ -42,13 +42,8 @@ const Payment: React.FC = () => {
 
   return (
     <div>
-      <RentalInfo
-        control={control}
-        register={register}
-        errors={errors}
-        reset={reset}
-      />
-      <PaymentMethod register={register} errors={errors} reset={reset} />
+      <RentalInfo control={control} register={register} errors={errors} />
+      <PaymentMethod register={register} errors={errors} setValue={setValue} />
       <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
     </div>
   )

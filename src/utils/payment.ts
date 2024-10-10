@@ -146,7 +146,7 @@ const isLaterThan = (time1: string, time2: string): boolean => {
 }
 
 const areSameDates = (date1: Date, date2: Date): boolean => {
-  if ((date1 && date2) !== null) {
+  if ((date1 && date2) !== undefined) {
     return date1.getTime() === date2.getTime()
   }
   return false
