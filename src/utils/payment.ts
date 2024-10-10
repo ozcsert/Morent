@@ -1,4 +1,4 @@
-import { ValidationRules } from "@/types/typeList"
+import { PaymentFormValues, ValidationRules } from "@/types/typeList"
 
 const detectCardType = (cardNumber: string) => {
   if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(cardNumber)) {
@@ -7,6 +7,26 @@ const detectCardType = (cardNumber: string) => {
     return "MasterCard"
   }
   return "Unknown"
+}
+
+const isFutureDate = (date: Date | null): boolean => {
+  if (!date) return false
+  return date > new Date()
+}
+
+const isLaterThan = (time1: string, time2: string): boolean => {
+  console.log(time1)
+  const hours1 = parseInt(time1.substring(0, 2), 10)
+  const hours2 = parseInt(time2.substring(0, 2), 10)
+
+  return hours1 > hours2
+}
+
+const areSameDates = (date1: Date, date2: Date): boolean => {
+  if ((date1 && date2) !== undefined) {
+    return date1.getTime() === date2.getTime()
+  }
+  return false
 }
 
 export const validationRules: ValidationRules = {
@@ -32,15 +52,10 @@ export const validationRules: ValidationRules = {
     },
     validate: (value: string) => {
       const month = parseInt(value.slice(0, 2), 10)
-      const year = parseInt(value.slice(2, 4), 10)
-      const currentYear = new Date().getFullYear() % 100
-      const currentMonth = new Date().getMonth() + 1
+      const year = parseInt(value.slice(2, 4), 10) + 2000
+      const expirationDate = new Date(year, month - 1)
 
-      return (
-        year > currentYear ||
-        (year === currentYear && month >= currentMonth) ||
-        "Expiration date is in the past"
-      )
+      return isFutureDate(expirationDate) || "Expiration date is in the past"
     },
   },
   cardHolder: {
@@ -69,6 +84,78 @@ export const validationRules: ValidationRules = {
     pattern: {
       value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
       message: "Invalid email format",
+    },
+  },
+  pickUp: {
+    location: {
+      required: "Please select a city",
+      pattern: {
+        value: /^(?!.*Select your city).*$/,
+        message: "Please select a city",
+      },
+    },
+    date: {
+      required: "Pick up date is required",
+      validate: (value: Date, formValues: PaymentFormValues) => {
+        if (!value) return "Pick up date is required"
+        if (!isFutureDate(value)) return "Pick up date must be in the future"
+        if (formValues.dropOff.date && value > formValues.dropOff.date) {
+          return "Pick up date cannot be later than drop off date"
+        }
+        return true
+      },
+    },
+    time: {
+      required: "Pick up time is required",
+      pattern: {
+        value: /^(?!.*Select your time).*$/,
+        message: "Please select pick up time",
+      },
+      validate: (value: string, formValues: PaymentFormValues) => {
+        if (areSameDates(formValues.pickUp.date, formValues.dropOff.date)) {
+          if (isLaterThan(value, formValues.dropOff.time)) {
+            return "Pick up cannot be later than drop off"
+          }
+          return true
+        }
+        return true
+      },
+    },
+  },
+  dropOff: {
+    location: {
+      required: "Please select a city",
+      pattern: {
+        value: /^(?!.*Select your city).*$/,
+        message: "Please select a city",
+      },
+    },
+    date: {
+      required: "Drop off date is required",
+      validate: (value: Date, formValues: PaymentFormValues) => {
+        if (!value) return "Drop off date is required"
+        if (!isFutureDate(value)) return "Drop off date must be in the future"
+        if (formValues.pickUp.date && value < formValues.pickUp.date) {
+          return "Drop off date cannot be earlier than pick up date"
+        }
+        return true
+      },
+    },
+    time: {
+      required: "Drop off time is required",
+      pattern: {
+        value: /^(?!.*Select your time).*$/,
+        message: "Please select drop off time",
+      },
+      validate: (value: string, formValues: PaymentFormValues) => {
+        if (areSameDates(formValues.pickUp.date, formValues.dropOff.date)) {
+          if (isLaterThan(formValues.pickUp.time, value)) {
+            return "Drop off  cannot be earlier than pick up "
+          }
+          return true
+        }
+        return true
+      },
     },
   },
 }

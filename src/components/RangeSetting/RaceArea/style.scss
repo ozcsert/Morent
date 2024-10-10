@@ -36,7 +36,7 @@
     }
 
     .rs-option-line {
-      border: 0.5px solid #C3D4E966;
+      border: 0.5px solid #c3d4e966;
     }
 
     .rs-option {
@@ -65,14 +65,13 @@
           color: #000;
           cursor: pointer;
 
-          &>option:disabled {
-            color: #90A3BF;
+          & > option:disabled {
+            color: #90a3bf;
           }
-
         }
 
         .rs-option-select-default {
-          color: #90A3BF;
+          color: #90a3bf;
         }
 
         .rs-option-select-date {
@@ -84,7 +83,7 @@
           display: flex;
 
           &::placeholder {
-            color: #90A3BF;
+            color: #90a3bf;
           }
         }
 
