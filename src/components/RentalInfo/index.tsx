@@ -1,26 +1,14 @@
 import RentalInputArea from "../RentalInfo/RentalInputArea/"
 import "./styles.scss"
-import { useState } from "react"
 
-type Props = {}
+import { RentalInfoProps } from "@/types/typeList"
 
-const RentalInfo = (props: Props) => {
-  const [leftRaceArea, setLeftRaceArea] = useState({
-    title: "Pick - Up",
-    locationValue: "",
-    selectedStartDate: null,
-    selectedFinishDate: null,
-    timeValue: "",
-  })
-
-  const [rightRaceArea, setRightRaceArea] = useState({
-    title: "Drop - Off",
-    locationValue: "",
-    selectedStartDate: null,
-    selectedFinishDate: null,
-    timeValue: "",
-  })
-
+const RentalInfo: React.FC<RentalInfoProps> = ({
+  register,
+  errors,
+  reset,
+  control,
+}) => {
   return (
     <div className="rntlInfo-container">
       <div className="rntlInfo__title">
@@ -45,7 +33,13 @@ const RentalInfo = (props: Props) => {
           </div>
 
           <div className="rntlInfo__option__details">
-            <RentalInputArea data={leftRaceArea} setData={setLeftRaceArea} />
+            <RentalInputArea
+              title="pickUp"
+              register={register}
+              registerField="pickUp"
+              control={control}
+              errors={errors}
+            />
           </div>
         </div>
         <div className="rntlInfo__option">
@@ -62,7 +56,13 @@ const RentalInfo = (props: Props) => {
           </div>
 
           <div className="rntlInfo__option__details">
-            <RentalInputArea data={leftRaceArea} setData={setLeftRaceArea} />
+            <RentalInputArea
+              title="dropOff"
+              register={register}
+              registerField="dropOff"
+              control={control}
+              errors={errors}
+            />
           </div>
         </div>
       </form>

@@ -1,4 +1,9 @@
-import { UseFormRegister, FieldErrors, UseFormReset } from "react-hook-form"
+import {
+  UseFormRegister,
+  FieldErrors,
+  UseFormReset,
+  Control,
+} from "react-hook-form"
 
 export type PaymentFormValues = {
   cardNumber: string
@@ -7,6 +12,16 @@ export type PaymentFormValues = {
   cvc: string
   paypalEmail: string
   bitcoinEmail: string
+  pickUp: {
+    location: string
+    date: Date
+    time: string
+  }
+  dropOff: {
+    location: string
+    date: Date
+    time: string
+  }
 }
 
 type ValidationRule = {
@@ -18,6 +33,19 @@ type ValidationRule = {
   validate?: (value: string) => boolean | string
 }
 
+type DateValidationRule = {
+  required: string | boolean
+  validate: (value: Date, formValues: PaymentFormValues) => boolean | string
+}
+
+type TimeValidationRule = {
+  required: string | boolean
+  pattern?: {
+    value: RegExp
+    message: string
+  }
+  validate: (value: string, formValues: PaymentFormValues) => boolean | string
+}
 export type ValidationRules = {
   cardNumber: ValidationRule
   expirationDate: ValidationRule
@@ -25,10 +53,35 @@ export type ValidationRules = {
   cvc: ValidationRule
   paypalEmail: ValidationRule
   bitcoinEmail: ValidationRule
+  pickUp: {
+    location: ValidationRule
+    date: DateValidationRule
+    time: TimeValidationRule
+  }
+  dropOff: {
+    location: ValidationRule
+    date: DateValidationRule
+    time: TimeValidationRule
+  }
 }
 
 export type PaymentMethodProps = {
   register: UseFormRegister<PaymentFormValues>
   errors: FieldErrors<PaymentFormValues>
   reset: UseFormReset<PaymentFormValues>
+}
+
+export type RentalInfoProps = {
+  register: UseFormRegister<PaymentFormValues>
+  errors: FieldErrors<PaymentFormValues>
+  reset: UseFormReset<PaymentFormValues>
+  control: Control<PaymentFormValues>
+}
+
+export type RentalInputAreaProps = {
+  title: string
+  register: UseFormRegister<PaymentFormValues>
+  registerField: "pickUp" | "dropOff"
+  control: Control<PaymentFormValues>
+  errors: FieldErrors<PaymentFormValues>
 }

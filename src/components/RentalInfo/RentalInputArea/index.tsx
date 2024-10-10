@@ -1,53 +1,39 @@
 "use client"
-import React, { FC, useRef, useState } from "react"
+import React, { FC } from "react"
 import DatePicker from "react-datepicker"
 import "./style.scss"
 import "react-datepicker/dist/react-datepicker.css"
-import CustomDateArea from "@/components/RangeSetting/CustomDateArea"
-import { RaceAreaProps } from "@/types/RaceArea"
 import DropdownArrow from "@/app/images/bottom-arrow.svg"
 import { turkishCities, timeSlots } from "@/constants"
+import { validationRules } from "@/utils/payment"
+import { Controller } from "react-hook-form"
+import { RentalInputAreaProps } from "@/types/typeList"
+import PaymentError from "@/components/Payment/PaymentError"
 
-const RentalInputArea: FC<RaceAreaProps> = ({ data, setData }) => {
-  const radioRef = useRef<HTMLInputElement>(null)
-  const [radioValue, setRadioValue] = useState<boolean>(false)
+const RentalInputArea: FC<RentalInputAreaProps> = ({
+  register,
+  registerField,
+  control,
+  errors,
+}) => {
+  // const radioRef = useRef<HTMLInputElement>(null)
+  // const [radioValue, setRadioValue] = useState<boolean>(false)
 
-  const radioToggleBtn = () => {
-    radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false)
-  }
+  // const radioToggleBtn = () => {
+  //   radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false)
+  // }
 
-  //   <div className="pymnt__option__details">
-  //   <div className="pymtn__option__field">
-  //   <label htmlFor="card-number">Card Number</label>
-  //   <input
-  //     type="text"
-  //     id="cardNumber"
-  //     placeholder="Card Number"
-  //     {...register("cardNumber", validationRules.cardNumber)}
-  //     maxLength={16}
-  //   />
-
-  // </div>
   return (
     <>
-      {/* <div className="rs-head-container">
-        <div className="rs-options"> */}
-      {/* Location Option */}
-
       <div className="rental__option">
         <h2 className="rental__option-head">Location</h2>
         <div className="rental-option__select-group">
           <select
-            className={`rental-option__select ${
-              data.locationValue === "" ? "rental-option__select-default" : ""
-            }`}
-            value={data.locationValue.toLocaleLowerCase()}
-            onChange={(e) =>
-              setData((prevData) => ({
-                ...prevData,
-                locationValue: e.target.value,
-              }))
-            }
+            className="rental-option__select"
+            {...register(
+              `${registerField}.location`,
+              validationRules[registerField]?.location
+            )}
           >
             <option value="">Select your city</option>
             {turkishCities.map((city, index) => (
@@ -58,6 +44,7 @@ const RentalInputArea: FC<RaceAreaProps> = ({ data, setData }) => {
               </>
             ))}
           </select>
+          <PaymentError error={errors[registerField]?.location} />
           <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
         </div>
       </div>
@@ -66,30 +53,22 @@ const RentalInputArea: FC<RaceAreaProps> = ({ data, setData }) => {
       <div className="rental__option">
         <h2 className="rental__option-head">Date</h2>
         <div className="rental-option__select-group">
-          <DatePicker
-            selected={
-              data.title === "Pick - Up"
-                ? data.selectedStartDate
-                : data.selectedFinishDate
-            }
-            onChange={(date: Date | null) => {
-              if (data.title === "Pick - Up") {
-                setData((prevData) => ({
-                  ...prevData,
-                  selectedStartDate: date,
-                }))
-              } else {
-                setData((prevData) => ({
-                  ...prevData,
-                  selectedFinishDate: date,
-                }))
-              }
-            }}
-            customInput={
-              <CustomDateArea className="rental-option__select-date" />
-            }
-            dateFormat="dd.MM.yyyy"
+          <Controller
+            control={control}
+            name={`${registerField}.date`}
+            rules={validationRules[registerField]?.date}
+            render={({ field }) => (
+              <DatePicker
+                portalId="root-portal"
+                selected={field.value}
+                onChange={(date) => field.onChange(date)}
+                dateFormat="dd.MM.yyyy"
+                placeholderText="Select a date"
+              />
+            )}
           />
+          <PaymentError error={errors[registerField]?.date} />
+          <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
         </div>
       </div>
 
@@ -98,16 +77,11 @@ const RentalInputArea: FC<RaceAreaProps> = ({ data, setData }) => {
         <h2 className="rental__option-head">Time</h2>
         <div className="rental-option__select-group">
           <select
-            className={`rental-option__select ${
-              data.timeValue === "" ? "rental-option__select-default" : ""
-            }`}
-            value={data.timeValue}
-            onChange={(e) =>
-              setData((prevData) => ({
-                ...prevData,
-                timeValue: e.target.value,
-              }))
-            }
+            {...register(
+              `${registerField}.time`,
+              validationRules[registerField]?.time
+            )}
+            className="rental-option__select"
           >
             <option value="">Select your time</option>
             {timeSlots.map((time, index) => (
@@ -119,10 +93,9 @@ const RentalInputArea: FC<RaceAreaProps> = ({ data, setData }) => {
             ))}
           </select>
           <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
+          <PaymentError error={errors[registerField]?.time} />
         </div>
       </div>
-      {/* </div>
-      </div> */}
     </>
   )
 }

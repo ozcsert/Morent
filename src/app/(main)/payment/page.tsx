@@ -10,6 +10,7 @@ const Payment: React.FC = () => {
   const {
     register,
     handleSubmit,
+    control,
     reset,
     formState: { errors },
   } = useForm<PaymentFormValues>({
@@ -20,6 +21,16 @@ const Payment: React.FC = () => {
       cvc: "",
       paypalEmail: "",
       bitcoinEmail: "",
+      pickUp: {
+        location: "",
+        date: undefined,
+        time: "",
+      },
+      dropOff: {
+        location: "",
+        date: undefined,
+        time: "",
+      },
     },
   })
 
@@ -31,7 +42,12 @@ const Payment: React.FC = () => {
 
   return (
     <div>
-      <RentalInfo />
+      <RentalInfo
+        control={control}
+        register={register}
+        errors={errors}
+        reset={reset}
+      />
       <PaymentMethod register={register} errors={errors} reset={reset} />
       <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
     </div>
