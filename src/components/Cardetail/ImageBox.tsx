@@ -25,31 +25,48 @@ function ImageBox() {
           <h3 className="cardetailImageText">Safety and comfort while driving a
             futuristic and elegant sports car</h3>
         </div>
-       
+
       </div>
       <div className="cardetailSmallContainer">
-        <div className="cardetailSmall" onClick={() => { setImageIndex(0) }} style={imageIndex == 0 ? { border: "2px solid #3563E9" } : { border: "none" }}>
+        <div className="cardetailSmall" onClick={() => { setImageIndex(0) }} style={imageIndex == 0 ? { border: "2px solid #3563E9", padding: "16px" } : { border: "none" }}>
           <Image
             src={carList[0]}
             alt="Car"
-            width={imageIndex == 0 ? 132 : 148}
-            height={imageIndex == 0 ? 108 : 124}
+            sizes="80vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+            width={148}
+            height={132}
           />
         </div>
-        <div className="cardetailSmall" style={imageIndex == 1 ? { border: "2px solid #3563E9" } : { border: "none" }} onClick={() => { setImageIndex(1) }}>
+        <div className="cardetailSmall" style={imageIndex == 1 ? { border: "2px solid #3563E9", padding: "1vw" } : { border: "none" }} onClick={() => { setImageIndex(1) }}>
           <Image
             src={carList[1]}
             alt="Direction"
-            width={imageIndex == 1 ? 132 : 148}
-            height={imageIndex == 1 ? 108 : 124}
+            sizes="80vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+            width={148}
+            height={132}
+
           />
         </div>
-        <div className="cardetailSmall" style={imageIndex == 2 ? { border: "2px solid #3563E9" } : { border: "none" }} onClick={() => { setImageIndex(2) }}>
+        <div className="cardetailSmall" style={imageIndex == 2 ? { border: "2px solid #3563E9", padding: "16px" } : { border: "none" }} onClick={() => { setImageIndex(2) }}>
           <Image
             src={carList[2]}
             alt="Seat"
-            width={imageIndex == 2 ? 132 : 148}
-            height={imageIndex == 2 ? 108 : 124}
+            sizes="80vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
+            width={148}
+            height={132}
+
           />
         </div>
       </div>
