@@ -5,9 +5,14 @@ import "./styles.scss";
 type LoadingSpinnerProps = {
   size?: number;
   color?: string;
+  children?: JSX.Element | JSX.Element[];
 };
 
-const Spinner: FC<LoadingSpinnerProps> = ({ size = 24, color = "#333" }) => {
+const Spinner: FC<LoadingSpinnerProps> = ({
+  size = 24,
+  color = "#333",
+  children,
+}) => {
   return (
     <div
       className="loading-spinner"
@@ -17,6 +22,7 @@ const Spinner: FC<LoadingSpinnerProps> = ({ size = 24, color = "#333" }) => {
         borderColor: color,
       }}
     >
+      {children}
       <div className="loading-spinner-inner" />
     </div>
   );

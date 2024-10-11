@@ -18,7 +18,11 @@ const Recommendation: FC<Cars> = () => {
   if (isLoading)
     return (
       <div className="loading">
-        <Spinner />
+        <Spinner size={36} color="#0099ff">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="pulse-dot" />
+          ))}
+        </Spinner>
       </div>
     );
   const dataRecommended = data.filter(
