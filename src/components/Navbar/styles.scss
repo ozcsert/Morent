@@ -349,3 +349,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
 }
+@media (max-width: 300px) {
+  .w-full{
+    font-size: 15px;
+  }
+  .logo-mini .logo-text{
+    font-size: 16px;
+  }
+}
