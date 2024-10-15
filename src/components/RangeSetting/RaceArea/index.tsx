@@ -1,133 +1,19 @@
-"use client";
-import React, { FC, useRef, useState } from "react";
-import DatePicker from "react-datepicker";
-import "./style.scss";
-import "react-datepicker/dist/react-datepicker.css";
-import CustomDateArea from "../CustomDateArea";
-import { RaceAreaProps } from "@/types/RaceArea";
-
-const turkishCities: string[] = [
-  "Adana",
-  "Adıyaman",
-  "Afyonkarahisar",
-  "Ağrı",
-  "Aksaray",
-  "Amasya",
-  "Ankara",
-  "Antalya",
-  "Artvin",
-  "Aydın",
-  "Balıkesir",
-  "Bartın",
-  "Batman",
-  "Bayburt",
-  "Bilecik",
-  "Bingöl",
-  "Bitlis",
-  "Bolu",
-  "Burdur",
-  "Bursa",
-  "Çanakkale",
-  "Çankırı",
-  "Çorum",
-  "Denizli",
-  "Diyarbakır",
-  "Düzce",
-  "Edirne",
-  "Elazığ",
-  "Erzincan",
-  "Erzurum",
-  "Eskişehir",
-  "Gaziantep",
-  "Giresun",
-  "Gümüşhane",
-  "Hakkari",
-  "Hatay",
-  "Iğdır",
-  "Isparta",
-  "İstanbul",
-  "İzmir",
-  "Kahramanmaraş",
-  "Karabük",
-  "Karaman",
-  "Kars",
-  "Kastamonu",
-  "Kayseri",
-  "Kırıkkale",
-  "Kırklareli",
-  "Kırşehir",
-  "Kocaeli",
-  "Konya",
-  "Kütahya",
-  "Malatya",
-  "Manisa",
-  "Mardin",
-  "Mersin",
-  "Muğla",
-  "Muş",
-  "Nevşehir",
-  "Niğde",
-  "Ordu",
-  "Osmaniye",
-  "Rize",
-  "Sakarya",
-  "Samsun",
-  "Siirt",
-  "Sinop",
-  "Sivas",
-  "Şanlıurfa",
-  "Şırnak",
-  "Tekirdağ",
-  "Tokat",
-  "Trabzon",
-  "Tunceli",
-  "Uşak",
-  "Van",
-  "Yalova",
-  "Yozgat",
-  "Zonguldak",
-];
-
-const timeSlots: string[] = [
-  "09:00",
-  "09:30",
-  "10:00",
-  "10:30",
-  "11:00",
-  "11:30",
-  "12:00",
-  "12:30",
-  "13:00",
-  "13:30",
-  "14:00",
-  "14:30",
-  "15:00",
-  "15:30",
-  "16:00",
-  "16:30",
-  "17:00",
-  "17:30",
-  "18:00",
-  "18:30",
-  "19:00",
-  "19:30",
-  "20:00",
-  "20:30",
-  "21:00",
-  "21:30",
-  "22:00",
-  "22:30",
-  "23:00",
-  "23:30",
-];
+"use client"
+import React, { FC, useRef, useState } from "react"
+import DatePicker from "react-datepicker"
+import "./style.scss"
+import "react-datepicker/dist/react-datepicker.css"
+import CustomDateArea from "../CustomDateArea"
+import { RaceAreaProps } from "@/types/RaceArea"
+import { turkishCities, timeSlots } from "@/constants"
 
 const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
-  const radioRef = useRef<HTMLInputElement>(null);
-  const [radioValue, setRadioValue] = useState<boolean>(false);
+  const radioRef = useRef<HTMLInputElement>(null)
+  const [radioValue, setRadioValue] = useState<boolean>(false)
 
   const radioToggleBtn = () => {
-    radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false);
-  };
+    radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false)
+  }
 
   return (
     <>
@@ -194,12 +80,12 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
                     setData((prevData) => ({
                       ...prevData,
                       selectedStartDate: date,
-                    }));
+                    }))
                   } else {
                     setData((prevData) => ({
                       ...prevData,
                       selectedFinishDate: date,
-                    }));
+                    }))
                   }
                 }}
                 customInput={
@@ -240,7 +126,7 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RaceArea;
+export default RaceArea

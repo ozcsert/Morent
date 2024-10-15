@@ -1,19 +1,19 @@
-import { Car } from "@/types/FilterSidebar";
-import { ReviewProps } from "@/types/reviews";
-import alexStan from "/src/public/images/alex_stan.png";
-import skylarDias from "/src/public/images/skylar_dias.png";
-import rFera from "/src/public/images/r_fera.png";
-import andrew from "/src/public/images/andrew.png";
-import pixabay from "/src/public/images/pixabay.png";
-import { Cars } from "@/types/Recommendation";
-import allNewRush from "../app/images/recommendation/All New Rush.png";
-import crv1 from "../app/images/recommendation/CR-V.png";
-import crv2 from "../app/images/recommendation/CR-V2.png";
-import allNewTerios from "../app/images/recommendation/All New Terios.png";
-import mgzxExcite from "../app/images/recommendation/MGZX Excite.png";
-import mgzxExclusive from "../app/images/recommendation/MGZX Exclusive.png";
-import newMgzs from "../app/images/recommendation/New MGZS.png";
-import newMgzs2 from "../app/images/recommendation/New MGZS2.png";
+import { Car } from "@/types/FilterSidebar"
+import { ReviewProps } from "@/types/reviews"
+import alexStan from "/src/public/images/alex_stan.png"
+import skylarDias from "/src/public/images/skylar_dias.png"
+import rFera from "/src/public/images/r_fera.png"
+import andrew from "/src/public/images/andrew.png"
+import pixabay from "/src/public/images/pixabay.png"
+import { Cars } from "@/types/Recommendation"
+import allNewRush from "../app/images/recommendation/All New Rush.png"
+import crv1 from "../app/images/recommendation/CR-V.png"
+import crv2 from "../app/images/recommendation/CR-V2.png"
+import allNewTerios from "../app/images/recommendation/All New Terios.png"
+import mgzxExcite from "../app/images/recommendation/MGZX Excite.png"
+import mgzxExclusive from "../app/images/recommendation/MGZX Exclusive.png"
+import newMgzs from "../app/images/recommendation/New MGZS.png"
+import newMgzs2 from "../app/images/recommendation/New MGZS2.png"
 
 export const dummyCars: Car[] = [
   { id: 1, name: "Dogan", type: "Sport", capacity: "10 people", price: 1 },
@@ -40,7 +40,7 @@ export const dummyCars: Car[] = [
     price: 60,
   },
   { id: 11, name: "Car 12", type: "Sport", capacity: "4 Person", price: 90 },
-];
+]
 
 export const reviews: ReviewProps[] = [
   {
@@ -93,7 +93,7 @@ export const reviews: ReviewProps[] = [
     rating: 5,
     date: "2022-07-22",
   },
-];
+]
 
 export const dummyRecommendationCars: Cars[] = [
   {
@@ -676,4 +676,119 @@ export const dummyRecommendationCars: Cars[] = [
     gasoline: "75L",
     gear: "Automatic",
   },
-];
+]
+
+export const turkishCities: string[] = [
+  "Adana",
+  "Adıyaman",
+  "Afyonkarahisar",
+  "Ağrı",
+  "Aksaray",
+  "Amasya",
+  "Ankara",
+  "Antalya",
+  "Artvin",
+  "Aydın",
+  "Balıkesir",
+  "Bartın",
+  "Batman",
+  "Bayburt",
+  "Bilecik",
+  "Bingöl",
+  "Bitlis",
+  "Bolu",
+  "Burdur",
+  "Bursa",
+  "Çanakkale",
+  "Çankırı",
+  "Çorum",
+  "Denizli",
+  "Diyarbakır",
+  "Düzce",
+  "Edirne",
+  "Elazığ",
+  "Erzincan",
+  "Erzurum",
+  "Eskişehir",
+  "Gaziantep",
+  "Giresun",
+  "Gümüşhane",
+  "Hakkari",
+  "Hatay",
+  "Iğdır",
+  "Isparta",
+  "İstanbul",
+  "İzmir",
+  "Kahramanmaraş",
+  "Karabük",
+  "Karaman",
+  "Kars",
+  "Kastamonu",
+  "Kayseri",
+  "Kırıkkale",
+  "Kırklareli",
+  "Kırşehir",
+  "Kocaeli",
+  "Konya",
+  "Kütahya",
+  "Malatya",
+  "Manisa",
+  "Mardin",
+  "Mersin",
+  "Muğla",
+  "Muş",
+  "Nevşehir",
+  "Niğde",
+  "Ordu",
+  "Osmaniye",
+  "Rize",
+  "Sakarya",
+  "Samsun",
+  "Siirt",
+  "Sinop",
+  "Sivas",
+  "Şanlıurfa",
+  "Şırnak",
+  "Tekirdağ",
+  "Tokat",
+  "Trabzon",
+  "Tunceli",
+  "Uşak",
+  "Van",
+  "Yalova",
+  "Yozgat",
+  "Zonguldak",
+]
+
+export const timeSlots: string[] = [
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "12:00",
+  "12:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
+  "21:30",
+  "22:00",
+  "22:30",
+  "23:00",
+  "23:30",
+]
