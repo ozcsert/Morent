@@ -16,9 +16,10 @@
     "react-datepicker": "^7.3.0",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
-    "recharts": "^2.12.7",
     "react-rating-stars-component": "^2.2.0",
-    "sass": "^1.78.0"
+    "recharts": "^2.12.7",
+    "sass": "^1.78.0",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
