@@ -328,6 +328,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transition: opacity 0.3s, transform 0.3s;
   transform: translate3d(100%, 0px, 0px);
 }
+.gap-2{
+  padding: 0 4rem;
+  /* marker: revert; */
+  list-style-type: none;
+}
+.w-full{
+  padding: 0 0 5px 0;
+  font-size: 18px;
+}
 @media (max-width: 475px) {
   .last-row{
     flex-direction: column;
