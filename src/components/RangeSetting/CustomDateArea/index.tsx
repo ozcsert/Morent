@@ -1,13 +1,12 @@
-import { FC } from "react";
-import DropdownArrow from "@/app/images/bottom-arrow.svg";
-import Image from "next/image";
-import "./styles.scss";
+import { FC } from "react"
+import DropdownArrow from "@/app/images/bottom-arrow.svg"
+import "./styles.scss"
 
 type CustomDateAreaProps = {
-  value?: string;
-  onClick?: () => void;
-  className?: string;
-};
+  value?: string
+  onClick?: () => void
+  className?: string
+}
 
 const CustomDateArea: FC<CustomDateAreaProps> = ({
   value,
@@ -26,7 +25,7 @@ const CustomDateArea: FC<CustomDateAreaProps> = ({
         <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default CustomDateArea;
+export default CustomDateArea
