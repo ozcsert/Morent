@@ -1,19 +1,19 @@
-"use client"
-import React, { FC, useRef, useState } from "react"
-import DatePicker from "react-datepicker"
-import "./style.scss"
-import "react-datepicker/dist/react-datepicker.css"
-import CustomDateArea from "../CustomDateArea"
-import { RaceAreaProps } from "@/types/RaceArea"
-import { turkishCities, timeSlots } from "@/constants"
+'use client';
+import React, { FC, useRef, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import './style.scss';
+import 'react-datepicker/dist/react-datepicker.css';
+import CustomDateArea from '../CustomDateArea';
+import { RaceAreaProps } from '@/types/RaceArea';
+import { turkishCities, timeSlots } from '@/constants';
 
 const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
-  const radioRef = useRef<HTMLInputElement>(null)
-  const [radioValue, setRadioValue] = useState<boolean>(false)
+  const radioRef = useRef<HTMLInputElement>(null);
+  const [radioValue, setRadioValue] = useState<boolean>(false);
 
   const radioToggleBtn = () => {
-    radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false)
-  }
+    radioRef.current?.checked ? setRadioValue(true) : setRadioValue(false);
+  };
 
   return (
     <>
@@ -21,7 +21,7 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
         <div className="rs-head">
           <div
             className={`rs-radio-wrapper ${
-              radioValue ? "rs-radio-wrapper-selected" : ""
+              radioValue ? 'rs-radio-wrapper-selected' : ''
             }`}
           >
             <input
@@ -43,11 +43,11 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
             <div className="rs-option-select-group">
               <select
                 className={`rs-option-select ${
-                  data.locationValue === "" ? "rs-option-select-default" : ""
+                  data.locationValue === '' ? 'rs-option-select-default' : ''
                 }`}
                 value={data.locationValue.toLocaleLowerCase()}
-                onChange={(e) =>
-                  setData((prevData) => ({
+                onChange={e =>
+                  setData(prevData => ({
                     ...prevData,
                     locationValue: e.target.value,
                   }))
@@ -71,21 +71,21 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
             <div className="rs-option-select-group">
               <DatePicker
                 selected={
-                  data.title === "Pick - Up"
+                  data.title === 'Pick - Up'
                     ? data.selectedStartDate
                     : data.selectedFinishDate
                 }
                 onChange={(date: Date | null) => {
-                  if (data.title === "Pick - Up") {
-                    setData((prevData) => ({
+                  if (data.title === 'Pick - Up') {
+                    setData(prevData => ({
                       ...prevData,
                       selectedStartDate: date,
-                    }))
+                    }));
                   } else {
-                    setData((prevData) => ({
+                    setData(prevData => ({
                       ...prevData,
                       selectedFinishDate: date,
-                    }))
+                    }));
                   }
                 }}
                 customInput={
@@ -102,11 +102,11 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
             <div className="rs-option-select-group">
               <select
                 className={`rs-option-select ${
-                  data.timeValue === "" ? "rs-option-select-default" : ""
+                  data.timeValue === '' ? 'rs-option-select-default' : ''
                 }`}
                 value={data.timeValue}
-                onChange={(e) =>
-                  setData((prevData) => ({
+                onChange={e =>
+                  setData(prevData => ({
                     ...prevData,
                     timeValue: e.target.value,
                   }))
@@ -126,7 +126,7 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default RaceArea
+export default RaceArea;

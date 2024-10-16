@@ -1,9 +1,9 @@
-"use client";
-import React, { FC, useState } from "react";
-import "./styles.scss";
-import { Cars } from "@/types/typeList";
-import { dummyRecommendationCars } from "@/constants";
-import RecommendationCard from "./RecommendationCard";
+'use client';
+import React, { FC, useState } from 'react';
+import './styles.scss';
+import { Cars } from '@/types/typeList';
+import { dummyRecommendationCars } from '@/constants';
+import RecommendationCard from './RecommendationCard';
 
 const Recommendation: FC<Cars> = () => {
   const [showMoreCars, setShowMoreCars] = useState(false);
@@ -13,13 +13,13 @@ const Recommendation: FC<Cars> = () => {
       <div className="recommendation-wrapper">
         <ul className="recommendation-cars">
           {showMoreCars
-            ? dummyRecommendationCars.map((car) => (
+            ? dummyRecommendationCars.map(car => (
                 <li className="recommendation-car" key={car.id}>
                   <RecommendationCard car={car} />
                 </li>
               ))
             : dummyRecommendationCars
-                .map((car) => (
+                .map(car => (
                   <li className="recommendation-car" key={car.id}>
                     <RecommendationCard car={car} />
                   </li>

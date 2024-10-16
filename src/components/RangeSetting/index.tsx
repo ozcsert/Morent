@@ -1,25 +1,25 @@
-"use client";
-import React from "react";
-import "./style.scss";
-import RaceArea from "./RaceArea";
-import SwapButton from "@/app/images/swap-button.svg";
-import { useState } from "react";
+'use client';
+import React from 'react';
+import './style.scss';
+import RaceArea from './RaceArea';
+import SwapButton from '@/app/images/swap-button.svg';
+import { useState } from 'react';
 
 const RangeSettings = () => {
   const [leftRaceArea, setLeftRaceArea] = useState({
-    title: "Pick - Up",
-    locationValue: "",
+    title: 'Pick - Up',
+    locationValue: '',
     selectedStartDate: null,
     selectedFinishDate: null,
-    timeValue: "",
+    timeValue: '',
   });
 
   const [rightRaceArea, setRightRaceArea] = useState({
-    title: "Drop - Off",
-    locationValue: "",
+    title: 'Drop - Off',
+    locationValue: '',
     selectedStartDate: null,
     selectedFinishDate: null,
-    timeValue: "",
+    timeValue: '',
   });
 
   const handleSwitchRangeArea = () => {

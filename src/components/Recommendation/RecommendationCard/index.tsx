@@ -1,12 +1,12 @@
-"use client";
-import Gasoline from "@/app/images/recommendation/icons/Gasoline";
-import Gear from "@/app/images/recommendation/icons/Gear";
-import Heart from "@/app/images/recommendation/icons/Heart";
-import Profile from "@/app/images/recommendation/icons/Profile";
-import { Cars } from "@/types/Recommendation";
-import Image from "next/image";
-import React, { useState } from "react";
-import "./styles.scss";
+'use client';
+import Gasoline from '@/app/images/recommendation/icons/Gasoline';
+import Gear from '@/app/images/recommendation/icons/Gear';
+import Heart from '@/app/images/recommendation/icons/Heart';
+import Profile from '@/app/images/recommendation/icons/Profile';
+import { Cars } from '@/types/Recommendation';
+import Image from 'next/image';
+import React, { useState } from 'react';
+import './styles.scss';
 
 type cardProps = {
   car: Cars;
@@ -16,7 +16,7 @@ const RecommendationCard = ({ car }: cardProps) => {
   const [isActive, setIsActive] = useState(false);
 
   function handleLike() {
-    return setIsActive((prev) => !prev);
+    return setIsActive(prev => !prev);
   }
 
   return (

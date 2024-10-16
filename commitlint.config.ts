@@ -10,7 +10,7 @@ module.exports = {
     {
       rules: {
         'custom-format': ({ header }: { header: string }) => {
-          const regex = /^(\[SE-\d{1,}\]:) (.{15,}$)/;
+          const regex = /^(\[SE-\d{1,}\]:) (.+$)/;
           const match = header.match(regex);
 
           if (!match) {
