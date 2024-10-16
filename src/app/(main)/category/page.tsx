@@ -45,7 +45,7 @@ const CategoryPage = () => {
       <section>
         <h2>Available Cars</h2>
         <ul>
-          {filteredCars.map(car => (
+          {filteredCars.map((car) => (
             <li key={car.id}>
               {car.name} - {car.type} - {car.capacity} - ${car.price}
             </li>
