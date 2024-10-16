@@ -12,9 +12,6 @@ module.exports = {
         'custom-format': ({ header }: { header: string }) => {
           const regex = /^(\[SE-\d{1,}\]:) (.{15,}$)/;
           const match = header.match(regex);
-          console.log('header: ', header);
-
-          console.log(match);
 
           if (!match) {
             return [false, 'Header format must be like "[SE-01]: Subject"'];
