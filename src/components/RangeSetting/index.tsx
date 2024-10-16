@@ -4,9 +4,10 @@ import './style.scss';
 import RaceArea from './RaceArea';
 import SwapButton from '@/app/images/swap-button.svg';
 import { useState } from 'react';
+import { RaceAreaData } from '@/types/RaceArea';
 
 const RangeSettings = () => {
-  const [leftRaceArea, setLeftRaceArea] = useState({
+  const [leftRaceArea, setLeftRaceArea] = useState<RaceAreaData>({
     title: 'Pick - Up',
     locationValue: '',
     selectedStartDate: null,
@@ -14,7 +15,7 @@ const RangeSettings = () => {
     timeValue: '',
   });
 
-  const [rightRaceArea, setRightRaceArea] = useState({
+  const [rightRaceArea, setRightRaceArea] = useState<RaceAreaData>({
     title: 'Drop - Off',
     locationValue: '',
     selectedStartDate: null,

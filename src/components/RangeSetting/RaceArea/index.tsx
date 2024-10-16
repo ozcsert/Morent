@@ -53,13 +53,13 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
                   }))
                 }
               >
-                <option value="">Select your city</option>
+                <option key={turkishCities.length + 1} value="">
+                  Select your city
+                </option>
                 {turkishCities.map((city, index) => (
-                  <>
-                    <option key={index} value={city.toLocaleLowerCase()}>
-                      {city}
-                    </option>
-                  </>
+                  <option key={index} value={city.toLocaleLowerCase()}>
+                    {city}
+                  </option>
                 ))}
               </select>
             </div>
@@ -114,11 +114,9 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
               >
                 <option value="">Select your time</option>
                 {timeSlots.map((time, index) => (
-                  <>
-                    <option key={index} value={time}>
-                      {time}
-                    </option>
-                  </>
+                  <option key={index} value={time}>
+                    {time}
+                  </option>
                 ))}
               </select>
             </div>
