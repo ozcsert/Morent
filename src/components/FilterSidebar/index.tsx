@@ -15,9 +15,9 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({
   const [priceRange, setPriceRange] = useState<number>(100);
 
   const handleTypeChange = (type: string) => {
-    setSelectedTypes((prevTypes) => {
+    setSelectedTypes(prevTypes => {
       const updatedTypes = prevTypes.includes(type)
-        ? prevTypes.filter((t) => t !== type)
+        ? prevTypes.filter(t => t !== type)
         : [...prevTypes, type];
 
       onFilterChange({
@@ -31,9 +31,9 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({
   };
 
   const handleCapacityChange = (capacity: string) => {
-    setSelectedCapacity((prevCapacities) => {
+    setSelectedCapacity(prevCapacities => {
       const updatedCapacities = prevCapacities.includes(capacity)
-        ? prevCapacities.filter((c) => c !== capacity)
+        ? prevCapacities.filter(c => c !== capacity)
         : [...prevCapacities, capacity];
 
       onFilterChange({

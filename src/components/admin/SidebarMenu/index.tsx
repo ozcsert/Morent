@@ -21,8 +21,8 @@ const SideBar = () => {
   const [isRotated, setIsRotated] = useState<boolean>(false);
 
   const handleSwitchSidebar = () => {
-    setIsOpen((prev) => !prev);
-    setIsRotated((prev) => !prev);
+    setIsOpen(prev => !prev);
+    setIsRotated(prev => !prev);
     if (!textOpen) {
       setTextOpen(true);
     } else {

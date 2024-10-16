@@ -61,7 +61,7 @@ const RentalInputArea: FC<RentalInputAreaProps> = ({
               <DatePicker
                 portalId="root-portal"
                 selected={field.value}
-                onChange={(date) => field.onChange(date)}
+                onChange={date => field.onChange(date)}
                 dateFormat="dd.MM.yyyy"
                 placeholderText="Select a date"
               />
