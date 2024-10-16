@@ -13,13 +13,13 @@ const Recommendation: FC<Cars> = () => {
       <div className="recommendation-wrapper">
         <ul className="recommendation-cars">
           {showMoreCars
-            ? dummyRecommendationCars.map(car => (
+            ? dummyRecommendationCars.map((car) => (
                 <li className="recommendation-car" key={car.id}>
                   <RecommendationCard car={car} />
                 </li>
               ))
             : dummyRecommendationCars
-                .map(car => (
+                .map((car) => (
                   <li className="recommendation-car" key={car.id}>
                     <RecommendationCard car={car} />
                   </li>

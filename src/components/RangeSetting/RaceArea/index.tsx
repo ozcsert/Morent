@@ -46,8 +46,8 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
                   data.locationValue === '' ? 'rs-option-select-default' : ''
                 }`}
                 value={data.locationValue.toLocaleLowerCase()}
-                onChange={e =>
-                  setData(prevData => ({
+                onChange={(e) =>
+                  setData((prevData) => ({
                     ...prevData,
                     locationValue: e.target.value,
                   }))
@@ -77,12 +77,12 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
                 }
                 onChange={(date: Date | null) => {
                   if (data.title === 'Pick - Up') {
-                    setData(prevData => ({
+                    setData((prevData) => ({
                       ...prevData,
                       selectedStartDate: date,
                     }));
                   } else {
-                    setData(prevData => ({
+                    setData((prevData) => ({
                       ...prevData,
                       selectedFinishDate: date,
                     }));
@@ -105,8 +105,8 @@ const RaceArea: FC<RaceAreaProps> = ({ data, setData }) => {
                   data.timeValue === '' ? 'rs-option-select-default' : ''
                 }`}
                 value={data.timeValue}
-                onChange={e =>
-                  setData(prevData => ({
+                onChange={(e) =>
+                  setData((prevData) => ({
                     ...prevData,
                     timeValue: e.target.value,
                   }))

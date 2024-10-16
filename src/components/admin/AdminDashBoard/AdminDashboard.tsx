@@ -70,7 +70,7 @@ const data: ChartData[] = [
 // to calculate total car count
 let totalCarCount = 0;
 const handleCarTotal = (carData: ChartData[]) => {
-  carData.forEach(car => {
+  carData.forEach((car) => {
     totalCarCount += car.value;
   });
 
