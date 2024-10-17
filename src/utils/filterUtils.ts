@@ -6,16 +6,16 @@ export const calculateNumberOfInputs = (
   inputSection: { label: string; count: number }[],
   attribute: keyof Car
 ) => {
-  const uniqueCarTypes = new Set(dummyCars.map((car) => car[attribute]));
+  const uniqueCarTypes = new Set(dummyCars.map(car => car[attribute]));
 
   const numberOfCarsForEachType: { [key: string]: number } = {};
-  dummyCars.forEach((car) =>
+  dummyCars.forEach(car =>
     numberOfCarsForEachType[car[attribute]]
       ? (numberOfCarsForEachType[car[attribute]] += 1)
       : (numberOfCarsForEachType[car[attribute]] = 1)
   );
   inputSection.length = 0;
-  uniqueCarTypes.forEach((attr) => {
+  uniqueCarTypes.forEach(attr => {
     inputSection.push({
       label: String(attr),
       count: numberOfCarsForEachType[attr],
@@ -28,7 +28,7 @@ export const filterCars = (
   cars: Car[]
 ) => {
   const { type, capacity, maxPrice } = filters;
-  return cars.filter((car) => {
+  return cars.filter(car => {
     const matchesType = type.length === 0 || type.includes(car.type);
     const matchesCapacity =
       capacity.length === 0 || capacity.includes(car.capacity);

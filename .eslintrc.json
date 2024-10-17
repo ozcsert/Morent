@@ -3,7 +3,7 @@
   "rules": {
     "eqeqeq": ["error", "always"],
     "no-unused-vars": ["warn", { "vars": "all", "args": "after-used" }],
-    "arrow-parens": ["warn", "always"],
+    "arrow-parens": ["off"],
     "prefer-const": ["warn"],
     "react/prop-types": "off"
   }

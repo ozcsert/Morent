@@ -16,7 +16,7 @@ const RecommendationCard = ({ car }: cardProps) => {
   const [isActive, setIsActive] = useState(false);
 
   function handleLike() {
-    return setIsActive((prev) => !prev);
+    return setIsActive(prev => !prev);
   }
 
   return (
