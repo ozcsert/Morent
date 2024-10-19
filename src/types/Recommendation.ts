@@ -3,10 +3,12 @@ import { StaticImageData } from 'next/image';
 export type Cars = {
   id?: number;
   name?: string;
-  img?: StaticImageData | string | undefined;
-  type?: string;
+  image?: StaticImageData | string | undefined;
+  carType?: string;
   capacity?: string;
   price?: number;
-  gasoline?: string;
-  gear?: string;
+  storage?: string;
+  gearType?: string;
+  view?: number | undefined;
+  rentCount?: string;
 };

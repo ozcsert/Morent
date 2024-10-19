@@ -2,24 +2,47 @@
 import React, { FC, useState } from 'react';
 import './styles.scss';
 import { Cars } from '@/types/typeList';
-import { dummyRecommendationCars } from '@/constants';
 import RecommendationCard from './RecommendationCard';
+import useSWR from 'swr';
+import Spinner from '../Spinner';
 
 const Recommendation: FC<Cars> = () => {
   const [showMoreCars, setShowMoreCars] = useState(false);
+  const fetcher = (url: string) => fetch(url).then(r => r.json());
+  const { data, error, isLoading } = useSWR(
+    'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars',
+    fetcher
+  );
+
+  if (error) return <div className="error">failed to load</div>;
+  if (isLoading)
+    return (
+      <div className="loading" style={{ height: '800px' }}>
+        <Spinner size={36} color="#0099ff">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="pulse-dot" />
+          ))}
+        </Spinner>
+      </div>
+    );
+  const dataRecommended = data.filter(
+    (car: Cars) => car.view !== undefined && car.view > 2500
+  );
+  console.log(dataRecommended, 'dd');
+
   return (
     <div className="recommendation-cars-container">
       <h4>Recomendation Cars</h4>
       <div className="recommendation-wrapper">
         <ul className="recommendation-cars">
           {showMoreCars
-            ? dummyRecommendationCars.map(car => (
+            ? dataRecommended.map((car: Cars) => (
                 <li className="recommendation-car" key={car.id}>
                   <RecommendationCard car={car} />
                 </li>
               ))
-            : dummyRecommendationCars
-                .map(car => (
+            : dataRecommended
+                .map((car: Cars) => (
                   <li className="recommendation-car" key={car.id}>
                     <RecommendationCard car={car} />
                   </li>
@@ -45,7 +68,7 @@ const Recommendation: FC<Cars> = () => {
         )}
 
         <p className="recommendation-total-cars">
-          {dummyRecommendationCars.length} cars
+          {dataRecommended.length} cars
         </p>
       </div>
     </div>

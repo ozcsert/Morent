@@ -13,12 +13,12 @@ export default function Home() {
         <Recommendation
           id={0}
           name={''}
-          img={''}
-          type={''}
-          capacity={''}
           price={0}
-          gasoline={''}
-          gear={''}
+          image={''}
+          carType={''}
+          capacity={''}
+          storage={''}
+          gearType={''}
         />
         <Footer />
       </div>
