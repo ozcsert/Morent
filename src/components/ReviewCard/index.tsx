@@ -1,12 +1,12 @@
-"use client";
-import Image from "next/image";
-import "./styles.scss";
-import { reviews } from "@/constants";
-import React, { useEffect, useState } from "react";
-import { ReviewProps } from "@/types/typeList";
-import ReactStars from "react-rating-stars-component";
-import AngleDown from "@/public/images/icons/AngleDown";
-import AngleUp from "@/public/images/icons/AngleUp";
+'use client';
+import Image from 'next/image';
+import './styles.scss';
+import { reviews } from '@/constants';
+import React, { useEffect, useState } from 'react';
+import { ReviewProps } from '@/types/typeList';
+import ReactStars from 'react-rating-stars-component';
+import AngleDown from '@/public/images/icons/AngleDown';
+import AngleUp from '@/public/images/icons/AngleUp';
 
 const ReviewCard: React.FC<ReviewProps> = () => {
   const [showMore, setShowMore] = useState(false);
@@ -15,21 +15,21 @@ const ReviewCard: React.FC<ReviewProps> = () => {
     const handleResize = () => {
       setWindowSize(window.innerWidth);
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     handleResize();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [windowSize]);
 
   const reviewCards = reviews.map((review, id) => {
     const revDate = new Date(review.date)
       .toUTCString()
-      .split(" ")
+      .split(' ')
       .slice(1, 4)
-      .join(" ");
+      .join(' ');
     return (
       <div className="review-card" key={id}>
         <div className="review-card-img">

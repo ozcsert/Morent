@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-import "./styles.scss";
+import './styles.scss';
 
 type LoadingSpinnerProps = {
   size?: number;
@@ -10,7 +10,7 @@ type LoadingSpinnerProps = {
 
 const Spinner: FC<LoadingSpinnerProps> = ({
   size = 24,
-  color = "#333",
+  color = '#333',
   children,
 }) => {
   return (
