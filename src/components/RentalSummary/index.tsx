@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import './styles.scss';
+import React, { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import "./styles.scss";
 
 interface RentalSummaryProps {
   carName: string;
-  imageUrl: string;
+  imageUrl: StaticImageData | string;
   rating: number;
   reviewCount: number;
   subtotal: number;
@@ -17,9 +17,9 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
   imageUrl,
   rating,
   reviewCount,
-  subtotal
+  subtotal,
 }) => {
-  const [promoCode, setPromoCode] = useState('');
+  const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const tax = 0;
   const totalPrice = subtotal + tax - discount;
@@ -36,7 +36,10 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
   return (
     <div className="rental-summary">
       <h2>Rental Summary</h2>
-      <p className="subtitle">Prices may change depending on the length of the rental and the price of your rental car.</p>
+      <p className="subtitle">
+        Prices may change depending on the length of the rental and the price of
+        your rental car.
+      </p>
       <div className="car-info">
         <div className="car-image">
           <Image src={imageUrl} alt={carName} width={116} height={56} />
@@ -44,7 +47,8 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
         <div className="car-details">
           <h3>{carName}</h3>
           <div className="rating">
-            {'★'.repeat(rating)}{'☆'.repeat(5 - rating)} {reviewCount}+ Reviewer
+            {"★".repeat(rating)}
+            {"☆".repeat(5 - rating)} {reviewCount}+ Reviewer
           </div>
         </div>
       </div>
@@ -76,7 +80,9 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
       <div className="total-price">
         <div>
           <span>Total Rental Price</span>
-          <span className="info">Overall price and includes rental discount</span>
+          <span className="info">
+            Overall price and includes rental discount
+          </span>
         </div>
         <span className="price">${totalPrice.toFixed(2)}</span>
       </div>

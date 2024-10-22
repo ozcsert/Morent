@@ -1,12 +1,12 @@
-"use client"
-import "./styles.scss"
-import { useState } from "react"
-import VisaIcon from "@/app/images/payment/Visa.svg"
-import PaypalIcon from "@/app/images/payment/PayPal.svg"
-import BitcoinIcon from "@/app/images/payment/Bitcoin.svg"
-import { PaymentMethodProps } from "@/types/typeList"
-import { validationRules } from "@/utils/payment"
-import PaymentError from "./PaymentError"
+"use client";
+import "./styles.scss";
+import { useState } from "react";
+import VisaIcon from "@/app/images/payment/Visa.svg";
+import PaypalIcon from "@/app/images/payment/PayPal.svg";
+import BitcoinIcon from "@/app/images/payment/Bitcoin.svg";
+import { PaymentMethodProps } from "@/types/typeList";
+import { validationRules } from "@/utils/payment";
+import PaymentError from "./PaymentError";
 
 // mastercard example card number 5425233430109903
 
@@ -15,31 +15,31 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
   errors,
   setValue,
 }) => {
-  const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card")
+  const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card");
 
   const changePayMethod = async (payMethod: string) => {
-    await setSelectedMethod(payMethod)
+    await setSelectedMethod(payMethod);
 
     switch (payMethod) {
       case "Credit Card":
-        setValue("paypalEmail", "")
-        break
+        setValue("paypalEmail", "");
+        break;
       case "PayPal":
-        setValue("cardHolder", "")
-        setValue("cardNumber", "")
-        setValue("cvc", "")
-        setValue("bitcoinEmail", "")
-        setValue("expirationDate", "")
+        setValue("cardHolder", "");
+        setValue("cardNumber", "");
+        setValue("cvc", "");
+        setValue("bitcoinEmail", "");
+        setValue("expirationDate", "");
       case "BitCoin":
-        setValue("cardHolder", "")
-        setValue("cardNumber", "")
-        setValue("cvc", "")
-        setValue("paypalEmail", "")
-        setValue("expirationDate", "")
+        setValue("cardHolder", "");
+        setValue("cardNumber", "");
+        setValue("cvc", "");
+        setValue("paypalEmail", "");
+        setValue("expirationDate", "");
       default:
-        break
+        break;
     }
-  }
+  };
 
   return (
     <div className="payment-container">
@@ -152,7 +152,6 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
           )}
         </div>
       </form>
-
       <form className="payment__form">
         <div className="payment__option">
           <div className="pymn__option__name">
@@ -186,7 +185,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default PaymentMethod
+export default PaymentMethod;
