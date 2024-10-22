@@ -24,18 +24,17 @@ const CarCart = ({ cars }: carProps) => {
         return setIsActive((prev) => !prev);
     }
 
-
-
     return (
         <div className='popular-car-cart' >
             <div className='popular-car-main'>
                 <div className='popular-car-cart-header-title'>
                     <h2 className='popular-car-cart-name'>{cars.name}</h2>
-                    <div onClick={handleLike}><Heart isActive={isActive} /></div>
-                    
+                    <div className='popular-car-cart-header-title-like' onClick={handleLike}>
+                        <Heart isActive={isActive} />
+                        </div>
                 </div>
                 <div className='popular-car-cart-header-subtitle'>
-                    <p>Sport</p>
+                    <p>{cars.type}</p>
                 </div>
                 <img className='popular-car-cart-img' width={232} height={72} src={cars.img} />
                 <div className='popular-car-cart-info'>

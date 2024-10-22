@@ -1,39 +1,42 @@
-.popular-car-cart-header-main {
-    width: 100%;
-    max-width: 1312px;
-    margin: 20px auto;
+.popular-car-main-box {
+    max-width: 1440px;
     background-color: #F6F7F9;
-    padding-bottom: 50px;
+    margin: 30px auto;
 
-    .popular-car-cart-header {
-        display: flex;
-        justify-content: space-between;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        padding: 0px 5px;
+    .popular-car-cart-header-main {
+        width: 100%;
+        max-width: 1312px;
+        margin: 20px auto;
+        background-color: #F6F7F9;
+        padding-bottom: 50px;
 
-        .popular-car-popular-car-text {
-            font-size: 16px;
-            font-weight: 600;
-            padding-left: 22px;
-            color: #90A3BF;
-            padding-top: 14px;
+        .popular-car-cart-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            align-items: center;
+            padding: 25px;
+
+            .popular-car-popular-car-text {
+                font-size: 16px;
+                font-weight: 600;
+                color: #90A3BF;
+            }
+
+            .popular-car-view-all {
+                font-size: 16px;
+                font-weight: 600;
+                color: #3563E9;
+                cursor: pointer;
+            }
         }
 
-        .popular-car-view-all {
-            font-size: 16px;
-            font-weight: 600;
-            padding-right: 22px;
-            padding-top: 14px;
-            color: #3563E9;
-            cursor: pointer;
+        .popular-car-cart-all-car {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 30px;
         }
-    }
-
-    .popular-car-cart-all-car {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        flex-wrap: wrap;
-        gap: 10px;
     }
 }
