@@ -1,62 +1,68 @@
-'use client';
-import './style.scss';
+"use client";
+import "./style.scss";
 import gasStation from "../../assets/gas-station.png";
 import circle from "../../assets/circle icon.png";
-import users from "../../assets/profile-2user.png"
-import Image from 'next/image';
-import { useState } from 'react';
-import Heart from '@/assets/icons/Heart';
-import { dummyCars } from '@/constants';
-
-
-
-
+import users from "../../assets/profile-2user.png";
+import { useState } from "react";
+import Heart from "@/assets/icons/Heart";
+import { Car } from "@/types/FilterSidebar";
+import Image from "next/image";
 
 type carProps = {
-    cars: dummyCars
-}
+  cars: Car;
+};
 
 const CarCart = ({ cars }: carProps) => {
+  const [isActive, setIsActive] = useState(false);
 
-    const [isActive, setIsActive] = useState(false);
+  function handleLike() {
+    return setIsActive((prev) => !prev);
+  }
 
-    function handleLike() {
-        return setIsActive((prev) => !prev);
-    }
-
-    return (
-        <div className='popular-car-cart' >
-            <div className='popular-car-main'>
-                <div className='popular-car-cart-header-title'>
-                    <h2 className='popular-car-cart-name'>{cars.name}</h2>
-                    <div className='popular-car-cart-header-title-like' onClick={handleLike}>
-                        <Heart isActive={isActive} />
-                        </div>
-                </div>
-                <div className='popular-car-cart-header-subtitle'>
-                    <p>{cars.type}</p>
-                </div>
-                <img className='popular-car-cart-img' width={232} height={72} src={cars.img} />
-                <div className='popular-car-cart-info'>
-                    <div className='popular-car-cart-capacity'>
-                        <img src={gasStation.src} width={24} height={24} />
-                        <p className='popular-car-cart-capacity-text'>{cars.capacity}</p>
-                    </div>
-                    <div className='popular-car-cart-capacity'>
-                        <img src={circle.src} width={24} height={24} />
-                        <p className='popular-car-cart-capacity-text'>Manuel</p>
-                    </div>
-                    <div className='popular-car-cart-capacity'>
-                        <img src={users.src} width={24} height={24} />
-                        <p className='popular-car-cart-capacity-text'>{cars.users}</p>
-                    </div>
-                </div>
-                <div className='popular-car-cart-footer'>
-                    <div className='popular-car-cart-price'><span>{cars.price}</span>day</div>
-                    <button className='popular-car-cart-btn'>Rent Now</button>
-                </div>
-            </div>
+  return (
+    <div className="popular-car-cart">
+      <div className="popular-car-main">
+        <div className="popular-car-cart-header-title">
+          <h2 className="popular-car-cart-name">{cars.name}</h2>
+          <div
+            className="popular-car-cart-header-title-like"
+            onClick={handleLike}
+          >
+            <Heart isActive={isActive} />
+          </div>
         </div>
-    )
-}
-export default CarCart
+        <div className="popular-car-cart-header-subtitle">
+          <p>{cars.type}</p>
+        </div>
+        <Image
+          className="popular-car-cart-img"
+          width={232}
+          height={72}
+          src={cars.img}
+          alt="car"
+        />
+        <div className="popular-car-cart-info">
+          <div className="popular-car-cart-capacity">
+            <Image src={gasStation.src} width={24} height={24} alt="gas" />
+            <p className="popular-car-cart-capacity-text">{cars.capacity}</p>
+          </div>
+          <div className="popular-car-cart-capacity">
+            <Image src={circle.src} width={24} height={24} alt="circle" />
+            <p className="popular-car-cart-capacity-text">Manuel</p>
+          </div>
+          <div className="popular-car-cart-capacity">
+            <Image src={users.src} width={24} height={24} alt="users" />
+            <p className="popular-car-cart-capacity-text">{cars.users}</p>
+          </div>
+        </div>
+        <div className="popular-car-cart-footer">
+          <div className="popular-car-cart-price">
+            <span>{cars.price}</span>day
+          </div>
+          <button className="popular-car-cart-btn">Rent Now</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default CarCart;
