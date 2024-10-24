@@ -9,7 +9,10 @@
     font-family: var(--font-plus-jakarta-sans), sans-serif;
     gap: 20px;
     font-weight: 600;
+    background-color: #FFFFFF;
+    border-radius: 10px;
     .billing-container-title {
+      gap: 10px;
       .billing--subinfo {
         display: flex;
         justify-content: space-between;
@@ -24,42 +27,27 @@
     }
     .billing--form {
       display: flex;
-      flex-direction: column;
-      padding: 20px;
-      background-color: $clr-background-light;
+      flex-wrap: wrap;
       border-radius: 10px;
+      gap: 20px;
       .billing-input {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        .pymn__option__name {
+        gap: 10px;
+        flex: 1 1 45%;
+        label {
           font-size: $fnt-size-s;
           display: flex;
           align-items: center;
           justify-content: space-between;
+        }
           input {
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
             margin-right: 20px;
+            background-color: $clr-background-light;
           }
-        }
-        .pymnt__option__details {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 20px;
-          .pymtn__option__field {
-            position: relative;
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-            flex: 1 1 45%;
-            margin: 5px;
-            z-index: 1;
-            input {
-              padding: 20px;
-              border-radius: 10px;
-              border: none;
-            }
-          }
-        }
       }
     }
   }

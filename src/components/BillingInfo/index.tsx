@@ -1,9 +1,19 @@
-import React from 'react'
+
+import { BillingForm } from '@/app/(main)/payment/page';
 import './styles.scss'
 
 
+type BillingFormProps = {
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmitBillingForm: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleButtonClick: () => void;
+  billingForm: BillingForm;
+}
 
-const BillingInfo = () => {
+
+const BillingInfo = ({ handleInputChange, handleSubmitBillingForm, handleButtonClick, billingForm }: BillingFormProps) => {
+ 
+ 
   return (
     <div>
          <div className="billing-container">
@@ -14,24 +24,55 @@ const BillingInfo = () => {
           <p>Step 1 of 4</p>
         </div>
       </div>
-      <form  className="billing--form">
-          <div className="billing-input">
-            <label htmlFor="name">Name</label>
-            <input id='name' type="text" placeholder="Name" />
-          </div>
-          <div className="billing-input">
-            <label htmlFor="phone">Phone Number</label>
-            <input id='phone' type="text" placeholder="Phone Number" />
-          </div>
-          <div className="billing-input">
-            <label htmlFor="address">Address</label>
-            <input id='address' type="text" placeholder="Address" />
-          </div>
-          <div className="billing-input">
-            <label htmlFor="town">Town/City</label>
-            <input id='town' type="text" placeholder="Town/City" />
-          </div>
-      </form>
+      <form onSubmit={handleSubmitBillingForm} className="billing--form">
+      <div className="billing-input">
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={billingForm.name}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="billing-input">
+        <label htmlFor="phone">Phone Number</label>
+        <input
+          id="phone"
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          value={billingForm.phone}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="billing-input">
+        <label htmlFor="address">Address</label>
+        <input
+          id="address"
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={billingForm.address}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div className="billing-input">
+        <label htmlFor="town">Town/City</label>
+        <input
+          id="town"
+          type="text"
+          name="town"
+          placeholder="Town/City"
+          value={billingForm.town}
+          onChange={handleInputChange}
+        />
+      </div>
+      <button type="submit" className="submit-button" onClick={handleButtonClick}>
+        Submit
+      </button>
+    </form>
     </div>
     </div>
   )
