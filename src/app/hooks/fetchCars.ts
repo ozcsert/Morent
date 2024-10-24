@@ -7,7 +7,7 @@ export const useFetchCars = (filter: Filter = {}) => {
 
   const { data, error, isLoading } = useSWR<Car[]>(
     [url, filter],
-    ([url, filter]) => fetcher(url, filter),
+    ([url, filter]) => fetcher(url, filter!),
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,

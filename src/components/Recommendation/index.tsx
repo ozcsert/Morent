@@ -1,14 +1,23 @@
 'use client';
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import './styles.scss';
 import { Car, RecommendationProps } from '@/types/typeList';
 import RecommendationCard from './RecommendationCard';
 import { useFetchCars } from '@/app/hooks/fetchCars';
 import { Loading } from '../Loading';
+import { filterCarsbyPrice } from '@/utils/filterUtils';
 
-const Recommendation: FC<RecommendationProps> = ({ filter }) => {
+const Recommendation: FC<RecommendationProps> = ({
+  filter,
+  maxPriceFilter,
+}) => {
   const [showMoreCars, setShowMoreCars] = useState(false);
+  const [statePriceFilter, setStatePriceFilter] = useState(maxPriceFilter);
   const { data, error, isLoading } = useFetchCars(filter);
+
+  useEffect(() => {
+    setStatePriceFilter(maxPriceFilter);
+  }, [maxPriceFilter]);
 
   if (error) {
     if (error === 404) {
@@ -30,48 +39,43 @@ const Recommendation: FC<RecommendationProps> = ({ filter }) => {
     return <Loading />;
   }
 
+  // Filtering cars based on the `view` count
   const dataRecommended =
     data.filter((car: Car) => car.view !== undefined && car.view > 2500) || [];
 
+  // Filter cars based on the price filter state
+  const dataPriceFiltered = filterCarsbyPrice(
+    statePriceFilter,
+    dataRecommended
+  );
+
   return (
     <div className="recommendation-cars-container">
-      <h4>Recomendation Cars</h4>
+      <h4>Recommendation Cars</h4>
       <div className="recommendation-wrapper">
         <ul className="recommendation-cars">
           {showMoreCars
-            ? dataRecommended.map((car: Car) => (
+            ? dataPriceFiltered.map((car: Car) => (
                 <li className="recommendation-car" key={car.id}>
                   <RecommendationCard car={car} />
                 </li>
               ))
-            : dataRecommended
-                .map((car: Car) => (
-                  <li className="recommendation-car" key={car.id}>
-                    <RecommendationCard car={car} />
-                  </li>
-                ))
-                .slice(0, 8)}
+            : dataPriceFiltered.slice(0, 8).map((car: Car) => (
+                <li className="recommendation-car" key={car.id}>
+                  <RecommendationCard car={car} />
+                </li>
+              ))}
         </ul>
       </div>
       <div className="recommendation-show-more">
-        {showMoreCars ? (
-          <button
-            onClick={() => setShowMoreCars(!showMoreCars)}
-            className="recommendation-btn"
-          >
-            Show Less Cars
-          </button>
-        ) : (
-          <button
-            onClick={() => setShowMoreCars(!showMoreCars)}
-            className="recommendation-btn"
-          >
-            Show More Cars
-          </button>
-        )}
-
+        <button
+          onClick={() => setShowMoreCars(!showMoreCars)}
+          className="recommendation-btn"
+        >
+          {showMoreCars ? 'Show Less Cars' : 'Show More Cars'}
+        </button>
         <p className="recommendation-total-cars">
-          {dataRecommended.length} cars
+          {dataPriceFiltered.length} cars
         </p>
       </div>
     </div>

@@ -22,11 +22,13 @@ type FilterSideBarFilters = {
 
 export type FilterSideBarProps = {
   onFilterChange: (filters: FilterSideBarFilters) => void;
-  // carInputs: { label: string; count: number }[];
-  // capacityInputs: { label: string; count: number }[];
 };
 
 export type Filter = {
   type?: string[];
   capacity?: string[];
+};
+
+export type MaxPriceFilter = {
+  maxPrice: number;
 };

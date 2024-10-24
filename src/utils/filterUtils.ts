@@ -1,6 +1,4 @@
-// carUtils.ts
 import { Car } from '@/types/typeList';
-// import { dummyCars } from '@/constants';
 
 export const calculateNumberOfInputs = (
   inputSection: { label: string; count: number }[],
@@ -24,16 +22,23 @@ export const calculateNumberOfInputs = (
   });
 };
 
-export const filterCars = (
-  filters: { type: string[]; capacity: string[]; maxPrice: number },
-  cars: Car[]
-) => {
-  const { type, capacity, maxPrice } = filters;
+// export const filterCars = (
+//   filters: { type: string[]; capacity: string[]; maxPrice: number },
+//   cars: Car[]
+// ) => {
+//   const { type, capacity, maxPrice } = filters;
+//   return cars.filter(car => {
+//     const matchesType = type.length === 0 || type.includes(car.carType);
+//     const matchesCapacity =
+//       capacity.length === 0 || capacity.includes(car.capacity);
+//     const matchesPrice = car.price <= maxPrice;
+//     return matchesType && matchesCapacity && matchesPrice;
+//   });
+// };
+
+export const filterCarsbyPrice = (filter: number, cars: Car[]) => {
   return cars.filter(car => {
-    const matchesType = type.length === 0 || type.includes(car.carType);
-    const matchesCapacity =
-      capacity.length === 0 || capacity.includes(car.capacity);
-    const matchesPrice = car.price <= maxPrice;
-    return matchesType && matchesCapacity && matchesPrice;
+    const matchesPrice = car.price <= filter;
+    return matchesPrice;
   });
 };

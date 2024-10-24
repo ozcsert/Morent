@@ -2,24 +2,17 @@
 import RangeSettings from '@/components/RangeSetting';
 import './styles.scss';
 import Recommendation from '@/components/Recommendation';
+import { RecommendationProps } from '@/types/typeList';
+import { FC } from 'react';
 
-const HomeBoard = () => {
+const HomeBoard: FC<RecommendationProps> = ({ filter, maxPriceFilter }) => {
   return (
     <>
       <div className="home-container">
         <div>
           <RangeSettings />
           <br />
-          <Recommendation
-            id={0}
-            name={''}
-            price={0}
-            image={''}
-            carType={''}
-            capacity={''}
-            storage={''}
-            gearType={''}
-          />
+          <Recommendation filter={filter} maxPriceFilter={maxPriceFilter} />
         </div>
       </div>
     </>

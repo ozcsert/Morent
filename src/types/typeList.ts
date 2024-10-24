@@ -1,4 +1,9 @@
-import { Car, FilterSideBarProps, Filter } from './FilterSidebar';
+import {
+  Car,
+  FilterSideBarProps,
+  Filter,
+  MaxPriceFilter,
+} from './FilterSidebar';
 import { FilterInputProps } from './FilterInput';
 import { RaceAreaProps } from './RaceArea';
 import { ReviewProps } from './reviews';
@@ -13,6 +18,7 @@ import {
 } from './Payment';
 
 export type {
+  MaxPriceFilter,
   Filter,
   FilterInputProps,
   FilterSideBarProps,

@@ -5,7 +5,8 @@ import { FilterInput } from '@/components/componentList';
 import { useState, useRef, useEffect } from 'react';
 import { calculateNumberOfInputs } from '@/utils/filterUtils';
 import { useFetchCars } from '@/app/hooks/fetchCars';
-import Spinner from '../Spinner'; // assuming you have a Spinner component
+import { Loading } from '../Loading';
+import AdminDoubleArrow from '@/app/images/admin-double-arrow.svg';
 
 const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
@@ -18,14 +19,12 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
     { label: string; count: number }[]
   >([]);
 
-  // Fetch data from the custom hook
   const { data, error, isLoading } = useFetchCars();
 
-  // Sidebar toggle state
   const sidebarRef = useRef<HTMLElement>(null);
-  const isOpenRef = useRef<boolean>(false);
+  const isOpenRef = useRef<boolean>(true);
+  const btnRef = useRef<HTMLDivElement>(null);
 
-  // Handle the state updates for car types and capacities when data is available
   useEffect(() => {
     if (data && !error) {
       const newCarInputs: { label: string; count: number }[] = [];
@@ -39,29 +38,14 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
     }
   }, [data, error]);
 
-  // Show error message if there is an error fetching data (but exclude 404)
-  if (error && !(error === 404)) {
-    return (
-      <div className="error" style={{ padding: '2rem', textAlign: 'center' }}>
-        {'Much picky? No Batmobile here sorry.'}
-      </div>
-    );
+  if (error) {
+    return <Loading />;
   }
 
-  // Show loading spinner if data is still being fetched
   if (isLoading || data === undefined) {
-    return (
-      <div className="loading" style={{ height: '800px' }}>
-        <Spinner size={36} color="#0099ff">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="pulse-dot" />
-          ))}
-        </Spinner>
-      </div>
-    );
+    return <Loading />;
   }
 
-  // Handlers for updating filters
   const handleTypeChange = (type: string) => {
     setSelectedTypes(prevTypes => {
       const updatedTypes = prevTypes.includes(type)
@@ -100,30 +84,30 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
     onFilterChange({
       type: selectedTypes,
       capacity: selectedCapacity,
-      maxPrice: price,
+      maxPrice: priceRange,
     });
   };
 
-  // Handle sidebar slide toggle
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
       isOpenRef.current
-        ? (sidebarRef.current.style.marginLeft = '-300px')
-        : (sidebarRef.current.style.marginLeft = '0px');
+        ? (sidebarRef.current.style.marginLeft = '-300px') &&
+          (btnRef.current!.style.transform =
+            'rotate(180deg) translate(-100%,0px) ')
+        : (sidebarRef.current.style.marginLeft = '0px') &&
+          (btnRef.current!.style.transform = 'rotate(0deg) translateX(0%)');
     }
     isOpenRef.current = !isOpenRef.current;
+    console.log(isOpenRef);
   };
 
   return (
     <>
-      <aside
-        ref={sidebarRef}
-        className="fltr-sdbr"
-        style={{ marginLeft: '-300px' }}
-      >
-        <button className="sidebar-btn" onClick={slideFilterSidebar}>
-          button
-        </button>
+      <aside ref={sidebarRef} className="fltr-sdbr" style={{ marginLeft: '0' }}>
+        <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
+          <AdminDoubleArrow width={20} height={20} />
+        </div>
+
         <FilterInput
           title="TYPE"
           inputType="checkbox"
