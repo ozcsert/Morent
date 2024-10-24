@@ -3,13 +3,14 @@ import Gasoline from '@/app/images/recommendation/icons/Gasoline';
 import Gear from '@/app/images/recommendation/icons/Gear';
 import Heart from '@/app/images/recommendation/icons/Heart';
 import Profile from '@/app/images/recommendation/icons/Profile';
-import { Cars } from '@/types/Recommendation';
+import { Car } from '@/types/typeList';
+
 import Image from 'next/image';
 import React, { useState } from 'react';
 import './styles.scss';
 
 type cardProps = {
-  car: Cars;
+  car: Car;
 };
 
 const RecommendationCard = ({ car }: cardProps) => {

@@ -1,13 +1,13 @@
-@import "../../app/styles/variables";
+@import '../../app/styles/variables';
 
 .fltr-sctn-container {
   input {
     margin-right: 10px;
-    &[type="checkbox"] {
+    &[type='checkbox'] {
       width: 20px;
       height: 20px;
     }
-    &[type="range"] {
+    &[type='range'] {
       display: block;
       margin-bottom: 20px;
       width: 100%;

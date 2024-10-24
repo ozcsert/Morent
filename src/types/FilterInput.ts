@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 type Option = {
   label: string;
   count: number | null;
