@@ -1,3 +1,4 @@
+@import "../../app/styles/variables.scss";
 .rental-summary {
   background-color: #fff;
   border-radius: 10px;
@@ -5,6 +6,7 @@
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
+  font-family: $fnt-jakarta;
 
   @media (min-width: 768px) {
     max-width: 400px;
@@ -43,7 +45,7 @@
     }
 
     .car-image {
-      width: 100px;
+      width: 130px;
       height: 70px;
       background-color: #54a6ff;
       border-radius: 8px;
@@ -53,7 +55,7 @@
       margin-right: 12px;
 
       @media (min-width: 768px) {
-        width: 116px;
+        width: 122px;
         height: 80px;
         margin-right: 16px;
       }
@@ -152,6 +154,7 @@
     div {
       display: flex;
       flex-direction: column;
+      gap: 4px;
 
       span:first-child {
         font-weight: 700;

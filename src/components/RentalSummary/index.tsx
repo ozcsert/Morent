@@ -78,7 +78,7 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
         <button onClick={applyPromoCode}>Apply now</button>
       </div>
       <div className="total-price">
-        <div>
+        <div className="total-price-info">
           <span>Total Rental Price</span>
           <span className="info">
             Overall price and includes rental discount
