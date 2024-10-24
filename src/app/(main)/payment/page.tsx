@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import Confirmation from '@/components/Confirmation';
 import { PaymentFormValues } from '@/types/typeList';
 import RentalInfo from '@/components/RentalInfo';
+import BillingInfo from '@/components/BillingInfo';
 
 const Payment: React.FC = () => {
   const {
@@ -42,6 +43,7 @@ const Payment: React.FC = () => {
 
   return (
     <div>
+      <BillingInfo/>
       <RentalInfo control={control} register={register} errors={errors} />
       <PaymentMethod register={register} errors={errors} setValue={setValue} />
       <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
