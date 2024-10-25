@@ -1,11 +1,30 @@
-import "./page.scss";
+import './page.scss';
+import RangeSettings from '@/components/RangeSetting';
+import Footer from '@/components/Footer';
+import './page.scss';
+import Recommendation from '@/components/Recommendation';
 import { ImplementThePopularCar } from "@/components/ImplementThePopularCars";
 
 export default function Home() {
   return (
     <>
-      <ImplementThePopularCar title="Recent Car" />
-      <ImplementThePopularCar title="Recommendation Car" />
+      <div className="home">
+        <RangeSettings />
+        <br />
+        <ImplementThePopularCar title="Recent Car" />
+        <Recommendation
+          id={0}
+          name={''}
+          price={0}
+          image={''}
+          carType={''}
+          capacity={''}
+          storage={''}
+          gearType={''}
+        />
+        <Footer />
+      </div>
+      <div className="home"></div>
     </>
   );
 }

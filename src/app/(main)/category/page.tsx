@@ -1,10 +1,10 @@
-"use client";
-import { useState, useEffect } from "react";
-import { dummyCars } from "@/constants";
-import { FilterSidebar } from "@/components/componentList";
-import { Car } from "@/types/typeList";
-import "./styles.scss";
-import { calculateNumberOfInputs, filterCars } from "@/utils/filterUtils";
+'use client';
+import { useState, useEffect } from 'react';
+import { dummyCars } from '@/constants';
+import { FilterSidebar } from '@/components/componentList';
+import { Car } from '@/types/typeList';
+import './styles.scss';
+import { calculateNumberOfInputs, filterCars } from '@/utils/filterUtils';
 
 const CategoryPage = () => {
   const [filteredCars, setFilteredCars] = useState<Car[]>(dummyCars);
@@ -19,8 +19,8 @@ const CategoryPage = () => {
     const newCarInputs: { label: string; count: number }[] = [];
     const newCapacityInputs: { label: string; count: number }[] = [];
 
-    calculateNumberOfInputs(newCarInputs, "type");
-    calculateNumberOfInputs(newCapacityInputs, "capacity");
+    calculateNumberOfInputs(newCarInputs, 'type');
+    calculateNumberOfInputs(newCapacityInputs, 'capacity');
 
     setCarInputs(newCarInputs);
     setCapacityInputs(newCapacityInputs);
@@ -42,16 +42,16 @@ const CategoryPage = () => {
         capacityInputs={capacityInputs}
         onFilterChange={handleFilterChange}
       />
-      {/* <section>
+      <section>
         <h2>Available Cars</h2>
         <ul>
-          {filteredCars.map((car) => (
+          {filteredCars.map(car => (
             <li key={car.id}>
               {car.name} - {car.type} - {car.capacity} - ${car.price}
             </li>
           ))}
         </ul>
-      </section> */}
+      </section>
     </main>
   );
 };

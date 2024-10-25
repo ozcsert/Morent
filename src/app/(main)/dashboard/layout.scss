@@ -1,0 +1,26 @@
+.ad-container {
+  width: 100vw;
+  height: 100%;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+
+  &>.ad-navbar {
+    width: 100%;
+    height: 80px;
+  }
+
+  &>.ad-main {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+
+    &>.ad-sidebar-menu {
+      height: 100%;
+      position: relative;
+    }
+
+    &>.ad-content {
+      width: calc(100vw - 290px);
+      height: calc(100vh - 80px);
+    }
+  }
+}
