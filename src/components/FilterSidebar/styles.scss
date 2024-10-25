@@ -1,51 +1,47 @@
 @import '../../app/styles/styles';
 
 .fltr-sdbr {
-  transition: all 0.5s ease;
+  transition: all 0.6s cubic-bezier(0.52, -0.1, 0.99, -0.05);
   background-color: $clr-secondary;
   font-family: $fnt-jakarta;
   color: $text-secondary;
-  width: 360px;
-  font-size: $fnt-size-m;
+  flex: 1 1 17%;
+  max-width: 350px;
+  font-size: clamp(10px, 1.5vw, $fnt-size-m);
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 40px;
+  gap: clamp(12px, 12vw, 40px);
+  padding: clamp(12px, 2vw, 40px);
   font-weight: 600;
-  height: 100%;
   position: relative;
+  @media (max-width: 940px) {
+    padding-right: 1px;
+  }
   .switchBtn {
-    height: 50px;
-    width: 25px;
+    height: clamp(36px, 3vw, 50px);
+    width: clamp(20px, 3vw, 25px);
     position: absolute;
     border: none;
     border-radius: 30px 0 0 30px;
-    top: 50%;
+    top: 10%;
     right: 0px;
     transform: translateX(0%);
     rotate: 0deg;
     cursor: pointer;
     background-color: #94a7cb96;
     color: #fff;
-    transition: transform 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.52, -0.1, 0.99, -0.05);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  // .sidebar-btn {
-  //   font-size: 40px;
-  //   position: absolute;
-  //   width: 40px;
-  //   height: 80px;
-  //   right: 0;
-  //   transform: translateY(500%);
-  // }
   .fltr-sctn-container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 20px);
     h4 {
-      font-size: $fnt-size-xxs;
+      font-size: clamp(10px, 2vw, $fnt-size-xxs);
     }
     div {
       display: inline-block;

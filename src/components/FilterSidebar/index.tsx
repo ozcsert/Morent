@@ -91,10 +91,10 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
       isOpenRef.current
-        ? (sidebarRef.current.style.marginLeft = '-300px') &&
+        ? (sidebarRef.current.style.marginLeft = '-35%') &&
           (btnRef.current!.style.transform =
             'rotate(180deg) translate(-100%,0px) ')
-        : (sidebarRef.current.style.marginLeft = '0px') &&
+        : (sidebarRef.current.style.marginLeft = ' 0%') &&
           (btnRef.current!.style.transform = 'rotate(0deg) translateX(0%)');
     }
     isOpenRef.current = !isOpenRef.current;
@@ -103,7 +103,11 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
 
   return (
     <>
-      <aside ref={sidebarRef} className="fltr-sdbr" style={{ marginLeft: '0' }}>
+      <aside
+        ref={sidebarRef}
+        className="fltr-sdbr"
+        style={{ marginLeft: '0%' }}
+      >
         <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
           <AdminDoubleArrow width={20} height={20} />
         </div>

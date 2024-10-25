@@ -31,9 +31,7 @@ const CategoryPage = () => {
   return (
     <>
       <main>
-        <div>
-          <FilterSidebar onFilterChange={handleFilterChange} />
-        </div>
+        <FilterSidebar onFilterChange={handleFilterChange} />
         <CategoryBoard filter={filter} maxPriceFilter={maxPriceFilter} />
       </main>
     </>
