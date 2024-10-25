@@ -1,6 +1,6 @@
-import React from "react";
-import "./styles.scss";
-import AdminDashboard from "@/components/admin/AdminDashBoard/AdminDashboard";
+import React from 'react';
+import './styles.scss';
+import AdminDashboard from '@/components/admin/AdminDashBoard/AdminDashboard';
 
 const Dashboard = () => {
   return <AdminDashboard />;

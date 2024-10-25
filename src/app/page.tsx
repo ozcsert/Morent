@@ -1,8 +1,8 @@
-import "./page.scss";
-import RangeSettings from "@/components/RangeSetting";
-import Footer from "@/components/Footer";
-import "./page.scss";
-import Recommendation from "@/components/Recommendation";
+import './page.scss';
+import RangeSettings from '@/components/RangeSetting';
+import Footer from '@/components/Footer';
+import './page.scss';
+import Recommendation from '@/components/Recommendation';
 
 export default function Home() {
   return (
@@ -12,13 +12,13 @@ export default function Home() {
         <br />
         <Recommendation
           id={0}
-          name={""}
-          img={""}
-          type={""}
-          capacity={""}
+          name={''}
           price={0}
-          gasoline={""}
-          gear={""}
+          image={''}
+          carType={''}
+          capacity={''}
+          storage={''}
+          gearType={''}
         />
         <Footer />
       </div>

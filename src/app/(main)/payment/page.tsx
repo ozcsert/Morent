@@ -1,10 +1,10 @@
-"use client"
-import "./styles.scss"
-import PaymentMethod from "@/components/Payment"
-import { useForm, SubmitHandler } from "react-hook-form"
-import Confirmation from "@/components/Confirmation"
-import { PaymentFormValues } from "@/types/typeList"
-import RentalInfo from "@/components/RentalInfo"
+'use client';
+import './styles.scss';
+import PaymentMethod from '@/components/Payment';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import Confirmation from '@/components/Confirmation';
+import { PaymentFormValues } from '@/types/typeList';
+import RentalInfo from '@/components/RentalInfo';
 
 const Payment: React.FC = () => {
   const {
@@ -14,31 +14,31 @@ const Payment: React.FC = () => {
     setValue,
     formState: { errors },
   } = useForm<PaymentFormValues>({
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      cardHolder: "",
-      cardNumber: "",
-      cvc: "",
-      paypalEmail: "",
-      bitcoinEmail: "",
+      cardHolder: '',
+      cardNumber: '',
+      cvc: '',
+      paypalEmail: '',
+      bitcoinEmail: '',
       pickUp: {
-        location: "",
+        location: '',
         date: undefined,
-        time: "",
+        time: '',
       },
       dropOff: {
-        location: "",
+        location: '',
         date: undefined,
-        time: "",
+        time: '',
       },
     },
-  })
+  });
 
   const onSubmit: SubmitHandler<PaymentFormValues> = (
     data: PaymentFormValues
   ) => {
-    console.log("Form Data Submitted:", data)
-  }
+    console.log('Form Data Submitted:', data);
+  };
 
   return (
     <div>
@@ -46,7 +46,7 @@ const Payment: React.FC = () => {
       <PaymentMethod register={register} errors={errors} setValue={setValue} />
       <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
     </div>
-  )
-}
+  );
+};
 
-export default Payment
+export default Payment;

@@ -1,14 +1,14 @@
-"use client"
-import React, { FC } from "react"
-import DatePicker from "react-datepicker"
-import "./style.scss"
-import "react-datepicker/dist/react-datepicker.css"
-import DropdownArrow from "@/app/images/bottom-arrow.svg"
-import { turkishCities, timeSlots } from "@/constants"
-import { validationRules } from "@/utils/payment"
-import { Controller } from "react-hook-form"
-import { RentalInputAreaProps } from "@/types/typeList"
-import PaymentError from "@/components/Payment/PaymentError"
+'use client';
+import React, { FC } from 'react';
+import DatePicker from 'react-datepicker';
+import './style.scss';
+import 'react-datepicker/dist/react-datepicker.css';
+import DropdownArrow from '@/app/images/bottom-arrow.svg';
+import { turkishCities, timeSlots } from '@/constants';
+import { validationRules } from '@/utils/payment';
+import { Controller } from 'react-hook-form';
+import { RentalInputAreaProps } from '@/types/typeList';
+import PaymentError from '@/components/Payment/PaymentError';
 
 const RentalInputArea: FC<RentalInputAreaProps> = ({
   register,
@@ -45,7 +45,7 @@ const RentalInputArea: FC<RentalInputAreaProps> = ({
             ))}
           </select>
           <PaymentError error={errors[registerField]?.location} />
-          <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
+          <DropdownArrow width={12} height={12} style={{ color: '#90A3BF' }} />
         </div>
       </div>
 
@@ -61,14 +61,14 @@ const RentalInputArea: FC<RentalInputAreaProps> = ({
               <DatePicker
                 portalId="root-portal"
                 selected={field.value}
-                onChange={(date) => field.onChange(date)}
+                onChange={date => field.onChange(date)}
                 dateFormat="dd.MM.yyyy"
                 placeholderText="Select a date"
               />
             )}
           />
           <PaymentError error={errors[registerField]?.date} />
-          <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
+          <DropdownArrow width={12} height={12} style={{ color: '#90A3BF' }} />
         </div>
       </div>
 
@@ -92,12 +92,12 @@ const RentalInputArea: FC<RentalInputAreaProps> = ({
               </>
             ))}
           </select>
-          <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
+          <DropdownArrow width={12} height={12} style={{ color: '#90A3BF' }} />
           <PaymentError error={errors[registerField]?.time} />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default RentalInputArea
+export default RentalInputArea;

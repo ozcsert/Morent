@@ -5,20 +5,20 @@ import Navbar from "@/components/Navbar/index";
 
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-})
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+});
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-})
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+});
 const plusJakartaSans = localFont({
-  src: "./fonts/PlusJakartaSans-VariableFont_wght.ttf",
-  variable: "--font-plus-jakarta-sans",
-  weight: "500 600 700",
-})
+  src: './fonts/PlusJakartaSans-VariableFont_wght.ttf',
+  variable: '--font-plus-jakarta-sans',
+  weight: '500 600 700',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -42,5 +42,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }

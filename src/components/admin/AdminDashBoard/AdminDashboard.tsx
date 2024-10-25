@@ -1,18 +1,18 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Image, { StaticImageData } from "next/image";
-import { PieChart, Pie, Cell } from "recharts";
+'use client';
+import React, { useEffect, useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { PieChart, Pie, Cell } from 'recharts';
 // import AdminMap from "@/app/images/admin-map.png";
-import AdminDetailCar from "@/app/images/admin-car.png";
-import "./styles.scss";
-import AdminNissanGTR from "@/app/images/admin-car-nissan.png";
-import AdminKoegnigsegg from "@/app/images/admin-car-koegnigsegg.png";
-import AdminRollsRoyce from "@/app/images/admin-car-rolls-royce.png";
-import AdminCrV from "@/app/images/admin-car-cr-v.png";
-import dynamic from "next/dynamic";
-import AdminDashboardMap from "../AdminDashboardMap";
-import RaceArea from "@/components/RangeSetting/RaceArea";
-import { RaceAreaProps } from "@/types/RaceArea";
+import AdminDetailCar from '@/app/images/admin-car.png';
+import './styles.scss';
+import AdminNissanGTR from '@/app/images/admin-car-nissan.png';
+import AdminKoegnigsegg from '@/app/images/admin-car-koegnigsegg.png';
+import AdminRollsRoyce from '@/app/images/admin-car-rolls-royce.png';
+import AdminCrV from '@/app/images/admin-car-cr-v.png';
+import dynamic from 'next/dynamic';
+import AdminDashboardMap from '../AdminDashboardMap';
+import RaceArea from '@/components/RangeSetting/RaceArea';
+import { RaceAreaData } from '@/types/RaceArea';
 
 type carsType = {
   title: string;
@@ -24,32 +24,32 @@ type carsType = {
 
 const cars: carsType[] = [
   {
-    title: "Nissan GT-R",
-    subTitle: "Sport Car",
+    title: 'Nissan GT-R',
+    subTitle: 'Sport Car',
     img: AdminNissanGTR,
-    date: "20 May",
-    price: "80.00",
+    date: '20 May',
+    price: '80.00',
   },
   {
-    title: "Koegnigsegg",
-    subTitle: "Sport Car",
+    title: 'Koegnigsegg',
+    subTitle: 'Sport Car',
     img: AdminKoegnigsegg,
-    date: "19 July",
-    price: "99.00",
+    date: '19 July',
+    price: '99.00',
   },
   {
-    title: "Rolls - Royce",
-    subTitle: "Sport Car",
+    title: 'Rolls - Royce',
+    subTitle: 'Sport Car',
     img: AdminRollsRoyce,
-    date: "18 July",
-    price: "96.00",
+    date: '18 July',
+    price: '96.00',
   },
   {
-    title: "Cr - V",
-    subTitle: "Suv",
+    title: 'Cr - V',
+    subTitle: 'Suv',
     img: AdminCrV,
-    date: "17 July",
-    price: "80.00",
+    date: '17 July',
+    price: '80.00',
   },
 ];
 
@@ -60,45 +60,45 @@ type ChartData = {
 };
 
 const data: ChartData[] = [
-  { name: "Sport Car", value: 17439, color: "#0D3559" },
-  { name: "SUV", value: 9478, color: "#175D9C" },
-  { name: "Coupe", value: 18197, color: "#2185DE" },
-  { name: "Hatchback", value: 12510, color: "#63A9E8" },
-  { name: "MPV", value: 14406, color: "#A6CEF2" },
+  { name: 'Sport Car', value: 17439, color: '#0D3559' },
+  { name: 'SUV', value: 9478, color: '#175D9C' },
+  { name: 'Coupe', value: 18197, color: '#2185DE' },
+  { name: 'Hatchback', value: 12510, color: '#63A9E8' },
+  { name: 'MPV', value: 14406, color: '#A6CEF2' },
 ];
 
 // to calculate total car count
 let totalCarCount = 0;
 const handleCarTotal = (carData: ChartData[]) => {
-  carData.forEach((car) => {
+  carData.forEach(car => {
     totalCarCount += car.value;
   });
 
   return totalCarCount;
 };
 
-const carTotalCount = new Intl.NumberFormat("tr-TR").format(
+const carTotalCount = new Intl.NumberFormat('tr-TR').format(
   handleCarTotal(data)
 );
 
 const AdminDashboard = () => {
-  const [currentLocation, setCurrentLocation] = useState("");
-  const [destinationLocation, setDestinationLocation] = useState("");
+  const [currentLocation, setCurrentLocation] = useState('');
+  const [destinationLocation, setDestinationLocation] = useState('');
 
-  const [leftRaceArea, setLeftRaceArea] = useState({
-    title: "Pick - Up",
-    locationValue: "Diyarbakır",
-    selectedStartDate: new Date("2024-10-01"),
+  const [leftRaceArea, setLeftRaceArea] = useState<RaceAreaData>({
+    title: 'Pick - Up',
+    locationValue: 'Diyarbakır',
+    selectedStartDate: new Date('2024-10-01'),
     selectedFinishDate: null,
-    timeValue: "12:30",
+    timeValue: '12:30',
   });
 
-  const [rightRaceArea, setRightRaceArea] = useState({
-    title: "Drop - Off",
-    locationValue: "İzmir",
+  const [rightRaceArea, setRightRaceArea] = useState<RaceAreaData>({
+    title: 'Drop - Off',
+    locationValue: 'İzmir',
     selectedStartDate: null,
-    selectedFinishDate: new Date("2024-10-05"),
-    timeValue: "14:30",
+    selectedFinishDate: new Date('2024-10-05'),
+    timeValue: '14:30',
   });
 
   useEffect(() => {
@@ -123,7 +123,7 @@ const AdminDashboard = () => {
                 <Image
                   src={AdminDetailCar}
                   alt="Admin Car"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: 'cover' }}
                   fill
                 />
               </div>
@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                           {item.name}
                         </span>
                         <span className="dv-top-car-count-item-value">
-                          {new Intl.NumberFormat("tr-TR").format(item.value)}
+                          {new Intl.NumberFormat('tr-TR').format(item.value)}
                         </span>
                       </div>
                     </li>
@@ -209,7 +209,7 @@ const AdminDashboard = () => {
                       alt=""
                       width={114}
                       height={70}
-                      style={{ objectFit: "contain" }}
+                      style={{ objectFit: 'contain' }}
                     />
                   </div>
                   <div className="dv-recent-car-item-title">

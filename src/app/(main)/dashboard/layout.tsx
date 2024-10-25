@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import SideBar from "@/components/admin/SidebarMenu";
-import "./layout.scss";
+import type { Metadata } from 'next';
+import SideBar from '@/components/admin/SidebarMenu';
+import './layout.scss';
 
 export const metadata: Metadata = {
-  title: "Morent Admin Dashboard",
-  description: "Admin dashboard page",
+  title: 'Morent Admin Dashboard',
+  description: 'Admin dashboard page',
 };
 
 export default function RootLayout({
