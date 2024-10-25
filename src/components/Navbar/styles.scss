@@ -329,9 +329,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transform: translate3d(100%, 0px, 0px);
 }
 .gap-2{
-  padding: 0 4rem;
   /* marker: revert; */
+  display: flex;
+  width: 100%;
   list-style-type: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 .w-full{
   padding: 0 0 5px 0;
