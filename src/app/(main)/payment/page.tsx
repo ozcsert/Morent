@@ -32,13 +32,18 @@ const Payment: React.FC = () => {
     event.preventDefault();
     console.log(billingForm);
   };
-  const handleButtonClick = () => {
-    if (!billingForm.name || !billingForm.phone || !billingForm.address || !billingForm.town) {
-      alert('Please fill in all the required fields!');
-      return;
-    }
-    alert('Form submitted successfully!');
-  };
+  // const handleButtonClick = () => {
+  //   if (
+  //     !billingForm.name ||
+  //     !billingForm.phone ||
+  //     !billingForm.address ||
+  //     !billingForm.town
+  //   ) {
+  //     alert('Please fill in all the required fields!');
+  //     return;
+  //   }
+  //   alert('Form submitted successfully!');
+  // };
   const {
     register,
     handleSubmit,
@@ -73,8 +78,13 @@ const Payment: React.FC = () => {
   };
 
   return (
-    <div className='payment'>
-      <BillingInfo handleButtonClick={handleButtonClick} handleInputChange={handleInputChange} handleSubmitBillingForm={handleSubmitBillingForm} billingForm={billingForm} />
+    <div className="payment">
+      <BillingInfo
+        //handleButtonClick={handleButtonClick}
+        handleInputChange={handleInputChange}
+        handleSubmitBillingForm={handleSubmitBillingForm}
+        billingForm={billingForm}
+      />
       <RentalInfo control={control} register={register} errors={errors} />
       <PaymentMethod register={register} errors={errors} setValue={setValue} />
       <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
