@@ -21,7 +21,7 @@ const Confirmation: React.FC<ConfirmationProps> = ({
           <p>
             We are getting to the end. Just few clicks and your rental is ready!
           </p>
-          <p>Step 4 of 4</p>
+          <p className="step">Step 4 of 4</p>
         </div>
       </div>
       <form className="confirmation-form">

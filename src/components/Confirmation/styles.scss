@@ -16,10 +16,31 @@
       font-size: $fnt-size-xs;
       color: $text-tertiary;
       font-weight: 500;
+      line-height: 20px;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-xxs;
+        line-height: 15px;
+        font-weight: 500;
+      }
     }
     h2 {
       font-size: $fnt-size-m;
       font-weight: 600;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-s;
+        line-height: 24px;
+        font-weight: 700;
+      }
+    }
+    .step {
+      font-weight: 500;
+      font-size: $fnt-size-xs;
+      line-height: 20px;
+      text-align: right;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-xxs;
+        line-height: 15px;
+      }
     }
   }
   .confirmation-form {
@@ -44,6 +65,12 @@
           font-size: $fnt-size-s;
           font-weight: 600;
           line-height: 24px;
+          color: #1f2544;
+          @media screen and (max-width: 420px) {
+            font-size: $fnt-size-xxs;
+            line-height: 20px;
+            font-weight: 500;
+          }
         }
       }
     }
@@ -62,6 +89,7 @@
   .security-info {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     .security-title {
       font-size: $fnt-size-xxs;
       .security-subinfo {
