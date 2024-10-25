@@ -9,7 +9,7 @@
 }
 
 .logo-text {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
   color: #2563eb; /* Logo rengi */
   font-weight: bold;
@@ -69,7 +69,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.header{
+.header {
   background-color: white;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -130,7 +130,6 @@
   margin-top: 20px;
 }
 
-
 .search-container {
   display: flex;
   align-items: center;
@@ -186,7 +185,7 @@
   object-fit: cover;
 }
 
-.search-bar-mini  {
+.search-bar-mini {
   display: flex;
   align-items: center;
   background-color: #f1f3f5;
@@ -195,7 +194,7 @@
   width: 300px;
   height: 48px;
 }
-.search-bar-mini  Image{
+.search-bar-mini Image {
   margin-left: 10px;
 }
 .search-bar-mini input {
@@ -206,25 +205,24 @@
   border-radius: 8px;
   width: 100%;
 }
-.last-row{
+.last-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
-
 }
-.settings{
+.settings {
   cursor: pointer;
 }
-.profile-picture-mini{
+.profile-picture-mini {
   cursor: pointer;
 }
-.profile-picture-mini Image{
+.profile-picture-mini Image {
   width: 60px;
   height: 60px;
 }
-.logo-mini .logo-text{
-  font-family: "Plus Jakarta Sans", sans-serif;
+.logo-mini .logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
   color: #2563eb; /* Logo rengi */
   font-weight: bold;
@@ -241,7 +239,7 @@
 }
 
 .menu.open {
-    display: block;
+  display: block;
 }
 
 .bm-burger-button {
@@ -249,16 +247,16 @@
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 30px;;
+  top: 30px;
 }
 
-.home{
-    width: 100vw;
-    height: 100vh;
-    background-color: #f9f6f6;
-    padding-top: 50px;
-    font-family: var(--fon-plus-jakarta-plus), sans-serif;
-    margin-top: 50px;
+.home {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f9f6f6;
+  padding-top: 50px;
+  font-family: var(--fon-plus-jakarta-plus), sans-serif;
+  margin-top: 50px;
 }
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
@@ -267,7 +265,7 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #3563E9;
+  background: #3563e9;
 }
 
 /* Position and sizing of clickable cross button */
@@ -294,7 +292,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #3563E9;
+  background: #3563e9;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -325,10 +323,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
   transform: translate3d(100%, 0px, 0px);
 }
-.gap-2{
+.gap-2 {
   /* marker: revert; */
   display: flex;
   width: 100%;
@@ -338,27 +338,34 @@ Note: Beware of modifying this element as it can break the animations - you shou
   align-items: center;
   gap: 30px;
 }
-.w-full{
+.w-full {
   padding: 0 0 5px 0;
   font-size: 18px;
 }
 @media (max-width: 475px) {
-  .last-row{
+  .last-row {
     flex-direction: column;
+    padding: 8px 16px;
   }
-  .settings{
+  .logo-mini {
+    margin: 0;
+    margin-top: 16px;
+  }
+  .settings {
     margin-top: 20px;
   }
-  .search-bar-mini{
+  .search-bar-mini {
     width: 100%;
   }
-
+  .first-row {
+    padding: 8px 16px;
+  }
 }
 @media (max-width: 300px) {
-  .w-full{
+  .w-full {
     font-size: 15px;
   }
-  .logo-mini .logo-text{
+  .logo-mini .logo-text {
     font-size: 16px;
   }
 }
