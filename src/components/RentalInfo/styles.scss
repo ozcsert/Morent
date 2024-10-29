@@ -1,6 +1,7 @@
 @import "../../app/styles/styles";
 .rntlInfo-container {
   max-width: 852px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -10,6 +11,8 @@
   gap: 20px;
   font-weight: 600;
   font-size: $fnt-size-s;
+  background-color: #FFFFFF;
+  border-radius: 10px;
   .rntlInfo__title {
     .rntlInfo__subinfo {
       display: flex;

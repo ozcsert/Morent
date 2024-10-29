@@ -1,6 +1,7 @@
 @import '../../app/../app/styles/styles';
 .confirmation-container {
   max-width: 852px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -9,6 +10,7 @@
   font-family: var(--font-plus-jakarta-sans), sans-serif;
   gap: 20px;
   font-weight: 600;
+  background-color: #ffff;
   .confirmation-container-title {
     .confirmation-subinfo {
       display: flex;
