@@ -1,53 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 // CarRentalHero.css
 .promo-card{
     display: flex;
-    width: 100%;
-    max-width: 645px;
+    min-width: 645px;
     height: 376px;
-}
-.hero-container {
-    position: relative;
-    background-color: #3B82F6;
+    margin-bottom: 32px;
     border-radius: 16px;
     padding: 40px;
-    width: 100%;
     min-height: 300px;
     overflow: hidden;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  
+}
   .hero-content {
     max-width: 500px;
     z-index: 1;
   }
   
   .hero-title {
+    font-family: "Plus Jakarta Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 48px */
+    letter-spacing: -0.96px;
     color: white;
-    font-size: 2.5rem;
-    font-weight: bold;
     margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
-  }
-  
-  .hero-subtitle {
-    font-size: 2rem;
-    margin-top: 4px;
+    max-width: 284px;
   }
   
   .hero-description {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+    letter-spacing: -0.32px;
     margin: 1.5rem 0;
-    max-width: 400px;
+    max-width: 284px;
   }
   
   .rental-button {
     background-color: #2563EB;
     color: white;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
     padding: 12px 24px;
     border-radius: 8px;
     border: none;
@@ -60,24 +62,12 @@
     background-color: #1D4ED8;
   }
   
-  .car-image-container {
-    position: absolute;
-    bottom: 0;
-    right: 40px;
-    max-width: 500px;
-    z-index: 0;
-    width: 100%; /* You can set a specific width or use percentages */
-    height: 300px; /* Set the height */
-  }
 
-  .car-image-container Image{
+  .car-image-container .test{
     position: absolute;
-    /* height: 100%; */
+    top: 0px;
+    left: 0px;
     width: 100%;
-    left: 0;
-    /* top: 0; */
-    right: 0;
-    bottom: 0;
     object-fit: cover;
     color: transparent;
   }
@@ -99,17 +89,17 @@
       font-size: 1rem;
     }
   
-    .car-image-container {
-      position: relative;
-      right: 0;
-      margin-top: 20px;
-    }
+
   }
 
-@media (max-width: 430px) {
-    .car-image-container Image{
-        width: 300px;
+  @media (max-width: 400px) {
+    .hero-title{
+        font-size: 26px;
     }
-        
-    
+    .hero-description {
+        font-size: 12px;
+      }
+      .rental-button{
+        font-size: 12px;
+      }
 }
