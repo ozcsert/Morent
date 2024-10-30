@@ -1,12 +1,12 @@
-"use client";
-import "./styles.scss";
-import { useState } from "react";
-import VisaIcon from "@/app/images/payment/Visa.svg";
-import PaypalIcon from "@/app/images/payment/PayPal.svg";
-import BitcoinIcon from "@/app/images/payment/Bitcoin.svg";
-import { PaymentMethodProps } from "@/types/typeList";
-import { validationRules } from "@/utils/payment";
-import PaymentError from "./PaymentError";
+'use client';
+import './styles.scss';
+import { useState } from 'react';
+import VisaIcon from '@/app/images/payment/Visa.svg';
+import PaypalIcon from '@/app/images/payment/PayPal.svg';
+import BitcoinIcon from '@/app/images/payment/Bitcoin.svg';
+import { PaymentMethodProps } from '@/types/typeList';
+import { validationRules } from '@/utils/payment';
+import PaymentError from './PaymentError';
 
 // mastercard example card number 5425233430109903
 
@@ -15,27 +15,27 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
   errors,
   setValue,
 }) => {
-  const [selectedMethod, setSelectedMethod] = useState<string>("Credit Card");
+  const [selectedMethod, setSelectedMethod] = useState<string>('Credit Card');
 
   const changePayMethod = async (payMethod: string) => {
     await setSelectedMethod(payMethod);
 
     switch (payMethod) {
-      case "Credit Card":
-        setValue("paypalEmail", "");
+      case 'Credit Card':
+        setValue('paypalEmail', '');
         break;
-      case "PayPal":
-        setValue("cardHolder", "");
-        setValue("cardNumber", "");
-        setValue("cvc", "");
-        setValue("bitcoinEmail", "");
-        setValue("expirationDate", "");
-      case "BitCoin":
-        setValue("cardHolder", "");
-        setValue("cardNumber", "");
-        setValue("cvc", "");
-        setValue("paypalEmail", "");
-        setValue("expirationDate", "");
+      case 'PayPal':
+        setValue('cardHolder', '');
+        setValue('cardNumber', '');
+        setValue('cvc', '');
+        setValue('bitcoinEmail', '');
+        setValue('expirationDate', '');
+      case 'BitCoin':
+        setValue('cardHolder', '');
+        setValue('cardNumber', '');
+        setValue('cvc', '');
+        setValue('paypalEmail', '');
+        setValue('expirationDate', '');
       default:
         break;
     }
@@ -59,14 +59,14 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                 id="credit-card"
                 name="payment-method"
                 value="Credit Card"
-                checked={selectedMethod === "Credit Card"}
-                onChange={() => changePayMethod("Credit Card")}
+                checked={selectedMethod === 'Credit Card'}
+                onChange={() => changePayMethod('Credit Card')}
               />
               <label htmlFor="credit-card">Credit Card</label>
             </div>
             <VisaIcon width={92} height={20} />
           </div>
-          {selectedMethod === "Credit Card" && (
+          {selectedMethod === 'Credit Card' && (
             <div className="pymnt__option__details">
               <div className="pymtn__option__field">
                 <label htmlFor="card-number">Card Number</label>
@@ -74,7 +74,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   type="text"
                   id="cardNumber"
                   placeholder="Card Number"
-                  {...register("cardNumber", validationRules.cardNumber)}
+                  {...register('cardNumber', validationRules.cardNumber)}
                   maxLength={16}
                 />
                 <PaymentError error={errors.cardNumber} />
@@ -86,7 +86,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   id="expirationDate"
                   placeholder="MM/YY"
                   {...register(
-                    "expirationDate",
+                    'expirationDate',
                     validationRules.expirationDate
                   )}
                   maxLength={4}
@@ -99,7 +99,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   type="text"
                   id="cardHolder"
                   placeholder="Card holder"
-                  {...register("cardHolder", validationRules.cardHolder)}
+                  {...register('cardHolder', validationRules.cardHolder)}
                 />
                 <PaymentError error={errors.cardHolder} />
               </div>
@@ -109,7 +109,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   type="text"
                   id="cvc"
                   placeholder="CVC"
-                  {...register("cvc", validationRules.cvc)}
+                  {...register('cvc', validationRules.cvc)}
                   maxLength={3}
                 />
 
@@ -129,14 +129,14 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                 id="paypal"
                 name="payment-method"
                 value="PayPal"
-                checked={selectedMethod === "PayPal"}
-                onChange={() => changePayMethod("PayPal")}
+                checked={selectedMethod === 'PayPal'}
+                onChange={() => changePayMethod('PayPal')}
               />
               <label htmlFor="paypal">PayPal</label>
             </div>
             <PaypalIcon width={92} height={20} />
           </div>
-          {selectedMethod === "PayPal" && (
+          {selectedMethod === 'PayPal' && (
             <div className="pymnt__option__details">
               <div className="pymtn__option__field">
                 <label htmlFor="paypal-email">PayPal Email</label>
@@ -144,7 +144,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   type="email"
                   id="paypal-email"
                   placeholder="Enter your PayPal email"
-                  {...register("paypalEmail", validationRules.paypalEmail)}
+                  {...register('paypalEmail', validationRules.paypalEmail)}
                 />
                 <PaymentError error={errors.paypalEmail} />
               </div>
@@ -152,6 +152,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
           )}
         </div>
       </form>
+
       <form className="payment__form">
         <div className="payment__option">
           <div className="pymn__option__name">
@@ -161,14 +162,14 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                 id="bitcoin"
                 name="payment-method"
                 value="bitcoin"
-                checked={selectedMethod === "Bitcoin"}
-                onChange={() => changePayMethod("Bitcoin")}
+                checked={selectedMethod === 'Bitcoin'}
+                onChange={() => changePayMethod('Bitcoin')}
               />
               <label htmlFor="bitcoin">BitCoin</label>
             </div>
             <BitcoinIcon width={92} height={20} />
           </div>
-          {selectedMethod === "Bitcoin" && (
+          {selectedMethod === 'Bitcoin' && (
             <div className="pymnt__option__details">
               <div className="pymtn__option__field">
                 <label htmlFor="bitcoin-email">Bitcoin Email</label>
@@ -176,7 +177,7 @@ const PaymentMethod: React.FC<PaymentMethodProps> = ({
                   type="email"
                   id="bitcoin-email"
                   placeholder="Enter your Bitcoin email"
-                  {...register("bitcoinEmail", validationRules.bitcoinEmail)}
+                  {...register('bitcoinEmail', validationRules.bitcoinEmail)}
                 />
                 <PaymentError error={errors.bitcoinEmail} />
               </div>

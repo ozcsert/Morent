@@ -21,4 +21,10 @@
     flex-direction: column;
     padding: 0 20px 0 20px;
   }
+  .payment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f6f7f9;
+  }
 }

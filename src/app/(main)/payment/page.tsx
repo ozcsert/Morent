@@ -1,14 +1,51 @@
-"use client";
-import "./styles.scss";
-import PaymentMethod from "@/components/Payment";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Confirmation from "@/components/Confirmation";
-import { PaymentFormValues } from "@/types/typeList";
-import RentalInfo from "@/components/RentalInfo";
-import RentalSummary from "@/components/RentalSummary";
-import AllNewRush from "../../images/recommendation/All New Rush.png";
+'use client';
+import './styles.scss';
+import PaymentMethod from '@/components/Payment';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import Confirmation from '@/components/Confirmation';
+import { PaymentFormValues } from '@/types/typeList';
+import RentalInfo from '@/components/RentalInfo';
+import BillingInfo from '@/components/BillingInfo';
+import { useState } from 'react';
+import RentalSummary from '@/components/RentalSummary';
+import AllNewRush from '../../images/recommendation/All New Rush.png';
+
+export interface BillingForm {
+  name: string;
+  phone: string;
+  address: string;
+  town: string;
+}
 
 const Payment: React.FC = () => {
+  const [billingForm, setBillingForm] = useState<BillingForm>({
+    name: '',
+    phone: '',
+    address: '',
+    town: '',
+  });
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setBillingForm({ ...billingForm, [name]: value });
+  };
+
+  const handleSubmitBillingForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(billingForm);
+  };
+  // const handleButtonClick = () => {
+  //   if (
+  //     !billingForm.name ||
+  //     !billingForm.phone ||
+  //     !billingForm.address ||
+  //     !billingForm.town
+  //   ) {
+  //     alert('Please fill in all the required fields!');
+  //     return;
+  //   }
+  //   alert('Form submitted successfully!');
+  // };
   const {
     register,
     handleSubmit,
@@ -16,22 +53,22 @@ const Payment: React.FC = () => {
     setValue,
     formState: { errors },
   } = useForm<PaymentFormValues>({
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      cardHolder: "",
-      cardNumber: "",
-      cvc: "",
-      paypalEmail: "",
-      bitcoinEmail: "",
+      cardHolder: '',
+      cardNumber: '',
+      cvc: '',
+      paypalEmail: '',
+      bitcoinEmail: '',
       pickUp: {
-        location: "",
+        location: '',
         date: undefined,
-        time: "",
+        time: '',
       },
       dropOff: {
-        location: "",
+        location: '',
         date: undefined,
-        time: "",
+        time: '',
       },
     },
   });
@@ -39,12 +76,19 @@ const Payment: React.FC = () => {
   const onSubmit: SubmitHandler<PaymentFormValues> = (
     data: PaymentFormValues
   ) => {
-    console.log("Form Data Submitted:", data);
+    console.log('Form Data Submitted:', data);
   };
 
   return (
     <div className="billing-container">
-      <div className="billing-payment">
+      <div className="billing-payment"></div>
+      <div className="payment">
+        <BillingInfo
+          //handleButtonClick={handleButtonClick}
+          handleInputChange={handleInputChange}
+          handleSubmitBillingForm={handleSubmitBillingForm}
+          billingForm={billingForm}
+        />
         <RentalInfo control={control} register={register} errors={errors} />
         <PaymentMethod
           register={register}

@@ -1,7 +1,7 @@
-import RentalInputArea from "../RentalInfo/RentalInputArea/";
-import "./styles.scss";
+import RentalInputArea from '../RentalInfo/RentalInputArea/';
+import './styles.scss';
 
-import { RentalInfoProps } from "@/types/typeList";
+import { RentalInfoProps } from '@/types/typeList';
 
 const RentalInfo: React.FC<RentalInfoProps> = ({
   register,

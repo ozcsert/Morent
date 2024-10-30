@@ -1,12 +1,12 @@
-"use client";
-import React, { FC, useEffect, useState } from "react";
+'use client';
+import React, { FC, useEffect, useState } from 'react';
 import {
   GoogleMap,
   LoadScript,
   DirectionsRenderer,
-} from "@react-google-maps/api";
+} from '@react-google-maps/api';
 
-const apiKey: string = "AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM";
+const apiKey: string = 'AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM';
 
 type AdminDashboardMapProps = {
   pickUpLocation?: string;
@@ -21,8 +21,8 @@ type Location = {
 type GoogleMapsDirectionsResult = google.maps.DirectionsResult;
 
 const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
-  pickUpLocation = "Diyarbakır",
-  dropOffLocation = "Ankara",
+  pickUpLocation = 'Diyarbakır',
+  dropOffLocation = 'Ankara',
 }) => {
   const [pickUpCityCoord, setPickUpCityCoord] = useState<Location | null>(null);
   const [dropOffCityCoord, setDropOffCityCoord] = useState<Location | null>(
@@ -61,10 +61,10 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
       (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK && result) {
           setDirectionsResponse(result);
-          console.log("Çalıştı", result);
+          console.log('Çalıştı', result);
         } else {
           console.error(`Error fetching directions ${result}`);
-          console.log("Çalışmadı", result);
+          console.log('Çalışmadı', result);
         }
       }
     );
@@ -84,12 +84,12 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
         setCoords({ lat: coordinates.lat, lng: coordinates.lng });
       } else {
         console.error(
-          "Geocode was not successful for the following reason:",
+          'Geocode was not successful for the following reason:',
           data.status
         );
       }
     } catch (error) {
-      console.error("Error fetching the coordinates:", error);
+      console.error('Error fetching the coordinates:', error);
     }
   };
 
@@ -97,7 +97,7 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
     <>
       <LoadScript googleMapsApiKey={apiKey}>
         <GoogleMap
-          mapContainerStyle={{ height: "100%", width: "100%" }}
+          mapContainerStyle={{ height: '100%', width: '100%' }}
           center={pickUpCityCoord || dropOffCityCoord || { lat: 0, lng: 0 }}
           zoom={10}
         >

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
-import "./styles.scss";
+import React, { useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import './styles.scss';
 
 interface RentalSummaryProps {
   carName: string;
@@ -19,13 +19,13 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
   reviewCount,
   subtotal,
 }) => {
-  const [promoCode, setPromoCode] = useState("");
+  const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const tax = 0;
   const totalPrice = subtotal + tax - discount;
 
   const applyPromoCode = () => {
-    if (promoCode === "DISCOUNT10") {
+    if (promoCode === 'DISCOUNT10') {
       const discountAmount = subtotal * 0.1;
       setDiscount(discountAmount);
     } else {
@@ -47,8 +47,8 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
         <div className="car-details">
           <h3>{carName}</h3>
           <div className="rating">
-            {"★".repeat(rating)}
-            {"☆".repeat(5 - rating)} {reviewCount}+ Reviewer
+            {'★'.repeat(rating)}
+            {'☆'.repeat(5 - rating)} {reviewCount}+ Reviewer
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
           type="text"
           placeholder="Apply promo code"
           value={promoCode}
-          onChange={(e) => setPromoCode(e.target.value)}
+          onChange={e => setPromoCode(e.target.value)}
         />
         <button onClick={applyPromoCode}>Apply now</button>
       </div>

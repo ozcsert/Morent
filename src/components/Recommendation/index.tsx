@@ -1,23 +1,23 @@
-"use client";
-import React, { FC, useState } from "react";
-import "./styles.scss";
-import { Cars } from "@/types/typeList";
-import RecommendationCard from "./RecommendationCard";
-import useSWR from "swr";
-import Spinner from "../Spinner";
+'use client';
+import React, { FC, useState } from 'react';
+import './styles.scss';
+import { Cars } from '@/types/typeList';
+import RecommendationCard from './RecommendationCard';
+import useSWR from 'swr';
+import Spinner from '../Spinner';
 
 const Recommendation: FC<Cars> = () => {
   const [showMoreCars, setShowMoreCars] = useState(false);
-  const fetcher = (url: string) => fetch(url).then((r) => r.json());
+  const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data, error, isLoading } = useSWR(
-    "https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars",
+    'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars',
     fetcher
   );
 
   if (error) return <div className="error">failed to load</div>;
   if (isLoading)
     return (
-      <div className="loading" style={{ height: "800px" }}>
+      <div className="loading" style={{ height: '800px' }}>
         <Spinner size={36} color="#0099ff">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="pulse-dot" />
@@ -28,7 +28,7 @@ const Recommendation: FC<Cars> = () => {
   const dataRecommended = data.filter(
     (car: Cars) => car.view !== undefined && car.view > 2500
   );
-  console.log(dataRecommended, "dd");
+  console.log(dataRecommended, 'dd');
 
   return (
     <div className="recommendation-cars-container">
