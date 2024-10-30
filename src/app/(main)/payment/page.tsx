@@ -80,8 +80,8 @@ const Payment: React.FC = () => {
   };
 
   return (
-    <div className="billing-container">
-      <div className="billing-payment"></div>
+    <div className="billing-payment-container">
+      <div className="billing-payment-subcontainer"></div>
       <div className="payment">
         <BillingInfo
           //handleButtonClick={handleButtonClick}

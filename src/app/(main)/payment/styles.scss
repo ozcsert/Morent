@@ -1,12 +1,13 @@
-.billing-container {
+.billing-payment-container {
   max-width: 1440px;
   display: flex;
   background-color: #f6f7f9;
   padding: 16px;
   @media screen and (max-width: 660px) {
     flex-direction: column;
+    gap: 20px;
   }
-  .billing-payment {
+  .billing-payment-subcontainer {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -20,6 +21,12 @@
     display: flex;
     flex-direction: column;
     padding: 0 20px 0 20px;
+    @media screen and (max-width: 660px) {
+      max-width: none;
+      width: 100%;
+      padding: 0 0 0 0;
+      background-color: #ffff;
+    }
   }
   .payment {
     display: flex;
