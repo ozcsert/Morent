@@ -10,29 +10,40 @@ interface CarRentalHeroProps {
   buttonColor?: string;
 }
 
-const CarRentalHero: React.FC<CarRentalHeroProps> = props => {
+const CarRentalHero: React.FC<CarRentalHeroProps> = ({
+  title="Lorem Ipsum",
+  subtitle="Lorem Ipsum",
+  buttonText="Rental Car",
+  carImage="/images/BG.png",
+  backgroundColor="#54A6FF",
+  buttonColor='#2563EB'
+}  
+
+) => {
   return (
     <div
       className="promo-card"
       style={{
-        backgroundImage: `url(${props.carImage})`,
-        backgroundColor: props.backgroundColor,
+        backgroundImage: `url(${carImage})`,
+        backgroundColor: backgroundColor,
       }}
     >
       <div className="hero-content">
         <h1 className="hero-title">
-          {props.title || 'The Best Platform for Car Rental'}
+          {title}
         </h1>
 
         <p className="hero-description">
-          {props.subtitle ||
-            'Ease of doing a car rental safely and reliably. Of course at a low price.'}
+          {subtitle}
         </p>
 
-        <button className="rental-button"  style={{
-        backgroundColor: props.buttonColor
-      }}>
-          {props.buttonText || 'Rental Car'}
+        <button
+          className="rental-button"
+          style={{
+            backgroundColor: buttonColor,
+          }}
+        >
+          {buttonText}
         </button>
       </div>
     </div>
