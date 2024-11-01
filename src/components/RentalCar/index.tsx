@@ -11,15 +11,13 @@ interface CarRentalHeroProps {
 }
 
 const CarRentalHero: React.FC<CarRentalHeroProps> = ({
-  title="Lorem Ipsum",
-  subtitle="Lorem Ipsum",
-  buttonText="Rental Car",
-  carImage="/images/BG.png",
-  backgroundColor="#54A6FF",
-  buttonColor='#2563EB'
-}  
-
-) => {
+  title = 'Lorem Ipsum',
+  subtitle = 'Lorem Ipsum',
+  buttonText = 'Rental Car',
+  carImage = '/images/BG.png',
+  backgroundColor = '#54A6FF',
+  buttonColor = '#2563EB',
+}) => {
   return (
     <div
       className="promo-card"
@@ -29,13 +27,9 @@ const CarRentalHero: React.FC<CarRentalHeroProps> = ({
       }}
     >
       <div className="hero-content">
-        <h1 className="hero-title">
-          {title}
-        </h1>
+        <h1 className="hero-title">{title}</h1>
 
-        <p className="hero-description">
-          {subtitle}
-        </p>
+        <p className="hero-description">{subtitle}</p>
 
         <button
           className="rental-button"
