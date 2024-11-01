@@ -31,7 +31,6 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-      // Consider "bottom" when within 20px of the actual bottom
       const isBottom = scrollTop + windowHeight >= documentHeight;
       setIsAtBottom(isBottom);
     };
@@ -132,7 +131,7 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
         className="fltr-sdbr-content"
         ref={contentRef}
         style={{
-          transform: isAtBottom ? 'translateY(-35%)' : 'translateY(20%)',
+          transform: isAtBottom ? 'translateY(-200%)' : 'translateY(20%)',
           transition: 'transform 0.3s ease-out',
         }}
       >
