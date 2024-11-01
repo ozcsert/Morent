@@ -8,7 +8,7 @@ import RentalCar from '@/components/RentalCar';
 export default function Home() {
   return (
     <>
-      <div className="home">
+     <div className="home-car-rent">
         <div className="promo-cards">
           <RentalCar
             title="The Best Platform for Car Rental"
@@ -16,6 +16,7 @@ export default function Home() {
             buttonText="Rental Car"
             carImage="/images/BG.png"
             backgroundColor="#54A6FF"
+            buttonColor='#2563EB'
           />
           <RentalCar
             title="Easy way to rent a car at a low price"
@@ -23,6 +24,7 @@ export default function Home() {
             buttonText="Rental Car"
             carImage="/images/BG2.png"
             backgroundColor="#3563E9"
+            buttonColor='#54A6FF'
           />
         </div>
 

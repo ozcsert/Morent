@@ -7,6 +7,7 @@ interface CarRentalHeroProps {
   buttonText?: string;
   carImage?: string;
   backgroundColor?: string;
+  buttonColor?: string;
 }
 
 const CarRentalHero: React.FC<CarRentalHeroProps> = props => {
@@ -28,7 +29,9 @@ const CarRentalHero: React.FC<CarRentalHeroProps> = props => {
             'Ease of doing a car rental safely and reliably. Of course at a low price.'}
         </p>
 
-        <button className="rental-button">
+        <button className="rental-button"  style={{
+        backgroundColor: props.buttonColor
+      }}>
           {props.buttonText || 'Rental Car'}
         </button>
       </div>

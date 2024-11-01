@@ -2,7 +2,7 @@
 // CarRentalHero.css
 .promo-card{
     display: flex;
-    min-width: 645px;
+    width: 645px;
     height: 376px;
     margin-bottom: 32px;
     border-radius: 16px;
@@ -11,6 +11,7 @@
     overflow: hidden;
     flex-direction: column;
     justify-content: space-between;
+    background-repeat: no-repeat;
 }
   .hero-content {
     max-width: 500px;
@@ -44,7 +45,6 @@
   }
   
   .rental-button {
-    background-color: #2563EB;
     color: white;
     font-family: "Plus Jakarta Sans";
     font-size: 16px;

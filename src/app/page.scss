@@ -4,13 +4,16 @@
   font-family: var(--fon-plus-jakarta-plus), sans-serif;
 }
 .promo-cards{
+  justify-content: center;
+  margin-top: 32px;
   display: flex;
   flex-direction: row;
   gap: 32px;
 }
-@media (max-width: 645px) {
+@media (max-width: 1322px) {
   .promo-cards{
     flex-direction: column;
     gap: 32px;
+    margin-left: 64px;
   }
 }
