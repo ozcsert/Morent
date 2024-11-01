@@ -3,6 +3,8 @@
 .fltr-sctn-container {
   div {
     input {
+      cursor: pointer;
+
       margin-right: clamp(1px, 0.3vw, 12px);
       &[type='checkbox'] {
         width: clamp(12px, 2vw, 20px);
@@ -31,8 +33,13 @@
         }
       }
     }
+    label {
+      cursor: pointer;
+    }
   }
   span {
+    cursor: pointer;
+
     color: $text-tertiary;
     margin: clamp(1px, 0.5vw, 10px);
 

@@ -5,25 +5,40 @@ import { FilterInput } from '@/components/componentList';
 import { useState, useRef, useEffect } from 'react';
 import { calculateNumberOfInputs } from '@/utils/filterUtils';
 import { useFetchCars } from '@/app/hooks/fetchCars';
-import { Loading } from '../Loading';
 import AdminDoubleArrow from '@/app/images/admin-double-arrow.svg';
 
 const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedCapacity, setSelectedCapacity] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<number>(100);
+  const [priceRange, setPriceRange] = useState<number>(300);
   const [carInputs, setCarInputs] = useState<
     { label: string; count: number }[]
   >([]);
   const [capacityInputs, setCapacityInputs] = useState<
     { label: string; count: number }[]
   >([]);
-
+  const [isAtBottom, setIsAtBottom] = useState(false);
   const { data, error, isLoading } = useFetchCars();
 
   const sidebarRef = useRef<HTMLElement>(null);
-  const isOpenRef = useRef<boolean>(true);
+  const isOpenRef = useRef<boolean>(false);
   const btnRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+      // Consider "bottom" when within 20px of the actual bottom
+      const isBottom = scrollTop + windowHeight >= documentHeight;
+      setIsAtBottom(isBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (data && !error) {
@@ -39,11 +54,11 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   }, [data, error]);
 
   if (error) {
-    return <Loading />;
+    return <div></div>;
   }
 
   if (isLoading || data === undefined) {
-    return <Loading />;
+    return <div></div>;
   }
 
   const handleTypeChange = (type: string) => {
@@ -90,28 +105,37 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
 
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
-      isOpenRef.current
-        ? (sidebarRef.current.style.marginLeft = '-35%') &&
-          (btnRef.current!.style.transform =
-            'rotate(180deg) translate(-100%,0px) ')
-        : (sidebarRef.current.style.marginLeft = ' 0%') &&
-          (btnRef.current!.style.transform = 'rotate(0deg) translateX(0%)');
+      console.log(sidebarRef.current.getBoundingClientRect().width);
+
+      if (isOpenRef.current) {
+        sidebarRef.current.style.marginLeft = `-${sidebarRef.current.getBoundingClientRect().width}px`;
+        btnRef.current!.style.transform =
+          'rotate(180deg) translate(-100%, 0px)';
+      } else {
+        sidebarRef.current.style.marginLeft = '0';
+        sidebarRef.current.style.transform = `translateX(100%)'`;
+
+        btnRef.current!.style.transform = 'rotate(0deg) translateX(0%)';
+      }
     }
     isOpenRef.current = !isOpenRef.current;
-    console.log(isOpenRef);
   };
 
-  return (
-    <>
-      <aside
-        ref={sidebarRef}
-        className="fltr-sdbr"
-        style={{ marginLeft: '0%' }}
-      >
-        <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
-          <AdminDoubleArrow width={20} height={20} />
-        </div>
+  slideFilterSidebar();
 
+  return (
+    <aside ref={sidebarRef} className="fltr-sdbr" style={{ marginLeft: `0` }}>
+      <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
+        <AdminDoubleArrow width={20} height={20} />
+      </div>
+      <div
+        className="fltr-sdbr-content"
+        ref={contentRef}
+        style={{
+          transform: isAtBottom ? 'translateY(-35%)' : 'translateY(20%)',
+          transition: 'transform 0.3s ease-out',
+        }}
+      >
         <FilterInput
           title="TYPE"
           inputType="checkbox"
@@ -133,8 +157,8 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
           selectedOptions={priceRange}
           handleRangeChange={handlePriceChange}
         />
-      </aside>
-    </>
+      </div>
+    </aside>
   );
 };
 

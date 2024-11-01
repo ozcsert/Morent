@@ -1,12 +1,7 @@
-'use client';
-import HomeBoard from '@/components/home';
-import './page.scss';
-import Footer from '@/components/Footer';
+import { Filter } from '@/types/FilterSidebar';
 import { useState } from 'react';
-import { Filter } from '@/types/typeList';
-import FilterSidebar from '@/components/FilterSidebar';
 
-export default function Home() {
+export const useFilterState = () => {
   const [filter, setFilter] = useState<Filter>({
     type: [],
     capacity: [],
@@ -28,13 +23,10 @@ export default function Home() {
     }));
     setMaxPriceFilter(maxPrice);
   };
-  return (
-    <>
-      <main className="home">
-        <FilterSidebar onFilterChange={handleFilterChange} />
-        <HomeBoard filter={filter} maxPriceFilter={maxPriceFilter} />
-      </main>
-      <Footer />
-    </>
-  );
-}
+
+  return {
+    filter,
+    maxPriceFilter,
+    handleFilterChange,
+  };
+};

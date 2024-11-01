@@ -6,6 +6,7 @@ import RecommendationCard from './RecommendationCard';
 import { useFetchCars } from '@/app/hooks/fetchCars';
 import { Loading } from '../Loading';
 import { filterCarsbyPrice } from '@/utils/filterUtils';
+import ErrorComponent from '../errorComponent';
 
 const Recommendation: FC<RecommendationProps> = ({
   filter,
@@ -21,17 +22,11 @@ const Recommendation: FC<RecommendationProps> = ({
 
   if (error) {
     if (error === 404) {
-      return (
-        <div className="error" style={{ padding: '2rem', textAlign: 'center' }}>
-          {'Serdest su APIyla oynayip durma kardesim'}
-        </div>
-      );
+      console.log(error);
+
+      return <ErrorComponent />;
     } else {
-      return (
-        <div className="error" style={{ padding: '2rem', textAlign: 'center' }}>
-          {'Much picky? No Batmobile here sorry.'}
-        </div>
-      );
+      return <ErrorComponent />;
     }
   }
 
@@ -51,35 +46,40 @@ const Recommendation: FC<RecommendationProps> = ({
 
   return (
     <div className="recommendation-cars-container">
-      <h4>Recommendation Cars</h4>
-      <div className="recommendation-wrapper">
-        <ul className="recommendation-cars">
-          {showMoreCars
-            ? dataPriceFiltered.map((car: Car) => (
-                <li className="recommendation-car" key={car.id}>
-                  <RecommendationCard car={car} />
-                </li>
-              ))
-            : dataPriceFiltered.slice(0, 8).map((car: Car) => (
-                <li className="recommendation-car" key={car.id}>
-                  <RecommendationCard car={car} />
-                </li>
-              ))}
-        </ul>
-      </div>
-      <div className="recommendation-show-more">
-        <button
-          onClick={() => setShowMoreCars(!showMoreCars)}
-          className="recommendation-btn"
-        >
-          {showMoreCars ? 'Show Less Cars' : 'Show More Cars'}
-        </button>
-        <p className="recommendation-total-cars">
-          {dataPriceFiltered.length} cars
-        </p>
-      </div>
+      {dataPriceFiltered.length === 0 ? (
+        <ErrorComponent />
+      ) : (
+        <>
+          <h4>Recommendation Cars</h4>
+          <div className="recommendation-wrapper">
+            <ul className="recommendation-cars">
+              {showMoreCars
+                ? dataPriceFiltered.map((car: Car) => (
+                    <li className="recommendation-car" key={car.id}>
+                      <RecommendationCard car={car} />
+                    </li>
+                  ))
+                : dataPriceFiltered.slice(0, 8).map((car: Car) => (
+                    <li className="recommendation-car" key={car.id}>
+                      <RecommendationCard car={car} />
+                    </li>
+                  ))}
+            </ul>
+          </div>
+          <div className="recommendation-show-more">
+            <button
+              onClick={() => setShowMoreCars(!showMoreCars)}
+              className="recommendation-btn"
+            >
+              {showMoreCars ? 'Show Less Cars' : 'Show More Cars'}
+            </button>
+            <p className="recommendation-total-cars">
+              {dataPriceFiltered.length} cars
+            </p>
+          </div>
+        </>
+      )}
     </div>
   );
 };
-
 export default Recommendation;

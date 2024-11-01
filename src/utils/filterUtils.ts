@@ -22,20 +22,6 @@ export const calculateNumberOfInputs = (
   });
 };
 
-// export const filterCars = (
-//   filters: { type: string[]; capacity: string[]; maxPrice: number },
-//   cars: Car[]
-// ) => {
-//   const { type, capacity, maxPrice } = filters;
-//   return cars.filter(car => {
-//     const matchesType = type.length === 0 || type.includes(car.carType);
-//     const matchesCapacity =
-//       capacity.length === 0 || capacity.includes(car.capacity);
-//     const matchesPrice = car.price <= maxPrice;
-//     return matchesType && matchesCapacity && matchesPrice;
-//   });
-// };
-
 export const filterCarsbyPrice = (filter: number, cars: Car[]) => {
   return cars.filter(car => {
     const matchesPrice = car.price <= filter;
