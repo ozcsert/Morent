@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { toast } from 'react-toastify';
 import './styles.scss';
 
 interface RentalSummaryProps {
@@ -23,13 +24,17 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
   const [discount, setDiscount] = useState(0);
   const tax = 0;
   const totalPrice = subtotal + tax - discount;
+  const notify = (message: string) => toast(message, { type: 'success' });
+  const notifyError = (message: string) => toast(message, { type: 'error' });
 
   const applyPromoCode = () => {
     if (promoCode === 'DISCOUNT10') {
       const discountAmount = subtotal * 0.1;
       setDiscount(discountAmount);
+      notify('Promo code applied successfully');
     } else {
       setDiscount(0);
+      notifyError('Invalid promo code');
     }
   };
 
