@@ -1,0 +1,107 @@
+@import '../../app/../app/styles/styles';
+.confirmation-container {
+  max-width: 852px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  gap: 20px;
+  font-weight: 600;
+  background-color: #ffff;
+  .confirmation-container-title {
+    .confirmation-subinfo {
+      display: flex;
+      justify-content: space-between;
+      font-size: $fnt-size-xs;
+      color: $text-tertiary;
+      font-weight: 500;
+      line-height: 20px;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-xxs;
+        line-height: 15px;
+        font-weight: 500;
+      }
+    }
+    h2 {
+      font-size: $fnt-size-m;
+      font-weight: 600;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-s;
+        line-height: 24px;
+        font-weight: 700;
+      }
+    }
+    .step {
+      font-weight: 500;
+      font-size: $fnt-size-xs;
+      line-height: 20px;
+      text-align: right;
+      @media screen and (max-width: 420px) {
+        font-size: $fnt-size-xxs;
+        line-height: 15px;
+      }
+    }
+  }
+  .confirmation-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $clr-background-light;
+    border-radius: 10px;
+    .confirmation-option {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .confirmation-option-name {
+        font-size: $fnt-size-s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input {
+          margin-right: 20px;
+        }
+        label {
+          font-size: $fnt-size-s;
+          font-weight: 600;
+          line-height: 24px;
+          color: #1f2544;
+          @media screen and (max-width: 420px) {
+            font-size: $fnt-size-xxs;
+            line-height: 20px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+  .confirmation-btn {
+    width: 140px;
+    background-color: #3563e9;
+    padding: 10px 20px;
+    color: #ffffff;
+    font: 700 16px $fnt-jakarta;
+    border: none;
+    border-radius: 10px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+  .security-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .security-title {
+      font-size: $fnt-size-xxs;
+      .security-subinfo {
+        display: flex;
+        justify-content: space-between;
+        font-size: $fnt-size-xs;
+        color: $text-tertiary;
+        font-weight: 500;
+        line-height: 20px;
+      }
+    }
+  }
+}

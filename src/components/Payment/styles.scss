@@ -1,0 +1,67 @@
+@import "../../app/../app/styles/styles";
+.payment-container {
+  max-width: 852px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  gap: 20px;
+  font-weight: 600;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  .payment-container__title {
+    .payment__subinfo {
+      display: flex;
+      justify-content: space-between;
+      font-size: $fnt-size-xs;
+      color: $text-tertiary;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: $fnt-size-m;
+      font-weight: 600;
+    }
+  }
+  .payment__form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: $clr-background-light;
+    border-radius: 10px;
+    .payment__option {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .pymn__option__name {
+        font-size: $fnt-size-s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input {
+          margin-right: 20px;
+        }
+      }
+      .pymnt__option__details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        .pymtn__option__field {
+          position: relative;
+          gap: 10px;
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 45%;
+          margin: 5px;
+          z-index: 1;
+          input {
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
