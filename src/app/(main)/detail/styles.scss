@@ -1,0 +1,11 @@
+.detail-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .detail-subcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
