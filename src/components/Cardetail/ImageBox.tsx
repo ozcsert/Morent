@@ -1,17 +1,39 @@
 'use client';
-
 import React, { useState } from 'react';
 import './ImageBox.scss';
-
 import Image from 'next/image';
+import Spinner from '../Spinner';
+import useSWR from 'swr';
+import { Cars } from '@/types/Recommendation';
 
 function ImageBox() {
   const [imageIndex, setImageIndex] = useState<number>(0);
+  const fetcher = (url: string) => fetch(url).then(r => r.json());
   const carList: string[] = [
     '/assets/View 1.png',
     '/assets/View 2.png',
     '/assets/View 3.png',
   ];
+  const { data, error, isLoading } = useSWR(
+    'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars',
+    fetcher
+  );
+
+  if (error) return <div className="error">failed to load</div>;
+  if (isLoading)
+    return (
+      <div className="loading" style={{ height: '800px' }}>
+        <Spinner size={36} color="#0099ff">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="pulse-dot" />
+          ))}
+        </Spinner>
+      </div>
+    );
+  const carDetail = data.filter(
+    (car: Cars) => car.view !== undefined && car.view > 2500
+  );
+
   return (
     <div className="cardetailImageBox">
       <div
@@ -40,7 +62,7 @@ function ImageBox() {
             setImageIndex(0);
           }}
           style={
-            imageIndex == 0
+            imageIndex === 0
               ? { border: '2px solid #3563E9', padding: '16px' }
               : { border: 'none' }
           }

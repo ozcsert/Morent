@@ -2,10 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 680px) {
+    flex-direction: column;
+    align-items: center;
+  }
   .detail-subcontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
   }
 }

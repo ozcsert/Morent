@@ -1,5 +1,5 @@
 import React from 'react';
-import Cardetail from '../../../components/Cardetail/Cardetail';
+import Cardetail from '@/components/Cardetail/Cardetail';
 import ReviewCard from '@/components/ReviewCard';
 import FilterSidebar from '@/components/FilterSidebar';
 import './styles.scss';
@@ -10,7 +10,15 @@ function Detail() {
       <FilterSidebar />
       <div className="detail-subcontainer">
         <Cardetail />
-        <ReviewCard />
+        <ReviewCard
+          id={0}
+          img={''}
+          name={''}
+          title={''}
+          review={''}
+          rating={0}
+          date={''}
+        />
       </div>
     </div>
   );

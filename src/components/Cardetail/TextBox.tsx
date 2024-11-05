@@ -1,22 +1,50 @@
 'use client';
 import Image from 'next/image';
 import './TextBox.scss';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import useSWR from 'swr';
+import Spinner from '../Spinner';
+import { Cars } from '@/types/Recommendation';
+import { useParams } from 'next/navigation';
 
-import React, { useState } from 'react';
 function TextBox() {
   const [isActive, setIsActive] = useState(false);
-  const detailList: object = {
-    'Type Car': 'Sport',
-    Steering: 'Manuel',
-    Capacity: '2 Person',
-    Gasoline: '70 L',
-  };
+  const [carDetails, setCarDetails] = useState<Cars | null>(null);
+  const fetcher = (url: string) => fetch(url).then(r => r.json());
+  const params = useParams();
+  const id = params.id;
 
+  const { data, error } = useSWR(
+    id
+      ? `https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars/${id}`
+      : null,
+    fetcher
+  );
+
+  useEffect(() => {
+    if (data) {
+      setCarDetails(data);
+    }
+  }, [data]);
+  if (error) return <div className="error">failed to load</div>;
+  if (!data)
+    return (
+      <div className="loading" style={{ height: '800px' }}>
+        <Spinner size={36} color="#0099ff">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="pulse-dot" />
+          ))}
+        </Spinner>
+      </div>
+    );
+
+  const keysToDisplay = ['carType', 'capacity', 'storage', 'gearType'];
   return (
     <div className="cardetailTextBox">
       <div className="cardetailTextTop">
         <div className="cardetailTextTopHeading">
-          <div className="cardetailTextTitle">Nissan GT - R</div>
+          <div className="cardetailTextTitle">{carDetails?.name}</div>
           <div className="cardetailReviews">
             <Image
               width={108}
@@ -44,27 +72,36 @@ function TextBox() {
           </svg>
         </span>
       </div>
-      <div className="cardetailTextDescription">
-        NISMO has become the embodiment of Nissans outstanding performance,
-        inspired by the most unforgiving proving ground, the race track.
-      </div>
+      <div className="cardetailTextDescription">{carDetails?.carType}</div>
       <div className="cardetailTextDetail">
-        {Object.entries(detailList).map(([key, value]) => (
-          <div key={key} className="cardetailDetails">
-            <span className="cardetailDetailHeading">{key}</span>
-            <span className="cardetailDetailDescription">{value}</span>
-          </div>
-        ))}
+        {carDetails &&
+          keysToDisplay.map(
+            key =>
+              carDetails[key] && (
+                <div key={key} className="cardetailDetails">
+                  <span className="cardetailDetailHeading">{key}</span>
+                  <span className="cardetailDetailDescription">
+                    {carDetails[key]}
+                  </span>
+                </div>
+              )
+          )}
       </div>
       <div className="cardetailTextBottom">
         <div className="cardetailTextBottomPrices">
           <div className="cardetailTextBottomPrice">
-            <span className="cardetailTextBottomReal">$80.00/ </span>
+            <span className="cardetailTextBottomReal">
+              {carDetails?.price?.toFixed(0)}/
+            </span>
             <span className="cardetailTextBottomDays">days</span>
           </div>
-          <span className="cardetailTextBottomDiscount">$100.00</span>
+          <span className="cardetailTextBottomDiscount">
+            ${(carDetails?.price * 1.15).toFixed(0)}
+          </span>
         </div>
-        <button className="cardetailTextBottomButton">Rent Now</button>
+        <Link href="/payment">
+          <button className="cardetailTextBottomButton">Rent Now</button>
+        </Link>
       </div>
     </div>
   );
