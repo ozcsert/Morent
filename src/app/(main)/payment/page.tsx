@@ -7,6 +7,8 @@ import { PaymentFormValues } from '@/types/typeList';
 import RentalInfo from '@/components/RentalInfo';
 import BillingInfo from '@/components/BillingInfo';
 import { useState } from 'react';
+import RentalSummary from '@/components/RentalSummary';
+import AllNewRush from '../../images/recommendation/All New Rush.png';
 
 export interface BillingForm {
   name: string;
@@ -78,16 +80,32 @@ const Payment: React.FC = () => {
   };
 
   return (
-    <div className="payment">
-      <BillingInfo
-        //handleButtonClick={handleButtonClick}
-        handleInputChange={handleInputChange}
-        handleSubmitBillingForm={handleSubmitBillingForm}
-        billingForm={billingForm}
-      />
-      <RentalInfo control={control} register={register} errors={errors} />
-      <PaymentMethod register={register} errors={errors} setValue={setValue} />
-      <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
+    <div className="billing-payment-container">
+      <div className="billing-payment-subcontainer"></div>
+      <div className="payment">
+        <BillingInfo
+          //handleButtonClick={handleButtonClick}
+          handleInputChange={handleInputChange}
+          handleSubmitBillingForm={handleSubmitBillingForm}
+          billingForm={billingForm}
+        />
+        <RentalInfo control={control} register={register} errors={errors} />
+        <PaymentMethod
+          register={register}
+          errors={errors}
+          setValue={setValue}
+        />
+        <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
+      </div>
+      <div className="rental-summary-container">
+        <RentalSummary
+          carName="Audi A8"
+          imageUrl={AllNewRush}
+          rating={5}
+          reviewCount={10}
+          subtotal={1000}
+        />
+      </div>
     </div>
   );
 };
