@@ -58,7 +58,8 @@ const FilterInput: React.FC<FilterInputProps> = ({
               onChange={() => handleCheckboxChange?.(label)}
             />
             <label htmlFor={label}>
-              {label} <span>({count ?? 'N/A'})</span>
+              {label} {title === 'CAPACITY' && 'People'}{' '}
+              <span>({count ?? 'N/A'}) </span>
             </label>
           </div>
         ))

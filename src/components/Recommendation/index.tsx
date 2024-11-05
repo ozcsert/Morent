@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import './styles.scss';
 import { Car, RecommendationProps } from '@/types/typeList';
 import RecommendationCard from './RecommendationCard';

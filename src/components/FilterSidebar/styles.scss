@@ -7,7 +7,8 @@
   font-family: $fnt-jakarta;
   color: $text-secondary;
   width: 20%;
-  font-size: clamp(10px, 1.5vw, $fnt-size-m);
+  min-width: 300px;
+  font-size: clamp(14px, 1.5vw, $fnt-size-m);
   left: 0;
   top: 0;
   font-weight: 600;
@@ -15,6 +16,9 @@
   position: absolute;
   @media (max-width: 940px) {
     padding-right: 1px;
+  }
+  @media (max-width: 650px) {
+    width: 100%;
   }
   .filter-sidebar-wrapper {
     width: 100%;
@@ -41,7 +45,8 @@
       z-index: 1000;
     }
     .fltr-sdbr-content {
-      padding: clamp(12px, 2vw, 40px);
+      padding-left: clamp(12px, 2vw, 40px);
+      padding-right: clamp(12px, 2vw, 40px);
 
       display: flex;
       flex-direction: column;
@@ -55,7 +60,7 @@
         flex-direction: column;
         gap: clamp(12px, 2vw, 20px);
         h4 {
-          font-size: clamp(10px, 2vw, $fnt-size-xxs);
+          font-size: clamp(12px, 2vw, $fnt-size-xxs);
         }
         div {
           display: inline-block;

@@ -8,7 +8,7 @@
     input {
       cursor: pointer;
 
-      margin-right: clamp(1px, 0.3vw, 12px);
+      margin-right: clamp(12px, 0.3vw, 12px);
       &[type='checkbox'] {
         width: clamp(12px, 2vw, 20px);
         height: clamp(12px, 2vw, 20px);
@@ -19,7 +19,7 @@
         width: 100%;
         accent-color: $clr-primary;
         -webkit-appearance: none;
-        height: clamp(1px, 1vw, 12px);
+        height: clamp(5px, 1vw, 12px);
         background: $text-tertiary;
         border-radius: 5px;
         background-image: linear-gradient($clr-primary, $clr-primary);
@@ -34,6 +34,9 @@
           box-shadow: 0 0 0 4px white;
           cursor: pointer;
         }
+        @media (max-width: 650px) {
+          width: 50%;
+        }
       }
     }
     label {
@@ -44,10 +47,6 @@
     cursor: pointer;
 
     color: $text-tertiary;
-    margin: clamp(1px, 0.5vw, 10px);
-
-    @media (max-width: 630px) {
-      display: none;
-    }
+    margin: clamp(8px, 0.5vw, 10px);
   }
 }

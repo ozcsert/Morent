@@ -1,4 +1,4 @@
-@import "../../app/styles/variables.scss";
+@import '../../app/styles/variables.scss';
 
 .loading {
   display: flex;
@@ -47,28 +47,12 @@
     }
   }
   .recommendation-show-more {
+    position: relative;
     max-width: 1312px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 552px;
-    flex: 1 1 30px;
-    @media screen and (max-width: 1350px) {
-      max-width: 1000px;
-    }
-    @media screen and (max-width: 1017px) {
-      max-width: 700px;
-      gap: 150px;
-    }
-    @media screen and (max-width: 716px) {
-      max-width: 400px;
-      gap: 150px;
-    }
-    @media screen and (max-width: 716px) {
-      max-width: 300px;
-      gap: 50px;
-    }
     button {
       background-color: #3563e9;
       padding: 10px 20px;
@@ -80,6 +64,9 @@
       cursor: pointer;
     }
     p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
       color: $text-tertiary;
       font-weight: 500;
       font-size: $fnt-size-xs;
