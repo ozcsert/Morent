@@ -2,13 +2,21 @@
 import './styles.scss';
 import Image from 'next/image';
 import useDeviceSize from './size';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useClickAway } from 'react-use';
 import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
+import axios from 'axios';
 
+interface Car {
+  id: string;
+  name: string;
+  gearType: string;
+  image: string;
+  // Add other relevant car fields here based on the API response
+}
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [width, height] = useDeviceSize();
@@ -17,6 +25,39 @@ const Navbar: React.FC = () => {
   const ref = useRef(null);
 
   useClickAway(ref, () => setOpen(false));
+
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [cars, setCars] = useState<Car[]>([]);
+  const [filteredCars, setFilteredCars] = useState<Car[]>([]);
+
+  useEffect(() => {
+    // Fetch car data from the API
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get('https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars');
+        setCars(response.data);
+      } catch (error) {
+        console.error('Error fetching car data:', error);
+      }
+    };
+    
+    fetchCars();
+  }, []);
+
+  useEffect(() => {
+    // Filter cars based on the search term
+    if (searchTerm) {
+      setFilteredCars(
+        cars.filter(car => 
+          car.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          car.gearType?.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .slice(0, 5) // Take the first 5 filtered results
+      );
+    } else {
+      setFilteredCars([]);
+    }
+  }, [searchTerm, cars]);
 
   return (
     <div>
@@ -33,7 +74,7 @@ const Navbar: React.FC = () => {
                 width={20}
                 height={20}
               />
-              <input type="text" placeholder="Search something here" />
+              <input type="text" placeholder="Search something here" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
               <Image
                 src="/images/Filtersettings.svg"
                 alt=""
@@ -41,6 +82,31 @@ const Navbar: React.FC = () => {
                 height={30}
               />
             </div>
+            <div className='popup'>
+            {filteredCars.length > 0 ? (
+              filteredCars.map(car => (
+                <div key={car.id} style={{
+                  padding: '12px',
+                  transition: 'box-shadow 0.3s',
+                  backgroundColor: '#f9f9f9',
+                }}>
+                  <p style={{ margin: 0, fontSize: '18px', color: '#333' }}>{car.name} {car.gearType}  
+                <Image
+                src={car.image} 
+                alt=""
+                width={40}
+                height={40}
+                unoptimized
+                //onClick={handleHeartButton}
+              /></p>
+                </div>
+              ))
+            ) : (
+              searchTerm && (
+                <p style={{ color: '#777' }}>No results found</p>
+              )
+            )}
+      </div>
           </div>
           <div className="navbar-right">
             <button className="icon-btn" key="heart-btn">
@@ -182,7 +248,7 @@ const Navbar: React.FC = () => {
                   width={20}
                   height={20}
                 />
-                <input type="text" placeholder="Search something here" />
+                <input type="text" placeholder="Search something here" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
                 <Image
                   src="/images/Filtersettings.svg"
                   alt=""
@@ -190,6 +256,31 @@ const Navbar: React.FC = () => {
                   height={30}
                 />
               </div>
+            <div className='popup'>
+            {filteredCars.length > 0 ? (
+              filteredCars.map(car => (
+                <div key={car.id} style={{
+                  padding: '12px',
+                  transition: 'box-shadow 0.3s',
+                  backgroundColor: '#f9f9f9',
+                }}>
+                  <p style={{ margin: 0, fontSize: '18px', color: '#333' }}>{car.name} {car.gearType}  
+                <Image
+                src={car.image} 
+                alt=""
+                width={40}
+                height={40}
+                unoptimized
+                //onClick={handleHeartButton}
+              /></p>
+                </div>
+              ))
+            ) : (
+              searchTerm && (
+                <p style={{ color: '#777' }}>No results found</p>
+              )
+            )}
+           </div>
             </div>
           )}
         </div>
