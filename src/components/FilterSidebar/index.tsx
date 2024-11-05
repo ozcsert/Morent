@@ -17,27 +17,11 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const [capacityInputs, setCapacityInputs] = useState<
     { label: string; count: number }[]
   >([]);
-  const [isAtBottom, setIsAtBottom] = useState(false);
   const { data, error, isLoading } = useFetchCars();
 
   const sidebarRef = useRef<HTMLElement>(null);
-  const isOpenRef = useRef<boolean>(false);
+  const isOpenRef = useRef<boolean>(true);
   const btnRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      const isBottom = scrollTop + windowHeight >= documentHeight;
-      setIsAtBottom(isBottom);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (data && !error) {
@@ -124,38 +108,33 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
 
   return (
     <aside ref={sidebarRef} className="fltr-sdbr" style={{ marginLeft: `0` }}>
-      <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
-        <AdminDoubleArrow width={20} height={20} />
-      </div>
-      <div
-        className="fltr-sdbr-content"
-        ref={contentRef}
-        style={{
-          transform: isAtBottom ? 'translateY(-200%)' : 'translateY(20%)',
-          transition: 'transform 0.3s ease-out',
-        }}
-      >
-        <FilterInput
-          title="TYPE"
-          inputType="checkbox"
-          options={carInputs}
-          selectedOptions={selectedTypes}
-          handleCheckboxChange={handleTypeChange}
-        />
-        <FilterInput
-          title="CAPACITY"
-          inputType="checkbox"
-          options={capacityInputs}
-          selectedOptions={selectedCapacity}
-          handleCheckboxChange={handleCapacityChange}
-        />
+      <div className="filter-sidebar-wrapper">
+        <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
+          <AdminDoubleArrow width={20} height={20} />
+        </div>
+        <div className="fltr-sdbr-content">
+          <FilterInput
+            title="TYPE"
+            inputType="checkbox"
+            options={carInputs}
+            selectedOptions={selectedTypes}
+            handleCheckboxChange={handleTypeChange}
+          />
+          <FilterInput
+            title="CAPACITY"
+            inputType="checkbox"
+            options={capacityInputs}
+            selectedOptions={selectedCapacity}
+            handleCheckboxChange={handleCapacityChange}
+          />
 
-        <FilterInput
-          title="PRICE"
-          inputType="range"
-          selectedOptions={priceRange}
-          handleRangeChange={handlePriceChange}
-        />
+          <FilterInput
+            title="PRICE"
+            inputType="range"
+            selectedOptions={priceRange}
+            handleRangeChange={handlePriceChange}
+          />
+        </div>
       </div>
     </aside>
   );

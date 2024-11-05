@@ -2,6 +2,9 @@
 
 .fltr-sctn-container {
   div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     input {
       cursor: pointer;
 
@@ -13,7 +16,7 @@
       &[type='range'] {
         display: block;
         margin-bottom: clamp(12px, 2vw, 20px);
-        width: 80%;
+        width: 100%;
         accent-color: $clr-primary;
         -webkit-appearance: none;
         height: clamp(1px, 1vw, 12px);
