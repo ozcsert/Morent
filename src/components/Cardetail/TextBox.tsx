@@ -39,7 +39,8 @@ function TextBox() {
       </div>
     );
 
-  const keysToDisplay = ['carType', 'capacity', 'storage', 'gearType'];
+  const keysToDisplay = ['carType', 'capacity'];
+  const keysToDisplay2 = ['storage', 'gearType'];
   return (
     <div className="cardetailTextBox">
       <div className="cardetailTextTop">
@@ -52,7 +53,9 @@ function TextBox() {
               src="/assets/Review Star.png"
               alt=""
             />
-            <span className="cardetailComments">440+ Reviewer</span>
+            <span className="cardetailComments">
+              {carDetails?.view}+ Reviewer
+            </span>
           </div>
         </div>
         <span
@@ -72,13 +75,30 @@ function TextBox() {
           </svg>
         </span>
       </div>
-      <div className="cardetailTextDescription">{carDetails?.carType}</div>
+      <div className="cardetailTextDescription">
+        {carDetails?.carType} Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Iusto nihil ad rem asperiores necessitatibus maiores? Officia
+        error est fuga suscipit earum, ipsum asperiores, sequi accusamus totam
+        fugit non, incidunt nesciunt.
+      </div>
       <div className="cardetailTextDetail">
         {carDetails &&
           keysToDisplay.map(
             key =>
               carDetails[key] && (
-                <div key={key} className="cardetailDetails">
+                <div key={key} className="cardetailDetails1">
+                  <span className="cardetailDetailHeading">{key}</span>
+                  <span className="cardetailDetailDescription">
+                    {carDetails[key]}
+                  </span>
+                </div>
+              )
+          )}
+        {carDetails &&
+          keysToDisplay2.map(
+            key =>
+              carDetails[key] && (
+                <div key={key} className="cardetailDetails2">
                   <span className="cardetailDetailHeading">{key}</span>
                   <span className="cardetailDetailDescription">
                     {carDetails[key]}

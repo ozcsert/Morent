@@ -6,7 +6,7 @@
 }
 .cardetailTextBox {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  flex: 1;
+  max-width: 496px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,12 +46,27 @@
 
   .cardetailTextDetail {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 25px;
-    .cardetailDetails {
+    .cardetailDetails1 {
       display: flex;
       justify-content: space-between;
       font-size: 20;
+      gap: 25px;
+      .cardetailDetailHeading {
+        color: #90a3bf;
+        font-weight: 400;
+      }
+      .cardetailDetailDescription {
+        color: #596780;
+        font-weight: 600;
+      }
+    }
+    .cardetailDetails2 {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20;
+      gap: 25px;
       .cardetailDetailHeading {
         color: #90a3bf;
         font-weight: 400;

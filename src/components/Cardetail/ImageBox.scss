@@ -1,46 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
+.cardetailImageBox {
+  max-width: 496px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%;
+  padding: 25px;
+  .cardetailBig {
+    .cardetailImageTexts {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      color: white;
+      .cardetailImageHeading {
+        font-size: 32px;
+      }
+      .cardetailImageText {
+        font-size: 16px;
+      }
+    }
+  }
 
-.cardetailImageBox{
-    flex: 1;
+  .cardetailSmallContainer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 25px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    width: 100%;
-    .cardetailBig{
-        
-        .cardetailImageTexts{
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            color: white;
-            .cardetailImageHeading{
-                font-size: 32px;
-            }
-            .cardetailImageText{
-                font-size: 16px;
-            }
-        }
-        
-
+    .cardetailSmall {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #3563e9;
+      border-radius: 10px;
+      width: 148px;
+      height: 100px;
     }
-
-    
-    .cardetailSmallContainer{
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        .cardetailSmall{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #3563E9;
-            border-radius: 10px;
-            width: 148px;
-            height: 100px;
-        }
-    }
+  }
 }
-
