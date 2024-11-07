@@ -3,43 +3,28 @@ import Image from 'next/image';
 import './TextBox.scss';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import useSWR from 'swr';
-import Spinner from '../Spinner';
 import { Cars } from '@/types/Recommendation';
-import { useParams } from 'next/navigation';
 
-function TextBox() {
+type TextBoxProps = {
+  data: Cars | null;
+};
+
+function TextBox({ data }: TextBoxProps) {
   const [isActive, setIsActive] = useState(false);
   const [carDetails, setCarDetails] = useState<Cars | null>(null);
-  const fetcher = (url: string) => fetch(url).then(r => r.json());
-  const params = useParams();
-  const id = params.id;
-
-  const { data, error } = useSWR(
-    id
-      ? `https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars/${id}`
-      : null,
-    fetcher
-  );
 
   useEffect(() => {
     if (data) {
       setCarDetails(data);
     }
   }, [data]);
-  if (error) return <div className="error">failed to load</div>;
-  if (!data)
-    return (
-      <div className="loading" style={{ height: '800px' }}>
-        <Spinner size={36} color="#0099ff">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="pulse-dot" />
-          ))}
-        </Spinner>
-      </div>
-    );
 
-  const keysToDisplay = ['carType', 'capacity', 'storage', 'gearType'];
+  const keysToDisplay: string[] = [
+    'carType',
+    'capacity',
+    'storage',
+    'gearType',
+  ];
   return (
     <div className="cardetailTextBox">
       <div className="cardetailTextTop">
@@ -83,12 +68,12 @@ function TextBox() {
       <div className="cardetailTextDetail">
         {carDetails &&
           keysToDisplay.map(
-            key =>
-              carDetails[key] && (
+            (key: string) =>
+              (carDetails as never)[key] && (
                 <div key={key} className="cardetailDetails1">
                   <span className="cardetailDetailHeading">{key}</span>
                   <span className="cardetailDetailDescription">
-                    {carDetails[key]}
+                    {(carDetails as never)[key]}
                   </span>
                 </div>
               )
@@ -103,7 +88,7 @@ function TextBox() {
             <span className="cardetailTextBottomDays">days</span>
           </div>
           <span className="cardetailTextBottomDiscount">
-            ${(carDetails?.price * 1.15).toFixed(2)}
+            ${((carDetails?.price || 0) * 1.15).toFixed(2)}
           </span>
         </div>
         <Link href="/payment">
