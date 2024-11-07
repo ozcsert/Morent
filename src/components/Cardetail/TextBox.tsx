@@ -39,8 +39,7 @@ function TextBox() {
       </div>
     );
 
-  const keysToDisplay = ['carType', 'capacity'];
-  const keysToDisplay2 = ['storage', 'gearType'];
+  const keysToDisplay = ['carType', 'capacity', 'storage', 'gearType'];
   return (
     <div className="cardetailTextBox">
       <div className="cardetailTextTop">
@@ -94,29 +93,17 @@ function TextBox() {
                 </div>
               )
           )}
-        {carDetails &&
-          keysToDisplay2.map(
-            key =>
-              carDetails[key] && (
-                <div key={key} className="cardetailDetails2">
-                  <span className="cardetailDetailHeading">{key}</span>
-                  <span className="cardetailDetailDescription">
-                    {carDetails[key]}
-                  </span>
-                </div>
-              )
-          )}
       </div>
       <div className="cardetailTextBottom">
         <div className="cardetailTextBottomPrices">
           <div className="cardetailTextBottomPrice">
             <span className="cardetailTextBottomReal">
-              {carDetails?.price?.toFixed(0)}/
+              {carDetails?.price?.toFixed(2)}/
             </span>
             <span className="cardetailTextBottomDays">days</span>
           </div>
           <span className="cardetailTextBottomDiscount">
-            ${(carDetails?.price * 1.15).toFixed(0)}
+            ${(carDetails?.price * 1.15).toFixed(2)}
           </span>
         </div>
         <Link href="/payment">

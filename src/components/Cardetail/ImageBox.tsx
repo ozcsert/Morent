@@ -6,23 +6,20 @@ import Image from 'next/image';
 function ImageBox() {
   const [imageIndex, setImageIndex] = useState<number>(0);
   const carList: string[] = [
-    '/assets/View 1.png',
+    '/assets/View 0.png',
     '/assets/View 2.png',
     '/assets/View 3.png',
-    '/assets/View 0.png',
   ];
   return (
     <div className="cardetailImageBox">
       <div
         className="cardetailBig"
         style={{
-          backgroundImage: `url("${carList[3]}")`,
+          backgroundImage: `url("${carList[imageIndex]}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           padding: '25px',
           borderRadius: '10px',
-          width: '492px',
-          height: '360px',
         }}
       >
         {/* <div className="cardetailImageTexts" style={{}}>

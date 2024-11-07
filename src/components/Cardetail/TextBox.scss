@@ -12,7 +12,10 @@
   justify-content: space-between;
   padding: 25px;
   border-radius: 10px;
-
+  gap: 15px;
+  @media (max-width: 680px) {
+    padding: 5px;
+  }
   .cardetailTextTop {
     display: flex;
     justify-content: space-between;
@@ -27,6 +30,10 @@
         font-size: 32px;
         color: #1a202c;
         font-weight: 700;
+        @media (max-width: 680px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
       }
       .cardetailReviews {
         display: flex;
@@ -42,11 +49,17 @@
   .cardetailTextDescription {
     color: #596780;
     font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    @media (max-width: 680px) {
+      font-size: 12px;
+      line-height: 24px;
+    }
   }
 
   .cardetailTextDetail {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     .cardetailDetails1 {
       display: flex;
@@ -55,25 +68,19 @@
       gap: 25px;
       .cardetailDetailHeading {
         color: #90a3bf;
-        font-weight: 400;
+        font-weight: 500;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
       .cardetailDetailDescription {
         color: #596780;
         font-weight: 600;
-      }
-    }
-    .cardetailDetails2 {
-      display: flex;
-      justify-content: space-between;
-      font-size: 20;
-      gap: 25px;
-      .cardetailDetailHeading {
-        color: #90a3bf;
-        font-weight: 400;
-      }
-      .cardetailDetailDescription {
-        color: #596780;
-        font-weight: 600;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
     }
   }
@@ -89,15 +96,29 @@
         font-size: 32px;
         color: #1a202c;
         font-weight: 700;
+        @media (max-width: 680px) {
+          font-size: 20px;
+          line-height: 25px;
+        }
       }
       .cardetailTextBottomDays {
+        font-weight: 700;
         font-size: 16px;
         color: #90a3bf;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 15px;
+        }
       }
       .cardetailTextBottomDiscount {
+        font-weight: 700;
         font-size: 16px;
         color: #90a3bf;
         text-decoration: line-through;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 15px;
+        }
       }
     }
     .cardetailTextBottomButton {
