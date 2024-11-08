@@ -4,6 +4,7 @@ import '../ImplementThePopularCars/style.scss';
 import { FC, useState } from 'react';
 import useSWR from 'swr';
 import { Cars } from '@/types/Recommendation';
+import { useRouter } from 'next/navigation';
 
 type CarProps = {
   title: string;
@@ -17,9 +18,14 @@ export const ImplementThePopularCar: FC<CarProps> = ({
   carsView,
 }) => {
   const [carView, setcarView] = useState<number>(carsView);
+  const navigate = useRouter();
 
   const handleViewCar = (carCount: number) => {
-    setcarView(carCount);
+    if (width === 1312) {
+      navigate.push('/category');
+    } else {
+      setcarView(carCount);
+    }
   };
   const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data } = useSWR(
@@ -33,12 +39,13 @@ export const ImplementThePopularCar: FC<CarProps> = ({
       <div className="popular-car-cart-header-main" style={{ maxWidth: width }}>
         <div className="popular-car-cart-header">
           <p className="popular-car-popular-car-text">{title}</p>
+          {}
           {(width === 1312 ? carView === 4 : carView === 3) && (
             <p
               className="popular-car-view-all"
               onClick={() => handleViewCar(15)}
             >
-              View All - {width}
+              View All
             </p>
           )}
           {carView === 15 && (
@@ -46,7 +53,7 @@ export const ImplementThePopularCar: FC<CarProps> = ({
               className="popular-car-view-all"
               onClick={() => handleViewCar(width === 1312 ? 4 : 3)}
             >
-              View Less - {width}
+              View Less
             </p>
           )}
         </div>
