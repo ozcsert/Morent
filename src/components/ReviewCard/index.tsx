@@ -69,7 +69,7 @@ const ReviewCard: React.FC<ReviewProps> = () => {
       <div className="review-cards">
         <div className="reviews-input">
           <h3>Reviews</h3>
-          <div className="total-reviews">13</div>
+          <div className="total-reviews">{reviews.length}</div>
         </div>
         <div className="review-list-show">
           {showMore ? reviewCards : reviewCards.slice(0, 2)}

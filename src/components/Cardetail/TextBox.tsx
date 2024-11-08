@@ -19,12 +19,13 @@ function TextBox({ data }: TextBoxProps) {
     }
   }, [data]);
 
-  const keysToDisplay: string[] = [
-    'carType',
-    'capacity',
-    'storage',
-    'gearType',
-  ];
+  const keysToDisplay = ['carType', 'capacity', 'storage', 'gearType'];
+  const keyNameMapping = {
+    carType: 'Type Car',
+    capacity: 'Capacity',
+    storage: 'Gasoline',
+    gearType: 'Steering',
+  };
   return (
     <div className="cardetailTextBox">
       <div className="cardetailTextTop">
@@ -60,18 +61,21 @@ function TextBox({ data }: TextBoxProps) {
         </span>
       </div>
       <div className="cardetailTextDescription">
-        {carDetails?.carType} Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Iusto nihil ad rem asperiores necessitatibus maiores? Officia
-        error est fuga suscipit earum, ipsum asperiores, sequi accusamus totam
-        fugit non, incidunt nesciunt.
+        {/* {carDetails?.carType} */}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil ad
+        rem asperiores necessitatibus maiores? Officia error est fuga suscipit
+        earum, ipsum asperiores, sequi accusamus totam fugit non, incidunt
+        nesciunt.
       </div>
       <div className="cardetailTextDetail">
         {carDetails &&
           keysToDisplay.map(
-            (key: string) =>
+            key =>
               (carDetails as never)[key] && (
                 <div key={key} className="cardetailDetails1">
-                  <span className="cardetailDetailHeading">{key}</span>
+                  <span className="cardetailDetailHeading">
+                    {(keyNameMapping as never)[key]}
+                  </span>
                   <span className="cardetailDetailDescription">
                     {(carDetails as never)[key]}
                   </span>
