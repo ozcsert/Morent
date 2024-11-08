@@ -3,12 +3,11 @@ import Image from 'next/image';
 import './styles.scss';
 import { reviews } from '@/constants';
 import React, { useEffect, useState } from 'react';
-import { ReviewProps } from '@/types/typeList';
 import ReactStars from 'react-rating-stars-component';
 import AngleDown from '@/public/images/icons/AngleDown';
 import AngleUp from '@/public/images/icons/AngleUp';
 
-const ReviewCard: React.FC<ReviewProps> = () => {
+const ReviewCard = () => {
   const [showMore, setShowMore] = useState(false);
   const [windowSize, setWindowSize] = useState<number>(551);
   useEffect(() => {
