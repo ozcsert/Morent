@@ -26,7 +26,7 @@ const FilterInput: React.FC<FilterInputProps> = ({
   };
 
   const backgroundSize = `${
-    isRTL ? 100 - rangeValue / 1.5 : rangeValue / 1.5
+    isRTL ? 100 - rangeValue / 3.0 : rangeValue / 3.0
   }% 100%`;
 
   return (
@@ -38,7 +38,7 @@ const FilterInput: React.FC<FilterInputProps> = ({
             type="range"
             id={title}
             min="0"
-            max="150"
+            max="300"
             value={rangeValue}
             onChange={handleRangeInputChange}
             style={{ backgroundSize }}
@@ -58,7 +58,8 @@ const FilterInput: React.FC<FilterInputProps> = ({
               onChange={() => handleCheckboxChange?.(label)}
             />
             <label htmlFor={label}>
-              {label} <span>({count ?? 'N/A'})</span>
+              {label} {title === 'CAPACITY' && 'People'}{' '}
+              <span>({count ?? 'N/A'}) </span>
             </label>
           </div>
         ))

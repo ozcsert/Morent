@@ -11,7 +11,7 @@
 .logo-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
-  color: #2563eb; /* Logo rengi */
+  color: #2563eb;
   font-weight: bold;
   justify-self: center;
 }
@@ -250,14 +250,6 @@
   top: 30px;
 }
 
-.home {
-  width: 100vw;
-  height: 100vh;
-  background-color: #f9f6f6;
-  padding-top: 50px;
-  font-family: var(--fon-plus-jakarta-plus), sans-serif;
-  margin-top: 50px;
-}
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
