@@ -30,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable}`}
+      >
         <div>
           <div>{children}</div>
         </div>

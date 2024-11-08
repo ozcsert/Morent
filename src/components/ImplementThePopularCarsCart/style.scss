@@ -6,7 +6,6 @@
   background-color: white;
   padding: 22px;
   font-family: "Plus Jakarta Sans", sans-serif;
-  margin: 0 auto;
 
   .popular-car-main {
     .popular-car-cart-header-title {
@@ -17,6 +16,7 @@
         font-size: 20px;
         font-weight: 700;
       }
+
       .popular-car-cart-header-title-like {
         cursor: pointer;
       }
@@ -35,6 +35,7 @@
     margin: auto auto;
     margin-top: 80px;
   }
+
   .popular-car-cart-img::after {
     content: "";
     position: absolute;
@@ -45,14 +46,17 @@
     background: inherit;
     filter: blur(10px);
   }
+
   .popular-car-cart-info {
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
   }
+
   .popular-car-cart-capacity {
     display: flex;
     align-items: center;
+
     .popular-car-cart-capacity-text {
       font-size: 14px;
       font-weight: 500;
@@ -60,22 +64,26 @@
       padding-left: 5px;
     }
   }
+
   .popular-car-cart-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+
     .popular-car-cart-price span {
       font-size: 20px;
       font-weight: 700;
       color: black;
     }
+
     .popular-car-cart-price {
       font-size: 14px;
       font-weight: 700;
       color: #90a3bf;
       padding-left: 5px;
     }
+
     .popular-car-cart-btn {
       font-size: 16px;
       font-weight: 600;

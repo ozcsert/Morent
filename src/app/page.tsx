@@ -3,7 +3,7 @@ import RangeSettings from '@/components/RangeSetting';
 import Footer from '@/components/Footer';
 import './page.scss';
 import Recommendation from '@/components/Recommendation';
-import { ImplementThePopularCar } from "@/components/ImplementThePopularCars";
+import { ImplementThePopularCar } from '@/components/ImplementThePopularCars';
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <div className="home">
         <RangeSettings />
         <br />
-        <ImplementThePopularCar title="Recent Car" />
+        <ImplementThePopularCar title="Popular Car" />
         <Recommendation
           id={0}
           name={''}

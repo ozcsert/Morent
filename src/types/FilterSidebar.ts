@@ -4,7 +4,7 @@ export type Car = {
   type: string;
   capacity: string;
   price: string;
-  users : string;
+  users: string;
   img: string;
 };
 

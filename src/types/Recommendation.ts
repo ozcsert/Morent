@@ -1,9 +1,9 @@
-import { StaticImageData } from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export type Cars = {
-  id?: number;
+  id?: string;
   name?: string;
-  image?: StaticImageData | string | undefined;
+  image: string | StaticImport;
   carType?: string;
   capacity?: string;
   price?: number;

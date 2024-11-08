@@ -1,8 +1,10 @@
-"use client";
-import ImplementThePopularCarsCart from "../ImplementThePopularCarsCart";
-import "../ImplementThePopularCars/style.scss";
-import { dummyCars } from "@/constants/index";
-import { FC, useState } from "react";
+'use client';
+import ImplementThePopularCarsCart from '../ImplementThePopularCarsCart';
+import '../ImplementThePopularCars/style.scss';
+import { FC, useState } from 'react';
+import useSWR from 'swr';
+import { Cars } from '@/types/Recommendation';
+
 
 type CarProps = {
   title: string;
@@ -10,10 +12,16 @@ type CarProps = {
 
 export const ImplementThePopularCar: FC<CarProps> = ({ title }) => {
   const [carView, setcarView] = useState<number>(3);
-  const popularCars = dummyCars.slice(0, carView);
+
   const handleViewCar = (carCount: number) => {
     setcarView(carCount);
   };
+  const fetcher = (url: string) => fetch(url).then(r => r.json());
+  const { data } = useSWR(
+    'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars',
+    fetcher
+  );
+  const popularCars:Cars[] = data ? data.slice(0, carView) : [];
 
   return (
     <div className="popular-car-main-box">
@@ -23,12 +31,12 @@ export const ImplementThePopularCar: FC<CarProps> = ({ title }) => {
           {carView === 3 && (
             <p
               className="popular-car-view-all"
-              onClick={() => handleViewCar(6)}
+              onClick={() => handleViewCar(15)}
             >
               View All
             </p>
           )}
-          {carView === 6 && (
+          {carView === 15 && (
             <p
               className="popular-car-view-all"
               onClick={() => handleViewCar(3)}
@@ -38,9 +46,10 @@ export const ImplementThePopularCar: FC<CarProps> = ({ title }) => {
           )}
         </div>
         <div className="popular-car-cart-all-car">
-          {popularCars.map((car) => (
-            <ImplementThePopularCarsCart key={car.id} cars={car} />
-          ))}
+          {popularCars &&
+            popularCars.map((car:Cars) => (
+              <ImplementThePopularCarsCart key={car.id} cars={car} />
+            ))}
         </div>
       </div>
     </div>

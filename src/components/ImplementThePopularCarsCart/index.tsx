@@ -1,22 +1,22 @@
-"use client";
-import "./style.scss";
-import gasStation from "../../assets/gas-station.png";
-import circle from "../../assets/circle icon.png";
-import users from "../../assets/profile-2user.png";
-import { useState } from "react";
-import Heart from "@/assets/icons/Heart";
-import { Car } from "@/types/FilterSidebar";
-import Image from "next/image";
+'use client';
+import './style.scss';
+import gasStation from '../../assets/gas-station.png';
+import circle from '../../assets/circle icon.png';
+import users from '../../assets/profile-2user.png';
+import { useState } from 'react';
+import Heart from '@/assets/icons/Heart';
+import Image from 'next/image';
+import { Cars } from '@/types/Recommendation';
 
 type carProps = {
-  cars: Car;
+  cars: Cars;
 };
 
 const CarCart = ({ cars }: carProps) => {
   const [isActive, setIsActive] = useState(false);
 
   function handleLike() {
-    return setIsActive((prev) => !prev);
+    return setIsActive(prev => !prev);
   }
 
   return (
@@ -32,13 +32,13 @@ const CarCart = ({ cars }: carProps) => {
           </div>
         </div>
         <div className="popular-car-cart-header-subtitle">
-          <p>{cars.type}</p>
+          <p>{cars.carType}</p>
         </div>
         <Image
           className="popular-car-cart-img"
           width={232}
           height={72}
-          src={cars.img}
+          src={cars.image}
           alt="car"
         />
         <div className="popular-car-cart-info">
@@ -52,7 +52,7 @@ const CarCart = ({ cars }: carProps) => {
           </div>
           <div className="popular-car-cart-capacity">
             <Image src={users.src} width={24} height={24} alt="users" />
-            <p className="popular-car-cart-capacity-text">{cars.users}</p>
+            <p className="popular-car-cart-capacity-text">{cars.capacity}</p>
           </div>
         </div>
         <div className="popular-car-cart-footer">
