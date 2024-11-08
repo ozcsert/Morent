@@ -7,7 +7,6 @@
     align-items: center;
     input {
       cursor: pointer;
-
       margin-right: clamp(12px, 0.3vw, 12px);
       &[type='checkbox'] {
         width: clamp(12px, 2vw, 20px);
