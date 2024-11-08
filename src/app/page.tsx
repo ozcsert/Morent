@@ -11,9 +11,9 @@ export default function Home() {
       <div className="home">
         <RangeSettings />
         <br />
-        <ImplementThePopularCar title="Popular Car" />
+        <ImplementThePopularCar title="Popular Car" width={1016} carsView={3} />
         <Recommendation
-          id={0}
+          id="0"
           name={''}
           price={0}
           image={''}
