@@ -4,14 +4,14 @@ import Heart from '@/app/images/recommendation/icons/Heart';
 import Profile from '@/app/images/recommendation/icons/Profile';
 import { Car } from '@/types/FilterSidebar';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import './styles.scss';
 
 type cardProps = {
   car: Car;
 };
 
-const WishlistCard = ({ car }: cardProps) => {
+const WishlistCard: FC<cardProps> = ({ car }) => {
   const [isLiked, setIsLiked] = useState(true);
   const { id } = car;
 
