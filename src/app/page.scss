@@ -1,17 +1,7 @@
-.promo-cards {
-  justify-content: center;
-  margin: 32px 0;
+.home {
+  background-color: #f6f7f9;
+  font-family: var(--fon-plus-jakarta-plus), sans-serif;
   display: flex;
-  flex-direction: row;
-  gap: 32px;
-}
-@media (max-width: 1322px) {
-  .promo-cards {
-    padding: 0 16px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    //margin-left: 64px;
-  }
+  justify-content: center;
+  position: relative;
 }

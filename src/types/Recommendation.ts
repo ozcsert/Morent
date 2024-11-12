@@ -1,4 +1,5 @@
 import { StaticImageData } from 'next/image';
+import { Filter } from './FilterSidebar';
 
 export type Cars = {
   id?: number;
@@ -11,4 +12,9 @@ export type Cars = {
   gearType?: string;
   view?: number | undefined;
   rentCount?: string;
+};
+
+export type RecommendationProps = {
+  filter: Filter;
+  maxPriceFilter: number;
 };

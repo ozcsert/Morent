@@ -5,7 +5,6 @@ li {
 
 // Public css end
 
-
 .ad-sidebar-container {
   width: 290px;
   height: 100%;
@@ -16,7 +15,7 @@ li {
   position: relative;
   transition: width 0.32s ease;
 
-  &>.switchBtn {
+  & > .switchBtn {
     height: 50px;
     width: 25px;
     position: absolute;
@@ -34,12 +33,12 @@ li {
     justify-content: center;
   }
 
-  &>.ad-sidebar-list-wrapper {
+  & > .ad-sidebar-list-wrapper {
     display: flex;
     flex-direction: column;
     gap: 60px;
 
-    &>.ad-sidebar-mainmenu,
+    & > .ad-sidebar-mainmenu,
     .ad-sidebar-preferences {
       display: flex;
       flex-direction: column;
@@ -62,14 +61,13 @@ li {
   border-radius: 10px;
   color: #94a7cb96;
 
-
   svg {
-    stroke: #90A3BF;
+    stroke: #90a3bf;
     transition: stroke 0.3s ease;
   }
 
   &:hover {
-    background-color: #3563E9;
+    background-color: #3563e9;
     color: #fff;
 
     svg {
@@ -77,7 +75,7 @@ li {
     }
   }
 
-  &>.ad-sidebar-item-link {
+  & > .ad-sidebar-item-link {
     display: flex;
     justify-content: start;
     gap: 10px;
@@ -87,9 +85,9 @@ li {
 }
 
 .ad-sidebar-logout {
-  color: #90A3BF;
+  color: #90a3bf;
 
-  &>.ad-sidebar-logout-link {
+  & > .ad-sidebar-logout-link {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -98,12 +96,12 @@ li {
   }
 
   svg {
-    stroke: #90A3BF;
+    stroke: #90a3bf;
   }
 
   &:hover {
     color: #fff;
-    background-color: #3563E9;
+    background-color: #3563e9;
     border-radius: 10px;
 
     svg {

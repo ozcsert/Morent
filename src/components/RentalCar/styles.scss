@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-// CarRentalHero.css
+@import '../../app/styles/styles.scss';
+
 .promo-card {
   display: flex;
   max-width: 645px;
-  width: 100%;
+  flex: 1;
   height: 376px;
-  //margin-bottom: 32px;
   border-radius: 16px;
   padding: 40px;
   min-height: 300px;
+  min-width: 300px;
   overflow: hidden;
   flex-direction: column;
   justify-content: space-between;
