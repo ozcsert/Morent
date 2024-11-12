@@ -1,0 +1,21 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardetailSection {
+  max-width: 1016px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px;
+  @media (max-width: 830px) {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 328px) {
+    margin: 0;
+    padding: 0;
+  }
+}
