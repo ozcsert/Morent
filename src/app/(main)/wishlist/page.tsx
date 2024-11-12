@@ -3,9 +3,9 @@ import './styles.scss';
 
 const Wishlist = () => {
   return (
-    <div>
+    <>
       <WishlistPage />
-    </div>
+    </>
   );
 };
 
