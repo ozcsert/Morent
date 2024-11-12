@@ -340,6 +340,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   z-index: 100;
   border: 1px solid #e0e0e0
 }
+
 @media (max-width: 475px) {
   .last-row {
     flex-direction: column;
@@ -358,6 +359,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
   .first-row {
     padding: 8px 16px;
   }
+  .popup{
+    top: 175px;
+    position: absolute;
+
+    z-index: 100;
+    border: 1px solid #e0e0e0
+    }
 }
 @media (max-width: 300px) {
   .w-full {
