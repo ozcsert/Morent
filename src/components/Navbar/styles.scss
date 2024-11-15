@@ -44,7 +44,24 @@
   display: flex;
   align-items: center;
 }
-
+.filtercar{
+  padding: 12px;
+  transition: box-shadow 0.3s;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+.detailcar{
+  width: 480px;
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
 .icon-btn {
   background-color: transparent;
   border: none;
@@ -340,7 +357,56 @@ Note: Beware of modifying this element as it can break the animations - you shou
   z-index: 100;
   border: 1px solid #e0e0e0
 }
-
+@media (max-width:780px) {
+  .detailcar{
+    width:620px;
+     margin: 0;
+    font-size: 18px; 
+    color: #333;
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+  }
+  .search-bar-mini{
+    width: 100%;
+  }
+  .popup{
+    top: 200px;
+  }
+}
+@media (max-width:700px) {
+  .detailcar{
+    width:560px;
+     margin: 0;
+    font-size: 18px; 
+    color: #333;
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+  }
+}
+@media (max-width:610px) {
+  .detailcar{
+    width:480px;
+     margin: 0;
+    font-size: 18px; 
+    color: #333;
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+  }
+}
+@media (max-width:570px) {
+  .detailcar{
+    width:430px;
+     margin: 0;
+    font-size: 18px; 
+    color: #333;
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+  }
+}
 @media (max-width: 475px) {
   .last-row {
     flex-direction: column;
@@ -355,17 +421,37 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
   .search-bar-mini {
     width: 100%;
+    min-width: 308px;
   }
   .first-row {
     padding: 8px 16px;
   }
   .popup{
-    top: 175px;
-    position: absolute;
-
-    z-index: 100;
-    border: 1px solid #e0e0e0
+      position: absolute;
+      top: 170px;
+      left: 20px;
+      z-index: 100;
+      border: 1px solid #e0e0e0;
     }
+    .detailcar{
+      width:320px;
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+      display: flex;
+       justify-content: space-between;
+        align-items:center;
+    }
+}
+@media (max-width: 425px) {
+  .detailcar{
+    max-width: 350px;
+  }
+}
+@media (max-width: 360px) {
+  .detailcar{
+    max-width: 300px;
+  }
 }
 @media (max-width: 300px) {
   .w-full {
