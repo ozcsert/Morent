@@ -69,9 +69,9 @@ const Navbar: React.FC = () => {
       {width > 780 ? (
         <nav className="navbar">
           <Link href={'/'}>
-          <div className="navbar-left">
-            <h1 className="logo-text">MORENT</h1>
-          </div>
+            <div className="navbar-left">
+              <h1 className="logo-text">MORENT</h1>
+            </div>
           </Link>
           <div className="navbar-center">
             <div className="search-bar">
@@ -106,21 +106,33 @@ const Navbar: React.FC = () => {
                         display: 'flex',
                         justifyContent: 'space-between',
                         width: '100%',
-                        borderBottom: '1px solid #ddd'
+                        borderBottom: '1px solid #ddd',
                       }}
                     >
                       <Link href={'/detail/{$car.id}'} passHref>
-                      <div style={{width: '100%', margin: 0, fontSize: '18px', color: '#333',display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
-                      <p>{car.name} {car.gearType}</p>
-                        <Image
-                          src={car.image}
-                          alt=""
-                          width={100}
-                          height={40}
-                          //onClick={handleHeartButton}
-                          style={{marginLeft: '10px'}}
-                        />
-                      </div>
+                        <div
+                          style={{
+                            width: '100%',
+                            margin: 0,
+                            fontSize: '18px',
+                            color: '#333',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <p>
+                            {car.name} {car.gearType}
+                          </p>
+                          <Image
+                            src={car.image}
+                            alt=""
+                            width={100}
+                            height={40}
+                            //onClick={handleHeartButton}
+                            style={{ marginLeft: '10px' }}
+                          />
+                        </div>
                       </Link>
                     </div>
                   ))
@@ -232,10 +244,10 @@ const Navbar: React.FC = () => {
             )}
           </AnimatePresence>
           <div>
-          <Link href={'/'}>
-            <div className="logo-mini">
-              <h1 className="logo-text">MORENT</h1>
-            </div>
+            <Link href={'/'}>
+              <div className="logo-mini">
+                <h1 className="logo-text">MORENT</h1>
+              </div>
             </Link>
           </div>
           {width > 478 ? (
@@ -258,39 +270,51 @@ const Navbar: React.FC = () => {
                 />
               </div>
               <Link href={'/detail/{$car.id}'} passHref>
-              <div className="popup">
-                {filteredCars.length > 0
-                  ? filteredCars.map(car => (
-                      <div
-                        key={car.id}
-                        style={{
-                          padding: '12px',
-                          transition: 'box-shadow 0.3s',
-                          backgroundColor: '#f9f9f9',
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          width: '100%',
-                          borderBottom: '1px solid #ddd'
-                        }}
-                      >
-                        <div style={{ width:'100%', margin: 0, fontSize: '18px', color: '#333',display: 'flex', justifyContent: 'space-between', alignItems:'center' }}
+                <div className="popup">
+                  {filteredCars.length > 0
+                    ? filteredCars.map(car => (
+                        <div
+                          key={car.id}
+                          style={{
+                            padding: '12px',
+                            transition: 'box-shadow 0.3s',
+                            backgroundColor: '#f9f9f9',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                            borderBottom: '1px solid #ddd',
+                          }}
                         >
-                          <p>{car.name} {car.gearType}</p>
-                          <Image
-                            src={car.image}
-                            alt=""
-                            width={100}
-                            height={40}
-                            //onClick={handleHeartButton}
-                            style= {{marginLeft: '10px'}}
-                          />
+                          <div
+                            style={{
+                              width: '100%',
+                              margin: 0,
+                              fontSize: '18px',
+                              color: '#333',
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                            }}
+                          >
+                            <p>
+                              {car.name} {car.gearType}
+                            </p>
+                            <Image
+                              src={car.image}
+                              alt=""
+                              width={100}
+                              height={40}
+                              //onClick={handleHeartButton}
+                              style={{ marginLeft: '10px' }}
+                            />
+                          </div>
                         </div>
-                      </div> ))
-                       : searchTerm && (
+                      ))
+                    : searchTerm && (
                         <p style={{ color: '#777' }}>No results found</p>
                       )}
-            </div>
-            </Link>
+                </div>
+              </Link>
             </div>
           ) : (
             <div className="last-row">
@@ -315,40 +339,50 @@ const Navbar: React.FC = () => {
                 />
               </div>
               <Link href={'/detail/{$car.id}'} passHref>
-              <div className="popup2">
-                {filteredCars.length > 0
-                  ? filteredCars.map(car => (
-                      <div
-                        key={car.id}
-                        style={{
-                          padding: '12px',
-                          transition: 'box-shadow 0.3s',
-                          backgroundColor: '#f9f9f9',
-                          display: 'flex',
-                          justifyContent: 'space-between',
-                          width: '100%',
-                          borderBottom: '1px solid #ddd'
-                        }}
-                      >
-                        <div style={{ width:'100%', margin: 0, fontSize: '18px', color: '#333',display: 'flex', justifyContent: 'space-between', alignItems:'center' }}
+                <div className="popup2">
+                  {filteredCars.length > 0
+                    ? filteredCars.map(car => (
+                        <div
+                          key={car.id}
+                          style={{
+                            padding: '12px',
+                            transition: 'box-shadow 0.3s',
+                            backgroundColor: '#f9f9f9',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            width: '100%',
+                            borderBottom: '1px solid #ddd',
+                          }}
                         >
-                          <p>{car.name} {car.gearType}</p>
-                          <Image
-                            src={car.image}
-                            alt=""
-                            width={100}
-                            height={40}
-                            //onClick={handleHeartButton}
-                            style= {{marginLeft: '10px'}}
-                          />
+                          <div
+                            style={{
+                              width: '100%',
+                              margin: 0,
+                              fontSize: '18px',
+                              color: '#333',
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                            }}
+                          >
+                            <p>
+                              {car.name} {car.gearType}
+                            </p>
+                            <Image
+                              src={car.image}
+                              alt=""
+                              width={100}
+                              height={40}
+                              //onClick={handleHeartButton}
+                              style={{ marginLeft: '10px' }}
+                            />
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  : searchTerm && (
-                      <p style={{ color: '#777' }}>No results found</p>
-                    )}
-
-              </div>
+                      ))
+                    : searchTerm && (
+                        <p style={{ color: '#777' }}>No results found</p>
+                      )}
+                </div>
               </Link>
             </div>
           )}
