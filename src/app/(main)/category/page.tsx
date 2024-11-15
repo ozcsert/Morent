@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { dummyCars } from '@/constants';
-import { FilterSidebar } from '@/components/componentList';
+import FilterSidebar from '@/components/FilterSidebar';
 import { Car } from '@/types/typeList';
 import './styles.scss';
 import { calculateNumberOfInputs, filterCars } from '@/utils/filterUtils';

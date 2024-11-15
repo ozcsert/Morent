@@ -2,7 +2,7 @@
 import './styles.scss';
 import React from 'react';
 import { FilterSideBarProps } from '@/types/typeList';
-import { FilterInput } from '@/components/componentList';
+import FilterInput from '@/components/FilterInput';
 import { useState } from 'react';
 
 const FilterSidebar: React.FC<FilterSideBarProps> = ({
