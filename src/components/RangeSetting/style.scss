@@ -1,6 +1,4 @@
-// Public CSS Start
-
-// Public CSS End
+@import '../../app/styles/styles';
 
 .rs-container {
   max-width: 1312px;
@@ -51,7 +49,7 @@
   align-items: center;
   max-width: 60px;
   height: 60px;
-  background-color: #3563E9;
+  background-color: var(--clr-primary);
   border-radius: 10px;
   cursor: pointer;
 

@@ -13,6 +13,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-repeat: no-repeat;
+  background-color: var(--clr-primary);
 }
 .hero-content {
   max-width: 500px;
@@ -27,7 +28,7 @@
   font-weight: 600;
   line-height: 150%; /* 48px */
   letter-spacing: -0.96px;
-  color: white;
+  color: var(--clr-secondary);
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -47,7 +48,7 @@
 }
 
 .rental-button {
-  color: white;
+  color: var(--clr-secondary);
   font-family: 'Plus Jakarta Sans';
   font-size: 16px;
   font-style: normal;

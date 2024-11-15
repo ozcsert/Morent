@@ -8,15 +8,21 @@ import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
-
+import Drawer from '../Drawer';
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [width, height] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
-
+  const [drawerType, setDrawerType] = useState<string>('');
   const ref = useRef(null);
 
   useClickAway(ref, () => setOpen(false));
+
+  const openDrawer = (drawerType: string) => {
+    setDrawerType(drawerType);
+
+    console.log(drawerType + 'opened');
+  };
 
   return (
     <div>
@@ -50,18 +56,20 @@ const Navbar: React.FC = () => {
                 width={24}
                 height={24}
                 unoptimized
-                //onClick={handleHeartButton}
+                // onClick={() => handleHeartButton('')} navigate to wishlist
               />
             </button>
-            <button className="icon-btn" key="bell-btn">
+            <button className="icon-btn" key="settings-btn">
               <Image
                 src="/images/bell.svg"
                 alt=""
                 width={24}
                 height={24}
                 unoptimized
-                //onClick={handleHeartButton}
+                onClick={() => openDrawer('settings')}
               />
+              {drawerType === 'settings' && <Drawer type={drawerType} />}
+
               <span className="notification-dot"></span>
             </button>
             <button className="icon-btn" key="notification-btn">
@@ -71,8 +79,9 @@ const Navbar: React.FC = () => {
                 width={24}
                 height={24}
                 unoptimized
-                //onClick={handleHeartButton}
+                onClick={() => openDrawer('notification')}
               />
+              {drawerType === 'notification' && <Drawer type={drawerType} />}
             </button>
             <div className="profile-picture" key="profile-btn">
               <Image
@@ -81,8 +90,9 @@ const Navbar: React.FC = () => {
                 width={24}
                 height={24}
                 unoptimized
-                //onClick={handleHeartButton}
+                onClick={() => openDrawer('profile')}
               />
+              {drawerType === 'profile' && <Drawer type={drawerType} />}
             </div>
           </div>
         </nav>

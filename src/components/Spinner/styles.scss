@@ -1,7 +1,9 @@
+@import '../../app/styles/styles';
+
 .loading-spinner {
   position: relative;
   border: 2px solid transparent;
-  border-top: 2px solid #3563e9;
+  border-top: 2px solid var(--clr-primary);
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
 
@@ -13,7 +15,7 @@
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,7 +30,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #3563e9;
+    background-color: var(--clr-primary);
     animation: pulse 1.5s ease-in-out infinite;
   }
 

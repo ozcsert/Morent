@@ -1,53 +1,53 @@
-@import "../../app/styles/variables.scss";
+@import '../../app/styles/variables.scss';
 .billing-container {
-    max-width: 852px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-plus-jakarta-sans), sans-serif;
-    gap: 20px;
-    font-weight: 600;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    .billing-container-title {
-      gap: 10px;
-      .billing--subinfo {
-        display: flex;
-        justify-content: space-between;
-        font-size: $fnt-size-xs;
-        color: $text-tertiary;
-        font-weight: 500;
-      }
-      h2 {
-        font-size: $fnt-size-m;
-        font-weight: 600;
-      }
-    }
-    .billing--form {
+  max-width: 852px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  gap: 20px;
+  font-weight: 600;
+  background-color: var(--clr-secondary);
+  border-radius: 10px;
+  .billing-container-title {
+    gap: 10px;
+    .billing--subinfo {
       display: flex;
-      flex-wrap: wrap;
-      border-radius: 10px;
-      gap: 20px;
-      .billing-input {
+      justify-content: space-between;
+      font-size: $fnt-size-xs;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+    h2 {
+      font-size: $fnt-size-m;
+      font-weight: 600;
+    }
+  }
+  .billing--form {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    gap: 20px;
+    .billing-input {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1 1 45%;
+      label {
+        font-size: $fnt-size-s;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        flex: 1 1 45%;
-        label {
-          font-size: $fnt-size-s;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-          input {
-            padding: 20px;
-            border-radius: 10px;
-            border: none;
-            margin-right: 20px;
-            background-color: $clr-background-light;
-          }
+        align-items: center;
+        justify-content: space-between;
+      }
+      input {
+        padding: 20px;
+        border-radius: 10px;
+        border: none;
+        margin-right: 20px;
+        background-color: var(--clr-background-light);
       }
     }
   }
+}

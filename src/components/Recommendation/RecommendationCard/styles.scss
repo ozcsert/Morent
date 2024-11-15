@@ -1,4 +1,4 @@
-@import "../../../app/styles/variables.scss";
+@import '../../../app/styles/variables.scss';
 .recommendation-card {
   width: 100%;
   display: flex;
@@ -40,7 +40,7 @@
       font-weight: 500;
       font-size: $fnt-size-xs;
       line-height: 21px;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
     }
   }
   .recommendation-box4 {
@@ -54,8 +54,8 @@
       height: 44px;
       border: none;
       border-radius: 4px;
-      background-color: #3563e9;
-      color: #ffffff;
+      background-color: var(--clr-primary);
+      color: var(--clr-secondary);
       font-family: $fnt-jakarta;
       font-size: $fnt-size-s;
       line-height: 24px;
@@ -72,13 +72,13 @@
     gap: 5px;
     text-wrap: nowrap;
     p {
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 700;
       font-size: $fnt-size-xs;
       line-height: 21px;
     }
     h3 {
-      color: $text-primary;
+      color: var(--text-primary);
       font-weight: 700;
       font-size: $fnt-size-m;
       line-height: 30px;
@@ -86,7 +86,7 @@
   }
 
   .recommendation-price {
-    color: $text-primary;
+    color: var(--text-primary);
     font-weight: 700;
     font-size: $fnt-size-m;
     line-height: 25px;
@@ -94,7 +94,7 @@
     span {
       font-size: $fnt-size-xs;
       line-height: 17px;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
     }
   }
   .shadow-effect {

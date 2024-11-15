@@ -62,12 +62,12 @@ li {
   color: #94a7cb96;
 
   svg {
-    stroke: #90a3bf;
+    stroke: var(--text-tertiary);
     transition: stroke 0.3s ease;
   }
 
   &:hover {
-    background-color: #3563e9;
+    background-color: var(--clr-primary);
     color: #fff;
 
     svg {
@@ -85,7 +85,7 @@ li {
 }
 
 .ad-sidebar-logout {
-  color: #90a3bf;
+  color: var(--text-tertiary);
 
   & > .ad-sidebar-logout-link {
     display: flex;
@@ -96,12 +96,12 @@ li {
   }
 
   svg {
-    stroke: #90a3bf;
+    stroke: var(--text-tertiary);
   }
 
   &:hover {
     color: #fff;
-    background-color: #3563e9;
+    background-color: var(--clr-primary);
     border-radius: 10px;
 
     svg {

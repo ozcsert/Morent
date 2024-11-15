@@ -7,7 +7,7 @@ export const useFilterState = () => {
     capacity: [],
   });
 
-  const [maxPriceFilter, setMaxPriceFilter] = useState<number>(100);
+  const [maxPriceFilter, setMaxPriceFilter] = useState<number>(300);
 
   const handleFilterChange = (newFilters: {
     type: string[];

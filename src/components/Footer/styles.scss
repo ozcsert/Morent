@@ -1,3 +1,5 @@
+@import '../../app/styles/styles';
+
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -36,7 +38,7 @@ a {
   a {
     font-size: 16px;
     line-height: 24px;
-    color: #1a202c;
+    color: var(--text-primary);
     font-weight: 600;
   }
 }
@@ -52,7 +54,7 @@ a {
 }
 .footer-link {
   font-size: 20px;
-  color: #1a202c;
+  color: var(--text-primary);
   font-weight: 600;
   line-height: 30px;
 }
@@ -84,7 +86,7 @@ a {
   }
   a,
   .logo p {
-    color: #90a3bf;
+    color: var(--text-tertiary);
   }
   .footer-menu {
     flex-wrap: wrap;

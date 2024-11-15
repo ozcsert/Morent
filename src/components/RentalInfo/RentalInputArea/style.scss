@@ -1,4 +1,4 @@
-@import "../../../app/styles/styles";
+@import '../../../app/styles/styles';
 
 .rental__option-time {
   max-width: 48%;
@@ -29,12 +29,12 @@
       transform: translate(-20px);
     }
     .rental-option__select {
-      color: #90a3bf;
+      color: var(--text-tertiary);
       padding: 20px;
       font-family: var(--font-plus-jakarta-sans);
       border-radius: 10px;
       border: none;
-      background-color: $clr-background-light;
+      background-color: var(--clr-background-light);
       width: 100%;
       border: none;
       outline: none;
@@ -46,16 +46,16 @@
       -moz-appearance: none;
       appearance: none;
       & > option:disabled {
-        color: #90a3bf;
+        color: var(--text-tertiary);
       }
     }
 
     .rental-option__select-default {
-      color: #90a3bf;
+      color: var(--text-tertiary);
       padding: 20px;
       border-radius: 10px;
       border: none;
-      background-color: $clr-background-light;
+      background-color: var(--clr-background-light);
     }
 
     .rental-option__select-group {
@@ -68,7 +68,7 @@
       position: relative;
 
       &::placeholder {
-        color: #90a3bf;
+        color: var(--text-tertiary);
       }
     }
   }
@@ -82,7 +82,7 @@
       padding: 20px;
       border-radius: 10px;
       border: none;
-      background-color: $clr-background-light;
+      background-color: var(--clr-background-light);
       cursor: pointer;
     }
     svg {

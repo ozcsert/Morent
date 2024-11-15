@@ -25,7 +25,7 @@ const HomeBoard: FC<RecommendationProps> = ({ filter, maxPriceFilter }) => {
               subtitle="Providing cheap car rental services and safe and comfortable facilities."
               buttonText="Rental Car"
               carImage="/images/BG2.png"
-              backgroundColor="#3563E9"
+              backgroundColor="var(--clr-primary)"
               buttonColor="#54A6FF"
             />
           </div>

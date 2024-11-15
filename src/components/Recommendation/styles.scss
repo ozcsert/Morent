@@ -17,7 +17,7 @@
   font-family: $fnt-jakarta;
   flex-wrap: wrap;
   h4 {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     font-weight: 500;
     font-size: $fnt-size-s;
     line-height: 20px;
@@ -42,7 +42,7 @@
         flex: 1 1 304px;
         max-width: 304px;
         height: 388px;
-        background-color: #ffffff;
+        background-color: var(--clr-secondary);
       }
     }
   }
@@ -54,9 +54,9 @@
     align-items: center;
     flex-wrap: wrap;
     button {
-      background-color: #3563e9;
+      background-color: var(--clr-primary);
       padding: 10px 20px;
-      color: #ffffff;
+      color: var(--clr-secondary);
       font: 600 16px $fnt-jakarta;
       border: none;
       border-radius: 4px;
@@ -67,7 +67,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 500;
       font-size: $fnt-size-xs;
       line-height: 21px;

@@ -16,7 +16,7 @@
       display: flex;
       justify-content: space-between;
       font-size: $fnt-size-xs;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 500;
       line-height: 20px;
       @media screen and (max-width: 420px) {
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $clr-background-light;
+    background-color: var(--clr-background-light);
     border-radius: 10px;
     .confirmation-option {
       display: flex;
@@ -79,9 +79,9 @@
   }
   .confirmation-btn {
     width: 140px;
-    background-color: #3563e9;
+    background-color: var(--clr-primary);
     padding: 10px 20px;
-    color: #ffffff;
+    color: var(--clr-secondary);
     font: 700 16px $fnt-jakarta;
     border: none;
     border-radius: 10px;
@@ -98,7 +98,7 @@
         display: flex;
         justify-content: space-between;
         font-size: $fnt-size-xs;
-        color: $text-tertiary;
+        color: var(--text-tertiary);
         font-weight: 500;
         line-height: 20px;
       }

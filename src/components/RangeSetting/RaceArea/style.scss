@@ -1,3 +1,5 @@
+@import '../../../app/styles/styles';
+
 .rs-head-container {
   .rs-head {
     display: flex;
@@ -18,7 +20,7 @@
     }
 
     .rs-radio-wrapper-selected {
-      border: 5px solid #3563e94d;
+      border: 5px solid var(--clr-primary);
     }
   }
 
@@ -66,12 +68,12 @@
           cursor: pointer;
 
           & > option:disabled {
-            color: #90a3bf;
+            color: var(--text-tertiary);
           }
         }
 
         .rs-option-select-default {
-          color: #90a3bf;
+          color: var(--text-tertiary);
         }
 
         .rs-option-select-date {
@@ -83,7 +85,7 @@
           display: flex;
 
           &::placeholder {
-            color: #90a3bf;
+            color: var(--text-tertiary);
           }
         }
 

@@ -1,11 +1,15 @@
 @import '../../app/styles/styles';
 
 .fltr-sdbr {
+  -webkit-box-shadow: 3px 0px 4px 0px rgba(53, 99, 233, 0.51);
+  -moz-box-shadow: 3px 0px 4px 0px rgba(53, 99, 233, 0.51);
+  box-shadow: 3px 0px 4px 0px rgba(53, 99, 233, 0.51);
   transition: all 0.6s ease;
   z-index: 999;
-  background-color: $clr-secondary;
+  background-color: var(--clr-secondary);
   font-family: $fnt-jakarta;
-  color: $text-secondary;
+  border-top-right-radius: 20%;
+  color: var(--text-secondary);
   width: 20%;
   min-width: 300px;
   font-size: clamp(14px, 1.5vw, $fnt-size-m);
