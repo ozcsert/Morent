@@ -69,9 +69,9 @@ const Navbar: React.FC = () => {
       {width > 780 ? (
         <nav className="navbar">
           <Link href={'/'}>
-          <div className="navbar-left">
-            <h1 className="logo-text">MORENT</h1>
-          </div>
+            <div className="navbar-left">
+              <h1 className="logo-text">MORENT</h1>
+            </div>
           </Link>
           <div className="navbar-center">
             <div className="search-bar">
@@ -97,21 +97,21 @@ const Navbar: React.FC = () => {
             <div className="popup">
               {filteredCars.length > 0
                 ? filteredCars.map(car => (
-                    <div className='filtercar'
-                      key={car.id}
-                    >
+                    <div className="filtercar" key={car.id}>
                       <Link href={`/detail/{$car.id}`} passHref>
-                      <div className='detailcar'>
-                      <p>{car.name} {car.gearType}</p>
-                        <Image
-                          src={car.image}
-                          alt=""
-                          width={100}
-                          height={40}
-                          //onClick={handleHeartButton}
-                          style={{marginLeft: '10px'}}
-                        />
-                      </div>
+                        <div className="detailcar">
+                          <p>
+                            {car.name} {car.gearType}
+                          </p>
+                          <Image
+                            src={car.image}
+                            alt=""
+                            width={100}
+                            height={40}
+                            //onClick={handleHeartButton}
+                            style={{ marginLeft: '10px' }}
+                          />
+                        </div>
                       </Link>
                     </div>
                   ))
@@ -223,64 +223,60 @@ const Navbar: React.FC = () => {
             )}
           </AnimatePresence>
           <div>
-          <Link href={'/'}>
-            <div className="logo-mini">
-              <h1 className="logo-text">MORENT</h1>
-            </div>
+            <Link href={'/'}>
+              <div className="logo-mini">
+                <h1 className="logo-text">MORENT</h1>
+              </div>
             </Link>
           </div>
-            <div className="last-row">
-              <div className="search-bar-mini">
-                <Image
-                  src="/images/search-normalmagnifying_glass.svg"
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-                <input
-                  type="text"
-                  placeholder="Search something here"
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
-                />
-                <Image
-                  src="/images/Filtersettings.svg"
-                  alt=""
-                  width={30}
-                  height={30}
-                />
-              </div>
-           
-              <div className="popup">
-                {filteredCars.length > 0
-                  ? filteredCars.map(car => (
-                      <div className='filtercar'
-                        key={car.id}
-                      >
-                        <Link href={`/detail/{$car.id}`} passHref>
-                        <div className="detailcar"
-                        >
-                          <p>{car.name} {car.gearType}</p>
+          <div className="last-row">
+            <div className="search-bar-mini">
+              <Image
+                src="/images/search-normalmagnifying_glass.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+              <input
+                type="text"
+                placeholder="Search something here"
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+              />
+              <Image
+                src="/images/Filtersettings.svg"
+                alt=""
+                width={30}
+                height={30}
+              />
+            </div>
+
+            <div className="popup">
+              {filteredCars.length > 0
+                ? filteredCars.map(car => (
+                    <div className="filtercar" key={car.id}>
+                      <Link href={`/detail/{$car.id}`} passHref>
+                        <div className="detailcar" style={{width: width-115}}>
+                          <p>
+                            {car.name} {car.gearType}
+                          </p>
                           <Image
                             src={car.image}
                             alt=""
                             width={100}
                             height={40}
                             //onClick={handleHeartButton}
-                            style= {{marginLeft: '10px'}}
+                            style={{ marginLeft: '10px' }}
                           />
                         </div>
-                        </Link>
-                      </div>
-                    ))
-                  : searchTerm && (
-                      <p style={{ color: '#777' }}>No results found</p>
-                    )}
-
-              </div>
-          
+                      </Link>
+                    </div>
+                  ))
+                : searchTerm && (
+                    <p style={{ color: '#777' }}>No results found</p>
+                  )}
             </div>
-  
+          </div>
         </div>
       )}
     </div>
