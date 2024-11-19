@@ -5,6 +5,7 @@ import Recommendation from '@/components/Recommendation';
 import { RecommendationProps } from '@/types/typeList';
 import { FC } from 'react';
 import RentalCar from '@/components/RentalCar';
+import CookiesPolicy from '../CookiesPolicy'
 
 const HomeBoard: FC<RecommendationProps> = ({ filter, maxPriceFilter }) => {
   return (
@@ -32,6 +33,7 @@ const HomeBoard: FC<RecommendationProps> = ({ filter, maxPriceFilter }) => {
           <RangeSettings />
           <br />
           <Recommendation filter={filter} maxPriceFilter={maxPriceFilter} />
+          <CookiesPolicy />
         </div>
       </div>
     </>
