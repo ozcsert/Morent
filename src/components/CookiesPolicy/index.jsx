@@ -17,7 +17,6 @@ const CookiesPolicy = () => {
         </div>
         <div className="cookies-text">
           <p>
-            {' '}
             We use cookies on our site to provide you with a better experience.
             Detailed information: <Link href={'/detail'}>Cookie Policy</Link>
           </p>
