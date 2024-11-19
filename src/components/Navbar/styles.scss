@@ -9,7 +9,6 @@
   align-items: center;
   padding: 10px 20px;
   background-color: var(--clr-secondary);
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .logo-text {
@@ -213,6 +212,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   padding: 1rem 4rem;
 }
 .settings {

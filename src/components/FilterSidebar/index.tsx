@@ -116,12 +116,7 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
       style={{ marginLeft: `0` }}
     >
       <div className="filter-sidebar-wrapper">
-        <div
-          className="switchBtn"
-          onClick={slideFilterSidebar}
-          onMouseEnter={slideFilterSidebar}
-          ref={btnRef}
-        >
+        <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
           <AdminDoubleArrow width={20} height={20} />
         </div>
         <div className="fltr-sdbr-content">

@@ -13,21 +13,29 @@ const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [width, height] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<string>('');
   const ref = useRef(null);
 
   useClickAway(ref, () => setOpen(false));
 
-  const openDrawer = (drawerType: string) => {
-    setDrawerType(drawerType);
-
-    console.log(drawerType + 'opened');
+  const openDrawer = (newDrawerType: string) => {
+    if (drawerType === newDrawerType) {
+      setDrawerIsOpen(!drawerIsOpen);
+      setDrawerType(newDrawerType);
+    } else if (drawerIsOpen === false) {
+      setDrawerIsOpen(true);
+      setDrawerType(newDrawerType);
+    } else if (drawerType !== newDrawerType) {
+      setDrawerType(newDrawerType);
+    }
   };
 
   return (
     <div>
       {width > 780 ? (
         <nav className="navbar">
+          {drawerIsOpen && <Drawer type={drawerType} />}
           <div className="navbar-left">
             <h1 className="logo-text">MORENT</h1>
           </div>
@@ -56,7 +64,6 @@ const Navbar: React.FC = () => {
                 width={24}
                 height={24}
                 unoptimized
-                // onClick={() => handleHeartButton('')} navigate to wishlist
               />
             </button>
             <button className="icon-btn" key="settings-btn">
@@ -68,7 +75,6 @@ const Navbar: React.FC = () => {
                 unoptimized
                 onClick={() => openDrawer('settings')}
               />
-              {drawerType === 'settings' && <Drawer type={drawerType} />}
 
               <span className="notification-dot"></span>
             </button>
@@ -81,7 +87,6 @@ const Navbar: React.FC = () => {
                 unoptimized
                 onClick={() => openDrawer('notification')}
               />
-              {drawerType === 'notification' && <Drawer type={drawerType} />}
             </button>
             <div className="profile-picture" key="profile-btn">
               <Image
@@ -92,7 +97,6 @@ const Navbar: React.FC = () => {
                 unoptimized
                 onClick={() => openDrawer('profile')}
               />
-              {drawerType === 'profile' && <Drawer type={drawerType} />}
             </div>
           </div>
         </nav>
@@ -180,8 +184,10 @@ const Navbar: React.FC = () => {
                   alt=""
                   width={48}
                   height={48}
+                  onClick={() => openDrawer('settings')}
                 />
               </div>
+              {drawerIsOpen && <Drawer type={drawerType} />}
             </div>
           ) : (
             <div className="last-row">
@@ -198,8 +204,10 @@ const Navbar: React.FC = () => {
                   alt=""
                   width={30}
                   height={30}
+                  onClick={() => openDrawer('settings')}
                 />
               </div>
+              {drawerIsOpen && <Drawer type={drawerType} />}
             </div>
           )}
         </div>

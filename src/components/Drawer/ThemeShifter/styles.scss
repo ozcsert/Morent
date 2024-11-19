@@ -1,0 +1,402 @@
+// ThemeShifter.scss
+@import '../../../app/styles/styles';
+
+.shifter-container {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--clr-shifter);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.h-pattern-shifter {
+  -webkit-box-shadow: 3px 0px 4px 0px rgba(64, 75, 107, 0.51);
+  -moz-box-shadow: 3px 0px 4px 0px rgba(81, 93, 130, 0.51);
+  box-shadow: 3px 0px 4px 0px rgba(78, 96, 151, 0.51);
+  border-top: 3px solid rgb(75, 110, 170);
+  border-left: 3px solid rgb(103, 128, 170);
+
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: var(--clr-shifter);
+  border-radius: 10px;
+
+  .shift-pattern {
+    position: absolute;
+    top: 0;
+    left: 2;
+    width: 100%;
+    height: 100%;
+
+    .pattern-line {
+      filter: drop-shadow(17px 20px 9px -6px rgba(0, 0, 0, 0.75));
+      fill: none;
+      stroke: #596780;
+      stroke-width: 12;
+      -webkit-box-shadow: 2px 1px 0px -6px rgb(94, 39, 165);
+      -moz-box-shadow: 2px 23px 0px -6px rgb(165, 41, 41);
+      box-shadow: 2px 22px 0px -6px rgb(77, 70, 207);
+    }
+  }
+
+  .shift-position {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    z-index: 99;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.3);
+
+      transform: scale(1.1);
+    }
+    svg {
+      width: 80%;
+      height: 100%;
+      border-radius: 30%;
+      transform: scale(1.2);
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+    // Position coordinates
+    &.pos-1 {
+      top: 25px;
+      left: 40px;
+      svg {
+        background: hsla(260, 28%, 53%, 1);
+
+        background: linear-gradient(
+          90deg,
+          hsla(260, 28%, 53%, 1) 0%,
+          hsla(170, 42%, 71%, 1) 100%
+        );
+
+        background: -moz-linear-gradient(
+          90deg,
+          hsla(260, 28%, 53%, 1) 0%,
+          hsla(170, 42%, 71%, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          90deg,
+          hsla(260, 28%, 53%, 1) 0%,
+          hsla(170, 42%, 71%, 1) 100%
+        );
+        fill: yellow;
+      }
+    }
+    &.pos-2 {
+      top: 25px;
+      left: 110px;
+      svg {
+        background: hsla(265, 53%, 29%, 1);
+
+        background: linear-gradient(
+          90deg,
+          hsla(265, 53%, 29%, 1) 0%,
+          hsla(24, 93%, 73%, 1) 100%
+        );
+
+        background: -moz-linear-gradient(
+          90deg,
+          hsla(265, 53%, 29%, 1) 0%,
+          hsla(24, 93%, 73%, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          90deg,
+          hsla(265, 53%, 29%, 1) 0%,
+          hsla(24, 93%, 73%, 1) 100%
+        );
+
+        fill: #570058;
+      }
+    }
+
+    &.pos-3 {
+      top: 25px;
+      left: 76px;
+      svg {
+        background: hsla(254, 68%, 9%, 1);
+
+        background: linear-gradient(
+          90deg,
+          hsla(254, 68%, 9%, 1) 0%,
+          hsla(269, 97%, 37%, 1) 33%,
+          hsla(320, 77%, 55%, 1) 66%,
+          hsla(316, 41%, 93%, 1) 100%
+        );
+
+        background: -moz-linear-gradient(
+          90deg,
+          hsla(254, 68%, 9%, 1) 0%,
+          hsla(269, 97%, 37%, 1) 33%,
+          hsla(320, 77%, 55%, 1) 66%,
+          hsla(316, 41%, 93%, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          90deg,
+          hsla(254, 68%, 9%, 1) 0%,
+          hsla(269, 97%, 37%, 1) 33%,
+          hsla(320, 77%, 55%, 1) 66%,
+          hsla(316, 41%, 93%, 1) 100%
+        );
+
+        fill: #ff00ea;
+      }
+    } // New right position
+    &.pos-4 {
+      top: 140px;
+      left: 40px;
+      svg {
+        background: hsla(71, 83%, 33%, 1);
+
+        background: linear-gradient(
+          90deg,
+          hsla(71, 83%, 33%, 1) 0%,
+          hsla(69, 30%, 59%, 1) 100%
+        );
+
+        background: -moz-linear-gradient(
+          90deg,
+          hsla(71, 83%, 33%, 1) 0%,
+          hsla(69, 30%, 59%, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          90deg,
+          hsla(71, 83%, 33%, 1) 0%,
+          hsla(69, 30%, 59%, 1) 100%
+        );
+
+        fill: rgb(42, 101, 58);
+      }
+    }
+    &.pos-5 {
+      top: 140px;
+      left: 76px;
+      svg {
+        background: hsla(248, 21%, 15%, 1);
+
+        background: linear-gradient(
+          90deg,
+          hsla(248, 21%, 15%, 1) 0%,
+          hsla(250, 14%, 61%, 1) 100%
+        );
+
+        background: -moz-linear-gradient(
+          90deg,
+          hsla(248, 21%, 15%, 1) 0%,
+          hsla(250, 14%, 61%, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          90deg,
+          hsla(248, 21%, 15%, 1) 0%,
+          hsla(250, 14%, 61%, 1) 100%
+        );
+        fill: rgb(144, 174, 175);
+      }
+    }
+  }
+
+  .shift-knob {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 30%;
+    // Knob positions
+    &.position-1 {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 30%;
+      top: 40px;
+      left: 50px;
+    }
+    &.position-1::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: hsla(260, 28%, 53%, 1);
+
+      background: linear-gradient(
+        90deg,
+        hsla(260, 28%, 53%, 1) 0%,
+        hsla(170, 42%, 71%, 1) 100%
+      );
+
+      background: -moz-linear-gradient(
+        90deg,
+        hsla(260, 28%, 53%, 1) 0%,
+        hsla(170, 42%, 71%, 1) 100%
+      );
+
+      background: -webkit-linear-gradient(
+        90deg,
+        hsla(260, 28%, 53%, 1) 0%,
+        hsla(170, 42%, 71%, 1) 100%
+      );
+      border-radius: inherit;
+      z-index: -1;
+    }
+    &.position-2 {
+      top: 40px;
+      left: 123px;
+    }
+    &.position-2::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: hsla(265, 53%, 29%, 1);
+
+      background: linear-gradient(
+        90deg,
+        hsla(265, 53%, 29%, 1) 0%,
+        hsla(24, 93%, 73%, 1) 100%
+      );
+
+      background: -moz-linear-gradient(
+        90deg,
+        hsla(265, 53%, 29%, 1) 0%,
+        hsla(24, 93%, 73%, 1) 100%
+      );
+
+      background: -webkit-linear-gradient(
+        90deg,
+        hsla(265, 53%, 29%, 1) 0%,
+        hsla(24, 93%, 73%, 1) 100%
+      );
+      border-radius: inherit;
+      z-index: -1;
+    }
+    &.position-3 {
+      top: 40px;
+      left: 88px;
+    }
+    &.position-3::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: hsla(254, 68%, 9%, 1);
+
+      background: linear-gradient(
+        90deg,
+        hsla(254, 68%, 9%, 1) 0%,
+        hsla(269, 97%, 37%, 1) 33%,
+        hsla(320, 77%, 55%, 1) 66%,
+        hsla(316, 41%, 93%, 1) 100%
+      );
+
+      background: -moz-linear-gradient(
+        90deg,
+        hsla(254, 68%, 9%, 1) 0%,
+        hsla(269, 97%, 37%, 1) 33%,
+        hsla(320, 77%, 55%, 1) 66%,
+        hsla(316, 41%, 93%, 1) 100%
+      );
+
+      background: -webkit-linear-gradient(
+        90deg,
+        hsla(254, 68%, 9%, 1) 0%,
+        hsla(269, 97%, 37%, 1) 33%,
+        hsla(320, 77%, 55%, 1) 66%,
+        hsla(316, 41%, 93%, 1) 100%
+      );
+      border-radius: inherit;
+      z-index: -1;
+    }
+    &.position-4 {
+      top: 155px;
+      left: 53px;
+    }
+    &.position-4::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: hsla(71, 83%, 33%, 1);
+
+      background: linear-gradient(
+        90deg,
+        hsla(71, 83%, 33%, 1) 0%,
+        hsla(69, 30%, 59%, 1) 100%
+      );
+
+      background: -moz-linear-gradient(
+        90deg,
+        hsla(71, 83%, 33%, 1) 0%,
+        hsla(69, 30%, 59%, 1) 100%
+      );
+
+      background: -webkit-linear-gradient(
+        90deg,
+        hsla(71, 83%, 33%, 1) 0%,
+        hsla(69, 30%, 59%, 1) 100%
+      );
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    &.position-5 {
+      top: 155px;
+      left: 88px;
+    }
+    &.position-5::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: hsla(248, 21%, 15%, 1);
+
+      background: linear-gradient(
+        90deg,
+        hsla(248, 21%, 15%, 1) 0%,
+        hsla(250, 14%, 61%, 1) 100%
+      );
+
+      background: -moz-linear-gradient(
+        90deg,
+        hsla(248, 21%, 15%, 1) 0%,
+        hsla(250, 14%, 61%, 1) 100%
+      );
+
+      background: -webkit-linear-gradient(
+        90deg,
+        hsla(248, 21%, 15%, 1) 0%,
+        hsla(250, 14%, 61%, 1) 100%
+      );
+      border-radius: inherit;
+      z-index: -1;
+    }
+  }
+}

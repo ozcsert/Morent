@@ -28,7 +28,7 @@
   font-weight: 600;
   line-height: 150%; /* 48px */
   letter-spacing: -0.96px;
-  color: var(--clr-secondary);
+  color: var(--text-btn);
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
 }
 
 .rental-button {
-  color: var(--clr-secondary);
+  color: var(--text-btn);
   font-family: 'Plus Jakarta Sans';
   font-size: 16px;
   font-style: normal;

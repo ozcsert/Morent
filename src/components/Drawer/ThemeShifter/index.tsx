@@ -1,10 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import Sun from '@/app/images/themeshifter/Sun1.svg';
-import Moon from '@/app/images/themeshifter/NIGHT4.svg';
-import Cyber from '@/app/images/themeshifter/NIGHT3.svg';
-import Nature from '@/app/images/themeshifter/NATURE.svg';
-
-import Pro from '@/app/images/themeshifter/PRO.svg';
+import Sunglasses from '@/app/images/themeshifter/sunglasses.svg';
 
 import './styles.scss';
 import { ThemeContext } from '@/app/context/ThemeContext';
@@ -95,13 +90,16 @@ export function ThemeShifter() {
         <div
           className={`shift-position pos-1 ${currentPosition === 1 ? 'active' : ''}`}
         >
-          <Sun onClick={() => handleShiftChange(1)} aria-label="Light Theme" />
+          <Sunglasses
+            onClick={() => handleShiftChange(1)}
+            aria-label="Light Theme"
+          />
         </div>
 
         <div
           className={`shift-position pos-2 ${currentPosition === 2 ? 'active' : ''}`}
         >
-          <Nature
+          <Sunglasses
             onClick={() => handleShiftChange(2)}
             aria-label="Dark Theme"
           />
@@ -110,7 +108,7 @@ export function ThemeShifter() {
         <div
           className={`shift-position pos-3 ${currentPosition === 3 ? 'active' : ''}`}
         >
-          <Cyber
+          <Sunglasses
             onClick={() => handleShiftChange(3)}
             aria-label="Cyberpunk Theme"
           />
@@ -119,37 +117,23 @@ export function ThemeShifter() {
         <div
           className={`shift-position pos-4 ${currentPosition === 4 ? 'active' : ''}`}
         >
-          <Moon
+          <Sunglasses
             onClick={() => handleShiftChange(4)}
             aria-label="Nature Theme"
-            style={{ fill: 'var(--text-primary)' }}
           />
         </div>
 
         <div
           className={`shift-position pos-5 ${currentPosition === 5 ? 'active' : ''}`}
         >
-          <Pro
+          <Sunglasses
             onClick={() => handleShiftChange(5)}
             aria-label="Professional Theme"
-            style={{ fill: 'var(--text-primary)' }}
           />
         </div>
 
         {/* Shift knob */}
-        <div
-          className={`shift-knob position-${currentPosition}`}
-          style={{ backgroundColor: 'var(--clr-primary)' }}
-        />
-      </div>
-
-      {/* Theme labels */}
-      <div className="theme-labels">
-        <span style={{ color: 'var(--text-primary)' }}>Light</span>
-        <span style={{ color: 'var(--text-primary)' }}>Dark</span>
-        <span style={{ color: 'var(--text-primary)' }}>Cyberpunk</span>
-        <span style={{ color: 'var(--text-primary)' }}>Nature</span>
-        <span style={{ color: 'var(--text-primary)' }}>Professional</span>
+        <div className={`shift-knob position-${currentPosition}`} />
       </div>
     </div>
   );

@@ -1,14 +1,3 @@
-// $text-primary: #1a202c;
-// $text-secondary: #596780;
-// $text-tertiary: #90a3bf;
-// // $text-fourth: #ffffff;
-
-// var(--clr-primary): #3563e9;
-// $clr-secondary: #ffffff;
-// $clr-tertiary: #54a6ff;
-
-// $clr-background-light: #f6f7f9;
-
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 $fnt-jakarta: 'Plus Jakarta Sans', sans-serif;
@@ -21,7 +10,14 @@ $fnt-size-lg: 32px; //Logo
 
 $themes: (
   'light': (
+    text-btn: #ffffff,
     text-primary: #1a202c,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(197, 14%, 57%, 1) 0%,
+        hsla(192, 17%, 94%, 1) 100%
+      ),
     text-secondary: #596780,
     text-tertiary: #90a3bf,
     text-fourth: #ffffff,
@@ -32,6 +28,13 @@ $themes: (
   ),
 
   'dark': (
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(197, 14%, 57%, 1) 0%,
+        hsla(192, 17%, 94%, 1) 100%
+      ),
+    text-btn: #ffffff,
     text-primary: #e4e8ec,
     text-secondary: #c3c6ca,
     text-tertiary: #8f9295,
@@ -43,6 +46,13 @@ $themes: (
   ),
 
   'cyberpunk': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(197, 14%, 57%, 1) 0%,
+        hsla(192, 17%, 94%, 1) 100%
+      ),
     text-primary: #ff00ff,
     text-secondary: #00ffff,
     text-tertiary: #ffd700,
@@ -54,6 +64,13 @@ $themes: (
   ),
 
   'nature': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(197, 14%, 57%, 1) 0%,
+        hsla(192, 17%, 94%, 1) 100%
+      ),
     text-primary: #355e3b,
     text-secondary: #52734d,
     text-tertiary: #a2b29f,
@@ -64,6 +81,13 @@ $themes: (
     clr-background-light: #f6fff2,
   ),
   'professional': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(197, 14%, 57%, 1) 0%,
+        hsla(192, 17%, 94%, 1) 100%
+      ),
     text-primary: #355e3b,
     text-secondary: #52734d,
     text-tertiary: #a2b29f,
@@ -77,6 +101,8 @@ $themes: (
 
 @mixin theme($theme-name) {
   $theme: map-get($themes, $theme-name);
+  --clr-shifter: #{map-get($theme, clr-shifter)};
+  --text-btn: #{map-get($theme, text-btn)};
 
   --text-primary: #{map-get($theme, text-primary)};
   --text-secondary: #{map-get($theme, text-secondary)};
