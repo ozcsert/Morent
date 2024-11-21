@@ -9,25 +9,25 @@ import './styles.scss';
 
 type cardProps = {
   car: Car;
+  onUpdate: () => void;
 };
 
-const WishlistCard: FC<cardProps> = ({ car }) => {
+const WishlistCard: FC<cardProps> = ({ car, onUpdate }) => {
   const [isLiked, setIsLiked] = useState(true);
   const { id } = car;
 
   const handleLike = () => {
-    const likedCars = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    let likedCars = JSON.parse(localStorage.getItem('wishlist') || '[]');
 
     if (isLiked) {
-      const updatedLikedCars = likedCars.filter(
-        (likedCar: Car) => likedCar.id !== id
-      );
-      localStorage.setItem('wishlist', JSON.stringify(updatedLikedCars));
+      likedCars = likedCars.filter((likedCar: Car) => likedCar.id !== id);
+      localStorage.setItem('wishlist', JSON.stringify(likedCars));
     } else {
       likedCars.push(car);
       localStorage.setItem('wishlist', JSON.stringify(likedCars));
     }
     setIsLiked(prev => !prev);
+    onUpdate();
   };
 
   return (

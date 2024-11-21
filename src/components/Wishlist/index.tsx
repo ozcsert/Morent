@@ -8,14 +8,15 @@ import Link from 'next/link';
 const WishlistPage = () => {
   const [wishlistCars, setWishlistCars] = useState<Car[]>([]);
 
+  const updateWishlist = () => {
+    const wishlist = localStorage.getItem('wishlist');
+    const parsedWishlist = wishlist ? JSON.parse(wishlist) : [];
+    setWishlistCars(parsedWishlist);
+  };
+
   useEffect(() => {
-    const updateWishlist = () => {
-      const wishlist = localStorage.getItem('wishlist');
-      const parsedWishlist = wishlist ? JSON.parse(wishlist) : [];
-      setWishlistCars(parsedWishlist);
-    };
     updateWishlist();
-  }, [wishlistCars]);
+  }, []);
 
   return wishlistCars.length === 0 ? (
     <div className="wishlist-empty">
@@ -27,7 +28,7 @@ const WishlistPage = () => {
   ) : (
     <div className="wishlist-container">
       {wishlistCars.map((car: Car) => (
-        <WishlistCard key={car.id} car={car} />
+        <WishlistCard key={car.id} car={car} onUpdate={updateWishlist} />
       ))}
     </div>
   );
