@@ -2,17 +2,26 @@
 import './styles.scss';
 import Image from 'next/image';
 import useDeviceSize from './size';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useClickAway } from 'react-use';
 import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import Link from 'next/link';
 
+interface Car {
+  id: string;
+  name: string;
+  gearType: string;
+  image: string;
+  // Add other relevant car fields here based on the API response
+}
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
-  const [width, height] = useDeviceSize();
+  const [widthpage, heightpage] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
   const router = useRouter();
 
@@ -20,13 +29,52 @@ const Navbar: React.FC = () => {
 
   useClickAway(ref, () => setOpen(false));
 
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [cars, setCars] = useState<Car[]>([]);
+  const [filteredCars, setFilteredCars] = useState<Car[]>([]);
+
+  useEffect(() => {
+    // Fetch car data from the API
+    const fetchCars = async () => {
+      try {
+        const response = await axios.get(
+          'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars'
+        );
+        setCars(response.data);
+      } catch (error) {
+        console.error('Error fetching car data:', error);
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  useEffect(() => {
+    // Filter cars based on the search term
+    if (searchTerm) {
+      setFilteredCars(
+        cars
+          .filter(
+            car =>
+              car.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              car.gearType?.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .slice(0, 5) // Take the first 5 filtered results
+      );
+    } else {
+      setFilteredCars([]);
+    }
+  }, [searchTerm, cars]);
+
   return (
     <div>
-      {width > 780 ? (
+      {widthpage > 780 ? (
         <nav className="navbar">
-          <div className="navbar-left">
-            <h1 className="logo-text">MORENT</h1>
-          </div>
+          <Link href={'/'}>
+            <div className="navbar-left">
+              <h1 className="logo-text">MORENT</h1>
+            </div>
+          </Link>
           <div className="navbar-center">
             <div className="search-bar">
               <Image
@@ -35,13 +83,43 @@ const Navbar: React.FC = () => {
                 width={20}
                 height={20}
               />
-              <input type="text" placeholder="Search something here" />
+              <input
+                type="text"
+                placeholder="Search something here"
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+              />
               <Image
                 src="/images/Filtersettings.svg"
                 alt=""
                 width={30}
                 height={30}
               />
+            </div>
+            <div className="popup">
+              {filteredCars.length > 0
+                ? filteredCars.map(car => (
+                    <div className="filtercar" key={car.id}>
+                      <Link href={`/detail/{$car.id}`} passHref>
+                        <div className="detailcar">
+                          <p>
+                            {car.name} {car.gearType}
+                          </p>
+                          <Image
+                            src={car.image}
+                            alt=""
+                            width={100}
+                            height={40}
+                            //onClick={handleHeartButton}
+                            style={{ marginLeft: '10px' }}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  ))
+                : searchTerm && (
+                    <p style={{ color: '#777' }}>No results found</p>
+                  )}
             </div>
           </div>
           <div className="navbar-right">
@@ -55,7 +133,6 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                unoptimized
                 //onClick={handleHeartButton}
               />
             </button>
@@ -65,7 +142,6 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                unoptimized
                 //onClick={handleHeartButton}
               />
               <span className="notification-dot"></span>
@@ -76,7 +152,6 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                unoptimized
                 //onClick={handleHeartButton}
               />
             </button>
@@ -86,7 +161,6 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                unoptimized
                 //onClick={handleHeartButton}
               />
             </div>
@@ -155,49 +229,63 @@ const Navbar: React.FC = () => {
             )}
           </AnimatePresence>
           <div>
-            <div className="logo-mini">
-              <h1 className="logo-text">MORENT</h1>
+            <Link href={'/'}>
+              <div className="logo-mini">
+                <h1 className="logo-text">MORENT</h1>
+              </div>
+            </Link>
+          </div>
+          <div className="last-row">
+            <div className="search-bar-mini">
+              <Image
+                src="/images/search-normalmagnifying_glass.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+              <input
+                type="text"
+                placeholder="Search something here"
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+              />
+              <Image
+                src="/images/Filtersettings.svg"
+                alt=""
+                width={30}
+                height={30}
+              />
+            </div>
+
+            <div className="popup">
+              {filteredCars.length > 0
+                ? filteredCars.map(car => (
+                    <div className="filtercar" key={car.id}>
+                      <Link href={`/detail/{$car.id}`} passHref>
+                        <div
+                          className="detailcar"
+                          style={{ width: widthpage - 151 }}
+                        >
+                          <p>
+                            {car.name} {car.gearType}
+                          </p>
+                          <Image
+                            src={car.image}
+                            alt=""
+                            width={100}
+                            height={40}
+                            //onClick={handleHeartButton}
+                            style={{ marginLeft: '10px' }}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  ))
+                : searchTerm && (
+                    <p style={{ color: '#777' }}>No results found</p>
+                  )}
             </div>
           </div>
-          {width > 478 ? (
-            <div className="last-row">
-              <div className="search-bar-mini">
-                <Image
-                  src="/images/search-normalmagnifying_glass.svg"
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-                <input type="text" placeholder="Search something here" />
-              </div>
-              <div className="settings">
-                <Image
-                  src="/images/Filtersettings.svg"
-                  alt=""
-                  width={48}
-                  height={48}
-                />
-              </div>
-            </div>
-          ) : (
-            <div className="last-row">
-              <div className="search-bar-mini">
-                <Image
-                  src="/images/search-normalmagnifying_glass.svg"
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-                <input type="text" placeholder="Search something here" />
-                <Image
-                  src="/images/Filtersettings.svg"
-                  alt=""
-                  width={30}
-                  height={30}
-                />
-              </div>
-            </div>
-          )}
         </div>
       )}
     </div>
