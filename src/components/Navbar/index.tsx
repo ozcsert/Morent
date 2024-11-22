@@ -21,7 +21,7 @@ interface Car {
 }
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
-  const [width, height] = useDeviceSize();
+  const [widthpage, heightpage] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
   const router = useRouter();
 
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div>
-      {width > 780 ? (
+      {widthpage > 780 ? (
         <nav className="navbar">
           <Link href={'/'}>
             <div className="navbar-left">
@@ -262,9 +262,7 @@ const Navbar: React.FC = () => {
                 ? filteredCars.map(car => (
                     <div className="filtercar" key={car.id}>
                       <Link href={`/detail/{$car.id}`} passHref>
-                        <div
-                          className="detailcar"
-                          style={{ width: width - 115 }}
+                        <div className="detailcar" style={{ width: widthpage - 151 }}
                         >
                           <p>
                             {car.name} {car.gearType}
