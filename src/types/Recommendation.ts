@@ -1,10 +1,11 @@
-import { StaticImageData } from 'next/image';
+/* eslint-disable no-unused-vars */
+// import { StaticImageData } from 'next/image';
 import { Filter } from './FilterSidebar';
 
 export type Cars = {
-  id?: number;
+  id?: string;
   name?: string;
-  image?: StaticImageData | string | undefined;
+  image: string | StaticImport;
   carType?: string;
   capacity?: string;
   price?: number;
