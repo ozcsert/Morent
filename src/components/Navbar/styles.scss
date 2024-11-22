@@ -378,19 +378,17 @@ Note: Beware of modifying this element as it can break the animations - you shou
     margin-top: 20px;
   }
   .search-bar-mini {
-    width: 100%;
-    min-width: 308px;
+    width: 308px;
   }
-  .first-row {
-    padding: 8px 16px;
+  .popup {
+    position: absolute;
+    top: 188px;
+    z-index: 100;
+    border: 1px solid #e0e0e0;
   }
-  .popup{
-      position: absolute;
-      top: 170px;
-      left: 20px;
-      z-index: 100;
-      border: 1px solid #e0e0e0;
-    }
+  .detailcar{
+    min-width: 281px;
+  }
 }
 @media (max-width: 300px) {
   .w-full {
