@@ -9,12 +9,16 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
 import Drawer from '../Drawer';
+import { useRouter } from 'next/navigation';
+
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [width, height] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<string>('');
+  const router = useRouter();
+
   const ref = useRef(null);
 
   useClickAway(ref, () => setOpen(false));
@@ -57,7 +61,11 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="navbar-right">
-            <button className="icon-btn" key="heart-btn">
+            <button
+              onClick={() => router.push('/wishlist')}
+              className="icon-btn"
+              key="heart-btn"
+            >
               <Image
                 src="/images/heartheart.svg"
                 alt=""
