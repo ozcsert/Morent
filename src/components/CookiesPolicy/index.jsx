@@ -7,8 +7,8 @@ const CookiesPolicy = () => {
 
   useEffect(() => {
     const cookieAccepted = localStorage.getItem('cookieAccepted');
-    if (!cookieAccepted) {
-      setIsVisible(true);
+    if (cookieAccepted) {
+      setIsVisible(false);
     }
   }, []);
 
