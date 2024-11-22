@@ -14,7 +14,6 @@ export default function RootLayout({
 }>) {
   return (
     <div className="ad-container">
-      <nav className="ad-navbar">NAVBAR</nav>
       <main className="ad-main">
         <div className="ad-sidebar-menu">
           <SideBar />

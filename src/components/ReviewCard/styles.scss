@@ -106,7 +106,7 @@ body {
   .review-card-review {
     display: block;
     max-width: 244px;
-    var(--clr-secondary)-space: nowrap;
+    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     color: var(--text-tertiary);

@@ -1,9 +1,9 @@
 'use client';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useCallback } from 'react';
 import {
   GoogleMap,
-  LoadScript,
   DirectionsRenderer,
+  useJsApiLoader,
 } from '@react-google-maps/api';
 
 const apiKey: string = 'AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM';
@@ -31,6 +31,10 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
   const [directionsResponse, setDirectionsResponse] =
     useState<GoogleMapsDirectionsResult | null>(null);
 
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: apiKey,
+  });
+
   useEffect(() => {
     if (pickUpLocation) {
       getCoordinates(pickUpLocation, setPickUpCityCoord);
@@ -40,15 +44,8 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
     }
   }, [pickUpLocation, dropOffLocation]);
 
-  useEffect(() => {
-    if (pickUpCityCoord && dropOffCityCoord) {
-      calculateRoute();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pickUpCityCoord, dropOffCityCoord]);
-
-  const calculateRoute = (): void => {
-    if (!pickUpCityCoord || !dropOffCityCoord) return;
+  const calculateRoute = useCallback((): void => {
+    if (!pickUpCityCoord || !dropOffCityCoord || !isLoaded) return;
 
     const directionsService = new window.google.maps.DirectionsService();
 
@@ -61,14 +58,19 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
       (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK && result) {
           setDirectionsResponse(result);
-          console.log('Çalıştı', result);
+          console.log('Route calculated successfully', result);
         } else {
-          console.error(`Error fetching directions ${result}`);
-          console.log('Çalışmadı', result);
+          console.error(`Error fetching directions: ${status}`, result);
         }
       }
     );
-  };
+  }, [pickUpCityCoord, dropOffCityCoord, isLoaded]);
+
+  useEffect(() => {
+    if (pickUpCityCoord && dropOffCityCoord) {
+      calculateRoute();
+    }
+  }, [pickUpCityCoord, dropOffCityCoord, calculateRoute]);
 
   const getCoordinates = async (
     location: string,
@@ -93,20 +95,24 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
     }
   };
 
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      <LoadScript googleMapsApiKey={apiKey}>
-        <GoogleMap
-          mapContainerStyle={{ height: '100%', width: '100%' }}
-          center={pickUpCityCoord || dropOffCityCoord || { lat: 0, lng: 0 }}
-          zoom={10}
-        >
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-      </LoadScript>
-    </>
+    <GoogleMap
+      mapContainerStyle={{ height: '100%', width: '100%' }}
+      center={pickUpCityCoord || dropOffCityCoord || { lat: 0, lng: 0 }}
+      zoom={10}
+    >
+      {directionsResponse && (
+        <DirectionsRenderer directions={directionsResponse} />
+      )}
+    </GoogleMap>
   );
 };
 
