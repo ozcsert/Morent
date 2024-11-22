@@ -6,14 +6,14 @@ const CookiesPolicy = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const cookieAccepted = localStorage.getItem("cookieAccepted");
+    const cookieAccepted = localStorage.getItem('cookieAccepted');
     if (!cookieAccepted) {
       setIsVisible(true);
     }
   }, []);
 
   const acceptAllCookies = () => {
-    localStorage.setItem("cookieAccepted", "true");
+    localStorage.setItem('cookieAccepted', 'true');
     setIsVisible(false);
   };
 
