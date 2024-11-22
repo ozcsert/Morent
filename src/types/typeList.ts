@@ -1,8 +1,13 @@
-import { Car, FilterSideBarProps } from './FilterSidebar';
+import {
+  Car,
+  FilterSideBarProps,
+  Filter,
+  MaxPriceFilter,
+} from './FilterSidebar';
 import { FilterInputProps } from './FilterInput';
 import { RaceAreaProps } from './RaceArea';
 import { ReviewProps } from './reviews';
-import { Cars } from './Recommendation';
+import { RecommendationProps } from './Recommendation';
 
 import {
   PaymentFormValues,
@@ -13,7 +18,8 @@ import {
 } from './Payment';
 
 export type {
-  Car,
+  MaxPriceFilter,
+  Filter,
   FilterInputProps,
   FilterSideBarProps,
   PaymentFormValues,
@@ -21,7 +27,8 @@ export type {
   PaymentMethodProps,
   RaceAreaProps,
   ReviewProps,
-  Cars,
+  Car,
   RentalInfoProps,
   RentalInputAreaProps,
+  RecommendationProps,
 };

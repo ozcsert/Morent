@@ -1,0 +1,23 @@
+.home-container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 30px;
+  .promo-cards {
+    justify-content: center;
+    margin: 32px 0;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 1322px) {
+    .promo-cards {
+      padding: 0 16px;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+  }
+}

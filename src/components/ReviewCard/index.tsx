@@ -3,12 +3,11 @@ import Image from 'next/image';
 import './styles.scss';
 import { reviews } from '@/constants';
 import React, { useEffect, useState } from 'react';
-import { ReviewProps } from '@/types/typeList';
 import ReactStars from 'react-rating-stars-component';
 import AngleDown from '@/public/images/icons/AngleDown';
 import AngleUp from '@/public/images/icons/AngleUp';
 
-const ReviewCard: React.FC<ReviewProps> = () => {
+const ReviewCard = () => {
   const [showMore, setShowMore] = useState(false);
   const [windowSize, setWindowSize] = useState<number>(551);
   useEffect(() => {
@@ -69,7 +68,7 @@ const ReviewCard: React.FC<ReviewProps> = () => {
       <div className="review-cards">
         <div className="reviews-input">
           <h3>Reviews</h3>
-          <div className="total-reviews">13</div>
+          <div className="total-reviews">{reviews.length}</div>
         </div>
         <div className="review-list-show">
           {showMore ? reviewCards : reviewCards.slice(0, 2)}

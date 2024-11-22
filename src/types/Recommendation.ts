@@ -1,4 +1,6 @@
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+/* eslint-disable no-unused-vars */
+// import { StaticImageData } from 'next/image';
+import { Filter } from './FilterSidebar';
 
 export type Cars = {
   id?: string;
@@ -11,4 +13,9 @@ export type Cars = {
   gearType?: string;
   view?: number | undefined;
   rentCount?: string;
+};
+
+export type RecommendationProps = {
+  filter: Filter;
+  maxPriceFilter: number;
 };
