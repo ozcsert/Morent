@@ -25,6 +25,8 @@ $themes: (
     clr-secondary: #ffffff,
     clr-tertiary: #54a6ff,
     clr-background-light: #f6f7f9,
+    clr-bg-input-primary: #ffff,
+    clr-bg-input-secondary: #f6f7f9,
   ),
 
   'dark': (
@@ -43,6 +45,7 @@ $themes: (
     clr-secondary: #303841,
     clr-tertiary: #4a5568,
     clr-background-light: #171a1f,
+    clr-bg-input-secondary: #4a556886,
   ),
 
   'cyberpunk': (
@@ -53,14 +56,15 @@ $themes: (
         hsla(197, 14%, 57%, 1) 0%,
         hsla(192, 17%, 94%, 1) 100%
       ),
-    text-primary: #ff00ff,
+    text-primary: #ffd700,
     text-secondary: #00ffff,
-    text-tertiary: #ffd700,
+    text-tertiary: #ffd9009b,
     text-fourth: #00ff00,
     clr-primary: #0d0f14,
     clr-secondary: #11151c,
     clr-tertiary: #ff1493,
     clr-background-light: #0f0f0f,
+    clr-bg-input-secondary: #4a556886,
   ),
 
   'nature': (
@@ -79,6 +83,7 @@ $themes: (
     clr-secondary: #daf2d9,
     clr-tertiary: #86c232,
     clr-background-light: #f6fff2,
+    clr-bg-input-secondary: #f6fff2,
   ),
   'professional': (
     text-btn: #ffffff,
@@ -111,6 +116,8 @@ $themes: (
   --clr-secondary: #{map-get($theme, clr-secondary)};
   --clr-tertiary: #{map-get($theme, clr-tertiary)};
   --clr-background-light: #{map-get($theme, clr-background-light)};
+  --clr-bg-input-primary: #{map-get($theme, clr-bg-input-primary)};
+  --clr-bg-input-secondary: #{map-get($theme, clr-bg-input-secondary)};
 }
 
 :root {

@@ -12,6 +12,8 @@
   background-color: var(--clr-secondary);
   border-radius: 10px;
   .billing-container-title {
+    color: var(--text-primary);
+
     gap: 10px;
     .billing--subinfo {
       display: flex;
@@ -40,13 +42,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: var(--text-primary);
       }
       input {
         padding: 20px;
         border-radius: 10px;
         border: none;
         margin-right: 20px;
-        background-color: var(--clr-background-light);
+        background-color: var(--clr-bg-input-secondary);
       }
     }
   }

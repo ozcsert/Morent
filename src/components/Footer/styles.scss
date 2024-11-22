@@ -7,9 +7,10 @@
   align-items: center;
   gap: 20px;
   width: 100%;
+  background-color: var(--clr-secondary);
 }
 a {
-  color: #13131399;
+  color: var(--text-tertiary);
 }
 
 .footer {
@@ -73,8 +74,13 @@ a {
   flex-direction: column;
   gap: 28px;
 }
+
+.logo h1 {
+  color: #2563eb;
+}
 .logo p {
-  color: #13131399;
+  color: var(--text-tertiary);
+
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;

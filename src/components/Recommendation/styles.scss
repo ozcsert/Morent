@@ -54,9 +54,10 @@
     align-items: center;
     flex-wrap: wrap;
     button {
-      background-color: var(--clr-primary);
+      background-color: #2563eb;
+      color: #fff;
+
       padding: 10px 20px;
-      color: var(--clr-secondary);
       font: 600 16px $fnt-jakarta;
       border: none;
       border-radius: 4px;

@@ -22,7 +22,7 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: #f1f3f5;
+  background-color: var(--clr-bg-input-secondary);
   border-radius: 8px;
   padding: 5px;
   justify-content: space-between;

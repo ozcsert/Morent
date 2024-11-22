@@ -24,6 +24,7 @@
     h2 {
       font-size: $fnt-size-m;
       font-weight: 600;
+      color: var(--text-primary);
     }
   }
   .rntlInfo__form {
@@ -36,6 +37,8 @@
       flex-direction: column;
       gap: 20px;
       .rntlInfo__option__name {
+        color: var(--text-primary);
+
         font-size: $fnt-size-s;
         display: flex;
         align-items: center;

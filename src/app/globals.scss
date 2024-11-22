@@ -20,3 +20,8 @@ a {
   color: var(--clr-primary);
   gap: 10px;
 }
+
+select,
+input {
+  background-color: var(--clr-bg-input-primary);
+}
