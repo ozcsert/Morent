@@ -262,7 +262,10 @@ const Navbar: React.FC = () => {
                 ? filteredCars.map(car => (
                     <div className="filtercar" key={car.id}>
                       <Link href={`/detail/{$car.id}`} passHref>
-                        <div className="detailcar" style={{width: width-115}}>
+                        <div
+                          className="detailcar"
+                          style={{ width: width - 115 }}
+                        >
                           <p>
                             {car.name} {car.gearType}
                           </p>
