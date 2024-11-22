@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Link from 'next/link';
 
@@ -22,6 +23,7 @@ const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [width, height] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   const ref = useRef(null);
 
@@ -121,7 +123,11 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="navbar-right">
-            <button className="icon-btn" key="heart-btn">
+            <button
+              onClick={() => router.push('/wishlist')}
+              className="icon-btn"
+              key="heart-btn"
+            >
               <Image
                 src="/images/heartheart.svg"
                 alt=""
