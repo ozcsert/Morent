@@ -1,9 +1,21 @@
 import './style.scss';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CookiesPolicy = () => {
   const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const cookieAccepted = localStorage.getItem("cookieAccepted");
+    if (!cookieAccepted) {
+      setIsVisible(true);
+    }
+  }, []);
+
+  const acceptAllCookies = () => {
+    localStorage.setItem("cookieAccepted", "true");
+    setIsVisible(false);
+  };
 
   const handleClose = () => {
     setIsVisible(false);
@@ -22,14 +34,8 @@ const CookiesPolicy = () => {
           </p>
         </div>
         <div className="cookies-btn-container">
-          <button onClick={handleClose} className="cookies-btn">
+          <button onClick={acceptAllCookies} className="cookies-btn">
             Accept all cookies
-          </button>
-          <button onClick={handleClose} className="cookies-btn">
-            Reject all cookies
-          </button>
-          <button onClick={handleClose} className="cookies-btn">
-            Customize
           </button>
         </div>
       </div>
