@@ -7,14 +7,13 @@ export const metadata: Metadata = {
   description: 'Admin dashboard page',
 };
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <div className="ad-container">
-      <nav className="ad-navbar">NAVBAR</nav>
       <main className="ad-main">
         <div className="ad-sidebar-menu">
           <SideBar />
