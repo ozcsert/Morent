@@ -25,24 +25,32 @@
   }
   .contact-form {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     border-radius: 10px;
     gap: 20px;
-    .contact-input {
+    .item-input {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      padding: 20px;
-      border-radius: 10px;
-      border: none;
-      margin-right: 20px;
-      background-color: $clr-background-light;
+      .contact-input {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        border-radius: 10px;
+        border: none;
+        margin-right: 20px;
+        background-color: $clr-background-light;
+      }
     }
     .contact-label {
       font-size: $fnt-size-s;
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+    .contact-button {
+      max-width: 280px;
     }
   }
 }

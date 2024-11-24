@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 
 const AboutUs = () => {
   return (
-    <div>
+    <div className="about-us-container">
       <ContactForm />
     </div>
   );
