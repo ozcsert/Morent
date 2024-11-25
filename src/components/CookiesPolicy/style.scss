@@ -1,0 +1,50 @@
+.cookies-main {
+    font-family: "Poppins", serif;
+    max-width: 750px;
+    max-height: 100px;
+    margin: 0 auto;
+    z-index: 2;
+    background-color: #54A6FF;
+    border-radius: 15px;
+    display: flex;
+    padding: 15px;
+    gap: 20px;
+    position: fixed;
+    bottom: 10px;
+    right: 50%;
+    transform: (translateX(50%));
+
+    .cookies-exit {
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .cookies-text {
+        display: flex;
+        align-items: center;
+        color: white;
+
+        a {
+            color: white;
+            font-size: 500;
+            text-decoration: underline;
+        }
+    }
+
+    .cookies-btn-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 10px 5px;
+
+        .cookies-btn {
+            width: 200px;
+            color: white;
+            background-color: #3563E9;
+            border-color: transparent;
+            padding: 10px 5px;
+            cursor: pointer;
+        }
+    }
+}
