@@ -9,6 +9,13 @@ import BillingInfo from '@/components/BillingInfo';
 import { useState } from 'react';
 import RentalSummary from '@/components/RentalSummary';
 import AllNewRush from '../../images/recommendation/All New Rush.png';
+import { useSearchParams } from 'next/navigation';
+import useSWR from 'swr';
+
+const fetcherRentalSummery = async (url: string) => {
+  const response = await fetch(url);
+  return await response.json();
+};
 
 export interface BillingForm {
   name: string;
@@ -24,6 +31,12 @@ const Payment: React.FC = () => {
     address: '',
     town: '',
   });
+  const query = useSearchParams().get('id');
+
+  const { data } = useSWR(
+    `https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars?id=${query}`,
+    fetcherRentalSummery
+  );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -98,13 +111,16 @@ const Payment: React.FC = () => {
         <Confirmation handleSubmit={handleSubmit} onSubmit={onSubmit} />
       </div>
       <div className="rental-summary-container">
-        <RentalSummary
-          carName="Audi A8"
-          imageUrl={AllNewRush}
-          rating={5}
-          reviewCount={10}
-          subtotal={1000}
-        />
+        {data && (
+          <RentalSummary
+            carName="Audi A8"
+            imageUrl={AllNewRush}
+            rating={5}
+            reviewCount={10}
+            subtotal={1000}
+            carInfo={data[0]}
+          />
+        )}
       </div>
     </div>
   );

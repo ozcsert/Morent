@@ -79,7 +79,7 @@ const RecommendationCard = ({ car }: cardProps) => {
         <p className="recommendation-price">
           ${car.price}/ <span>day</span>
         </p>
-        <Link href={`/payment/${car.id}`}>
+        <Link href={`/payment?id=${car.id}`}>
           <button className="recommendation-rent-btn">Rent Now</button>
         </Link>
       </div>
