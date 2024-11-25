@@ -28,12 +28,11 @@ const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        'https://6743173bb7464b1c2a639403.mockapi.io/morent/api/contact',
+        'https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/contact',
         data
       );
       if (response.status === 200 || response.status === 201) {
         toast.success('Your message has been sent successfully!');
-        localStorage.setItem('contactFormData', JSON.stringify(data));
       } else {
         toast.error(
           'There was an issue sending your message. Please try again.'
