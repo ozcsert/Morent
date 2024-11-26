@@ -20,7 +20,7 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const { data, error, isLoading } = useFetchCars();
 
   const sidebarRef = useRef<HTMLElement>(null);
-  const isOpenRef = useRef<boolean>(true);
+  const isOpenRef = useRef<boolean>(false);
   const btnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,8 +88,6 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
 
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
-      console.log(sidebarRef.current.getBoundingClientRect().width);
-
       if (isOpenRef.current) {
         sidebarRef.current.style.marginLeft = `-${sidebarRef.current.getBoundingClientRect().width}px`;
         btnRef.current!.style.transform =
@@ -108,6 +106,8 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
     isOpenRef.current && slideFilterSidebar();
   };
 
+  slideFilterSidebar();
+
   return (
     <aside
       onMouseLeave={mouseLeaveHandler}
@@ -116,12 +116,7 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
       style={{ marginLeft: `0` }}
     >
       <div className="filter-sidebar-wrapper">
-        <div
-          className="switchBtn"
-          onClick={slideFilterSidebar}
-          onMouseEnter={slideFilterSidebar}
-          ref={btnRef}
-        >
+        <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
           <AdminDoubleArrow width={20} height={20} />
         </div>
         <div className="fltr-sdbr-content">

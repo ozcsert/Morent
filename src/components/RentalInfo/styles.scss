@@ -1,4 +1,4 @@
-@import "../../app/styles/styles";
+@import '../../app/styles/styles';
 .rntlInfo-container {
   max-width: 852px;
   width: 100%;
@@ -11,19 +11,20 @@
   gap: 20px;
   font-weight: 600;
   font-size: $fnt-size-s;
-  background-color: #FFFFFF;
+  background-color: var(--clr-secondary);
   border-radius: 10px;
   .rntlInfo__title {
     .rntlInfo__subinfo {
       display: flex;
       justify-content: space-between;
       font-size: $fnt-size-xs;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 500;
     }
     h2 {
       font-size: $fnt-size-m;
       font-weight: 600;
+      color: var(--text-primary);
     }
   }
   .rntlInfo__form {
@@ -36,6 +37,8 @@
       flex-direction: column;
       gap: 20px;
       .rntlInfo__option__name {
+        color: var(--text-primary);
+
         font-size: $fnt-size-s;
         display: flex;
         align-items: center;

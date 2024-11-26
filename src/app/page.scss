@@ -1,5 +1,7 @@
+@import '../app/styles/styles';
+
 .home {
-  background-color: #f6f7f9;
+  background-color: var(--clr-background-light);
   font-family: var(--fon-plus-jakarta-plus), sans-serif;
   display: flex;
   justify-content: center;

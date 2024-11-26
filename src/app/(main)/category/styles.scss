@@ -1,7 +1,7 @@
 @import '@/app/styles/styles';
 
 main {
-  background-color: $clr-background-light;
+  background-color: var(--clr-background-light);
   display: flex;
   width: 100%;
   justify-content: center;

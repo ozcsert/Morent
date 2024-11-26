@@ -15,7 +15,6 @@ const CarRentalHero: React.FC<CarRentalHeroProps> = ({
   subtitle = 'Lorem Ipsum',
   buttonText = 'Rental Car',
   carImage = '/images/BG.png',
-  backgroundColor = '#54A6FF',
   buttonColor = '#2563EB',
 }) => {
   return (
@@ -23,7 +22,6 @@ const CarRentalHero: React.FC<CarRentalHeroProps> = ({
       className="promo-card"
       style={{
         backgroundImage: `url(${carImage})`,
-        backgroundColor: backgroundColor,
       }}
     >
       <div className="hero-content">
