@@ -35,11 +35,17 @@
         box-shadow: 3px 0px 4px 0px rgba(53, 99, 233, 0.51);
         border-top: 1px solid grey;
         border-left: 1px solid grey;
-        color: rgb(65, 62, 62);
+        color: var(--clr-drawer-text);
 
         border-radius: 10px;
         p {
           padding: 5px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
         }
         ul {
           display: flex;

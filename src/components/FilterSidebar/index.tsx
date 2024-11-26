@@ -20,7 +20,7 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const { data, error, isLoading } = useFetchCars();
 
   const sidebarRef = useRef<HTMLElement>(null);
-  const isOpenRef = useRef<boolean>(true);
+  const isOpenRef = useRef<boolean>(false);
   const btnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -88,8 +88,6 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
 
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
-      console.log(sidebarRef.current.getBoundingClientRect().width);
-
       if (isOpenRef.current) {
         sidebarRef.current.style.marginLeft = `-${sidebarRef.current.getBoundingClientRect().width}px`;
         btnRef.current!.style.transform =
@@ -107,6 +105,8 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const mouseLeaveHandler = () => {
     isOpenRef.current && slideFilterSidebar();
   };
+
+  slideFilterSidebar();
 
   return (
     <aside

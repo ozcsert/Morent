@@ -1,5 +1,6 @@
 import ThemeShifter from './ThemeShifter';
 import './styles.scss';
+import { useRouter } from 'next/navigation';
 
 type DrawerProps = {
   type: string;
@@ -16,12 +17,18 @@ const Notification = () => {
 };
 
 const Profile = () => {
+  const navigate = useRouter();
+
+  const HandleNavigate = (direct: string) => {
+    navigate.push(direct);
+  };
+
   return (
     <div className="notification-container">
       <div className="notification">
         <ul>
-          <li>Profile</li>
-          <li>Log Out</li>
+          <li onClick={() => HandleNavigate('/auth')}>Sign Up</li>
+          <li onClick={() => HandleNavigate('/')}>Log Out</li>
         </ul>
       </div>
     </div>

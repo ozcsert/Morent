@@ -15,8 +15,8 @@ $themes: (
     clr-shifter:
       linear-gradient(
         90deg,
-        hsla(197, 14%, 57%, 1) 0%,
-        hsla(192, 17%, 94%, 1) 100%
+        rgba(136, 130, 161, 0.449) 0%,
+        rgb(80, 90, 233) 100%
       ),
     text-secondary: #596780,
     text-tertiary: #90a3bf,
@@ -27,14 +27,15 @@ $themes: (
     clr-background-light: #f6f7f9,
     clr-bg-input-primary: #ffff,
     clr-bg-input-secondary: #f6f7f9,
+    clr-drawer-text: black,
   ),
 
   'dark': (
     clr-shifter:
       linear-gradient(
         90deg,
-        hsla(197, 14%, 57%, 1) 0%,
-        hsla(192, 17%, 94%, 1) 100%
+        rgba(48, 61, 75, 0.416) 0%,
+        hsla(210, 22%, 44%, 1) 100%
       ),
     text-btn: #ffffff,
     text-primary: #e4e8ec,
@@ -46,6 +47,7 @@ $themes: (
     clr-tertiary: #4a5568,
     clr-background-light: #171a1f,
     clr-bg-input-secondary: #4a556886,
+    clr-drawer-text: #e4e8ec,
   ),
 
   'cyberpunk': (
@@ -53,8 +55,8 @@ $themes: (
     clr-shifter:
       linear-gradient(
         90deg,
-        hsla(197, 14%, 57%, 1) 0%,
-        hsla(192, 17%, 94%, 1) 100%
+        rgba(109, 70, 96, 0.457) 0%,
+        hsla(320, 22%, 55%, 1) 100%
       ),
     text-primary: #ffd700,
     text-secondary: #00ffff,
@@ -65,6 +67,7 @@ $themes: (
     clr-tertiary: #ff1493,
     clr-background-light: #0f0f0f,
     clr-bg-input-secondary: #4a556886,
+    clr-drawer-text: #ffd700,
   ),
 
   'nature': (
@@ -72,8 +75,8 @@ $themes: (
     clr-shifter:
       linear-gradient(
         90deg,
-        hsla(197, 14%, 57%, 1) 0%,
-        hsla(192, 17%, 94%, 1) 100%
+        rgba(70, 109, 70, 0.548) 0%,
+        hsla(120, 22%, 55%, 1) 100%
       ),
     text-primary: #355e3b,
     text-secondary: #52734d,
@@ -84,23 +87,34 @@ $themes: (
     clr-tertiary: #86c232,
     clr-background-light: #f6fff2,
     clr-bg-input-secondary: #f6fff2,
+    clr-drawer-text: black,
   ),
   'professional': (
     text-btn: #ffffff,
     clr-shifter:
       linear-gradient(
         90deg,
-        hsla(197, 14%, 57%, 1) 0%,
-        hsla(192, 17%, 94%, 1) 100%
+        hsla(24, 22%, 35%, 1) 0%,
+        hsla(24, 22%, 55%, 1) 100%
       ),
-    text-primary: #355e3b,
-    text-secondary: #52734d,
-    text-tertiary: #a2b29f,
-    text-fourth: #f0fff4,
-    clr-primary: #2b7a0b,
-    clr-secondary: #daf2d9,
-    clr-tertiary: #86c232,
-    clr-background-light: #233359,
+    text-primary: #f0e5d8,
+    // Soft cream for primary text
+    text-secondary: #d7c0ae,
+    // Warm beige for secondary text
+    text-tertiary: #a68a6c,
+    // Rich wood brown for tertiary text
+    text-fourth: #ffffff,
+    // White for high contrast
+    clr-primary: #2c1810,
+    // Deep mahogany for primary elements
+    clr-secondary: #3d2618,
+    // Slightly lighter dark wood tone
+    clr-tertiary: #5d4037,
+    // Rich brown for tertiary elements
+    clr-background-light: #1f1512,
+    // Very dark, rich brown background
+    clr-bg-input-secondary: #503321c4,
+    clr-drawer-text: #d7c0ae,
   ),
 );
 
@@ -118,6 +132,7 @@ $themes: (
   --clr-background-light: #{map-get($theme, clr-background-light)};
   --clr-bg-input-primary: #{map-get($theme, clr-bg-input-primary)};
   --clr-bg-input-secondary: #{map-get($theme, clr-bg-input-secondary)};
+  --clr-drawer-text: #{map-get($theme, clr-drawer-text)};
 }
 
 :root {

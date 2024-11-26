@@ -61,13 +61,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-radius: 10px;
 
         .rs-option-select {
-          background-color: var(--clr-bg-input-secondary);
-          padding: 5px;
+          border-radius: 10px;
+          padding: 5px 2px;
           color: white;
           width: 100%;
-          // appearance: none;
           border: none;
           outline: none;
           font-size: 13px;
@@ -91,7 +91,18 @@
           font-size: 12px;
           font-weight: 500;
           display: flex;
+          position: relative;
 
+          svg {
+            position: absolute;
+            stroke: var(--text-tertiary);
+            right: 0;
+            transform: translate(-50%, 50%);
+          }
+          input {
+            padding: 6px 3px;
+            border-radius: 10px;
+          }
           &::placeholder {
             color: var(--text-tertiary);
           }

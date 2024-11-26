@@ -342,7 +342,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transform: translate3d(100%, 0px, 0px);
 }
 .gap-2 {
-  /* marker: revert; */
   display: flex;
   width: 100%;
   list-style-type: none;
@@ -359,7 +358,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   position: absolute;
   top: 50px;
   z-index: 100;
-  border: 1px solid #e0e0e0;
+  // border: 1px solid #e0e0e0;
 }
 @media (max-width: 780px) {
   .search-bar-mini {
