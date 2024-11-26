@@ -1,0 +1,98 @@
+.popular-car-cart {
+  max-width: 304px;
+  width: 100%;
+  max-height: 388px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 22px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  .popular-car-main {
+    .popular-car-cart-header-title {
+      display: flex;
+      justify-content: space-between;
+
+      .popular-car-cart-name {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .popular-car-cart-header-title-like {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .popular-car-cart-header-subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #90a3bf;
+  }
+
+  .popular-car-cart-img {
+    position: relative;
+    overflow: hidden;
+    margin: auto auto;
+    margin-top: 80px;
+  }
+
+  .popular-car-cart-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: inherit;
+    filter: blur(10px);
+  }
+
+  .popular-car-cart-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .popular-car-cart-capacity {
+    display: flex;
+    align-items: center;
+
+    .popular-car-cart-capacity-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #90a3bf;
+      padding-left: 5px;
+    }
+  }
+
+  .popular-car-cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+
+    .popular-car-cart-price span {
+      font-size: 20px;
+      font-weight: 700;
+      color: black;
+    }
+
+    .popular-car-cart-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #90a3bf;
+      padding-left: 5px;
+    }
+
+    .popular-car-cart-btn {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      background-color: #3563e9;
+      border-radius: 5px;
+      padding: 15px 25px;
+      border-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
