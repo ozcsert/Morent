@@ -21,10 +21,7 @@
         height: clamp(5px, 1vw, 12px);
         background: var(--text-tertiary);
         border-radius: 5px;
-        background-image: linear-gradient(
-          var(--clr-primary),
-          var(--clr-primary)
-        );
+        background-image: linear-gradient(#2563eb, #2563eb);
         background-size: 70% 100%;
         background-repeat: no-repeat;
         &::-webkit-slider-thumb {
