@@ -8,7 +8,6 @@
   align-items: center;
   padding: 12px;
   gap: 12px;
-
   .wishlist-box1 {
     display: flex;
     justify-content: space-between;
@@ -41,7 +40,7 @@
       font-weight: 500;
       font-size: $fnt-size-xs;
       line-height: 21px;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
     }
   }
   .wishlist-box4 {
@@ -73,13 +72,13 @@
     gap: 5px;
     text-wrap: nowrap;
     p {
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 700;
       font-size: $fnt-size-xs;
       line-height: 21px;
     }
     h3 {
-      color: $text-primary;
+      color: var(--text-tertiary);
       font-weight: 700;
       font-size: $fnt-size-m;
       line-height: 30px;
@@ -87,7 +86,8 @@
   }
 
   .wishlist-price {
-    color: $text-primary;
+    color: var(--text-primary);
+
     font-weight: 700;
     font-size: $fnt-size-m;
     line-height: 25px;
@@ -95,7 +95,7 @@
     span {
       font-size: $fnt-size-xs;
       line-height: 17px;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
     }
   }
   .shadow-effect {

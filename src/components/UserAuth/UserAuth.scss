@@ -9,12 +9,12 @@
   border: none;
   border-radius: 24px;
   box-shadow: 4px -3px 16px #00000068;
-  background-color: #fff;
+  background-color: var(--clr-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 50px 40px;
-
+  color: var(--text-tertiary);
   @media screen and (max-width: 864px) {
     flex-direction: column;
     padding: 30px 20px;
@@ -52,6 +52,8 @@
       margin-bottom: 30px;
 
       .auth-social-btn {
+        color: var(--text-tertiary);
+
         display: flex;
         gap: 10px;
         align-items: center;
@@ -75,7 +77,6 @@
       width: 100%;
       text-align: center;
     }
-
   }
 
   .auth-form {
@@ -161,17 +162,16 @@
           border-radius: 20px;
           background-color: transparent;
           cursor: pointer;
-          transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+          transition:
+            background-color 0.3s ease-in-out,
+            color 0.3s ease-in-out;
 
           &:hover {
-            background-color: $clr-primary;
+            background-color: var(--clr-primary);
             color: #fff;
           }
         }
       }
-
-
     }
-
   }
 }

@@ -2,7 +2,7 @@
 
 .error {
   font-family: $fnt-jakarta;
-  color: $clr-primary;
+  color: var(--clr-primary);
   font-weight: 600;
   display: flex;
   align-items: center;

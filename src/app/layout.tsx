@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.scss';
-import Navbar from '@/components/Navbar/index';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ThemedLayout } from './ThemedLayout';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -36,11 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable}`}
       >
-        <div>
-          <Navbar />
-          <div>{children}</div>
-          <ToastContainer />
-        </div>
+        <ThemedLayout>{children}</ThemedLayout>
       </body>
     </html>
   );

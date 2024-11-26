@@ -1,20 +1,156 @@
-$text-primary: #1a202c;
-$text-secondary: #596780;
-$text-tertiary: #90a3bf;
-$text-fourth: #ffffff;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-$clr-primary: #3563e9;
-$clr-secondary: #ffffff;
-$clr-tertiary: #54a6ff;
-
-$clr-background-light: #f6f7f9;
-
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-
-$fnt-jakarta: "Plus Jakarta Sans", sans-serif;
+$fnt-jakarta: 'Plus Jakarta Sans', sans-serif;
 
 $fnt-size-xxs: 12px; //Input labels / Car specifications
 $fnt-size-xs: 14px;
 $fnt-size-s: 16px; //For links / Navigations ect
 $fnt-size-m: 20px; //Car Titles / Prices / Filter labels
 $fnt-size-lg: 32px; //Logo
+
+$themes: (
+  'light': (
+    text-btn: #ffffff,
+    text-primary: #1a202c,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        rgba(136, 130, 161, 0.449) 0%,
+        rgb(80, 90, 233) 100%
+      ),
+    text-secondary: #596780,
+    text-tertiary: #90a3bf,
+    text-fourth: #ffffff,
+    clr-primary: #3563e9,
+    clr-secondary: #ffffff,
+    clr-tertiary: #54a6ff,
+    clr-background-light: #f6f7f9,
+    clr-bg-input-primary: #ffff,
+    clr-bg-input-secondary: #f6f7f9,
+    clr-drawer-text: black,
+  ),
+
+  'dark': (
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        rgba(48, 61, 75, 0.416) 0%,
+        hsla(210, 22%, 44%, 1) 100%
+      ),
+    text-btn: #ffffff,
+    text-primary: #e4e8ec,
+    text-secondary: #c3c6ca,
+    text-tertiary: #8f9295,
+    text-fourth: #ffffff,
+    clr-primary: #1a202c,
+    clr-secondary: #303841,
+    clr-tertiary: #4a5568,
+    clr-background-light: #171a1f,
+    clr-bg-input-secondary: #4a556886,
+    clr-drawer-text: #e4e8ec,
+  ),
+
+  'cyberpunk': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        rgba(109, 70, 96, 0.457) 0%,
+        hsla(320, 22%, 55%, 1) 100%
+      ),
+    text-primary: #ffd700,
+    text-secondary: #00ffff,
+    text-tertiary: #ffd9009b,
+    text-fourth: #00ff00,
+    clr-primary: #0d0f14,
+    clr-secondary: #11151c,
+    clr-tertiary: #ff1493,
+    clr-background-light: #0f0f0f,
+    clr-bg-input-secondary: #4a556886,
+    clr-drawer-text: #ffd700,
+  ),
+
+  'nature': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        rgba(70, 109, 70, 0.548) 0%,
+        hsla(120, 22%, 55%, 1) 100%
+      ),
+    text-primary: #355e3b,
+    text-secondary: #52734d,
+    text-tertiary: #a2b29f,
+    text-fourth: #f0fff4,
+    clr-primary: #2b7a0b,
+    clr-secondary: #daf2d9,
+    clr-tertiary: #86c232,
+    clr-background-light: #f6fff2,
+    clr-bg-input-secondary: #f6fff2,
+    clr-drawer-text: black,
+  ),
+  'professional': (
+    text-btn: #ffffff,
+    clr-shifter:
+      linear-gradient(
+        90deg,
+        hsla(24, 22%, 35%, 1) 0%,
+        hsla(24, 22%, 55%, 1) 100%
+      ),
+    text-primary: #f0e5d8,
+    // Soft cream for primary text
+    text-secondary: #d7c0ae,
+    // Warm beige for secondary text
+    text-tertiary: #a68a6c,
+    // Rich wood brown for tertiary text
+    text-fourth: #ffffff,
+    // White for high contrast
+    clr-primary: #2c1810,
+    // Deep mahogany for primary elements
+    clr-secondary: #3d2618,
+    // Slightly lighter dark wood tone
+    clr-tertiary: #5d4037,
+    // Rich brown for tertiary elements
+    clr-background-light: #1f1512,
+    // Very dark, rich brown background
+    clr-bg-input-secondary: #503321c4,
+    clr-drawer-text: #d7c0ae,
+  ),
+);
+
+@mixin theme($theme-name) {
+  $theme: map-get($themes, $theme-name);
+  --clr-shifter: #{map-get($theme, clr-shifter)};
+  --text-btn: #{map-get($theme, text-btn)};
+
+  --text-primary: #{map-get($theme, text-primary)};
+  --text-secondary: #{map-get($theme, text-secondary)};
+  --text-tertiary: #{map-get($theme, text-tertiary)};
+  --clr-primary: #{map-get($theme, clr-primary)};
+  --clr-secondary: #{map-get($theme, clr-secondary)};
+  --clr-tertiary: #{map-get($theme, clr-tertiary)};
+  --clr-background-light: #{map-get($theme, clr-background-light)};
+  --clr-bg-input-primary: #{map-get($theme, clr-bg-input-primary)};
+  --clr-bg-input-secondary: #{map-get($theme, clr-bg-input-secondary)};
+  --clr-drawer-text: #{map-get($theme, clr-drawer-text)};
+}
+
+:root {
+  @include theme('light'); // Default light theme
+}
+
+[data-theme='dark'] {
+  @include theme('dark');
+}
+
+[data-theme='cyberpunk'] {
+  @include theme('cyberpunk');
+}
+
+[data-theme='nature'] {
+  @include theme('nature');
+}
+
+[data-theme='professional'] {
+  @include theme('professional');
+}

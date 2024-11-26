@@ -1,4 +1,4 @@
-@import "../../app/styles/variables";
+@import '../../app/styles/variables';
 body {
   font-family: $fnt-jakarta;
 }
@@ -24,12 +24,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $clr-primary;
+  background-color: var(--clr-primary);
   width: 44px;
   height: 28px;
   border-radius: 4px;
   padding: 0 20px 0 20px;
-  color: $clr-secondary;
+  color: var(--clr-secondary);
 }
 
 .review-card-info {
@@ -56,8 +56,8 @@ body {
   gap: 5px;
 }
 .btn-text {
-  background-color: $text-fourth;
-  color: $text-tertiary;
+  background-color: var(--clr-secondary);
+  color: var(--text-tertiary);
   border: none;
   font-family: $fnt-jakarta;
   cursor: pointer;
@@ -67,13 +67,13 @@ body {
   flex-direction: column;
   gap: 10px;
   p {
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     font-size: $fnt-size-xs;
     font-weight: 500;
     line-height: 21px;
   }
   h4 {
-    color: $text-primary;
+    color: var(--text-primary);
     font-size: $fnt-size-m;
     font-weight: 700;
     line-height: 30px;
@@ -81,7 +81,7 @@ body {
 }
 .review-card-review {
   font-size: $fnt-size-xs;
-  color: $text-secondary;
+  color: var(--text-secondary);
   font-weight: 400;
   line-height: 28px;
 }
@@ -92,7 +92,7 @@ body {
 }
 .review-card-date {
   font-size: $fnt-size-xs;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
 }
 .review-list-show {
   display: flex;
@@ -109,7 +109,7 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     font-size: $fnt-size-xxs;
     font-weight: 400;
     line-height: 24px;
