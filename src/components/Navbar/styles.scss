@@ -223,6 +223,7 @@
   width: 100%;
 }
 .last-row {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -362,7 +363,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 100%;
   }
   .popup{
-    top: 200px;
+    top: 64px;
   }
 }
 @media (max-width: 475px) {
