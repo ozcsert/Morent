@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [widthpage, heightpage] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
 
   const ref = useRef(null);
@@ -65,7 +66,9 @@ const Navbar: React.FC = () => {
       setFilteredCars([]);
     }
   }, [searchTerm, cars]);
-
+  const opennavigation = () => {
+    setIsMenuOpen((prevState) => !prevState);
+  };
   return (
     <div>
       {widthpage > 780 ? (
@@ -161,9 +164,40 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                //onClick={handleHeartButton}
+                onClick={opennavigation}
+                style={{ cursor: "pointer" }}
               />
             </div>
+            {isMenuOpen && (
+        <div
+          style={{
+            position: "absolute",
+            top: "40px",
+            right: "10px",
+            background: "white",
+            border: "1px solid #ddd",
+            borderRadius: "8px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            padding: "10px",
+            zIndex: 1000,
+          }}
+        >
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <Link href={'/'}>
+          <li style={{ padding: "8px 16px", cursor: "pointer" }}>Homepage</li>
+            </Link>
+            <Link href={'/category'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Category</li>
+            </Link>
+            <Link href={'/detail'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Detail</li>
+            </Link>
+            <Link href={'/dashboard'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Dashboard</li>
+            </Link>
+          </ul>
+        </div>
+      )}
           </div>
         </nav>
       ) : (
@@ -179,9 +213,41 @@ const Navbar: React.FC = () => {
                   alt=""
                   width={50}
                   height={50}
+                  onClick={opennavigation}
+                  style={{ cursor: "pointer" }}
                 />
               </div>
             </div>
+            {isMenuOpen && (
+        <div
+          style={{
+            position: "absolute",
+            top: "55px",
+            right: "25px",
+            background: "white",
+            border: "1px solid #ddd",
+            borderRadius: "8px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            padding: "10px",
+            zIndex: 1000,
+          }}
+        >
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          <Link href={'/'}>
+          <li style={{ padding: "8px 16px", cursor: "pointer" }}>Homepage</li>
+            </Link>
+            <Link href={'/category'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Category</li>
+            </Link>
+            <Link href={'/detail'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Detail</li>
+            </Link>
+            <Link href={'/dashboard'}>
+            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Dashboard</li>
+            </Link>
+          </ul>
+        </div>
+      )}
           </div>
           <AnimatePresence>
             {isOpen && (
