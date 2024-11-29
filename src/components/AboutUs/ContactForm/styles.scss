@@ -13,14 +13,14 @@
   border-radius: 10px;
   .contact-title {
     gap: 10px;
-    font-size: $fnt-size-m;
+    font-size: var(--fnt-size-m);
     font-weight: 600;
   }
   .contact-subtitle {
     display: flex;
     justify-content: space-between;
-    font-size: $fnt-size-xs;
-    color: $text-tertiary;
+    font-size: var(--fnt-size-xs);
+    color: var(--text-tertiary);
     font-weight: 500;
   }
   .contact-form {
@@ -40,11 +40,11 @@
         border-radius: 10px;
         border: none;
         margin-right: 20px;
-        background-color: $clr-background-light;
+        background-color: var(--clr-background-light);
       }
     }
     .contact-label {
-      font-size: $fnt-size-s;
+      font-size: var(--fnt-size-s);
       display: flex;
       align-items: center;
       justify-content: space-between;
