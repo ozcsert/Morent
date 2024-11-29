@@ -4,32 +4,28 @@ import React, { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { toast } from 'react-toastify';
 import './styles.scss';
+import { Car } from '@/types/FilterSidebar';
 
 interface RentalSummaryProps {
-  carName: string;
-  imageUrl: StaticImageData | string;
-  rating: number;
-  reviewCount: number;
-  subtotal: number;
+  carName?: string;
+  imageUrl?: StaticImageData | string;
+  rating?: number;
+  reviewCount?: number;
+  subtotal?: number;
+  carInfo: Car;
 }
 
-const RentalSummary: React.FC<RentalSummaryProps> = ({
-  carName,
-  imageUrl,
-  rating,
-  reviewCount,
-  subtotal,
-}) => {
+const RentalSummary: React.FC<RentalSummaryProps> = ({ carInfo }) => {
   const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const tax = 0;
-  const totalPrice = subtotal + tax - discount;
+  const totalPrice = carInfo.price + tax - discount;
   const notify = (message: string) => toast(message, { type: 'success' });
   const notifyError = (message: string) => toast(message, { type: 'error' });
 
   const applyPromoCode = () => {
     if (promoCode === 'DISCOUNT10') {
-      const discountAmount = subtotal * 0.1;
+      const discountAmount = carInfo.price * 0.1;
       setDiscount(discountAmount);
       notify('Promo code applied successfully');
     } else {
@@ -47,20 +43,26 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
       </p>
       <div className="car-info">
         <div className="car-image">
-          <Image src={imageUrl} alt={carName} width={116} height={56} />
+          <Image
+            src={carInfo.image}
+            alt={carInfo.name}
+            fill
+            style={{ objectFit: 'contain' }}
+          />
         </div>
         <div className="car-details">
-          <h3>{carName}</h3>
+          <h3>{carInfo.name}</h3>
           <div className="rating">
-            {'★'.repeat(rating)}
-            {'☆'.repeat(5 - rating)} {reviewCount}+ Reviewer
+            {'★'.repeat(carInfo.rating)}
+            {'☆'.repeat(5 - carInfo.rating)}
+            <br /> {carInfo.view}+ Reviewer
           </div>
         </div>
       </div>
       <div className="price-details">
         <div className="subtotal">
           <span>Subtotal</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>${carInfo.price}</span>
         </div>
         <div className="tax">
           <span>Tax</span>
@@ -69,7 +71,7 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({
         {discount > 0 && (
           <div className="discount">
             <span>Discount</span>
-            <span>-${discount.toFixed(2)}</span>
+            <span>-${discount}</span>
           </div>
         )}
       </div>

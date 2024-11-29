@@ -12,6 +12,8 @@ export type Car = {
   updatedAt: string;
   view: number;
   rentCount: number;
+  rating: number;
+  description: string;
 };
 
 type FilterSideBarFilters = {

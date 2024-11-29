@@ -1,7 +1,10 @@
+@import '../app/styles/styles';
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 a {
@@ -14,6 +17,15 @@ a {
   flex-direction: column;
   max-width: 292px;
   height: 108px;
-  color: #3563e9;
+  color: var(--clr-primary);
   gap: 10px;
+}
+
+select,
+input {
+  background-color: var(--clr-bg-input-secondary);
+}
+
+body {
+  background-color: var(--clr-background-light);
 }

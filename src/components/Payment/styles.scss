@@ -9,26 +9,30 @@
   font-family: var(--font-plus-jakarta-sans), sans-serif;
   gap: 20px;
   font-weight: 600;
-  background-color: #ffffff;
+  background-color: var(--clr-secondary);
   border-radius: 10px;
+  width: 100%;
+
   .payment-container__title {
     .payment__subinfo {
       display: flex;
       justify-content: space-between;
       font-size: $fnt-size-xs;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 500;
     }
     h2 {
       font-size: $fnt-size-m;
       font-weight: 600;
+      color: var(--text-primary);
     }
   }
   .payment__form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $clr-background-light;
+    background-color: var(--clr-background-light);
     border-radius: 10px;
     .payment__option {
       display: flex;
@@ -36,6 +40,8 @@
       gap: 20px;
       .pymn__option__name {
         font-size: $fnt-size-s;
+        color: var(--text-primary);
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -55,8 +61,13 @@
           flex: 1 1 45%;
           margin: 5px;
           z-index: 1;
+          label {
+            color: var(--text-primary);
+          }
           input {
             padding: 20px;
+            background-color: var(--clr-bg-input-primary);
+
             border-radius: 10px;
             border: none;
           }

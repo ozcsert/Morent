@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import '../../app/styles/styles';
+
+@import url('https:fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 .navbar {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: white;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--clr-secondary);
 }
 
 .logo-text {
@@ -19,7 +22,7 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: #f1f3f5;
+  background-color: var(--clr-bg-input-secondary);
   border-radius: 8px;
   padding: 5px;
   justify-content: space-between;
@@ -44,7 +47,7 @@
   display: flex;
   align-items: center;
 }
-.filtercar{
+.filtercar {
   padding: 12px;
   transition: box-shadow 0.3s;
   background-color: #f9f9f9;
@@ -53,14 +56,14 @@
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
-.detailcar{
+.detailcar {
   width: 480px;
   margin: 0;
   font-size: 18px;
   color: #333;
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
 }
 .icon-btn {
   background-color: transparent;
@@ -87,7 +90,7 @@
   cursor: pointer;
 }
 .header {
-  background-color: white;
+  background-color: var(--clr-secondary);
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -227,6 +230,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   padding: 1rem 4rem;
 }
 .settings {
@@ -251,7 +255,7 @@
   display: none;
   position: absolute;
   top: -30px;
-  background-color: white;
+  background-color: var(--clr-secondary);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -275,7 +279,7 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #3563e9;
+  background: var(--clr-primary);
 }
 
 /* Position and sizing of clickable cross button */
@@ -286,7 +290,7 @@
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: white;
+  background: var(--clr-secondary);
 }
 
 /*
@@ -302,7 +306,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #3563e9;
+  background: var(--clr-primary);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -314,14 +318,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: white;
+  color: var(--clr-secondary);
   padding: 0.8em;
 }
 
 /* Individual item */
 .bm-item {
   display: inline-block;
-  color: white;
+  color: var(--clr-secondary);
   font-size: 18.4px;
 }
 
@@ -339,7 +343,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   transform: translate3d(100%, 0px, 0px);
 }
 .gap-2 {
-  /* marker: revert; */
   display: flex;
   width: 100%;
   list-style-type: none;
@@ -352,17 +355,17 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 0 0 5px 0;
   font-size: 18px;
 }
-.popup{
+.popup {
   position: absolute;
   top: 50px;
   z-index: 100;
-  border: 1px solid #e0e0e0
+  // border: 1px solid #e0e0e0;
 }
-@media (max-width:780px) {
-  .search-bar-mini{
+@media (max-width: 780px) {
+  .search-bar-mini {
     width: 100%;
   }
-  .popup{
+  .popup {
     top: 64px;
   }
 }
@@ -380,6 +383,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
   .search-bar-mini {
     width: 308px;
+    cursor: pointer;
+    .search__filter-image {
+      cursor: pointer;
+    }
   }
   .popup {
     position: absolute;
@@ -387,7 +394,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     z-index: 100;
     border: 1px solid #e0e0e0;
   }
-  .detailcar{
+  .detailcar {
     min-width: 281px;
   }
 }

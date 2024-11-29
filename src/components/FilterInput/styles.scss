@@ -16,12 +16,12 @@
         display: block;
         margin-bottom: clamp(12px, 2vw, 20px);
         width: 100%;
-        accent-color: $clr-primary;
+        accent-color: var(--clr-primary);
         -webkit-appearance: none;
         height: clamp(5px, 1vw, 12px);
-        background: $text-tertiary;
+        background: var(--text-tertiary);
         border-radius: 5px;
-        background-image: linear-gradient($clr-primary, $clr-primary);
+        background-image: linear-gradient(#2563eb, #2563eb);
         background-size: 70% 100%;
         background-repeat: no-repeat;
         &::-webkit-slider-thumb {
@@ -29,8 +29,8 @@
           height: clamp(12px, 2vw, 20px);
           width: clamp(12px, 2vw, 20px);
           border-radius: 50%;
-          background-color: $clr-primary;
-          box-shadow: 0 0 0 4px white;
+          background-color: var(--clr-primary);
+          box-shadow: 0 0 0 4px var(--clr-secondary);
           cursor: pointer;
         }
         @media (max-width: 650px) {
@@ -45,7 +45,7 @@
   span {
     cursor: pointer;
 
-    color: $text-tertiary;
+    color: var(--text-tertiary);
     margin: clamp(8px, 0.5vw, 10px);
   }
 }

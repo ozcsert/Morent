@@ -10,13 +10,13 @@
   font-family: var(--font-plus-jakarta-sans), sans-serif;
   gap: 20px;
   font-weight: 600;
-  background-color: #ffff;
+  background-color: var(--clr-secondary);
   .confirmation-container-title {
     .confirmation-subinfo {
       display: flex;
       justify-content: space-between;
       font-size: $fnt-size-xs;
-      color: $text-tertiary;
+      color: var(--text-tertiary);
       font-weight: 500;
       line-height: 20px;
       @media screen and (max-width: 420px) {
@@ -28,6 +28,8 @@
     h2 {
       font-size: $fnt-size-m;
       font-weight: 600;
+      color: var(--text-primary);
+
       @media screen and (max-width: 420px) {
         font-size: $fnt-size-s;
         line-height: 24px;
@@ -49,7 +51,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $clr-background-light;
+    background-color: var(--clr-background-light);
     border-radius: 10px;
     .confirmation-option {
       display: flex;
@@ -64,10 +66,12 @@
           margin-right: 20px;
         }
         label {
+          color: var(--text-primary);
+
           font-size: $fnt-size-s;
           font-weight: 600;
           line-height: 24px;
-          color: #1f2544;
+
           @media screen and (max-width: 420px) {
             font-size: $fnt-size-xxs;
             line-height: 20px;
@@ -79,9 +83,9 @@
   }
   .confirmation-btn {
     width: 140px;
-    background-color: #3563e9;
+    background-color: #2563eb;
     padding: 10px 20px;
-    color: #ffffff;
+    color: white;
     font: 700 16px $fnt-jakarta;
     border: none;
     border-radius: 10px;
@@ -98,7 +102,7 @@
         display: flex;
         justify-content: space-between;
         font-size: $fnt-size-xs;
-        color: $text-tertiary;
+        color: var(--text-tertiary);
         font-weight: 500;
         line-height: 20px;
       }

@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Hamburger from 'hamburger-react';
 import { routes } from '../../types/routes';
+import Drawer from '../Drawer';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Link from 'next/link';
@@ -23,7 +24,8 @@ const Navbar: React.FC = () => {
   // eslint-disable-next-line
   const [widthpage, heightpage] = useDeviceSize();
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false);
+  const [drawerType, setDrawerType] = useState<string>('');
   const router = useRouter();
 
   const ref = useRef(null);
@@ -66,13 +68,24 @@ const Navbar: React.FC = () => {
       setFilteredCars([]);
     }
   }, [searchTerm, cars]);
-  const opennavigation = () => {
-    setIsMenuOpen((prevState) => !prevState);
+
+  const openDrawer = (newDrawerType: string) => {
+    if (drawerType === newDrawerType) {
+      setDrawerIsOpen(!drawerIsOpen);
+      setDrawerType(newDrawerType);
+    } else if (drawerIsOpen === false) {
+      setDrawerIsOpen(true);
+      setDrawerType(newDrawerType);
+    } else if (drawerType !== newDrawerType) {
+      setDrawerType(newDrawerType);
+    }
   };
+
   return (
     <div>
       {widthpage > 780 ? (
         <nav className="navbar">
+          {drawerIsOpen && <Drawer type={drawerType} />}
           <Link href={'/'}>
             <div className="navbar-left">
               <h1 className="logo-text">MORENT</h1>
@@ -136,17 +149,19 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                //onClick={handleHeartButton}
+                unoptimized
               />
             </button>
-            <button className="icon-btn" key="bell-btn">
+            <button className="icon-btn" key="settings-btn">
               <Image
                 src="/images/bell.svg"
                 alt=""
                 width={24}
                 height={24}
-                //onClick={handleHeartButton}
+                unoptimized
+                onClick={() => openDrawer('settings')}
               />
+
               <span className="notification-dot"></span>
             </button>
             <button className="icon-btn" key="notification-btn">
@@ -155,7 +170,8 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                //onClick={handleHeartButton}
+                unoptimized
+                onClick={() => openDrawer('notification')}
               />
             </button>
             <div className="profile-picture" key="profile-btn">
@@ -164,40 +180,11 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
-                onClick={opennavigation}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
+                unoptimized
+                onClick={() => openDrawer('profile')}
               />
             </div>
-            {isMenuOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "40px",
-            right: "10px",
-            background: "white",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            padding: "10px",
-            zIndex: 1000,
-          }}
-        >
-          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          <Link href={'/'}>
-          <li style={{ padding: "8px 16px", cursor: "pointer" }}>Homepage</li>
-            </Link>
-            <Link href={'/category'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Category</li>
-            </Link>
-            <Link href={'/detail'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Detail</li>
-            </Link>
-            <Link href={'/dashboard'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Dashboard</li>
-            </Link>
-          </ul>
-        </div>
-      )}
           </div>
         </nav>
       ) : (
@@ -213,41 +200,12 @@ const Navbar: React.FC = () => {
                   alt=""
                   width={50}
                   height={50}
-                  onClick={opennavigation}
-                  style={{ cursor: "pointer" }}
+                  onClick={() => openDrawer('profile')}
+                  style={{ cursor: 'pointer' }}
                 />
               </div>
             </div>
-            {isMenuOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "55px",
-            right: "25px",
-            background: "white",
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            padding: "10px",
-            zIndex: 1000,
-          }}
-        >
-          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          <Link href={'/'}>
-          <li style={{ padding: "8px 16px", cursor: "pointer" }}>Homepage</li>
-            </Link>
-            <Link href={'/category'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Category</li>
-            </Link>
-            <Link href={'/detail'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Detail</li>
-            </Link>
-            <Link href={'/dashboard'}>
-            <li style={{ padding: "8px 16px", cursor: "pointer" }}>Dashboard</li>
-            </Link>
-          </ul>
-        </div>
-      )}
+            {drawerIsOpen && <Drawer type={drawerType} />}
           </div>
           <AnimatePresence>
             {isOpen && (
@@ -317,9 +275,12 @@ const Navbar: React.FC = () => {
               />
               <Image
                 src="/images/Filtersettings.svg"
+                className="search__filter-image"
                 alt=""
                 width={30}
                 height={30}
+                // onClick={opennavigation}
+                onClick={() => openDrawer('settings')}
               />
             </div>
 
@@ -340,7 +301,6 @@ const Navbar: React.FC = () => {
                             alt=""
                             width={100}
                             height={40}
-                            //onClick={handleHeartButton}
                             style={{ marginLeft: '10px' }}
                           />
                         </div>
@@ -351,6 +311,7 @@ const Navbar: React.FC = () => {
                     <p style={{ color: '#777' }}>No results found</p>
                   )}
             </div>
+            {drawerIsOpen && <Drawer type={drawerType} />}
           </div>
         </div>
       )}

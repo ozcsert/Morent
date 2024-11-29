@@ -15,7 +15,6 @@ import './styles.scss';
 import React, { useState } from 'react';
 
 const SideBar = () => {
-  // Function to close sidebar for only icons look
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [textOpen, setTextOpen] = useState<boolean>(false);
   const [isRotated, setIsRotated] = useState<boolean>(false);
@@ -39,17 +38,11 @@ const SideBar = () => {
           isOpen ? 'ad-sidebar-tiny-container' : ''
         }`}
       >
-        <div
-          className="switchBtn"
-          onClick={handleSwitchSidebar}
-          style={
-            isRotated ? { transform: 'rotate(180deg) translateY(-30px)' } : {}
-          }
-        >
+        <div className="switchBtn" onClick={handleSwitchSidebar}>
           <AdminDoubleArrow
             width={20}
             height={20}
-            style={{ transform: 'translateX(1px)' }}
+            style={isRotated ? { transform: 'rotate(180deg)' } : {}}
           />
         </div>
         <div className="ad-sidebar-list-wrapper">
