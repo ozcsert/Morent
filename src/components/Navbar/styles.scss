@@ -50,7 +50,7 @@
 .filtercar {
   padding: 12px;
   transition: box-shadow 0.3s;
-  background-color: #f9f9f9;
+  background-color: var(--clr-secondary);
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -60,7 +60,7 @@
   width: 480px;
   margin: 0;
   font-size: 18px;
-  color: #333;
+  color: var(--text-tertiary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -208,7 +208,8 @@
 .search-bar-mini {
   display: flex;
   align-items: center;
-  background-color: #f1f3f5;
+  background-color: var(--clr-secondary);
+
   border-radius: 8px;
   padding: 5px;
   width: 300px;
@@ -221,11 +222,13 @@
   border: none;
   outline: none;
   padding: 5px 10px;
-  background-color: #f1f3f5;
+  background-color: var(--clr-secondary);
+
   border-radius: 8px;
   width: 100%;
 }
 .last-row {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -365,7 +368,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 100%;
   }
   .popup {
-    top: 200px;
+    top: 64px;
   }
 }
 @media (max-width: 475px) {

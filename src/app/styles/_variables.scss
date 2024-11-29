@@ -75,19 +75,20 @@ $themes: (
     clr-shifter:
       linear-gradient(
         90deg,
-        rgba(70, 109, 70, 0.548) 0%,
-        hsla(120, 22%, 55%, 1) 100%
+        hsla(120, 25%, 20%, 1) 0%,
+        // Dark forest green start
+        hsla(120, 25%, 30%, 1) 100% // Slightly lighter forest green end
       ),
-    text-primary: #355e3b,
-    text-secondary: #52734d,
-    text-tertiary: #a2b29f,
-    text-fourth: #f0fff4,
-    clr-primary: #2b7a0b,
-    clr-secondary: #daf2d9,
-    clr-tertiary: #86c232,
-    clr-background-light: #f6fff2,
-    clr-bg-input-secondary: #f6fff2,
-    clr-drawer-text: black,
+    text-primary: #e3f2e1,
+    text-secondary: #c2d6be,
+    text-tertiary: #93ad89,
+    text-fourth: #f5fff4,
+    clr-primary: #0f3b12,
+    clr-secondary: #1a4720,
+    clr-tertiary: #2c6e33,
+    clr-background-light: #0b1e0d,
+    clr-bg-input-secondary: #204625c4,
+    clr-drawer-text: #c2d6be,
   ),
   'professional': (
     text-btn: #ffffff,
@@ -98,21 +99,13 @@ $themes: (
         hsla(24, 22%, 55%, 1) 100%
       ),
     text-primary: #f0e5d8,
-    // Soft cream for primary text
     text-secondary: #d7c0ae,
-    // Warm beige for secondary text
     text-tertiary: #a68a6c,
-    // Rich wood brown for tertiary text
     text-fourth: #ffffff,
-    // White for high contrast
     clr-primary: #2c1810,
-    // Deep mahogany for primary elements
     clr-secondary: #3d2618,
-    // Slightly lighter dark wood tone
     clr-tertiary: #5d4037,
-    // Rich brown for tertiary elements
     clr-background-light: #1f1512,
-    // Very dark, rich brown background
     clr-bg-input-secondary: #503321c4,
     clr-drawer-text: #d7c0ae,
   ),

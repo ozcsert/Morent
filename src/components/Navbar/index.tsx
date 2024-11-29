@@ -18,7 +18,6 @@ interface Car {
   name: string;
   gearType: string;
   image: string;
-  // Add other relevant car fields here based on the API response
 }
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
@@ -180,6 +179,7 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={24}
                 height={24}
+                style={{ cursor: 'pointer' }}
                 unoptimized
                 onClick={() => openDrawer('profile')}
               />
@@ -199,9 +199,12 @@ const Navbar: React.FC = () => {
                   alt=""
                   width={50}
                   height={50}
+                  onClick={() => openDrawer('profile')}
+                  style={{ cursor: 'pointer' }}
                 />
               </div>
             </div>
+            {/* {drawerIsOpen && <Drawer type={drawerType} />} */}
           </div>
           <AnimatePresence>
             {isOpen && (
@@ -275,6 +278,7 @@ const Navbar: React.FC = () => {
                 alt=""
                 width={30}
                 height={30}
+                // onClick={opennavigation}
                 onClick={() => openDrawer('settings')}
               />
             </div>

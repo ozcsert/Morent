@@ -28,6 +28,8 @@ const Profile = () => {
       <div className="notification">
         <ul>
           <li onClick={() => HandleNavigate('/auth')}>Sign Up</li>
+          <li onClick={() => HandleNavigate('/dashboard')}>Dashboard</li>
+          <li onClick={() => HandleNavigate('/category')}>Category</li>
           <li onClick={() => HandleNavigate('/')}>Log Out</li>
         </ul>
       </div>
