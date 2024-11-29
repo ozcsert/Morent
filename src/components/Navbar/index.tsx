@@ -18,7 +18,6 @@ interface Car {
   name: string;
   gearType: string;
   image: string;
-  // Add other relevant car fields here based on the API response
 }
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
@@ -205,7 +204,7 @@ const Navbar: React.FC = () => {
                 />
               </div>
             </div>
-            {drawerIsOpen && <Drawer type={drawerType} />}
+            {/* {drawerIsOpen && <Drawer type={drawerType} />} */}
           </div>
           <AnimatePresence>
             {isOpen && (

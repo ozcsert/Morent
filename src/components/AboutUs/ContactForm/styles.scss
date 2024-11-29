@@ -9,18 +9,20 @@
   font-family: var(--font-plus-jakarta-sans), sans-serif;
   gap: 20px;
   font-weight: 600;
-  background-color: #ffffff;
+  background-color: var(--clr-secondary);
   border-radius: 10px;
+  color: var(--text-tertiary);
+
   .contact-title {
     gap: 10px;
-    font-size: $fnt-size-m;
+    font-size: var(--fnt-size-m);
     font-weight: 600;
   }
   .contact-subtitle {
     display: flex;
     justify-content: space-between;
-    font-size: $fnt-size-xs;
-    color: $text-tertiary;
+    font-size: var(--fnt-size-xs);
+    color: var(--text-tertiary);
     font-weight: 500;
   }
   .contact-form {
@@ -29,8 +31,24 @@
     flex-wrap: wrap;
     border-radius: 10px;
     gap: 20px;
+    label {
+      color: var(--text-tertiary);
+    }
     .item-input {
       display: flex;
+      color: var(--text-tertiary);
+      textarea,
+      input {
+        color: var(--text-tertiary); // Ensure text color is `tertiary`
+      }
+
+      textarea:focus,
+      input:focus {
+        color: var(--text-tertiary); // Keep focus color consistent
+      }
+      ::placeholder {
+        color: var(--text-tertiary);
+      }
       flex-direction: column;
       .contact-input {
         display: flex;
@@ -40,12 +58,20 @@
         border-radius: 10px;
         border: none;
         margin-right: 20px;
-        background-color: $clr-background-light;
+        background-color: var(--clr-background-light);
+        ::placeholder {
+          color: var(--text-tertiary);
+        }
+        ::-ms-input-placeholder {
+          color: var(--text-tertiary);
+        }
       }
     }
     .contact-label {
-      font-size: $fnt-size-s;
+      font-size: var(--fnt-size-s);
       display: flex;
+      color: var(--text-tertiary);
+
       align-items: center;
       justify-content: space-between;
     }
