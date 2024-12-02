@@ -1,0 +1,410 @@
+@import '../../app/styles/styles';
+
+@import url('https:fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--clr-secondary);
+}
+
+.logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  color: #2563eb;
+  font-weight: bold;
+  justify-self: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-bg-input-secondary);
+  border-radius: 8px;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  background-color: transparent;
+  width: 450px;
+}
+
+.search-bar .filter-btn {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.filtercar {
+  padding: 12px;
+  transition: box-shadow 0.3s;
+  background-color: var(--clr-secondary);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+.detailcar {
+  width: 480px;
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-tertiary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.profile-picture img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.header {
+  background-color: var(--clr-secondary);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.first-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+}
+
+/* Left Section - Menu Icon */
+.hamburger-icon .menu-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.menu-icon .bar {
+  width: 24px;
+  height: 2px;
+  background-color: #333;
+  margin: 3px 0;
+}
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+}
+.hamburger-icon.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Center Section - Logo and Search Bar */
+.center-section {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.logo-mini {
+  margin-left: 16px;
+  margin-top: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.search-input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 16px;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.filter-icon {
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* Right Section - Profile Picture */
+.right-section .profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.search-bar-mini {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-secondary);
+
+  border-radius: 8px;
+  padding: 5px;
+  width: 300px;
+  height: 48px;
+}
+.search-bar-mini Image {
+  margin-left: 10px;
+}
+.search-bar-mini input {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  background-color: var(--clr-secondary);
+
+  border-radius: 8px;
+  width: 100%;
+}
+.last-row {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem 4rem;
+}
+.settings {
+  cursor: pointer;
+}
+.profile-picture-mini {
+  cursor: pointer;
+}
+.profile-picture-mini Image {
+  width: 60px;
+  height: 60px;
+}
+.logo-mini .logo-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  color: #2563eb; /* Logo rengi */
+  font-weight: bold;
+  justify-self: center;
+  padding: 0 3rem;
+}
+.menu {
+  display: none;
+  position: absolute;
+  top: -30px;
+  background-color: var(--clr-secondary);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menu.open {
+  display: block;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 30px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: var(--clr-primary);
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: var(--clr-secondary);
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  margin-top: 40px;
+  margin-left: -65px;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: var(--clr-primary);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: var(--clr-secondary);
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  color: var(--clr-secondary);
+  font-size: 18.4px;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  transform: translate3d(100%, 0px, 0px);
+}
+.gap-2 {
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.w-full {
+  padding: 0 0 5px 0;
+  font-size: 18px;
+}
+.popup {
+  position: absolute;
+  top: 50px;
+  z-index: 100;
+  // border: 1px solid #e0e0e0;
+}
+@media (max-width: 780px) {
+  .search-bar-mini {
+    width: 100%;
+  }
+  .popup {
+    top: 64px;
+  }
+}
+@media (max-width: 475px) {
+  .last-row {
+    flex-direction: column;
+    padding: 8px 16px;
+  }
+  .logo-mini {
+    margin: 0;
+    margin-top: 16px;
+  }
+  .settings {
+    margin-top: 20px;
+  }
+  .search-bar-mini {
+    width: 308px;
+    cursor: pointer;
+    .search__filter-image {
+      cursor: pointer;
+    }
+  }
+  .popup {
+    position: absolute;
+    top: 188px;
+    z-index: 100;
+    border: 1px solid #e0e0e0;
+  }
+  .detailcar {
+    min-width: 281px;
+  }
+}
+@media (max-width: 300px) {
+  .w-full {
+    font-size: 15px;
+  }
+  .logo-mini .logo-text {
+    font-size: 16px;
+  }
+}

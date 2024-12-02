@@ -1,12 +1,12 @@
-"use client";
-import React, { FC, useEffect, useState } from "react";
+'use client';
+import React, { FC, useEffect, useState, useCallback } from 'react';
 import {
   GoogleMap,
-  LoadScript,
   DirectionsRenderer,
-} from "@react-google-maps/api";
+  useJsApiLoader,
+} from '@react-google-maps/api';
 
-const apiKey: string = "AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM";
+const apiKey: string = 'AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM';
 
 type AdminDashboardMapProps = {
   pickUpLocation?: string;
@@ -21,8 +21,8 @@ type Location = {
 type GoogleMapsDirectionsResult = google.maps.DirectionsResult;
 
 const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
-  pickUpLocation = "Diyarbakır",
-  dropOffLocation = "Ankara",
+  pickUpLocation = 'Diyarbakır',
+  dropOffLocation = 'Ankara',
 }) => {
   const [pickUpCityCoord, setPickUpCityCoord] = useState<Location | null>(null);
   const [dropOffCityCoord, setDropOffCityCoord] = useState<Location | null>(
@@ -30,6 +30,10 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
   );
   const [directionsResponse, setDirectionsResponse] =
     useState<GoogleMapsDirectionsResult | null>(null);
+
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: apiKey,
+  });
 
   useEffect(() => {
     if (pickUpLocation) {
@@ -40,15 +44,8 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
     }
   }, [pickUpLocation, dropOffLocation]);
 
-  useEffect(() => {
-    if (pickUpCityCoord && dropOffCityCoord) {
-      calculateRoute();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pickUpCityCoord, dropOffCityCoord]);
-
-  const calculateRoute = (): void => {
-    if (!pickUpCityCoord || !dropOffCityCoord) return;
+  const calculateRoute = useCallback((): void => {
+    if (!pickUpCityCoord || !dropOffCityCoord || !isLoaded) return;
 
     const directionsService = new window.google.maps.DirectionsService();
 
@@ -61,12 +58,19 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
       (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK && result) {
           setDirectionsResponse(result);
+          console.log('Route calculated successfully', result);
         } else {
-          console.error(`Error fetching directions ${result}`);
+          console.error(`Error fetching directions: ${status}`, result);
         }
       }
     );
-  };
+  }, [pickUpCityCoord, dropOffCityCoord, isLoaded]);
+
+  useEffect(() => {
+    if (pickUpCityCoord && dropOffCityCoord) {
+      calculateRoute();
+    }
+  }, [pickUpCityCoord, dropOffCityCoord, calculateRoute]);
 
   const getCoordinates = async (
     location: string,
@@ -82,29 +86,33 @@ const AdminDashboardMap: FC<AdminDashboardMapProps> = ({
         setCoords({ lat: coordinates.lat, lng: coordinates.lng });
       } else {
         console.error(
-          "Geocode was not successful for the following reason:",
+          'Geocode was not successful for the following reason:',
           data.status
         );
       }
     } catch (error) {
-      console.error("Error fetching the coordinates:", error);
+      console.error('Error fetching the coordinates:', error);
     }
   };
 
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <>
-      <LoadScript googleMapsApiKey={apiKey}>
-        <GoogleMap
-          mapContainerStyle={{ height: "100%", width: "100%" }}
-          center={pickUpCityCoord || dropOffCityCoord || { lat: 0, lng: 0 }}
-          zoom={10}
-        >
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-      </LoadScript>
-    </>
+    <GoogleMap
+      mapContainerStyle={{ height: '100%', width: '100%' }}
+      center={pickUpCityCoord || dropOffCityCoord || { lat: 0, lng: 0 }}
+      zoom={10}
+    >
+      {directionsResponse && (
+        <DirectionsRenderer directions={directionsResponse} />
+      )}
+    </GoogleMap>
   );
 };
 

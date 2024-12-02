@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import "./styles.scss";
+import React from 'react';
+import Link from 'next/link';
+import './styles.scss';
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
             <div className="footer-menu">
               <div className="footer-about">
-                <Link className="footer-link" href="#">
+                <Link className="footer-link" href="/about-us">
                   About
                 </Link>
                 <Link href="#">How it works</Link>

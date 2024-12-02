@@ -1,7 +1,6 @@
-import { FC } from "react";
-import DropdownArrow from "@/app/images/bottom-arrow.svg";
-import Image from "next/image";
-import "./styles.scss";
+import { FC } from 'react';
+import DropdownArrow from '@/app/images/bottom-arrow.svg';
+import './styles.scss';
 
 type CustomDateAreaProps = {
   value?: string;
@@ -23,7 +22,7 @@ const CustomDateArea: FC<CustomDateAreaProps> = ({
           placeholder="Select your date"
           className="rs-datepicker-custom-input"
         />
-        <DropdownArrow width={12} height={12} style={{ color: "#90A3BF" }} />
+        <DropdownArrow width={12} height={12} style={{ color: '#90A3BF' }} />
       </div>
     </>
   );

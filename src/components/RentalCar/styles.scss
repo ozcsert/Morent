@@ -1,0 +1,105 @@
+@import '../../app/styles/styles.scss';
+
+.promo-card {
+  display: flex;
+  max-width: 645px;
+  flex: 1;
+  height: 376px;
+  border-radius: 16px;
+  padding: 40px;
+  min-height: 300px;
+  min-width: 300px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  background-color: var(--clr-primary);
+}
+.hero-content {
+  max-width: 500px;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans';
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 48px */
+  letter-spacing: -0.96px;
+  color: var(--text-btn);
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 284px;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Plus Jakarta Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.32px;
+  margin: 1.5rem 0;
+  max-width: 284px;
+}
+
+.rental-button {
+  color: var(--text-btn);
+  font-family: 'Plus Jakarta Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.rental-button:hover {
+  background-color: #1d4ed8;
+}
+
+.car-image-container .test {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  object-fit: cover;
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 24px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 26px;
+  }
+  .hero-description {
+    font-size: 12px;
+  }
+  .rental-button {
+    font-size: 12px;
+  }
+}

@@ -1,7 +1,9 @@
+@import '../app/styles/styles';
+
 .home {
-  width: 100vw;
-  height: 100vh;
-  background-color: #f6f7f9;
-  padding-top: 50px;
+  background-color: var(--clr-background-light);
   font-family: var(--fon-plus-jakarta-plus), sans-serif;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }

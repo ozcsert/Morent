@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+.cardetailTextBox {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  max-width: 496px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 10px;
+  gap: 15px;
+  @media (max-width: 830px) {
+    flex-wrap: wrap;
+    padding: 5px;
+  }
+  .cardetailTextTop {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 328px) {
+      width: 285px;
+    }
+    .cardetailIcon {
+      cursor: pointer;
+    }
+
+    .cardetailTextTopHeading {
+      display: flex;
+      flex-direction: column;
+      .cardetailTextTitle {
+        font-size: 32px;
+        color: #1a202c;
+        font-weight: 700;
+        @media (max-width: 680px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      .cardetailReviews {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .cardetailComments {
+          color: #596780;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .cardetailTextDescription {
+    color: #596780;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    @media (max-width: 680px) {
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .cardetailTextDetail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    @media (max-width: 328px) {
+      width: 280px;
+    }
+    .cardetailDetails1 {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20;
+      gap: 25px;
+      @media (max-width: 520px) {
+        gap: 5px;
+      }
+      .cardetailDetailHeading {
+        color: #90a3bf;
+        font-weight: 500;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+      .cardetailDetailDescription {
+        color: #596780;
+        font-weight: 600;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+
+  .cardetailTextBottom {
+    display: flex;
+    justify-content: space-between;
+
+    .cardetailTextBottomPrices {
+      display: flex;
+      flex-direction: column;
+      .cardetailTextBottomReal {
+        font-size: 32px;
+        color: #1a202c;
+        font-weight: 700;
+        @media (max-width: 680px) {
+          font-size: 20px;
+          line-height: 25px;
+        }
+      }
+      .cardetailTextBottomDays {
+        font-weight: 700;
+        font-size: 16px;
+        color: #90a3bf;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+      .cardetailTextBottomDiscount {
+        font-weight: 700;
+        font-size: 16px;
+        color: #90a3bf;
+        text-decoration: line-through;
+        @media (max-width: 680px) {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+    }
+    .cardetailTextBottomButton {
+      width: 140px;
+      height: 56px;
+      color: white;
+      background-color: #3563e9;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      transition: all 0.5s;
+    }
+    .cardetailTextBottomButton:hover {
+      cursor: pointer;
+      box-shadow:
+        2px 2px 8px #3563e9,
+        -2px -2px 8px #3563e9;
+    }
+  }
+}
