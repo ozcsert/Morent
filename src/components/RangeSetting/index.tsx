@@ -26,7 +26,6 @@ const RangeSettings = () => {
   const handleSwitchRangeArea = () => {
     setLeftRaceArea(rightRaceArea);
     setRightRaceArea(leftRaceArea);
-    console.log(leftRaceArea, rightRaceArea);
   };
 
   return (

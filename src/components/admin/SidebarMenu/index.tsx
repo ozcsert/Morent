@@ -12,12 +12,14 @@ import AdminDarkMode from '@/app/images/admin-dark-mode.svg';
 import AdminLogOut from '@/app/images/admin-logout.svg';
 import AdminDoubleArrow from '@/app/images/admin-double-arrow.svg';
 import './styles.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [textOpen, setTextOpen] = useState<boolean>(false);
   const [isRotated, setIsRotated] = useState<boolean>(false);
+  const [windowSize, setWindowSize] = useState<number>(0);
+  const prevWindowSize = useRef(windowSize);
 
   const handleSwitchSidebar = () => {
     setIsOpen(prev => !prev);
@@ -30,6 +32,33 @@ const SideBar = () => {
       }, 100);
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowSize]);
+
+  useEffect(() => {
+    if (prevWindowSize.current >= 1140 && windowSize < 1140) {
+      setIsOpen(true);
+      setTextOpen(true);
+      setIsRotated(true);
+    } else if (prevWindowSize.current < 1140 && windowSize >= 1140) {
+      setIsOpen(false);
+      setTextOpen(false);
+      setIsRotated(false);
+    }
+
+    prevWindowSize.current = windowSize;
+  }, [windowSize]);
 
   return (
     <>
