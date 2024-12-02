@@ -1,18 +1,18 @@
-"use client";
-import Link from "next/link";
-import AdminHome from "@/app/images/admin-home.svg";
-import AdminInsight from "@/app/images/admin-insight.svg";
-import AdminReimburse from "@/app/images/admin-reimburse.svg";
-import AdminInbox from "@/app/images/admin-inbox.svg";
-import AdminCarRent from "@/app/images/admin-car-rent.svg";
-import AdminCalender from "@/app/images/admin-calender.svg";
-import AdminSettings from "@/app/images/admin-settings.svg";
-import AdminHelp from "@/app/images/admin-help.svg";
-import AdminDarkMode from "@/app/images/admin-dark-mode.svg";
-import AdminLogOut from "@/app/images/admin-logout.svg";
-import AdminDoubleArrow from "@/app/images/admin-double-arrow.svg";
-import "./styles.scss";
-import React, { useState } from "react";
+'use client';
+import Link from 'next/link';
+import AdminHome from '@/app/images/admin-home.svg';
+import AdminInsight from '@/app/images/admin-insight.svg';
+import AdminReimburse from '@/app/images/admin-reimburse.svg';
+import AdminInbox from '@/app/images/admin-inbox.svg';
+import AdminCarRent from '@/app/images/admin-car-rent.svg';
+import AdminCalender from '@/app/images/admin-calender.svg';
+import AdminSettings from '@/app/images/admin-settings.svg';
+import AdminHelp from '@/app/images/admin-help.svg';
+import AdminDarkMode from '@/app/images/admin-dark-mode.svg';
+import AdminLogOut from '@/app/images/admin-logout.svg';
+import AdminDoubleArrow from '@/app/images/admin-double-arrow.svg';
+import './styles.scss';
+import React, { useState } from 'react';
 
 const MobilSideBar = () => {
   // Function to close sidebar for only icons look
@@ -21,8 +21,8 @@ const MobilSideBar = () => {
   const [isRotated, setIsRotated] = useState<boolean>(false);
 
   const handleSwitchSidebar = () => {
-    setIsOpen((prev) => !prev);
-    setIsRotated((prev) => !prev);
+    setIsOpen(prev => !prev);
+    setIsRotated(prev => !prev);
     if (!textOpen) {
       setTextOpen(true);
     } else {
@@ -36,7 +36,7 @@ const MobilSideBar = () => {
     <>
       <div
         className={`ad-mobil-sidebar-container ${
-          isOpen ? "ad-mobil-sidebar-tiny-container" : ""
+          isOpen ? 'ad-mobil-sidebar-tiny-container' : ''
         }`}
       >
         <div
@@ -45,7 +45,7 @@ const MobilSideBar = () => {
           style={
             isRotated
               ? {
-                  transform: "rotate(0) translateY(30px) translateX(19px)",
+                  transform: 'rotate(0) translateY(30px) translateX(19px)',
                 }
               : {}
           }
@@ -53,14 +53,14 @@ const MobilSideBar = () => {
           <AdminDoubleArrow
             width={20}
             height={20}
-            style={{ transform: "translateX(1px)" }}
+            style={{ transform: 'translateX(1px)' }}
           />
         </div>
         <div className="ad-mobil-sidebar-list-wrapper">
           {/* Main Menu */}
           <div className="ad-mobil-sidebar-mainmenu">
             <h3 className="ad-mobil-sidebar-title">
-              {!textOpen && "MAIN MENU"}
+              {!textOpen && 'MAIN MENU'}
             </h3>
             <ul className="ad-mobil-sidebar-items">
               <li className="ad-mobil-sidebar-item">
@@ -68,7 +68,7 @@ const MobilSideBar = () => {
                   <AdminHome width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Dashboard
@@ -80,7 +80,7 @@ const MobilSideBar = () => {
                   <AdminCarRent width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Car Rent
@@ -92,7 +92,7 @@ const MobilSideBar = () => {
                   <AdminInsight width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Insight
@@ -104,7 +104,7 @@ const MobilSideBar = () => {
                   <AdminReimburse width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Reimburse
@@ -116,7 +116,7 @@ const MobilSideBar = () => {
                   <AdminInbox width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Inbox
@@ -128,7 +128,7 @@ const MobilSideBar = () => {
                   <AdminCalender width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Calender
@@ -140,7 +140,7 @@ const MobilSideBar = () => {
           {/* Preferences */}
           <div className="ad-mobil-sidebar-preferences">
             <h3 className="ad-mobil-sidebar-title">
-              {!textOpen && "PREFERENCES"}
+              {!textOpen && 'PREFERENCES'}
             </h3>
             <ul className="ad-mobil-sidebar-items">
               <li className="ad-mobil-sidebar-item">
@@ -148,7 +148,7 @@ const MobilSideBar = () => {
                   <AdminSettings width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Settings
@@ -160,7 +160,7 @@ const MobilSideBar = () => {
                   <AdminHelp width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Help & Center
@@ -172,7 +172,7 @@ const MobilSideBar = () => {
                   <AdminDarkMode width="24" height="24" />
                   <span
                     className={`ad-mobil-sidebar-item-text ${
-                      textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                      textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
                     }`}
                   >
                     Dark Mode
@@ -187,7 +187,7 @@ const MobilSideBar = () => {
             <AdminLogOut width="24" height="24" />
             <span
               className={`ad-mobil-sidebar-logout-text ${
-                textOpen ? "ad-mobil-sidebar-item-text-none" : ""
+                textOpen ? 'ad-mobil-sidebar-item-text-none' : ''
               }`}
             >
               Log Out
