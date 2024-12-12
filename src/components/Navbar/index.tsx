@@ -1,7 +1,6 @@
 'use client';
 import './styles.scss';
 import Image from 'next/image';
-import useDeviceSize from './size';
 import { useEffect, useState } from 'react';
 import { useClickAway } from 'react-use';
 import { useRef } from 'react';
@@ -12,6 +11,7 @@ import Drawer from '../Drawer';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Link from 'next/link';
+import UseWindow from '@/app/hooks/useWindow';
 
 interface Car {
   id: string;
@@ -21,7 +21,7 @@ interface Car {
 }
 const Navbar: React.FC = () => {
   // eslint-disable-next-line
-  const [widthpage, heightpage] = useDeviceSize();
+  const { windowSize } = UseWindow();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<string>('');
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div>
-      {widthpage > 780 ? (
+      {windowSize >= 780 ? (
         <nav className="navbar">
           {drawerIsOpen && <Drawer type={drawerType} />}
           <Link href={'/'}>
@@ -230,7 +230,7 @@ const Navbar: React.FC = () => {
                           delay: 0.1 + idx / 10,
                         }}
                         key={route.title}
-                        className="w-full p-[0.08rem] rounded-xl bg-gradient-to-tr from-neutral-800 via-neutral-950 to-neutral-700"
+                        className="list-item w-full p-[0.08rem] rounded-xl bg-gradient-to-tr from-neutral-800 via-neutral-950 to-neutral-700"
                       >
                         <a
                           onClick={() => setOpen(prev => !prev)}
@@ -290,7 +290,7 @@ const Navbar: React.FC = () => {
                       <Link href={`/detail/{$car.id}`} passHref>
                         <div
                           className="detailcar"
-                          style={{ width: widthpage - 151 }}
+                          style={{ width: windowSize - 151 }}
                         >
                           <p>
                             {car.name} {car.gearType}
