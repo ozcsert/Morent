@@ -11,6 +11,20 @@
   background-color: var(--clr-secondary);
 }
 
+.list-item {
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &:hover {
+      color: var(--clr-primary);
+    }
+  }
+
+}
+
 .logo-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
@@ -47,6 +61,7 @@
   display: flex;
   align-items: center;
 }
+
 .filtercar {
   padding: 12px;
   transition: box-shadow 0.3s;
@@ -56,6 +71,7 @@
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
+
 .detailcar {
   width: 480px;
   margin: 0;
@@ -65,6 +81,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .icon-btn {
   background-color: transparent;
   border: none;
@@ -89,11 +106,13 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
 .header {
   background-color: var(--clr-secondary);
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .first-row {
   display: flex;
   justify-content: space-between;
@@ -118,6 +137,7 @@
   background-color: #333;
   margin: 3px 0;
 }
+
 .hamburger-icon {
   display: flex;
   flex-direction: column;
@@ -125,6 +145,7 @@
   width: 30px;
   height: 20px;
 }
+
 .hamburger-icon.open .bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -215,9 +236,11 @@
   width: 300px;
   height: 48px;
 }
+
 .search-bar-mini Image {
   margin-left: 10px;
 }
+
 .search-bar-mini input {
   border: none;
   outline: none;
@@ -227,6 +250,7 @@
   border-radius: 8px;
   width: 100%;
 }
+
 .last-row {
   position: relative;
   display: flex;
@@ -235,24 +259,30 @@
   position: relative;
   padding: 1rem 4rem;
 }
+
 .settings {
   cursor: pointer;
 }
+
 .profile-picture-mini {
   cursor: pointer;
 }
+
 .profile-picture-mini Image {
   width: 60px;
   height: 60px;
 }
+
 .logo-mini .logo-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 24px;
-  color: #2563eb; /* Logo rengi */
+  color: #2563eb;
+  /* Logo rengi */
   font-weight: bold;
   justify-self: center;
   padding: 0 3rem;
 }
+
 .menu {
   display: none;
   position: absolute;
@@ -344,66 +374,81 @@ Note: Beware of modifying this element as it can break the animations - you shou
     transform 0.3s;
   transform: translate3d(100%, 0px, 0px);
 }
+
 .gap-2 {
+  font-family: $fnt-jakarta;
   display: flex;
   width: 100%;
   list-style-type: none;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
+
 .w-full {
   padding: 0 0 5px 0;
   font-size: 18px;
 }
+
 .popup {
   position: absolute;
   top: 50px;
   z-index: 100;
   // border: 1px solid #e0e0e0;
 }
+
 @media (max-width: 780px) {
   .search-bar-mini {
     width: 100%;
   }
+
   .popup {
     top: 64px;
   }
 }
+
 @media (max-width: 475px) {
   .last-row {
     flex-direction: column;
     padding: 8px 16px;
   }
+
   .logo-mini {
     margin: 0;
     margin-top: 16px;
   }
+
   .settings {
     margin-top: 20px;
   }
+
   .search-bar-mini {
     width: 308px;
     cursor: pointer;
+
     .search__filter-image {
       cursor: pointer;
     }
   }
+
   .popup {
     position: absolute;
     top: 188px;
     z-index: 100;
     border: 1px solid #e0e0e0;
   }
+
   .detailcar {
     min-width: 281px;
   }
 }
+
 @media (max-width: 300px) {
   .w-full {
     font-size: 15px;
   }
+
   .logo-mini .logo-text {
     font-size: 16px;
   }
