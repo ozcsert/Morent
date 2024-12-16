@@ -12,7 +12,6 @@
 }
 
 .list-item {
-
   a {
     display: flex;
     align-items: center;
@@ -22,7 +21,6 @@
       color: var(--clr-primary);
     }
   }
-
 }
 
 .logo-text {
@@ -118,6 +116,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
+  .hamburger-react {
+    color: var(--text-primary);
+  }
 }
 
 /* Left Section - Menu Icon */
