@@ -89,32 +89,19 @@ const FilterSidebar: React.FC<FilterSideBarProps> = ({ onFilterChange }) => {
   const slideFilterSidebar = () => {
     if (sidebarRef.current) {
       if (isOpenRef.current) {
-        sidebarRef.current.style.marginLeft = `-${sidebarRef.current.getBoundingClientRect().width}px`;
-        btnRef.current!.style.transform =
-          'rotate(180deg) translate(-100%, 0px)';
+        sidebarRef.current.style.transform = `translateX(-100%)`;
+        btnRef.current!.style.transform = 'rotate(0deg) translate(-100%, 0px)';
       } else {
-        sidebarRef.current.style.marginLeft = '0';
-        sidebarRef.current.style.transform = `translateX(100%)'`;
+        sidebarRef.current.style.transform = `translateX(0%)`;
 
-        btnRef.current!.style.transform = 'rotate(0deg) translateX(0%)';
+        btnRef.current!.style.transform = 'rotate(180deg) translateX(0%)';
       }
     }
     isOpenRef.current = !isOpenRef.current;
   };
 
-  const mouseLeaveHandler = () => {
-    isOpenRef.current && slideFilterSidebar();
-  };
-
-  slideFilterSidebar();
-
   return (
-    <aside
-      onMouseLeave={mouseLeaveHandler}
-      ref={sidebarRef}
-      className="fltr-sdbr"
-      style={{ marginLeft: `0` }}
-    >
+    <aside ref={sidebarRef} className="fltr-sdbr">
       <div className="filter-sidebar-wrapper">
         <div className="switchBtn" onClick={slideFilterSidebar} ref={btnRef}>
           <AdminDoubleArrow width={20} height={20} />

@@ -36,7 +36,6 @@ const Navbar: React.FC = () => {
   const [filteredCars, setFilteredCars] = useState<Car[]>([]);
 
   useEffect(() => {
-    // Fetch car data from the API
     const fetchCars = async () => {
       try {
         const response = await axios.get(
@@ -52,7 +51,6 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Filter cars based on the search term
     if (searchTerm) {
       setFilteredCars(
         cars
@@ -61,7 +59,7 @@ const Navbar: React.FC = () => {
               car.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
               car.gearType?.toLowerCase().includes(searchTerm.toLowerCase())
           )
-          .slice(0, 5) // Take the first 5 filtered results
+          .slice(0, 5)
       );
     } else {
       setFilteredCars([]);

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 // import { StaticImageData } from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { Filter } from './FilterSidebar';
 
 export type Cars = {
