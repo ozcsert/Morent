@@ -6,7 +6,7 @@ import {
   useJsApiLoader,
 } from '@react-google-maps/api';
 
-const apiKey: string = 'AIzaSyAbHx7q_qeMXmhsz3QIP9XEk85y5pkhWnM';
+const apiKey: string = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY;
 
 type AdminDashboardMapProps = {
   pickUpLocation?: string;
