@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: 'dist',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
           options: {
             icon: true,
           },
@@ -21,8 +22,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "drive.google.com",
+        protocol: 'https',
+        hostname: 'drive.google.com',
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { BillingForm } from '@/app/(main)/payment/page';
+import { BillingForm } from '@/components/paymentboard';
 import './styles.scss';
 
 type BillingFormProps = {
