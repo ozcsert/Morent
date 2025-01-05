@@ -19,7 +19,7 @@ const RentalSummary: React.FC<RentalSummaryProps> = ({ carInfo }) => {
   const [promoCode, setPromoCode] = useState('');
   const [discount, setDiscount] = useState(0);
   const tax = 0;
-  const totalPrice = carInfo.price + tax - discount;
+  const totalPrice = carInfo && carInfo.price + tax - discount;
   const notify = (message: string) => toast(message, { type: 'success' });
   const notifyError = (message: string) => toast(message, { type: 'error' });
 

@@ -8,8 +8,8 @@ import RentalInfo from '@/components/RentalInfo';
 import BillingInfo from '@/components/BillingInfo';
 import { useState } from 'react';
 import RentalSummary from '@/components/RentalSummary';
-// import { useSearchParams } from 'next/navigation';
-// import useSWR from 'swr';
+import { useSearchParams } from 'next/navigation';
+import useSWR from 'swr';
 
 export interface BillingForm {
   name: string;
@@ -18,13 +18,13 @@ export interface BillingForm {
   town: string;
 }
 
-// const fetcherRentalSummary = async (url: string) => {
-//   const response = await fetch(url);
-//   if (!response.ok) {
-//     throw new Error('Failed to fetch data');
-//   }
-//   return response.json();
-// };
+const fetcherRentalSummary = async (url: string) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return response.json();
+};
 
 const PaymentBoard: React.FC = () => {
   const [billingForm, setBillingForm] = useState<BillingForm>({
@@ -34,13 +34,13 @@ const PaymentBoard: React.FC = () => {
     town: '',
   });
 
-  //   const query = useSearchParams()?.get('id'); // Client-side only
-  //   const { data, error, isLoading } = useSWR(
-  //     query
-  //       ? `https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars?id=${query}`
-  //       : null,
-  //     fetcherRentalSummary
-  //   );
+  const query = useSearchParams()?.get('id'); // Client-side only
+  const { data, error, isLoading } = useSWR(
+    query
+      ? `https://66ff850d2b9aac9c997f84c6.mockapi.io/api/morent/cars?id=${query}`
+      : null,
+    fetcherRentalSummary
+  );
 
   // Hooks are declared unconditionally here
   const {
@@ -71,7 +71,7 @@ const PaymentBoard: React.FC = () => {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const data: any = [];
+  // const data: any = [];
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -89,14 +89,13 @@ const PaymentBoard: React.FC = () => {
     console.log('Form Data Submitted:', formData);
   };
 
-  // Conditional rendering logic
-  //   if (isLoading) {
-  //     return <div>Loading...</div>;
-  //   }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  //   if (error) {
-  //     return <div>Error fetching rental summary</div>;
-  //   }
+  if (error) {
+    return <div>Error fetching rental summary</div>;
+  }
 
   return (
     <div className="billing-payment-container">
