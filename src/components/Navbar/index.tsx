@@ -26,6 +26,7 @@ const Navbar: React.FC = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState<boolean>(false);
   const [drawerType, setDrawerType] = useState<string>('');
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
 
   const ref = useRef(null);
 
@@ -77,7 +78,13 @@ const Navbar: React.FC = () => {
       setDrawerType(newDrawerType);
     }
   };
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
+  if (!isMounted) {
+    return null;
+  }
   return (
     <div>
       {windowSize >= 780 ? (

@@ -5,7 +5,6 @@ li {
 
 // Public css end
 
-
 .ad-mobil-sidebar-container {
   width: 0;
   height: 100%;
@@ -15,7 +14,8 @@ li {
   justify-content: space-between;
   position: absolute;
   transition: width 0.32s ease;
-  background-color: #fff;
+  background-color: var(--clr-secondary);
+
   overflow: visible;
 
   @media screen and (min-width: 834px) {
@@ -26,7 +26,7 @@ li {
     justify-content: flex-start;
   }
 
-  &>.switchBtn {
+  & > .switchBtn {
     position: sticky;
     height: 50px;
     width: 25px;
@@ -45,12 +45,12 @@ li {
     justify-content: center;
   }
 
-  &>.ad-mobil-sidebar-list-wrapper {
+  & > .ad-mobil-sidebar-list-wrapper {
     display: flex;
     flex-direction: column;
     gap: 60px;
 
-    &>.ad-mobil-sidebar-mainmenu,
+    & > .ad-mobil-sidebar-mainmenu,
     .ad-mobil-sidebar-preferences {
       display: flex;
       flex-direction: column;
@@ -63,7 +63,8 @@ li {
   height: 15px;
   font-size: 12px;
   font-weight: 600;
-  color: #94a7cb96;
+  color: var(--text-tertiary);
+
   letter-spacing: 2px;
   margin-left: 10px;
 }
@@ -71,16 +72,15 @@ li {
 .ad-mobil-sidebar-item {
   border: none;
   border-radius: 10px;
-  color: #94a7cb96;
-
+  color: var(--text-tertiary);
 
   svg {
-    stroke: #90A3BF;
+    stroke: #90a3bf;
     transition: stroke 0.3s ease;
   }
 
   &:hover {
-    background-color: #3563E9;
+    background-color: #3563e9;
     color: #fff;
 
     svg {
@@ -88,7 +88,7 @@ li {
     }
   }
 
-  &>.ad-mobil-sidebar-item-link {
+  & > .ad-mobil-sidebar-item-link {
     display: flex;
     justify-content: start;
     gap: 10px;
@@ -98,9 +98,9 @@ li {
 }
 
 .ad-mobil-sidebar-logout {
-  color: #90A3BF;
+  color: var(--text-tertiary);
 
-  &>.ad-mobil-sidebar-logout-link {
+  & > .ad-mobil-sidebar-logout-link {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -109,12 +109,12 @@ li {
   }
 
   svg {
-    stroke: #90A3BF;
+    stroke: var(--text-tertiary);
   }
 
   &:hover {
     color: #fff;
-    background-color: #3563E9;
+    background-color: #3563e9;
     border-radius: 10px;
 
     svg {
