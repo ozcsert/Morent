@@ -401,31 +401,31 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 @media (max-width: 780px) {
   .search-bar-mini {
-    width: 100%;
+    width: 100% !important;
   }
 
   .popup {
-    top: 64px;
+    top: 64px !important;
   }
 }
 
 @media (max-width: 475px) {
   .last-row {
-    flex-direction: column;
-    padding: 8px 16px;
+    flex-direction: column !important;
+    padding: 8px 16px !important;
   }
 
   .logo-mini {
-    margin: 0;
-    margin-top: 16px;
+    margin: 0 !important;
+    margin-top: 16px !important;
   }
 
   .settings {
-    margin-top: 20px;
+    margin-top: 20px !important;
   }
 
   .search-bar-mini {
-    width: 308px;
+    width: 308px !important;
     cursor: pointer;
 
     .search__filter-image {
@@ -434,23 +434,23 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 
   .popup {
-    position: absolute;
-    top: 188px;
-    z-index: 100;
-    border: 1px solid #e0e0e0;
+    position: absolute !important;
+    top: 188px !important;
+    z-index: 100 !important;
+    border: 1px solid #e0e0e0 !important;
   }
 
   .detailcar {
-    min-width: 281px;
+    min-width: 281px !important;
   }
 }
 
 @media (max-width: 300px) {
   .w-full {
-    font-size: 15px;
+    font-size: 15px !important;
   }
 
   .logo-mini .logo-text {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 }
